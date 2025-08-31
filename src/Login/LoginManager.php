@@ -513,7 +513,12 @@ class LoginManager {
             $atts['login_text'];
             
         // Prepare link URL
-        $link_url = $is_logged_in ? $atts['profile_url'] : $atts['login_url'];
+        if ($is_logged_in) {
+            // For logged-in users, redirect to their latest course
+            $link_url = $this->get_redirect_url($current_user);
+        } else {
+            $link_url = $atts['login_url'];
+        }
         
         // Start output buffering
         ob_start();

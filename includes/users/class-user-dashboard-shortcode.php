@@ -827,34 +827,112 @@ class User_Dashboard_Shortcode {
         /* Dashboard Column Layouts */
         .dashboard-columns {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 0 -10px;
+            flex-wrap: nowrap;
+            gap: 0;
+            margin: 0;
+            width: 100%;
         }
         
-        /* Default 3-column layout */
+        /* Side-by-side layout - exactly 50/50 */
         .dashboard-columns.has-questions-column > .dashboard-column {
-            flex: 1;
-            min-width: 250px;
-            padding: 0 10px;
+            flex: 0 0 50%;
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #e0e0e0;
         }
         
-        /* 2-column layout when questions column is hidden */
-        .dashboard-columns.no-questions-column > .dashboard-column {
-            flex: 1 1 calc(50% - 40px);
-            min-width: 300px;
-            padding: 0 10px;
+        .dashboard-columns.has-questions-column > .dashboard-column:last-child {
+            border-right: none;
         }
         
-        /* Adjust column widths for 2-column layout */
-        .dashboard-columns.has-questions-column > .dashboard-column {
-            flex: 1 1 calc(50% - 20px);
-        }
-        
+        /* Single column layout when questions column is hidden */
         .dashboard-columns.no-questions-column > .dashboard-column {
             flex: 1 1 100%;
+            width: 100%;
+            padding: 20px;
             max-width: 600px;
             margin: 0 auto;
+            box-sizing: border-box;
+        }
+        
+        /* Dashboard button styles with new colors */
+        .dashboard-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+        
+        .dashboard-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .dashboard-button.practice-button {
+            background: #8B5A2B; /* Brown */
+        }
+        
+        .dashboard-button.practice-button:hover {
+            background: #7A4F26;
+        }
+        
+        .dashboard-button.real-test-button {
+            background: #8A2BE2; /* Purple */
+        }
+        
+        .dashboard-button.real-test-button:hover {
+            background: #7B27CC;
+        }
+        
+        .dashboard-button.teacher-quiz-button {
+            background: #FF1493; /* Deep Pink */
+        }
+        
+        .dashboard-button.teacher-quiz-button:hover {
+            background: #E6127F;
+        }
+        
+        .dashboard-button.study-materials-button {
+            background: #FF8C00; /* Orange */
+        }
+        
+        .dashboard-button.study-materials-button:hover {
+            background: #E67E00;
+        }
+        
+        .dashboard-button.topic-tests-button {
+            background: #32CD32; /* Lime Green */
+        }
+        
+        .dashboard-button.topic-tests-button:hover {
+            background: #2DB82D;
+        }
+        
+        .button-text {
+            flex: 1;
+            text-align: right;
+            font-size: 14px;
+        }
+        
+        .button-icon {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
         
         /* Responsive adjustments */
@@ -862,10 +940,12 @@ class User_Dashboard_Shortcode {
             .dashboard-columns > .dashboard-column {
                 flex: 1 1 100% !important;
                 max-width: 100%;
+                border-right: none !important;
+                border-bottom: 1px solid #e0e0e0;
             }
             
-            .dashboard-columns .user-panel {
-                flex: 1 1 100% !important;
+            .dashboard-columns > .dashboard-column:last-child {
+                border-bottom: none;
             }
         }
         
@@ -1146,58 +1226,6 @@ class User_Dashboard_Shortcode {
             color: #333;
             font-size: 16px;
             font-weight: bold;
-        }
-        
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .dashboard-button {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            background: #f8f9fa;
-            color: #333;
-            text-decoration: none;
-            border-radius: 5px;
-            border: 1px solid #dee2e6;
-            transition: all 0.2s ease;
-        }
-        
-        .dashboard-button:hover {
-            background: #e9ecef;
-            color: #333;
-            text-decoration: none;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .user-panel {
-            background: #f8f9fa;
-        }
-        
-        .user-greeting h2 {
-            margin: 0 0 15px 0;
-            color: #333;
-            font-size: 18px;
-        }
-        
-        .user-meta {
-            margin-bottom: 20px;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-        
-        .meta-icon {
-            font-size: 16px;
         }
         
         .meta-text {

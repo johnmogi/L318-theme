@@ -47,92 +47,94 @@ class User_Header_Shortcode {
         ob_start();
         ?>
         <div class="user-header-container">
-            <!-- User Greeting Section -->
-            <div class="user-greeting-section">
-                <div class="user-greeting">
-                    <h2><?php echo esc_html($welcome_text); ?></h2>
-                    <div class="user-meta">
-                        <div class="meta-item date">
-                            <span class="meta-icon">📅</span>
-                            <span class="meta-text"><?php echo esc_html($this->get_current_date()); ?></span>
+            <div class="user-header-layout">
+                <!-- Left Section - User Greeting (50%) -->
+                <div class="user-greeting-section">
+                    <div class="user-greeting">
+                        <h2><?php echo esc_html($welcome_text); ?></h2>
+                        <div class="user-meta">
+                            <div class="meta-item date">
+                                <span class="meta-icon">📅</span>
+                                <span class="meta-text"><?php echo esc_html($this->get_current_date()); ?></span>
+                            </div>
+                            <div class="meta-item track">
+                                <span class="meta-icon">🎯</span>
+                                <a href="<?php echo esc_url($primary_course_info['url']); ?>" class="meta-text course-link"><?php echo esc_html($atts['track_name']); ?></a>
+                            </div>
                         </div>
-                        <div class="meta-item track">
-                            <span class="meta-icon">🎯</span>
-                            <a href="<?php echo esc_url($primary_course_info['url']); ?>" class="meta-text course-link"><?php echo esc_html($atts['track_name']); ?></a>
-                        </div>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <?php if (current_user_can('administrator')) : ?>
+                        <a href="<?php echo esc_url($atts['account_url']); ?>" class="user-action-link edit-account">
+                            <span class="link-icon">✏️</span>
+                            <span class="link-text">ערוך חשבון (<?php echo esc_html($atts['vehicle_type']); ?>)</span>
+                        </a>
+                        <?php endif; ?>
+                        <?php if ($atts['show_logout'] === 'true') : ?>
+                        <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="user-action-link logout">
+                            <span class="link-icon">🚪</span>
+                            <span class="link-text">התנתק</span>
+                        </a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 
-                <div class="user-actions">
-                    <?php if (current_user_can('administrator')) : ?>
-                    <a href="<?php echo esc_url($atts['account_url']); ?>" class="user-action-link edit-account">
-                        <span class="link-icon">✏️</span>
-                        <span class="link-text">ערוך חשבון (<?php echo esc_html($atts['vehicle_type']); ?>)</span>
-                    </a>
-                    <?php endif; ?>
-                    <?php if ($atts['show_logout'] === 'true') : ?>
-                    <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="user-action-link logout">
-                        <span class="link-icon">🚪</span>
-                        <span class="link-text">התנתק</span>
-                    </a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            
-            <!-- Course Access Status Section -->
-            <?php if ($course_access['has_active'] || $course_access['has_expired']) : ?>
-            <div class="course-access-section">
-                <div class="column-header">
-                    <h3>מצב גישה לקורסים</h3>
-                </div>
-                
-                <?php if ($course_access['has_active']) : ?>
-                <div class="access-status active-courses">
-                    <h4 class="status-title">גישה פעילה</h4>
-                    <div class="courses-list">
-                        <?php foreach ($course_access['active_courses'] as $course) : ?>
-                        <div class="course-item active">
-                            <div class="course-info">
-                                <h5 class="course-title"><?php echo esc_html($course['title']); ?></h5>
-                                <div class="course-meta">
-                                    <span class="status-badge active">גישה פעילה</span>
-                                    <?php if ($course['progress'] > 0) : ?>
-                                    <span class="progress-text"><?php echo esc_html($course['progress']); ?>% הושלם</span>
-                                    <?php endif; ?>
+                <!-- Right Section - Course Access Status (50%) -->
+                <?php if ($course_access['has_active'] || $course_access['has_expired']) : ?>
+                <div class="course-access-section">
+                    <div class="column-header">
+                        <h3>מצב גישה לקורסים</h3>
+                    </div>
+                    
+                    <?php if ($course_access['has_active']) : ?>
+                    <div class="access-status active-courses">
+                        <h4 class="status-title">גישה פעילה</h4>
+                        <div class="courses-list">
+                            <?php foreach ($course_access['active_courses'] as $course) : ?>
+                            <div class="course-item active">
+                                <div class="course-info">
+                                    <h5 class="course-title"><?php echo esc_html($course['title']); ?></h5>
+                                    <div class="course-meta">
+                                        <span class="status-badge active">גישה פעילה</span>
+                                        <?php if ($course['progress'] > 0) : ?>
+                                        <span class="progress-text"><?php echo esc_html($course['progress']); ?>% הושלם</span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="course-actions">
+                                    <a href="<?php echo esc_url($course['url']); ?>" class="continue-button">המשך ללמוד</a>
                                 </div>
                             </div>
-                            <div class="course-actions">
-                                <a href="<?php echo esc_url($course['url']); ?>" class="continue-button">המשך ללמוד</a>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
-                        <?php endforeach; ?>
                     </div>
-                </div>
-                <?php endif; ?>
-                
-                <?php if ($course_access['has_expired']) : ?>
-                <div class="access-status expired-courses">
-                    <h4 class="status-title">גישה שפגה</h4>
-                    <div class="courses-list">
-                        <?php foreach ($course_access['expired_courses'] as $course) : ?>
-                        <div class="course-item expired">
-                            <div class="course-info">
-                                <h5 class="course-title"><?php echo esc_html($course['title']); ?></h5>
-                                <div class="course-meta">
-                                    <span class="status-badge expired">גישה פגה</span>
-                                    <span class="expiry-date">פג ב: <?php echo esc_html($course['expired_date']); ?></span>
+                    <?php endif; ?>
+                    
+                    <?php if ($course_access['has_expired']) : ?>
+                    <div class="access-status expired-courses">
+                        <h4 class="status-title">גישה שפגה</h4>
+                        <div class="courses-list">
+                            <?php foreach ($course_access['expired_courses'] as $course) : ?>
+                            <div class="course-item expired">
+                                <div class="course-info">
+                                    <h5 class="course-title"><?php echo esc_html($course['title']); ?></h5>
+                                    <div class="course-meta">
+                                        <span class="status-badge expired">גישה פגה</span>
+                                        <span class="expiry-date">פג ב: <?php echo esc_html($course['expired_date']); ?></span>
+                                    </div>
+                                </div>
+                                <div class="course-actions">
+                                    <a href="<?php echo esc_url($course['renewal_url']); ?>" class="renew-button">חדש גישה</a>
                                 </div>
                             </div>
-                            <div class="course-actions">
-                                <a href="<?php echo esc_url($course['renewal_url']); ?>" class="renew-button">חדש גישה</a>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
-                        <?php endforeach; ?>
                     </div>
+                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
             </div>
-            <?php endif; ?>
         </div>
         
         <style>
@@ -145,9 +147,20 @@ class User_Header_Shortcode {
             overflow: hidden;
         }
         
+        .user-header-layout {
+            display: flex;
+            gap: 0;
+        }
+        
         .user-greeting-section {
+            flex: 1;
             padding: 20px;
-            border-bottom: 1px solid #e0e0e0;
+            border-left: 1px solid #e0e0e0;
+        }
+        
+        .course-access-section {
+            flex: 1;
+            padding: 20px;
         }
         
         .user-greeting h2 {
@@ -221,9 +234,36 @@ class User_Header_Shortcode {
             background: #fed7d7;
         }
         
-        /* Course Access Section */
-        .course-access-section {
-            padding: 20px;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .user-header-layout {
+                flex-direction: column;
+            }
+            
+            .user-greeting-section {
+                border-left: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .course-item {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+            
+            .course-actions {
+                margin-right: 0;
+                text-align: center;
+            }
+            
+            .user-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .user-actions {
+                flex-direction: column;
+            }
         }
         
         .column-header h3 {
