@@ -50,7 +50,15 @@ add_filter('gettext_with_context', 'translate_learndash_expand_collapse_with_con
 add_filter('ngettext', 'translate_learndash_expand_collapse_plural', 1, 5);
 
 // Add JavaScript translation for dynamically loaded content
+add_action('wp_enqueue_scripts', 'enqueue_expand_script');
 add_action('wp_footer', 'add_expand_all_translation_js');
+
+function enqueue_expand_script() {
+    if (is_singular('sfwd-courses')) {
+        // Ensure jQuery is loaded first
+        wp_enqueue_script('jquery');
+    }
+}
 
 function translate_learndash_expand_collapse($translated_text, $text, $domain) {
     // Catch all instances regardless of domain
@@ -67,66 +75,90 @@ function add_expand_all_translation_js() {
     if (is_singular('sfwd-courses')) {
         ?>
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to translate expand/collapse buttons
-            function translateExpandButtons() {
-                // Target all expand/collapse button text
-                const expandButtons = document.querySelectorAll('.ld-expand-button .ld-text');
-                expandButtons.forEach(function(button) {
-                    if (button.textContent.trim() === 'Expand All') {
-                        button.textContent = 'הרחב הכל';
-                    }
-                    if (button.textContent.trim() === 'Collapse All') {
-                        button.textContent = 'צמצם';
-                    }
+        jQuery(document).ready(function($) {
+            console.log('=== LILAC AUTO-EXPAND DEBUG (jQuery Ready) ===');
+            
+            function forceExpandLessons() {
+                console.log('🔍 Searching for expand buttons...');
+                
+                // Multiple selectors to find the button
+                const selectors = [
+                    '.ld-expand-button',
+                    '.ld-item-list-actions .ld-expand-button',
+                    '[data-ld-expand-list="true"] .ld-expand-button',
+                    'button[data-ld-expand-text]'
+                ];
+                
+                let buttonFound = false;
+                
+                selectors.forEach(function(selector, index) {
+                    const buttons = document.querySelectorAll(selector);
+                    console.log(`Selector ${index + 1} (${selector}): Found ${buttons.length} buttons`);
+                    
+                    buttons.forEach(function(button, btnIndex) {
+                        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                        const hasExpandedClass = button.classList.contains('ld-expanded');
+                        const buttonText = button.querySelector('.ld-text')?.textContent?.trim();
+                        const expandText = button.getAttribute('data-ld-expand-text');
+                        
+                        console.log(`Button ${btnIndex + 1}:`, {
+                            'aria-expanded': isExpanded,
+                            'has-ld-expanded-class': hasExpandedClass,
+                            'button-text': buttonText,
+                            'data-ld-expand-text': expandText,
+                            'full-html': button.outerHTML.substring(0, 200) + '...'
+                        });
+                        
+                        // Force click if not expanded
+                        if (!isExpanded || !hasExpandedClass || buttonText === 'הרחב הכל' || expandText === 'הרחב הכל') {
+                            console.log('🚀 FORCE CLICKING BUTTON TO EXPAND');
+                            button.click();
+                            buttonFound = true;
+                            
+                            // Double-check after click
+                            setTimeout(function() {
+                                const newState = button.getAttribute('aria-expanded');
+                                const newText = button.querySelector('.ld-text')?.textContent?.trim();
+                                console.log('✅ After click - aria-expanded:', newState, 'text:', newText);
+                            }, 500);
+                        } else {
+                            console.log('✅ Button already expanded');
+                        }
+                    });
                 });
                 
-                // Also update data attributes
-                const expandButtonElements = document.querySelectorAll('.ld-expand-button[data-ld-expand-text="Expand All"]');
-                expandButtonElements.forEach(function(btn) {
-                    btn.setAttribute('data-ld-expand-text', 'הרחב הכל');
-                    btn.setAttribute('data-ld-collapse-text', 'צמצם');
-                });
+                return buttonFound;
             }
             
-            // Run translation immediately
-            translateExpandButtons();
+            // Multiple attempts with different timing
+            console.log('🚀 Starting auto-expand attempts...');
             
-            // Run translation with limited retries to avoid performance issues
-            let retryCount = 0;
-            const maxRetries = 3;
+            // Immediate attempt
+            forceExpandLessons();
             
-            function retryTranslation() {
-                if (retryCount < maxRetries) {
-                    retryCount++;
-                    setTimeout(translateExpandButtons, 1000 * retryCount);
+            // Delayed attempts
+            setTimeout(forceExpandLessons, 500);
+            setTimeout(forceExpandLessons, 1000);
+            setTimeout(forceExpandLessons, 2000);
+            
+            // Interval with break
+            let attempts = 0;
+            const maxAttempts = 8;
+            
+            const expandInterval = setInterval(function() {
+                attempts++;
+                console.log(`🔄 Interval attempt ${attempts}/${maxAttempts}`);
+                
+                const found = forceExpandLessons();
+                
+                if (found || attempts >= maxAttempts) {
+                    console.log('🛑 Stopping interval - found:', found, 'attempts:', attempts);
+                    clearInterval(expandInterval);
+                    return;
                 }
-            }
+            }, 1500);
             
-            retryTranslation();
-            
-            // Limited mutation observer - only for specific LearnDash containers
-            let observerTimeout;
-            const observer = new MutationObserver(function(mutations) {
-                clearTimeout(observerTimeout);
-                observerTimeout = setTimeout(function() {
-                    translateExpandButtons();
-                }, 200);
-            });
-            
-            // Only observe LearnDash specific containers to reduce performance impact
-            const ldContainers = document.querySelectorAll('.learndash-wrapper, .ld-item-list');
-            ldContainers.forEach(function(container) {
-                observer.observe(container, {
-                    childList: true,
-                    subtree: false // Reduce scope
-                });
-            });
-            
-            // Disconnect observer after 10 seconds to prevent long-term performance impact
-            setTimeout(function() {
-                observer.disconnect();
-            }, 10000);
+            console.log('=== AUTO-EXPAND SETUP COMPLETE ===');
         });
         </script>
         <?php
