@@ -377,6 +377,26 @@ class User_Dashboard_Shortcode {
      *
      * @return array Course access information
      */
+    /**
+     * Check if user has access to a specific course
+     *
+     * @param int $course_id Course ID to check
+     * @return bool Whether the user has access
+     */
+    private function user_has_course_access($course_id) {
+        if (!is_user_logged_in()) {
+            return false;
+        }
+        
+        $user_id = get_current_user_id();
+        return sfwd_lms_has_access($course_id, $user_id);
+    }
+
+    /**
+     * Get user's course access status using user meta (following documentation standards)
+     *
+     * @return array Course access information
+     */
     private function get_user_course_access() {
         if (!is_user_logged_in()) {
             return array(
@@ -722,130 +742,75 @@ class User_Dashboard_Shortcode {
                 
                 <!-- Dashboard content (collapsible) -->
                 <div class="dashboard-content" id="dashboard-content">
-                    <!-- 3-Column Dashboard Layout -->
-                    <div class="dashboard-columns">
-                        <!-- Left Column - User Panel -->
-                        <div class="dashboard-column user-panel">
-                            <div class="user-greeting">
-                                <h2><?php echo esc_html($welcome_text); ?></h2>
-                                <div class="user-meta">
-                                    <div class="meta-item date">
-                                        <span class="meta-icon">📅</span>
-                                        <span class="meta-text"><?php echo esc_html($this->get_current_date()); ?></span>
-                                    </div>
-                                    <div class="meta-item track">
-                                        <span class="meta-icon">🎯</span>
-                                        <a href="<?php echo esc_url($primary_course_info['url']); ?>" class="meta-text course-link"><?php echo esc_html($atts['track_name']); ?></a>
-                                    </div>
-                                </div>
+                    <!-- Dashboard Layout -->
+                    <div class="dashboard-columns <?php echo $this->user_has_course_access(898) ? 'has-questions-column' : 'no-questions-column'; ?>">
+                        <!-- Practice Tests Column -->
+                        <?php if ($atts['show_practice'] === 'true' || $atts['show_real_test'] === 'true' || $atts['show_teacher_quizzes'] === 'true') : ?>
+                        <div class="dashboard-column test-column">
+                            <div class="column-header">
+                                <h3>מבחנים כדוגמת מבחן התיאוריה</h3>
                             </div>
-                            
-                            <div class="user-actions">
-                                <?php if (current_user_can('administrator')) : ?>
-                                <a href="<?php echo esc_url($atts['account_url']); ?>" class="user-action-link edit-account">
-                                    <span class="link-icon">✏️</span>
-                                    <span class="link-text">ערוך חשבון (<?php echo esc_html($vehicle_text); ?>)</span>
+                            <div class="button-group">
+                                <?php if ($atts['show_practice'] === 'true') : ?>
+                                <a href="<?php echo esc_url(home_url('quizzes/מבחן-תרגול-להמחשה/')); ?>" class="dashboard-button practice-button">
+                                    <span class="button-text">מבחני תרגול</span>
+                                    <span class="button-icon">📝</span>
                                 </a>
                                 <?php endif; ?>
-                                <?php if ($atts['show_stats'] === 'true') : ?>
+                                <?php if ($atts['show_real_test'] === 'true') : ?>
+                                <a href="<?php echo esc_url(home_url('/courses/פרטי/lessons/פרק-01-תורת-החינוך-התעברותי-פרק-מבוא/quizzes/מבחן-אמת-כמו-בתאוריה/')); ?>" class="dashboard-button real-test-button">
+                                    <span class="button-text">מבחני אמת – כמו בתיאוריה</span>
+                                    <span class="button-icon">📋</span>
+                                </a>
+                                <?php endif; ?>
+                                <?php if ($atts['show_teacher_quizzes'] === 'true' && $this->should_show_teacher_quiz()) : ?>
                                     <?php 
-                                    // Check if current user is a teacher
-                                    $current_user = wp_get_current_user();
-                                    $is_teacher = false;
-                                    $teacher_roles = array('administrator', 'school_teacher', 'wdm_instructor', 'instructor', 'wdm_swd_instructor', 'swd_instructor');
-                                    
-                                    foreach ($teacher_roles as $role) {
-                                        if (in_array($role, $current_user->roles)) {
-                                            $is_teacher = true;
-                                            break;
+                                    $teacher_id = $this->get_student_teacher_id();
+                                    if ($teacher_id) {
+                                        $teacher_quizzes = $this->get_teacher_quizzes($teacher_id, 1); // Get only the latest quiz
+                                        if (!empty($teacher_quizzes)) {
+                                            $latest_quiz = $teacher_quizzes[0];
+                                            $quiz_url = $latest_quiz->quiz_url;
+                                        } else {
+                                            // Default URL if no quizzes found - you can change this
+                                            $quiz_url = home_url('/quizzes/');
                                         }
-                                    }
-                                    
-                                    if ($is_teacher) {
-                                        // Teacher - redirect to teacher dashboard with their ID
-                                        $stats_url = 'https://test-li.ussl.co.il/teacher_dashboard/?teacher_id=' . $current_user->ID;
                                     } else {
-                                        // Student - scroll to quiz progress details on same page
-                                        $stats_url = '#quiz_progress_details';
+                                        // Default URL if no teacher assigned - you can change this
+                                        $quiz_url = home_url('/quizzes/');
                                     }
                                     ?>
+                                    <a href="<?php echo esc_url($quiz_url); ?>" class="dashboard-button teacher-quiz-button">
+                                        <span class="button-text">מבחן מורה</span>
+                                        <span class="button-icon">🎓</span>
+                                    </a>
                                 <?php endif; ?>
-                                <?php if ($atts['show_logout'] === 'true') : ?>
-                                <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="user-action-link logout">
-                                    <span class="link-icon">🚪</span>
-                                    <span class="link-text">התנתק</span>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+
+                        <!-- Right Column - Questions by Topic -->
+                        <?php if ($this->user_has_course_access(898) && ($atts['show_study_materials'] === 'true' || $atts['show_topic_tests'] === 'true')) : ?>
+                        <div class="dashboard-column questions-column">
+                            <div class="column-header">
+                                <h3>שאלות מהמאגר לפי נושאים</h3>
+                            </div>
+                            <div class="button-group">
+                                <?php if ($atts['show_study_materials'] === 'true') : ?>
+                                <a href="<?php echo esc_url(home_url($atts['study_materials_url'])); ?>" class="dashboard-button study-materials-button">
+                                    <span class="button-text">חומר לימוד לפי נושאים</span>
+                                    <span class="button-icon">📚</span>
+                                </a>
+                                <?php endif; ?>
+                                <?php if ($atts['show_topic_tests'] === 'true') : ?>
+                                <a href="<?php echo esc_url(home_url($atts['topic_tests_url'])); ?>" class="dashboard-button topic-tests-button">
+                                    <span class="button-text">מבחנים לפי נושאים</span>
+                                    <span class="button-icon">📝</span>
                                 </a>
                                 <?php endif; ?>
                             </div>
                         </div>
-
-                <!-- Middle Column - Practice Tests -->
-                <?php if ($atts['show_practice'] === 'true' || $atts['show_real_test'] === 'true' || $atts['show_teacher_quizzes'] === 'true') : ?>
-                <div class="dashboard-column test-column">
-                    <div class="column-header">
-                        <h3>מבחנים כדוגמת מבחן התיאוריה</h3>
-                    </div>
-                    <div class="button-group">
-                        <?php if ($atts['show_practice'] === 'true') : ?>
-                        <a href="<?php echo esc_url(home_url('quizzes/מבחן-תרגול-להמחשה/')); ?>" class="dashboard-button practice-button">
-                            <span class="button-text">מבחני תרגול</span>
-                            <span class="button-icon">📝</span>
-                        </a>
                         <?php endif; ?>
-                        <?php if ($atts['show_real_test'] === 'true') : ?>
-                        <a href="<?php echo esc_url(home_url('/courses/פרטי/lessons/פרק-01-תורת-החינוך-התעברותי-פרק-מבוא/quizzes/מבחן-אמת-כמו-בתאוריה/')); ?>" class="dashboard-button real-test-button">
-                            <span class="button-text">מבחני אמת – כמו בתיאוריה</span>
-                            <span class="button-icon">📋</span>
-                        </a>
-                        <?php endif; ?>
-                        <?php if ($atts['show_teacher_quizzes'] === 'true' && $this->should_show_teacher_quiz()) : ?>
-                            <?php 
-                            $teacher_id = $this->get_student_teacher_id();
-                            if ($teacher_id) {
-                                $teacher_quizzes = $this->get_teacher_quizzes($teacher_id, 1); // Get only the latest quiz
-                                if (!empty($teacher_quizzes)) {
-                                    $latest_quiz = $teacher_quizzes[0];
-                                    $quiz_url = $latest_quiz->quiz_url;
-                                } else {
-                                    // Default URL if no quizzes found - you can change this
-                                    $quiz_url = home_url('/quizzes/');
-                                }
-                            } else {
-                                // Default URL if no teacher assigned - you can change this
-                                $quiz_url = home_url('/quizzes/');
-                            }
-                            ?>
-                            <a href="<?php echo esc_url($quiz_url); ?>" class="dashboard-button teacher-quiz-button">
-                                <span class="button-text">מבחן מורה</span>
-                                <span class="button-icon">🎓</span>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <?php endif; ?>
-
-                <!-- Right Column - Questions by Topic -->
-                <?php if ($atts['show_study_materials'] === 'true' || $atts['show_topic_tests'] === 'true') : ?>
-                <div class="dashboard-column questions-column">
-                    <div class="column-header">
-                        <h3>שאלות מהמאגר לפי נושאים</h3>
-                    </div>
-                    <div class="button-group">
-                        <?php if ($atts['show_study_materials'] === 'true') : ?>
-                        <a href="<?php echo esc_url(home_url($atts['study_materials_url'])); ?>" class="dashboard-button study-materials-button">
-                            <span class="button-text">חומר לימוד לפי נושאים</span>
-                            <span class="button-icon">📚</span>
-                        </a>
-                        <?php endif; ?>
-                        <?php if ($atts['show_topic_tests'] === 'true') : ?>
-                        <a href="<?php echo esc_url(home_url($atts['topic_tests_url'])); ?>" class="dashboard-button topic-tests-button">
-                            <span class="button-text">מבחנים לפי נושאים</span>
-                            <span class="button-icon">📝</span>
-                        </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <?php endif; ?>
                     </div> <!-- End dashboard-columns -->
                 </div> <!-- End dashboard-content -->
             </div> <!-- End dashboard-main-section -->
@@ -859,6 +824,51 @@ class User_Dashboard_Shortcode {
         </div>
         
         <style>
+        /* Dashboard Column Layouts */
+        .dashboard-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 0 -10px;
+        }
+        
+        /* Default 3-column layout */
+        .dashboard-columns.has-questions-column > .dashboard-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 10px;
+        }
+        
+        /* 2-column layout when questions column is hidden */
+        .dashboard-columns.no-questions-column > .dashboard-column {
+            flex: 1 1 calc(50% - 40px);
+            min-width: 300px;
+            padding: 0 10px;
+        }
+        
+        /* Adjust column widths for 2-column layout */
+        .dashboard-columns.has-questions-column > .dashboard-column {
+            flex: 1 1 calc(50% - 20px);
+        }
+        
+        .dashboard-columns.no-questions-column > .dashboard-column {
+            flex: 1 1 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .dashboard-columns > .dashboard-column {
+                flex: 1 1 100% !important;
+                max-width: 100%;
+            }
+            
+            .dashboard-columns .user-panel {
+                flex: 1 1 100% !important;
+            }
+        }
+        
         /* Purchase Incentive Box Styles */
         .purchase-incentive-box {
             background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);

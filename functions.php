@@ -205,6 +205,9 @@ require_once LILAC_THEME_DIR . '/includes/autoload.php';
 // Initialize the theme
 require_once LILAC_THEME_DIR . '/includes/src/Core/Theme.php';
 
+// Include user shortcodes
+require_once LILAC_THEME_DIR . '/includes/users/class-user-header-shortcode.php';
+
 /**
  * Load WooCommerce textdomain at the right time
  */
