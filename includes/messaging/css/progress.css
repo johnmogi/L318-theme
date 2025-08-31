@@ -1,0 +1,138 @@
+/**
+ * Course Progress System Styles
+ * 
+ * Styles for course progress tracking, views counter, and activity timer
+ */
+
+/* General Styles */
+.lilac-course-progress,
+.lilac-course-views,
+.lilac-activity-timer {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    direction: rtl;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.lilac-course-progress:hover,
+.lilac-course-views:hover,
+.lilac-activity-timer:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar Styles */
+.lilac-course-progress {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.lilac-course-progress-label {
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.lilac-course-progress-bar-container {
+    flex: 1;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.lilac-course-progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: #3498db;
+    transition: width 0.5s ease-in-out;
+}
+
+.lilac-course-progress-percentage {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Course Views Counter Styles */
+.lilac-course-views {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.lilac-course-views-icon {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.lilac-course-views-label {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.lilac-course-views-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 5px;
+    border-radius: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Activity Timer Styles */
+.lilac-activity-timer {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.lilac-activity-timer-label {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.lilac-activity-timer-value {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #333;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Error Message */
+.lilac-error {
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    border-left: 4px solid #e74c3c;
+    background-color: #feebeb;
+    margin: 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .lilac-course-progress {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .lilac-course-progress-bar-container {
+        width: 100%;
+    }
+}

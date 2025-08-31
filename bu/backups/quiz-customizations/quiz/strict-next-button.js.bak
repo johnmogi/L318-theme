@@ -1,0 +1,1663 @@
+/**
+ * Strict Next Button Controller for LearnDash Quiz
+ * 
+ * This script provides a more accurate Next button control that
+ * only shows the button when the answer is truly correct.
+ * 
+ * @since 1.0.0
+ */
+
+(function() {
+    // Debug logging with prefix
+    const DEBUG_MODE = true;
+    function debug(label, ...args) {
+        if (DEBUG_MODE) {
+            console.log('Strict Next Button:', label, ...args);
+        }
+    }
+
+    // State tracking
+    const hintViewed = {};
+    const questionResults = {};
+    const viewedHintThenChecked = {}; // Track if user has checked the answer AFTER viewing the hint
+    const rightAnswers = {}; // Store right answers
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', init);
+ * 
+ * This script provides a more accurate Next button control that
+ * only shows the button when the answer is truly correct.
+ * 
+ * @since 1.0.0
+ */
+
+(function() {
+    // Debug logging with prefix
+    const DEBUG_MODE = true;
+    function debug(label, ...args) {
+        if (DEBUG_MODE) {
+            console.log('Strict Next Button:', label, ...args);
+        }
+    }
+
+    // State tracking
+    const hintViewed = {};
+    const questionResults = {};
+    const viewedHintThenChecked = {}; // Track if user has checked the answer AFTER viewing the hint
+    const rightAnswers = {}; // Store right answers
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', init);
+
+    function init() {
+        debug('Initializing Strict Next Button Controller');
+        
+        // Get quiz settings
+        const settings = getQuizSettings();
+        if (!settings) {
+            debug('No quiz settings found, exiting');
+            return;
+        }
+        
+        debug('Quiz settings loaded', settings);
+        
+        // Set up event listeners
+        setupEventListeners(settings);
+    }
+    
+    /**
+     * Get quiz settings from the global quizExtensionsSettings
+     */
+    function getQuizSettings() {
+        debug('Getting quiz settings');
+        
+        if (!window.quizExtensionsSettings) {
+            debug('quizExtensionsSettings not found');
+            return getDefaultSettings();
+        }
+        
+        // Extract the quiz IDs using multiple methods
+        const quizData = getQuizData();
+        debug('Quiz data:', quizData);
+        
+        if (!quizData.quizId) {
+            debug('No quiz ID could be determined');
+            return getDefaultSettings();
+        }
+        
+        // Get settings from options
+        const quizOptions = window.quizExtensionsSettings.quiz_options || {};
+        const settings = quizOptions[quizData.quizId] || {};
+        debug('Raw quiz settings for ID ' + quizData.quizId + ':', settings);
+        
+        // Normalize settings
+        return normalizeSettings(settings);
+    }
+    
+    /**
+     * Get all quiz IDs and metadata through multiple methods
+     */
+    function getQuizData() {
+        const quizData = {
+            quizId: null, 
+            quizProId: null,
+            quizPostId: null,
+            fromDom: false,
+            fromSettings: false
+        };
+        
+        // Method 1: From settings directly
+        if (window.quizExtensionsSettings && window.quizExtensionsSettings.current_quiz_id) {
+            quizData.quizId = window.quizExtensionsSettings.current_quiz_id;
+            quizData.fromSettings = true;
+            debug('Found quiz ID from settings:', quizData.quizId);
+        }
+        
+        // Method 2: From DOM metadata
+        const metaFields = document.querySelectorAll('.wpProQuiz_data');
+        metaFields.forEach(metaField => {
+            // Check quiz pro ID
+            const quizProIdField = metaField.querySelector('input[name="quiz_pro_id"]');
+            if (quizProIdField && quizProIdField.value) {
+                quizData.quizProId = quizProIdField.value;
+                debug('Found quiz pro ID from DOM:', quizData.quizProId);
+            }
+            
+            // Check quiz post ID
+            const quizPostIdField = metaField.querySelector('input[name="quiz_post_id"]');
+            if (quizPostIdField && quizPostIdField.value) {
+                quizData.quizPostId = quizPostIdField.value;
+                quizData.quizId = quizData.quizPostId; // Use post ID as the main ID
+                quizData.fromDom = true;
+                debug('Found quiz post ID from DOM:', quizData.quizPostId);
+            }
+        });
+
+        // Method 3: From quiz meta attribute
+        const quizMetaElement = document.querySelector('[data-quiz-meta]');
+        if (quizMetaElement) {
+            try {
+                const quizMeta = JSON.parse(quizMetaElement.getAttribute('data-quiz-meta'));
+                if (quizMeta.quiz_post_id) {
+                    quizData.quizPostId = quizMeta.quiz_post_id;
+                    quizData.quizId = quizData.quizPostId;
+                    quizData.fromDom = true;
+                    debug('Found quiz post ID from data-quiz-meta:', quizData.quizPostId);
+                }
+            } catch (e) {
+                debug('Error parsing quiz meta', e);
+            }
+        }
+        
+        return quizData;
+    }
+    
+    /**
+     * Normalize settings to handle different formats
+     */
+    function normalizeSettings(settings) {
+        // Check if we have Force Hint Mode in any format
+        const forceHintMode = 
+            settings.force_hint_mode === 'Yes' || 
+            settings.force_hint_mode === '1' || 
+            settings['Force Hint Mode'] === 'ENABLED';
+            
+        // Check if we have Require Correct in any format
+        const requireCorrect = 
+            settings.require_correct === 'Yes' || 
+            settings.require_correct === '1' || 
+            settings['Require Correct'] === 'Yes';
+            
+        // Check if we have Show Hint in any format
+        const showHint = 
+            settings.show_hint === 'Yes' || 
+            settings.show_hint === '1' || 
+            settings['Show Hint'] === 'Yes';
+            
+        // Check if we have Auto Show Hint in any format
+        const autoShowHint = 
+            settings.auto_show_hint === 'Yes' || 
+            settings.auto_show_hint === '1' || 
+            settings['Auto Show Hint'] === 'Yes';
+        
+        debug('Normalized settings:', {
+            forceHintMode,
+            requireCorrect, 
+            showHint,
+            autoShowHint
+        });
+        
+        return {
+            forceHintMode,
+            requireCorrect,
+            showHint,
+            autoShowHint,
+            // Keep raw settings for debugging
+            raw: settings
+        };
+    }
+    
+    /**
+     * Default settings when no quiz settings are found
+     */
+    function getDefaultSettings() {
+        debug('Using default settings');
+        return {
+            forceHintMode: false,
+            requireCorrect: true,
+            showHint: true,
+            autoShowHint: false,
+            isDefault: true
+        };
+    }
+    
+    /**
+     * Set up event listeners for quiz interactions
+     */
+    function setupEventListeners(settings) {
+        debug('Setting up event listeners');
+        
+        // Listen for hint button clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('wpProQuiz_TipButton') || 
+                e.target.closest('.wpProQuiz_TipButton')) {
+                const button = e.target.classList.contains('wpProQuiz_TipButton') ? 
+                               e.target : e.target.closest('.wpProQuiz_TipButton');
+                handleHintButtonClick(button, settings);
+            }
+        });
+        
+        // Listen for check button clicks
+        document.addEventListener('click', function(e) {
+            if ((e.target.name === 'check' && e.target.classList.contains('wpProQuiz_QuestionButton')) ||
+                e.target.closest('input[name="check"].wpProQuiz_QuestionButton')) {
+                const button = e.target.name === 'check' ? e.target : e.target.closest('input[name="check"]');
+                handleCheckButtonClick(button, settings);
+            }
+        });
+
+        // Listen for right answer showing button (for debug mode)
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'show-right-answers') {
+                showRightAnswers();
+            }
+        });
+        
+        // Add a debug button to the page to show right answers if needed
+        if (DEBUG_MODE) {
+            setTimeout(addDebugButton, 1000);
+        }
+        
+        // Initial check to mark any answers that are already checked
+        setTimeout(initialCheck, 500, settings);
+    }
+
+    /**
+     * Add a debug button to show right answers
+     */
+    function addDebugButton() {
+        if (document.getElementById('show-right-answers')) return;
+        
+        const quizContent = document.querySelector('.wpProQuiz_content');
+        if (!quizContent) return;
+        
+        const debugButton = document.createElement('button');
+        debugButton.id = 'show-right-answers';
+        debugButton.textContent = 'Show Right Answers';
+        debugButton.style.background = '#f0f0f0';
+        debugButton.style.border = '1px solid #ccc';
+        debugButton.style.padding = '5px 10px';
+        debugButton.style.margin = '10px 0';
+        debugButton.style.borderRadius = '3px';
+        
+        quizContent.insertBefore(debugButton, quizContent.firstChild);
+    }
+
+    /**
+     * Display right answers for debugging
+     */
+    function showRightAnswers() {
+        debug('Showing right answers', rightAnswers);
+        
+        // Create a modal to display the answers
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '50%';
+        modal.style.left = '50%';
+        modal.style.transform = 'translate(-50%, -50%)';
+        modal.style.background = 'white';
+        modal.style.padding = '20px';
+        modal.style.border = '1px solid #ccc';
+        modal.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
+        modal.style.zIndex = '9999';
+        modal.style.maxWidth = '80%';
+        modal.style.maxHeight = '80%';
+        modal.style.overflow = 'auto';
+        modal.style.direction = 'rtl'; // Match the RTL direction for Hebrew
+        
+        const heading = document.createElement('h3');
+        heading.textContent = 'Right Answers';
+        modal.appendChild(heading);
+        
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Close';
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '10px';
+        closeButton.style.right = '10px';
+        closeButton.onclick = function() {
+            document.body.removeChild(modal);
+        };
+        modal.appendChild(closeButton);
+        
+        const list = document.createElement('ul');
+        for (const questionId in rightAnswers) {
+            const item = document.createElement('li');
+            const label = rightAnswers[questionId].label || 'Unknown';
+            const correct = rightAnswers[questionId].correct || 'Unknown';
+            item.innerHTML = `<strong>Question ${label}:</strong> ${correct}`;
+            list.appendChild(item);
+        }
+        modal.appendChild(list);
+        
+        document.body.appendChild(modal);
+    }
+    
+    /**
+     * Handle hint button clicks
+     */
+    function handleHintButtonClick(button, settings) {
+        debug('Hint button clicked');
+        
+        const questionItem = button.closest('.wpProQuiz_listItem');
+        if (!questionItem) {
+            debug('Could not find parent question item');
+            return;
+        }
+        
+        const questionId = getQuestionId(questionItem);
+        if (!questionId) {
+            debug('No question ID found');
+            return;
+        }
+        
+        // Mark this hint as viewed
+        hintViewed[questionId] = true;
+        debug('Hint viewed for question', questionId);
+        
+        // Reset check-after-hint status when hint is viewed
+        // This forces the user to check the answer again after viewing the hint
+        viewedHintThenChecked[questionId] = false;
+        
+        // Update the next button
+        updateNextButton(questionItem, settings);
+    }
+    
+    /**
+     * Handle check button clicks
+     */
+    function handleCheckButtonClick(button, settings) {
+        debug('Check button clicked');
+        
+        // Allow time for LearnDash to update its UI
+        setTimeout(function() {
+            const questionItem = button.closest('.wpProQuiz_listItem');
+            if (!questionItem) {
+                debug('Could not find parent question item');
+                return;
+            }
+            
+            const questionId = getQuestionId(questionItem);
+            if (!questionId) {
+                debug('No question ID found');
+                return;
+            }
+            
+            // Check if answer is correct using stricter checks
+            const isCorrect = isAnswerCorrect(questionItem);
+            debug('Answer correctness result:', isCorrect);
+            
+            // Store result for this question
+            questionResults[questionId] = isCorrect;
+            
+            // If the user has viewed the hint and then checked, mark that condition
+            if (hintViewed[questionId]) {
+                viewedHintThenChecked[questionId] = true;
+            }
+            
+            // If the answer is correct, log it
+            if (isCorrect) {
+                debug('Question ' + questionId + ' answered correctly');
+                // Store the right answer
+                findRightAnswer(questionItem, questionId);
+            } else {
+                debug('Question ' + questionId + ' answered incorrectly');
+            }
+            
+            // Always update the next button
+            updateNextButton(questionItem, settings);
+        }, 300); // Wait a bit for LearnDash to finish its updates
+    }
+    
+    /**
+     * Find and store the right answer for a question
+     */
+    function findRightAnswer(questionItem, questionId) {
+        const questionText = questionItem.querySelector('.wpProQuiz_question_text');
+        const questionLabel = questionItem.querySelector('.wpProQuiz_header span')?.textContent || '?';
+        
+        // Look for the correct answer options
+        const correctItems = questionItem.querySelectorAll('.wpProQuiz_questionListItem[data-correct="1"], .wpProQuiz_questionListItem.wpProQuiz_answerCorrect');
+        
+        if (correctItems.length > 0) {
+            const correctTexts = [];
+            correctItems.forEach(item => {
+                const labelText = item.textContent.trim();
+                correctTexts.push(labelText);
+            });
+            
+            rightAnswers[questionId] = {
+                label: questionLabel,
+                question: questionText ? questionText.textContent.trim() : 'Unknown question',
+                correct: correctTexts.join(' | '),
+                timestamp: new Date().toISOString()
+            };
+            
+            debug('Stored right answer for question ' + questionId, rightAnswers[questionId]);
+        }
+    }
+
+    /**
+     * Extract question ID from various sources
+     */
+    function getQuestionId(questionItem) {
+        // Try data-post-id first (most reliable)
+        const postId = questionItem.getAttribute('data-post-id');
+        if (postId) return postId;
+        
+        // Try question-meta with question_post_id
+        try {
+            const meta = questionItem.getAttribute('data-question-meta');
+            if (meta) {
+                const metaObj = JSON.parse(meta);
+                if (metaObj.question_post_id) {
+                    return metaObj.question_post_id.toString();
+                }
+                if (metaObj.question_pro_id) {
+                    return 'pro-' + metaObj.question_pro_id.toString();
+                }
+            }
+        } catch (e) {}
+        
+        // Try finding through class names
+        const questionListItem = questionItem.querySelector('.wpProQuiz_questionList');
+        if (questionListItem) {
+            const idMatch = questionListItem.id?.match(/wpProQuiz_(\d+)_(\d+)/);
+            if (idMatch && idMatch[2]) return idMatch[2];
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Initial check for any answers that are already marked
+     */
+    function initialCheck(settings) {
+        debug('Performing initial check');
+        
+        // Find all question items
+        const questionItems = document.querySelectorAll('.wpProQuiz_listItem');
+        questionItems.forEach(questionItem => {
+            const questionId = getQuestionId(questionItem);
+            if (!questionId) return;
+            
+            // Check if hint is already viewed
+            const hintBox = questionItem.querySelector('.wpProQuiz_tipp');
+            if (hintBox && window.getComputedStyle(hintBox).display !== 'none') {
+                hintViewed[questionId] = true;
+                debug('Hint already viewed for question', questionId);
+            }
+            
+            // Check if answer is correct
+            const isCorrect = isAnswerCorrect(questionItem);
+            if (isCorrect) {
+                questionResults[questionId] = true;
+                debug('Question ' + questionId + ' already correct');
+            }
+            
+            // Update next button
+            updateNextButton(questionItem, settings);
+        });
+    }
+    
+    /**
+     * Strict check for correct answers - only returns true when LearnDash
+     * has definitely confirmed the answer is correct.
+     */
+    function isAnswerCorrect(questionItem) {
+        debug('Checking answer correctness');
+        
+        // PRIMARY METHOD: Check for LearnDash's correct feedback box
+        const correctFeedback = questionItem.querySelector('.wpProQuiz_correct');
+        if (correctFeedback) {
+            const style = window.getComputedStyle(correctFeedback);
+            if (style.display !== 'none') {
+                debug('LearnDash shows correct feedback');
+                return true;
+            }
+        }
+        
+        // Check if there's an incorrect feedback box visible
+        const incorrectFeedback = questionItem.querySelector('.wpProQuiz_incorrect');
+        if (incorrectFeedback) {
+            const style = window.getComputedStyle(incorrectFeedback);
+            if (style.display !== 'none') {
+                // If we can clearly see the incorrect feedback box, the answer is wrong
+                debug('LearnDash shows incorrect feedback');
+                return false;
+            }
+        }
+        
+        // METHOD 2: Check for correct answer class directly on an answer
+        const selectedWithCorrectClass = questionItem.querySelector('li.wpProQuiz_questionListItem.wpProQuiz_answerCorrect');
+        if (selectedWithCorrectClass) {
+            debug('Found answer with correct class');
+            
+            // Extra check: make sure there's no incorrect answer selected
+            const incorrectAnswer = questionItem.querySelector('li.wpProQuiz_questionListItem.wpProQuiz_answerIncorrect');
+            if (!incorrectAnswer) {
+                return true;
+            }
+        }
+        
+        // If we can't clearly determine correctness, default to false
+        debug('Could not determine correctness, defaulting to false');
+        return false;
+    }
+    
+    /**
+     * Update the Next button based on settings and state
+     */
+    function updateNextButton(questionItem, settings) {
+        const questionId = getQuestionId(questionItem);
+        
+        if (!questionId) {
+            debug('Cannot update Next button - no question ID found');
+            return;
+        }
+
+        // Re-check the answer correctness to be sure
+        const currentCorrectness = isAnswerCorrect(questionItem);
+        questionResults[questionId] = currentCorrectness;
+        
+        // Get current state
+        const hasViewedHint = hintViewed[questionId] || false;
+        const isCorrect = questionResults[questionId] || false;
+        const hasCheckedAfterHint = viewedHintThenChecked[questionId] || false;
+        
+        // Create state object for debugging
+        const state = {
+            questionId,
+            isCorrect,
+            hasViewedHint,
+            hasCheckedAfterHint,
+            forceHintMode: settings.forceHintMode,
+            requireCorrect: settings.requireCorrect
+        };
+        debug('Question state', state);
+        
+        // Locate next button for this question
+        const nextButton = questionItem.querySelector('.wpProQuiz_nextButton, input[name="next"]');
+        if (!nextButton) {
+            debug('No Next button found');
+            return;
+        }
+        
+        // Force hint mode has specific rules
+        if (settings.forceHintMode) {
+            if (isCorrect && hasViewedHint && hasCheckedAfterHint) {
+                // Answer correct and hint viewed AND user checked after viewing hint
+                debug('Enabling next button - answer is correct and hint viewed with re-check (force hint mode)');
+                enableButton(nextButton);
+            } else if (!isCorrect) {
+                // Answer incorrect, hide Next button
+                debug('Hiding next button - answer is not correct (force hint mode)');
+                disableButton(nextButton);
+            } else if (!hasViewedHint) {
+                // Answer correct but hint not viewed, hide Next button
+                debug('Hiding next button - hint not yet viewed (force hint mode)');
+                disableButton(nextButton);
+            } else if (!hasCheckedAfterHint) {
+                // Answer was marked correct but user hasn't checked after viewing hint
+                debug('Hiding next button - hint viewed but no check after hint (force hint mode)');
+                disableButton(nextButton);
+            }
+        } 
+        // Regular mode: Just check if answer is correct based on settings
+        else if (settings.requireCorrect) {
+            if (isCorrect) {
+                debug('Enabling next button - answer is correct (regular mode)');
+                enableButton(nextButton);
+            } else {
+                debug('Hiding next button - answer is not correct (regular mode)');
+                disableButton(nextButton);
+            }
+        } else {
+            // No special requirements, leave the button as is
+            debug('No special handling needed for this quiz mode - always enable Next button');
+            enableButton(nextButton);
+        }
+    }
+    
+    /**
+     * Helper function to enable button
+     */
+    function enableButton(button) {
+        button.style.display = 'inline-block';
+        button.disabled = false;
+        button.classList.remove('disabled');
+        button.style.opacity = '1';
+        button.style.cursor = 'pointer';
+    }
+    
+    /**
+     * Helper function to disable button
+     */
+    function disableButton(button) {
+        button.style.display = 'none';
+        button.disabled = true;
+    }
+})();
+ * 
+ * This script provides a more accurate Next button control that
+ * only shows the button when the answer is truly correct.
+ * 
+ * @since 1.0.0
+ */
+
+(function() {
+    // Debug logging with prefix
+    const DEBUG_MODE = true;
+    function debug(label, ...args) {
+        if (DEBUG_MODE) {
+            console.log('Strict Next Button:', label, ...args);
+        }
+    }
+
+    // State tracking
+    const hintViewed = {};
+    const questionResults = {};
+    const viewedHintThenChecked = {}; // Track if user has checked the answer AFTER viewing the hint
+    const rightAnswers = {}; // Store right answers
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', init);
+
+    function init() {
+        debug('Initializing Strict Next Button Controller');
+        
+        // Get quiz settings
+        const settings = getQuizSettings();
+        if (!settings) {
+            debug('No quiz settings found, exiting');
+            return;
+        }
+        
+        debug('Quiz settings loaded', settings);
+        
+        // Set up event listeners
+        setupEventListeners(settings);
+    }
+    
+    /**
+     * Get quiz settings from the global quizExtensionsSettings
+     */
+    function getQuizSettings() {
+        debug('Getting quiz settings');
+        
+        if (!window.quizExtensionsSettings) {
+            debug('quizExtensionsSettings not found');
+            return getDefaultSettings();
+        }
+        
+        // Extract the quiz IDs using multiple methods
+        const quizData = getQuizData();
+        debug('Quiz data:', quizData);
+        
+        if (!quizData.quizId) {
+            debug('No quiz ID could be determined');
+            return getDefaultSettings();
+        }
+        
+        // Get settings from options
+        const quizOptions = window.quizExtensionsSettings.quiz_options || {};
+        const settings = quizOptions[quizData.quizId] || {};
+        debug('Raw quiz settings for ID ' + quizData.quizId + ':', settings);
+        
+        // Normalize settings
+        return normalizeSettings(settings);
+    }
+    
+    /**
+     * Get all quiz IDs and metadata through multiple methods
+     */
+    function getQuizData() {
+        const quizData = {
+            quizId: null, 
+            quizProId: null,
+            quizPostId: null,
+            fromDom: false,
+            fromSettings: false
+        };
+        
+        // Method 1: From settings directly
+        if (window.quizExtensionsSettings && window.quizExtensionsSettings.current_quiz_id) {
+            quizData.quizId = window.quizExtensionsSettings.current_quiz_id;
+            quizData.fromSettings = true;
+            debug('Found quiz ID from settings:', quizData.quizId);
+        }
+        
+        // Method 2: From DOM metadata
+        const metaFields = document.querySelectorAll('.wpProQuiz_data');
+        metaFields.forEach(metaField => {
+            // Check quiz pro ID
+            const quizProIdField = metaField.querySelector('input[name="quiz_pro_id"]');
+            if (quizProIdField && quizProIdField.value) {
+                quizData.quizProId = quizProIdField.value;
+                debug('Found quiz pro ID from DOM:', quizData.quizProId);
+            }
+            
+            // Check quiz post ID
+            const quizPostIdField = metaField.querySelector('input[name="quiz_post_id"]');
+            if (quizPostIdField && quizPostIdField.value) {
+                quizData.quizPostId = quizPostIdField.value;
+                quizData.quizId = quizData.quizPostId; // Use post ID as the main ID
+                quizData.fromDom = true;
+                debug('Found quiz post ID from DOM:', quizData.quizPostId);
+            }
+        });
+
+        // Method 3: From quiz meta attribute
+        const quizMetaElement = document.querySelector('[data-quiz-meta]');
+        if (quizMetaElement) {
+            try {
+                const quizMeta = JSON.parse(quizMetaElement.getAttribute('data-quiz-meta'));
+                if (quizMeta.quiz_post_id) {
+                    quizData.quizPostId = quizMeta.quiz_post_id;
+                    quizData.quizId = quizData.quizPostId;
+                    quizData.fromDom = true;
+                    debug('Found quiz post ID from data-quiz-meta:', quizData.quizPostId);
+                }
+            } catch (e) {
+                debug('Error parsing quiz meta', e);
+            }
+        }
+        
+        return quizData;
+    }
+    
+    /**
+     * Normalize settings to handle different formats
+     */
+    function normalizeSettings(settings) {
+        // Check if we have Force Hint Mode in any format
+        const forceHintMode = 
+            settings.force_hint_mode === 'Yes' || 
+            settings.force_hint_mode === '1' || 
+            settings['Force Hint Mode'] === 'ENABLED';
+            
+        // Check if we have Require Correct in any format
+        const requireCorrect = 
+            settings.require_correct === 'Yes' || 
+            settings.require_correct === '1' || 
+            settings['Require Correct'] === 'Yes';
+            
+        // Check if we have Show Hint in any format
+        const showHint = 
+            settings.show_hint === 'Yes' || 
+            settings.show_hint === '1' || 
+            settings['Show Hint'] === 'Yes';
+            
+        // Check if we have Auto Show Hint in any format
+        const autoShowHint = 
+            settings.auto_show_hint === 'Yes' || 
+            settings.auto_show_hint === '1' || 
+            settings['Auto Show Hint'] === 'Yes';
+        
+        debug('Normalized settings:', {
+            forceHintMode,
+            requireCorrect, 
+            showHint,
+            autoShowHint
+        });
+        
+        return {
+            forceHintMode,
+            requireCorrect,
+            showHint,
+            autoShowHint,
+            // Keep raw settings for debugging
+            raw: settings
+        };
+    }
+    
+    /**
+     * Default settings when no quiz settings are found
+     */
+    function getDefaultSettings() {
+        debug('Using default settings');
+        return {
+            forceHintMode: false,
+            requireCorrect: true,
+            showHint: true,
+            autoShowHint: false,
+            isDefault: true
+        };
+    }
+    
+    /**
+     * Set up event listeners for quiz interactions
+     */
+    function setupEventListeners(settings) {
+        debug('Setting up event listeners');
+        
+        // Listen for hint button clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('wpProQuiz_TipButton') || 
+                e.target.closest('.wpProQuiz_TipButton')) {
+                const button = e.target.classList.contains('wpProQuiz_TipButton') ? 
+                               e.target : e.target.closest('.wpProQuiz_TipButton');
+                handleHintButtonClick(button, settings);
+            }
+        });
+        
+        // Listen for check button clicks
+        document.addEventListener('click', function(e) {
+            if ((e.target.name === 'check' && e.target.classList.contains('wpProQuiz_QuestionButton')) ||
+                e.target.closest('input[name="check"].wpProQuiz_QuestionButton')) {
+                const button = e.target.name === 'check' ? e.target : e.target.closest('input[name="check"]');
+                handleCheckButtonClick(button, settings);
+            }
+        });
+
+        // Listen for right answer showing button (for debug mode)
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'show-right-answers') {
+                showRightAnswers();
+            }
+        });
+        
+        // Add a debug button to the page to show right answers if needed
+        if (DEBUG_MODE) {
+            setTimeout(addDebugButton, 1000);
+        }
+        
+        // Initial check to mark any answers that are already checked
+        setTimeout(initialCheck, 500, settings);
+    }
+
+    /**
+     * Add a debug button to show right answers
+     */
+    function addDebugButton() {
+        if (document.getElementById('show-right-answers')) return;
+        
+        const quizContent = document.querySelector('.wpProQuiz_content');
+        if (!quizContent) return;
+        
+        const debugButton = document.createElement('button');
+        debugButton.id = 'show-right-answers';
+        debugButton.textContent = 'Show Right Answers';
+        debugButton.style.background = '#f0f0f0';
+        debugButton.style.border = '1px solid #ccc';
+        debugButton.style.padding = '5px 10px';
+        debugButton.style.margin = '10px 0';
+        debugButton.style.borderRadius = '3px';
+        
+        quizContent.insertBefore(debugButton, quizContent.firstChild);
+    }
+
+    /**
+     * Display right answers for debugging
+     */
+    function showRightAnswers() {
+        debug('Showing right answers', rightAnswers);
+        
+        // Create a modal to display the answers
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '50%';
+        modal.style.left = '50%';
+        modal.style.transform = 'translate(-50%, -50%)';
+        modal.style.background = 'white';
+        modal.style.padding = '20px';
+        modal.style.border = '1px solid #ccc';
+        modal.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
+        modal.style.zIndex = '9999';
+        modal.style.maxWidth = '80%';
+        modal.style.maxHeight = '80%';
+        modal.style.overflow = 'auto';
+        modal.style.direction = 'rtl'; // Match the RTL direction for Hebrew
+        
+        const heading = document.createElement('h3');
+        heading.textContent = 'Right Answers';
+        modal.appendChild(heading);
+        
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Close';
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '10px';
+        closeButton.style.right = '10px';
+        closeButton.onclick = function() {
+            document.body.removeChild(modal);
+        };
+        modal.appendChild(closeButton);
+        
+        const list = document.createElement('ul');
+        for (const questionId in rightAnswers) {
+            const item = document.createElement('li');
+            const label = rightAnswers[questionId].label || 'Unknown';
+            const correct = rightAnswers[questionId].correct || 'Unknown';
+            item.innerHTML = `<strong>Question ${label}:</strong> ${correct}`;
+            list.appendChild(item);
+        }
+        modal.appendChild(list);
+        
+        document.body.appendChild(modal);
+    }
+    
+    /**
+     * Handle hint button clicks
+     */
+    function handleHintButtonClick(button, settings) {
+        debug('Hint button clicked');
+        
+        const questionItem = button.closest('.wpProQuiz_listItem');
+        if (!questionItem) {
+            debug('Could not find parent question item');
+            return;
+        }
+        
+        const questionId = getQuestionId(questionItem);
+        if (!questionId) {
+            debug('No question ID found');
+            return;
+        }
+        
+        // Mark this hint as viewed
+        hintViewed[questionId] = true;
+        debug('Hint viewed for question', questionId);
+        
+        // Reset check-after-hint status when hint is viewed
+        // This forces the user to check the answer again after viewing the hint
+        viewedHintThenChecked[questionId] = false;
+        
+        // Update the next button
+        updateNextButton(questionItem, settings);
+    }
+    
+    /**
+     * Handle check button clicks
+     */
+    function handleCheckButtonClick(button, settings) {
+        debug('Check button clicked');
+        
+        // Allow time for LearnDash to update its UI
+        setTimeout(function() {
+            const questionItem = button.closest('.wpProQuiz_listItem');
+            if (!questionItem) {
+                debug('Could not find parent question item');
+                return;
+            }
+            
+            const questionId = getQuestionId(questionItem);
+            if (!questionId) {
+                debug('No question ID found');
+                return;
+            }
+            
+            // Check if answer is correct using stricter checks
+            const isCorrect = isAnswerCorrect(questionItem);
+            debug('Answer correctness result:', isCorrect);
+            
+            // Store result for this question
+            questionResults[questionId] = isCorrect;
+            
+            // If the user has viewed the hint and then checked, mark that condition
+            if (hintViewed[questionId]) {
+                viewedHintThenChecked[questionId] = true;
+            }
+            
+            // If the answer is correct, log it
+            if (isCorrect) {
+                debug('Question ' + questionId + ' answered correctly');
+                // Store the right answer
+                findRightAnswer(questionItem, questionId);
+            } else {
+                debug('Question ' + questionId + ' answered incorrectly');
+            }
+            
+            // Always update the next button
+            updateNextButton(questionItem, settings);
+        }, 300); // Wait a bit for LearnDash to finish its updates
+    }
+    
+    /**
+     * Find and store the right answer for a question
+     */
+    function findRightAnswer(questionItem, questionId) {
+        const questionText = questionItem.querySelector('.wpProQuiz_question_text');
+        const questionLabel = questionItem.querySelector('.wpProQuiz_header span')?.textContent || '?';
+        
+        // Look for the correct answer options
+        const correctItems = questionItem.querySelectorAll('.wpProQuiz_questionListItem[data-correct="1"], .wpProQuiz_questionListItem.wpProQuiz_answerCorrect');
+        
+        if (correctItems.length > 0) {
+            const correctTexts = [];
+            correctItems.forEach(item => {
+                const labelText = item.textContent.trim();
+                correctTexts.push(labelText);
+            });
+            
+            rightAnswers[questionId] = {
+                label: questionLabel,
+                question: questionText ? questionText.textContent.trim() : 'Unknown question',
+                correct: correctTexts.join(' | '),
+                timestamp: new Date().toISOString()
+            };
+            
+            debug('Stored right answer for question ' + questionId, rightAnswers[questionId]);
+        }
+    }
+
+    /**
+     * Extract question ID from various sources
+     */
+    function getQuestionId(questionItem) {
+        // Try data-post-id first (most reliable)
+        const postId = questionItem.getAttribute('data-post-id');
+        if (postId) return postId;
+        
+        // Try question-meta with question_post_id
+        try {
+            const meta = questionItem.getAttribute('data-question-meta');
+            if (meta) {
+                const metaObj = JSON.parse(meta);
+                if (metaObj.question_post_id) {
+                    return metaObj.question_post_id.toString();
+                }
+                if (metaObj.question_pro_id) {
+                    return 'pro-' + metaObj.question_pro_id.toString();
+                }
+            }
+        } catch (e) {}
+        
+        // Try finding through class names
+        const questionListItem = questionItem.querySelector('.wpProQuiz_questionList');
+        if (questionListItem) {
+            const idMatch = questionListItem.id?.match(/wpProQuiz_(\d+)_(\d+)/);
+            if (idMatch && idMatch[2]) return idMatch[2];
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Initial check for any answers that are already marked
+     */
+    function initialCheck(settings) {
+        debug('Performing initial check');
+        
+        // Find all question items
+        const questionItems = document.querySelectorAll('.wpProQuiz_listItem');
+        questionItems.forEach(questionItem => {
+            const questionId = getQuestionId(questionItem);
+            if (!questionId) return;
+            
+            // Check if hint is already viewed
+            const hintBox = questionItem.querySelector('.wpProQuiz_tipp');
+            if (hintBox && window.getComputedStyle(hintBox).display !== 'none') {
+                hintViewed[questionId] = true;
+                debug('Hint already viewed for question', questionId);
+            }
+            
+            // Check if answer is correct
+            const isCorrect = isAnswerCorrect(questionItem);
+            if (isCorrect) {
+                questionResults[questionId] = true;
+                debug('Question ' + questionId + ' already correct');
+            }
+            
+            // Update next button
+            updateNextButton(questionItem, settings);
+        });
+    }
+    
+    /**
+     * Strict check for correct answers - only returns true when LearnDash
+     * has definitely confirmed the answer is correct.
+     */
+    function isAnswerCorrect(questionItem) {
+        debug('Checking answer correctness');
+        
+        // PRIMARY METHOD: Check for LearnDash's correct feedback box
+        const correctFeedback = questionItem.querySelector('.wpProQuiz_correct');
+        if (correctFeedback) {
+            const style = window.getComputedStyle(correctFeedback);
+            if (style.display !== 'none') {
+                debug('LearnDash shows correct feedback');
+                return true;
+            }
+        }
+        
+        // Check if there's an incorrect feedback box visible
+        const incorrectFeedback = questionItem.querySelector('.wpProQuiz_incorrect');
+        if (incorrectFeedback) {
+            const style = window.getComputedStyle(incorrectFeedback);
+            if (style.display !== 'none') {
+                // If we can clearly see the incorrect feedback box, the answer is wrong
+                debug('LearnDash shows incorrect feedback');
+                return false;
+            }
+        }
+        
+        // METHOD 2: Check for correct answer class directly on an answer
+        const selectedWithCorrectClass = questionItem.querySelector('li.wpProQuiz_questionListItem.wpProQuiz_answerCorrect');
+        if (selectedWithCorrectClass) {
+            debug('Found answer with correct class');
+            
+            // Extra check: make sure there's no incorrect answer selected
+            const incorrectAnswer = questionItem.querySelector('li.wpProQuiz_questionListItem.wpProQuiz_answerIncorrect');
+            if (!incorrectAnswer) {
+                return true;
+            }
+        }
+        
+        // If we can't clearly determine correctness, default to false
+        debug('Could not determine correctness, defaulting to false');
+        return false;
+    }
+    
+    /**
+     * Update the Next button based on settings and state
+     */
+    function updateNextButton(questionItem, settings) {
+        const questionId = getQuestionId(questionItem);
+        
+        if (!questionId) {
+            debug('Cannot update Next button - no question ID found');
+            return;
+        }
+
+        // Re-check the answer correctness to be sure
+        const currentCorrectness = isAnswerCorrect(questionItem);
+        questionResults[questionId] = currentCorrectness;
+        
+        // Get current state
+        const hasViewedHint = hintViewed[questionId] || false;
+        const isCorrect = questionResults[questionId] || false;
+        const hasCheckedAfterHint = viewedHintThenChecked[questionId] || false;
+        
+        // Create state object for debugging
+        const state = {
+            questionId,
+            isCorrect,
+            hasViewedHint,
+            hasCheckedAfterHint,
+            forceHintMode: settings.forceHintMode,
+            requireCorrect: settings.requireCorrect
+        };
+        debug('Question state', state);
+        
+        // Locate next button for this question
+        const nextButton = questionItem.querySelector('.wpProQuiz_nextButton, input[name="next"]');
+        if (!nextButton) {
+            debug('No Next button found');
+            return;
+        }
+        
+        // Force hint mode has specific rules
+        if (settings.forceHintMode) {
+            if (isCorrect && hasViewedHint && hasCheckedAfterHint) {
+                // Answer correct and hint viewed AND user checked after viewing hint
+                debug('Enabling next button - answer is correct and hint viewed with re-check (force hint mode)');
+                enableButton(nextButton);
+            } else if (!isCorrect) {
+                // Answer incorrect, hide Next button
+                debug('Hiding next button - answer is not correct (force hint mode)');
+                disableButton(nextButton);
+            } else if (!hasViewedHint) {
+                // Answer correct but hint not viewed, hide Next button
+                debug('Hiding next button - hint not yet viewed (force hint mode)');
+                disableButton(nextButton);
+            } else if (!hasCheckedAfterHint) {
+                // Answer was marked correct but user hasn't checked after viewing hint
+                debug('Hiding next button - hint viewed but no check after hint (force hint mode)');
+                disableButton(nextButton);
+            }
+        } 
+        // Regular mode: Just check if answer is correct based on settings
+        else if (settings.requireCorrect) {
+            if (isCorrect) {
+                debug('Enabling next button - answer is correct (regular mode)');
+                enableButton(nextButton);
+            } else {
+                debug('Hiding next button - answer is not correct (regular mode)');
+                disableButton(nextButton);
+            }
+        } else {
+            // No special requirements, leave the button as is
+            debug('No special handling needed for this quiz mode - always enable Next button');
+            enableButton(nextButton);
+        }
+    }
+    
+    /**
+     * Helper function to enable button
+     */
+    function enableButton(button) {
+        button.style.display = 'inline-block';
+        button.disabled = false;
+        button.classList.remove('disabled');
+        button.style.opacity = '1';
+        button.style.cursor = 'pointer';
+    }
+    
+    /**
+     * Helper function to disable button
+     */
+    function disableButton(button) {
+        button.style.display = 'none';
+        button.disabled = true;
+    }
+})();
+        
+        // Set up event listeners
+        setupEventListeners(settings);
+    }
+    
+    /**
+     * Get quiz settings from the global quizExtensionsSettings
+     */
+    function getQuizSettings() {
+        debug('Getting quiz settings');
+        
+        if (!window.quizExtensionsSettings) {
+            debug('quizExtensionsSettings not found');
+            return getDefaultSettings();
+        }
+        
+        // Extract the quiz IDs using multiple methods
+        const quizData = getQuizData();
+        debug('Quiz data:', quizData);
+        
+        if (!quizData.quizId) {
+            debug('No quiz ID could be determined');
+            return getDefaultSettings();
+        }
+        
+        // Get settings from options
+        const quizOptions = window.quizExtensionsSettings.quiz_options || {};
+        const settings = quizOptions[quizData.quizId] || {};
+        debug('Raw quiz settings for ID ' + quizData.quizId + ':', settings);
+        
+        // Normalize settings
+        return normalizeSettings(settings);
+    }
+    
+    /**
+     * Get all quiz IDs and metadata through multiple methods
+     */
+    function getQuizData() {
+        const quizData = {
+            quizId: null, 
+            quizProId: null,
+            quizPostId: null,
+            fromDom: false,
+            fromSettings: false
+        };
+        
+        // Method 1: From settings directly
+        if (window.quizExtensionsSettings && window.quizExtensionsSettings.current_quiz_id) {
+            quizData.quizId = window.quizExtensionsSettings.current_quiz_id;
+            quizData.fromSettings = true;
+            debug('Found quiz ID from settings:', quizData.quizId);
+        }
+        
+        // Method 2: From DOM metadata
+        const metaFields = document.querySelectorAll('.wpProQuiz_data');
+        metaFields.forEach(metaField => {
+            // Check quiz pro ID
+            const quizProIdField = metaField.querySelector('input[name="quiz_pro_id"]');
+            if (quizProIdField && quizProIdField.value) {
+                quizData.quizProId = quizProIdField.value;
+                debug('Found quiz pro ID from DOM:', quizData.quizProId);
+            }
+            
+            // Check quiz post ID
+            const quizPostIdField = metaField.querySelector('input[name="quiz_post_id"]');
+            if (quizPostIdField && quizPostIdField.value) {
+                quizData.quizPostId = quizPostIdField.value;
+                quizData.quizId = quizData.quizPostId; // Use post ID as the main ID
+                quizData.fromDom = true;
+                debug('Found quiz post ID from DOM:', quizData.quizPostId);
+            }
+        });
+        
+        return quizData;
+    }
+    
+    /**
+     * Normalize settings to handle different formats
+     */
+    function normalizeSettings(settings) {
+        // Check if we have Force Hint Mode in any format
+        const forceHintMode = 
+            settings.force_hint_mode === 'Yes' || 
+            settings.force_hint_mode === '1' || 
+            settings['Force Hint Mode'] === 'ENABLED';
+            
+        // Check if we have Require Correct in any format
+        const requireCorrect = 
+            settings.require_correct === 'Yes' || 
+            settings.require_correct === '1' || 
+            settings['Require Correct'] === 'Yes';
+            
+        // Check if we have Show Hint in any format
+        const showHint = 
+            settings.show_hint === 'Yes' || 
+            settings.show_hint === '1' || 
+            settings['Show Hint'] === 'Yes';
+            
+        // Check if we have Auto Show Hint in any format
+        const autoShowHint = 
+            settings.auto_show_hint === 'Yes' || 
+            settings.auto_show_hint === '1' || 
+            settings['Auto Show Hint'] === 'Yes';
+        
+        debug('Normalized settings:', {
+            forceHintMode,
+            requireCorrect, 
+            showHint,
+            autoShowHint
+        });
+        
+        return {
+            forceHintMode,
+            requireCorrect,
+            showHint,
+            autoShowHint,
+            // Keep raw settings for debugging
+            raw: settings
+        };
+    }
+    
+    /**
+     * Default settings when no quiz settings are found
+     */
+    function getDefaultSettings() {
+        debug('Using default settings');
+        return {
+            forceHintMode: false,
+            requireCorrect: true,
+            showHint: true,
+            autoShowHint: false,
+            isDefault: true
+        };
+    }
+    
+    /**
+     * Set up event listeners for quiz interactions
+     */
+    function setupEventListeners(settings) {
+        debug('Setting up event listeners');
+        
+        // Listen for hint button clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('wpProQuiz_TipButton') || 
+                e.target.closest('.wpProQuiz_TipButton')) {
+                const button = e.target.classList.contains('wpProQuiz_TipButton') ? 
+                               e.target : e.target.closest('.wpProQuiz_TipButton');
+                handleHintButtonClick(button, settings);
+            }
+        });
+        
+        // Listen for check button clicks
+        document.addEventListener('click', function(e) {
+            if ((e.target.name === 'check' && e.target.classList.contains('wpProQuiz_QuestionButton')) ||
+                e.target.closest('input[name="check"].wpProQuiz_QuestionButton')) {
+                const button = e.target.name === 'check' ? e.target : e.target.closest('input[name="check"]');
+                handleCheckButtonClick(button, settings);
+            }
+        });
+        
+        // Initial check to mark any answers that are already checked
+        setTimeout(initialCheck, 500, settings);
+    }
+    
+    /**
+     * Handle hint button clicks
+     */
+    function handleHintButtonClick(button, settings) {
+        debug('Hint button clicked');
+        
+        const questionItem = button.closest('.wpProQuiz_listItem');
+        if (!questionItem) {
+            debug('Could not find parent question item');
+            return;
+        }
+        
+        const questionId = questionItem.getAttribute('data-post-id');
+        if (!questionId) {
+            debug('No question ID found');
+            return;
+        }
+        
+        // Mark this hint as viewed
+        hintViewed[questionId] = true;
+        debug('Hint viewed for question', questionId);
+        
+        // Update the next button if it's a force hint mode quiz
+        if (settings.forceHintMode) {
+            updateNextButton(questionItem, settings);
+        }
+    }
+    
+    /**
+     * Handle check button clicks
+     */
+    function handleCheckButtonClick(button, settings) {
+        debug('Check button clicked');
+        
+        // Allow time for LearnDash to update its UI
+        setTimeout(function() {
+            const questionItem = button.closest('.wpProQuiz_listItem');
+            if (!questionItem) {
+                debug('Could not find parent question item');
+                return;
+            }
+            
+            const questionId = questionItem.getAttribute('data-post-id');
+            if (!questionId) {
+                debug('No question ID found');
+                return;
+            }
+            
+            // Check if answer is correct
+            const isCorrect = isAnswerCorrect(questionItem);
+            debug('Answer correctness result:', isCorrect);
+            
+            // Store result for this question
+            questionResults[questionId] = isCorrect;
+            
+            // If the answer is correct, mark the selected items
+            if (isCorrect) {
+                debug('Question ' + questionId + ' answered correctly');
+            }
+            
+            // Always update the next button
+            updateNextButton(questionItem, settings);
+        }, 300); // Wait a bit for LearnDash to finish its updates
+    }
+    
+    /**
+     * Initial check for any answers that are already marked
+     */
+    function initialCheck(settings) {
+        debug('Performing initial check');
+        
+        // Find all question items
+        const questionItems = document.querySelectorAll('.wpProQuiz_listItem');
+        questionItems.forEach(questionItem => {
+            const questionId = questionItem.getAttribute('data-post-id');
+            if (!questionId) return;
+            
+            // Check if hint is already viewed
+            const hintBox = questionItem.querySelector('.wpProQuiz_tipp');
+            if (hintBox && window.getComputedStyle(hintBox).display !== 'none') {
+                hintViewed[questionId] = true;
+                debug('Hint already viewed for question', questionId);
+            }
+            
+            // Check if answer is correct
+            const isCorrect = isAnswerCorrect(questionItem);
+            if (isCorrect) {
+                questionResults[questionId] = true;
+                debug('Question ' + questionId + ' already correct');
+            }
+            
+            // Update next button
+            updateNextButton(questionItem, settings);
+        });
+    }
+    
+    /**
+     * Strict check for correct answers - only returns true when LearnDash
+     * has definitely confirmed the answer is correct.
+     */
+    function isAnswerCorrect(questionItem) {
+        debug('Checking answer correctness');
+        
+        // PRIMARY METHOD: Check for LearnDash's correct feedback box
+        const correctFeedback = questionItem.querySelector('.wpProQuiz_correct');
+        if (correctFeedback) {
+            const style = window.getComputedStyle(correctFeedback);
+            if (style.display !== 'none') {
+                debug('LearnDash shows correct feedback');
+                return true;
+            }
+        }
+        
+        // METHOD 2: Check for correct answer class directly on an answer
+        const selectedWithCorrectClass = questionItem.querySelector('li.wpProQuiz_questionListItem.wpProQuiz_answerCorrect');
+        if (selectedWithCorrectClass) {
+            debug('Found answer with correct class');
+            return true;
+        }
+        
+        // METHOD 3: Look for data-correct attribute
+        const markedCorrectItems = questionItem.querySelectorAll('[data-correct="1"], [data-answer-correct="1"]');
+        if (markedCorrectItems.length > 0) {
+            debug('Found answer marked as correct via data attribute');
+            return true;
+        }
+        
+        // METHOD 4: Check if the .wpProQuiz_questionList has a 'correct' class
+        const questionList = questionItem.querySelector('.wpProQuiz_questionList');
+        if (questionList && questionList.classList.contains('correct')) {
+            debug('Question list has correct class');
+            return true;
+        }
+        
+        // METHOD 5: Look for specific Hebrew text in correct feedback (not in any random element)
+        const correctFeedbackElements = questionItem.querySelectorAll('.wpProQuiz_correct *');
+        for (const element of correctFeedbackElements) {
+            const text = element.textContent.trim().toLowerCase();
+            if (text.includes('נכון') || text.includes('תשובה נכונה')) {
+                debug('Found Hebrew text in correct feedback box');
+                return true;
+            }
+        }
+
+        // METHOD 6: Check for LearnDash result display - more aggressive
+        const resultDiv = questionItem.querySelector('.wpProQuiz_response div[style*="display: block"]');
+        if (resultDiv) {
+            // Look for success icons or classes
+            const hasSuccessClass = resultDiv.classList.contains('wpProQuiz_correct') || 
+                                  resultDiv.classList.contains('correct') || 
+                                  resultDiv.querySelector('.correct');
+            if (hasSuccessClass) {
+                debug('Found result div with correct class');
+                return true;
+            }
+            
+            // Check text content for success indicators
+            const resultText = resultDiv.textContent.trim().toLowerCase();
+            if (resultText.includes('correct') || resultText.includes('נכון') ||
+                resultText.includes('right') || resultText.includes('good') ||
+                resultText.includes('תשובה נכונה')) {
+                debug('Found success indicator in result text');
+                return true;
+            }
+        }
+
+        // METHOD 7: For multi-choice questions, see if all selected items match correct items
+        const isMultiChoice = questionItem.querySelector('input[type="checkbox"]') !== null;
+        if (isMultiChoice) {
+            const allCorrectItems = questionItem.querySelectorAll('.wpProQuiz_questionListItem[data-correct="1"]');
+            const allSelectedItems = questionItem.querySelectorAll('.wpProQuiz_questionListItem input:checked');
+            
+            // Only if we have both selected items and known correct items
+            if (allCorrectItems.length > 0 && allSelectedItems.length > 0) {
+                let allMatch = true;
+                
+                // Check if all selected items are marked as correct
+                allSelectedItems.forEach(selectedInput => {
+                    const parentItem = selectedInput.closest('.wpProQuiz_questionListItem');
+                    if (parentItem && parentItem.getAttribute('data-correct') !== '1') {
+                        allMatch = false;
+                    }
+                });
+                
+                // Check that all correct items are selected
+                if (allCorrectItems.length !== allSelectedItems.length) {
+                    allMatch = false;
+                }
+                
+                if (allMatch) {
+                    debug('All selected items match correct items');
+                    return true;
+                }
+            }
+        }
+
+        // METHOD 8: Last resort - try to see if there's any visual indication
+        const checkButtons = questionItem.querySelectorAll('.wpProQuiz_questionList input.wpProQuiz_questionInput:checked, .wpProQuiz_questionListItem.correct');
+        const checkCorrectFeedback = questionItem.querySelectorAll('.wpProQuiz_question_text:contains("correct"), .wpProQuiz_question_text:contains("נכון")');
+        
+        if ((checkButtons.length > 0 && checkCorrectFeedback.length > 0) || 
+            questionItem.innerHTML.includes('correct-answer') || 
+            questionItem.innerHTML.includes('answer-correct')) {
+            debug('Found visual indication of correctness');
+            return true;
+        }
+        
+        debug('Could not determine correctness, defaulting to false');
+        return false;
+    }
+    
+    /**
+     * Update the Next button based on settings and state
+     */
+            return;
+        } else if (!isCorrect) {
+            debug('Hiding next button - answer is not correct (force hint mode)');
+            nextButton.style.display = 'none';
+            nextButton.disabled = true;
+            return;
+        } else if (!hasViewedHint) {
+            debug('Hiding next button - hint not yet viewed (force hint mode)');
+            nextButton.style.display = 'none'; 
+            nextButton.disabled = true;
+            return;
+        }
+    } 
+    // Regular mode: Just check if answer is correct based on settings
+    else if (settings.requireCorrect) {
+        if (isCorrect) {
+            debug('Enabling next button - answer is correct (regular mode)');
+            nextButton.style.display = 'inline-block';
+            nextButton.disabled = false;
+            return;
+                nextButton.style.cursor = 'pointer';
+                debug('Enabling next button - hint viewed (force hint mode)');
+            } else {
+                // Hint not viewed, hide Next button
+                nextButton.style.display = 'none';
+                nextButton.disabled = true;
+                debug('Hiding next button - hint not yet viewed (force hint mode)');
+            }
+        } else if (requireCorrect) {
+            // Non-force mode but require correct answer
+            if (isCorrect) {
+                nextButton.style.display = '';
+                nextButton.disabled = false;
+                nextButton.classList.remove('disabled');
+                nextButton.style.opacity = '1';
+                nextButton.style.cursor = 'pointer';
+                debug('Enabling next button - answer is correct (non-force mode)');
+            } else {
+                nextButton.style.display = 'none';
+                nextButton.disabled = true;
+                debug('Hiding next button - answer is incorrect (non-force mode)');
+            }
+        } else {
+            // No restrictions, show Next button
+            nextButton.style.display = '';
+            nextButton.disabled = false;
+            nextButton.classList.remove('disabled');
+            nextButton.style.opacity = '1';
+            nextButton.style.cursor = 'pointer';
+            debug('Enabling next button - no restrictions mode');
+        }
+    }
+})();

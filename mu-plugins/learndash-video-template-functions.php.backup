@@ -1,0 +1,355 @@
+<?php
+/**
+ * LearnDash Video Template Functions
+ * 
+ * Provides template functions for manually adding video support to custom
+ * LearnDash lesson templates.
+ * 
+ * @package LearnDash_Video_Template_Functions
+ * @version 1.0.0
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Display video content for current lesson/topic
+ * 
+ * Use this function in your custom templates to display the video
+ * 
+ * @param array $args Optional arguments
+ * @return void
+ */
+function learndash_display_video($args = array()) {
+    echo learndash_get_video_html($args);
+}
+
+/**
+ * Get video HTML for current lesson/topic
+ * 
+ * @param array $args Optional arguments
+ * @return string Video HTML or empty string
+ */
+function learndash_get_video_html($args = array()) {
+    global $post;
+    
+    if (!$post || !in_array($post->post_type, array('sfwd-lessons', 'sfwd-topic'))) {
+        return '';
+    }
+    
+    // Default arguments
+    $defaults = array(
+        'wrapper_class' => 'learndash-video-wrapper',
+        'show_wrapper' => true,
+        'before_video' => '',
+        'after_video' => '',
+    );
+    
+    $args = wp_parse_args($args, $defaults);
+    
+    // Check if video exists
+    if (!learndash_has_video($post)) {
+        return '';
+    }
+    
+    // Get video content
+    $video_content = learndash_get_video_content($post);
+    
+    if (empty($video_content)) {
+        return '';
+    }
+    
+    // Build output
+    $output = '';
+    
+    if ($args['show_wrapper']) {
+        $output .= '<div class="' . esc_attr($args['wrapper_class']) . '">';
+    }
+    
+    $output .= $args['before_video'];
+    $output .= $video_content;
+    $output .= $args['after_video'];
+    
+    if ($args['show_wrapper']) {
+        $output .= '</div>';
+    }
+    
+    return $output;
+}
+
+/**
+ * Get video embed URL for current lesson/topic
+ * 
+ * @return string Video URL or empty string
+ */
+function learndash_get_video_url() {
+    global $post;
+    
+    if (!$post || !in_array($post->post_type, array('sfwd-lessons', 'sfwd-topic'))) {
+        return '';
+    }
+    
+    $step_settings = learndash_get_setting($post);
+    
+    if (empty($step_settings['lesson_video_enabled']) || 
+        $step_settings['lesson_video_enabled'] !== 'on' ||
+        empty($step_settings['lesson_video_url'])) {
+        return '';
+    }
+    
+    return $step_settings['lesson_video_url'];
+}
+
+/**
+ * Get video provider (youtube, vimeo, etc.)
+ * 
+ * @return string Video provider or empty string
+ */
+function learndash_get_video_provider() {
+    $video_url = learndash_get_video_url();
+    
+    if (empty($video_url)) {
+        return '';
+    }
+    
+    // Detect provider based on URL
+    if (strpos($video_url, 'youtube.com') !== false || strpos($video_url, 'youtu.be') !== false) {
+        return 'youtube';
+    } elseif (strpos($video_url, 'vimeo.com') !== false) {
+        return 'vimeo';
+    } elseif (strpos($video_url, 'wistia.com') !== false || strpos($video_url, 'wistia.net') !== false) {
+        return 'wistia';
+    } elseif (strpos($video_url, 'vooplayer') !== false || strpos($video_url, 'spotlightr.com') !== false) {
+        return 'vooplayer';
+    } elseif (strpos($video_url, 'b-cdn.net') !== false) {
+        return 'bunny';
+    } else {
+        return 'local';
+    }
+}
+
+/**
+ * Check if video progression is enabled for current lesson/topic
+ * 
+ * @return bool True if progression enabled, false otherwise
+ */
+function learndash_is_video_progression_enabled() {
+    global $post;
+    
+    if (!$post || !in_array($post->post_type, array('sfwd-lessons', 'sfwd-topic'))) {
+        return false;
+    }
+    
+    $step_settings = learndash_get_setting($post);
+    
+    return !empty($step_settings['lesson_video_track_time']) && 
+           $step_settings['lesson_video_track_time'] === 'on';
+}
+
+/**
+ * Get video settings for current lesson/topic
+ * 
+ * @return array Video settings
+ */
+function learndash_get_video_settings() {
+    global $post;
+    
+    if (!$post || !in_array($post->post_type, array('sfwd-lessons', 'sfwd-topic'))) {
+        return array();
+    }
+    
+    $step_settings = learndash_get_setting($post);
+    
+    $video_settings = array();
+    
+    // Extract video-related settings
+    $video_keys = array(
+        'lesson_video_enabled',
+        'lesson_video_url',
+        'lesson_video_shown',
+        'lesson_video_auto_start',
+        'lesson_video_show_controls',
+        'lesson_video_track_time',
+        'lesson_video_auto_complete',
+        'lesson_video_auto_complete_delay',
+        'lesson_video_hide_complete_button',
+        'lesson_video_focus_pause'
+    );
+    
+    foreach ($video_keys as $key) {
+        if (isset($step_settings[$key])) {
+            $video_settings[$key] = $step_settings[$key];
+        }
+    }
+    
+    return $video_settings;
+}
+
+/**
+ * Shortcode to display video in content
+ * 
+ * Usage: [learndash_video]
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Video HTML
+ */
+function learndash_video_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'wrapper_class' => 'learndash-video-shortcode',
+        'show_wrapper' => true,
+    ), $atts, 'learndash_video');
+    
+    // Convert string boolean to actual boolean
+    $atts['show_wrapper'] = filter_var($atts['show_wrapper'], FILTER_VALIDATE_BOOLEAN);
+    
+    return learndash_get_video_html($atts);
+}
+add_shortcode('learndash_video', 'learndash_video_shortcode');
+
+/**
+ * Add video support to content via placeholder
+ * 
+ * This allows you to add [ld_video] placeholder in your lesson content
+ * and it will be replaced with the actual video
+ */
+function learndash_process_video_placeholder($content) {
+    if (!is_singular(array('sfwd-lessons', 'sfwd-topic'))) {
+        return $content;
+    }
+    
+    // Check if placeholder exists
+    if (strpos($content, '[ld_video]') === false) {
+        return $content;
+    }
+    
+    // Get video content
+    $video_html = learndash_get_video_html();
+    
+    // Replace placeholder
+    $content = str_replace('[ld_video]', $video_html, $content);
+    
+    return $content;
+}
+add_filter('the_content', 'learndash_process_video_placeholder', 15);
+
+/**
+ * Enqueue video assets when video functions are used
+ */
+function learndash_video_template_enqueue_assets() {
+    if (!is_singular(array('sfwd-lessons', 'sfwd-topic'))) {
+        return;
+    }
+    
+    if (!learndash_has_video()) {
+        return;
+    }
+    
+    // Enqueue LearnDash video CSS
+    $video_css_file = SFWD_LMS::get_template('learndash_lesson_video.css', null, null, true);
+    if ($video_css_file) {
+        wp_enqueue_style(
+            'learndash_lesson_video_template', 
+            learndash_template_url_from_path($video_css_file), 
+            array(), 
+            LEARNDASH_SCRIPT_VERSION_TOKEN
+        );
+    }
+    
+    // Enqueue video progression script
+    wp_enqueue_script(
+        'learndash_video_script_template',
+        LEARNDASH_LMS_PLUGIN_URL . 'assets/js/learndash_video_script.min.js',
+        array('jquery'),
+        LEARNDASH_SCRIPT_VERSION_TOKEN,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'learndash_video_template_enqueue_assets');
+
+/**
+ * Add video data to footer for progression tracking
+ */
+function learndash_video_template_footer_data() {
+    if (!is_singular(array('sfwd-lessons', 'sfwd-topic'))) {
+        return;
+    }
+    
+    if (!learndash_has_video()) {
+        return;
+    }
+    
+    global $post;
+    
+    // Get video data from LearnDash
+    if (class_exists('Learndash_Course_Video')) {
+        $ld_course_videos = Learndash_Course_Video::get_instance();
+        
+        // Get course ID
+        $course_id = learndash_get_course_id($post);
+        $user_id = get_current_user_id();
+        
+        // Initialize video for this step
+        $video_data = $ld_course_videos->init_video_data($post->ID, $course_id, $user_id);
+        
+        if (!empty($video_data)) {
+            ?>
+            <script type="text/javascript">
+            /* <![CDATA[ */
+            if (typeof learndash_video_data === 'undefined') {
+                var learndash_video_data = <?php echo json_encode($video_data); ?>;
+            }
+            /* ]]> */
+            </script>
+            <?php
+        }
+    }
+}
+add_action('wp_footer', 'learndash_video_template_footer_data');
+
+/**
+ * Debug function to show video information
+ * 
+ * @return string Debug information
+ */
+function learndash_video_debug_info() {
+    if (!current_user_can('manage_options')) {
+        return '';
+    }
+    
+    global $post;
+    
+    if (!$post || !in_array($post->post_type, array('sfwd-lessons', 'sfwd-topic'))) {
+        return '<p>Not a lesson or topic page.</p>';
+    }
+    
+    $output = '<div style="background: #f1f1f1; padding: 15px; margin: 20px 0; border: 1px solid #ccc;">';
+    $output .= '<h4>LearnDash Video Debug Info</h4>';
+    
+    $output .= '<p><strong>Post Type:</strong> ' . esc_html($post->post_type) . '</p>';
+    $output .= '<p><strong>Post ID:</strong> ' . esc_html($post->ID) . '</p>';
+    
+    $has_video = learndash_has_video($post);
+    $output .= '<p><strong>Has Video:</strong> ' . ($has_video ? 'Yes' : 'No') . '</p>';
+    
+    if ($has_video) {
+        $video_url = learndash_get_video_url();
+        $video_provider = learndash_get_video_provider();
+        $video_progression = learndash_is_video_progression_enabled();
+        
+        $output .= '<p><strong>Video URL:</strong> ' . esc_html($video_url) . '</p>';
+        $output .= '<p><strong>Video Provider:</strong> ' . esc_html($video_provider) . '</p>';
+        $output .= '<p><strong>Progression Enabled:</strong> ' . ($video_progression ? 'Yes' : 'No') . '</p>';
+        
+        $video_settings = learndash_get_video_settings();
+        $output .= '<p><strong>Video Settings:</strong></p>';
+        $output .= '<pre>' . esc_html(print_r($video_settings, true)) . '</pre>';
+    }
+    
+    $output .= '<p><strong>LEARNDASH_LESSON_VIDEO:</strong> ' . (defined('LEARNDASH_LESSON_VIDEO') && LEARNDASH_LESSON_VIDEO ? 'Enabled' : 'Disabled') . '</p>';
+    
+    $output .= '</div>';
+    
+    return $output;
+}

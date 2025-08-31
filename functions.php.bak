@@ -1,0 +1,875 @@
+<?php
+/**
+ * Theme functions and definitions
+ *
+ * @package HelloElementorChild
+ */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+// Define plugin constants
+if (!defined('LILAC_QUIZ_FOLLOWUP_VERSION')) {
+    define('LILAC_QUIZ_FOLLOWUP_VERSION', '1.0.0');
+}
+
+/**
+ * Change Add to Cart button text for WooCommerce
+ */
+add_filter('woocommerce_product_single_add_to_cart_text', 'ccr_custom_add_to_cart_text');
+add_filter('woocommerce_product_add_to_cart_text', 'ccr_custom_add_to_cart_text');
+
+function ccr_custom_add_to_cart_text() {
+    return 'רכשו עכשיו';
+}
+
+/**
+ * Redirect to checkout after adding a product to cart
+ */
+// Force redirect to checkout after adding to cart (server-side for non-AJAX requests)
+add_filter('woocommerce_add_to_cart_redirect', 'redirect_to_checkout_after_add_to_cart', 99);
+function redirect_to_checkout_after_add_to_cart($url) {
+    // Only redirect if coming from add to cart action
+    if (isset($_REQUEST['add-to-cart']) && !is_ajax()) {
+        // Remove any existing notices to prevent the duplicate product message
+        wc_clear_notices();
+        return wc_get_checkout_url();
+    }
+    return $url;
+}
+
+// Handle the add to cart action with direct checkout (client-side for AJAX requests)
+add_action('wp_footer', 'custom_add_to_cart_script');
+function custom_add_to_cart_script() {
+    if ((!is_product() && !is_cart()) || !function_exists('WC')) return;
+    
+    global $product;
+    $product_id = is_object($product) ? $product->get_id() : 0;
+    $checkout_url = wc_get_checkout_url();
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // Function to redirect to checkout
+        function redirectToCheckout() {
+            window.location.href = '<?php echo esc_js($checkout_url); ?>';
+            return false;
+        }
+
+        // Handle AJAX add to cart
+        $(document.body).on('added_to_cart', function(fragments, cart_hash, $button) {
+            // Redirect for all AJAX add to cart actions
+            setTimeout(redirectToCheckout, 100);
+            return false;
+        });
+
+        // Intercept the add to cart form submission for purchase now button
+        $('form.cart').on('submit', function(e) {
+            var $form = $(this);
+            var $button = $form.find('.single_add_to_cart_button');
+            
+            // Only if it's the purchase now button
+            if ($button.length && $button.text().trim() === 'רכשו עכשיו') {
+                e.preventDefault();
+                // Create a hidden form that submits directly to checkout
+                var form = document.createElement('form');
+                form.method = 'post';
+                form.action = '<?php echo esc_js($checkout_url); ?>';
+                
+                // Add all form fields to the new form
+                $form.find('input, select, textarea').each(function() {
+                    var $input = $(this);
+                    // Skip file inputs and buttons
+                    if ($input.attr('type') === 'file' || $input.attr('type') === 'submit' || $input.attr('type') === 'button') {
+                        return;
+                    }
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = $input.attr('name');
+                    input.value = $input.val();
+                    form.appendChild(input);
+                });
+                
+                // Add product ID and quantity
+                var productIdInput = document.createElement('input');
+                productIdInput.type = 'hidden';
+                productIdInput.name = 'add-to-cart';
+                productIdInput.value = '<?php echo esc_js($product_id); ?>';
+                form.appendChild(productIdInput);
+                
+                // Submit the form
+                document.body.appendChild(form);
+                form.submit();
+                
+                return false;
+            }
+            return true;
+        });
+        
+        // Handle direct "Add to Cart" button clicks
+        $('.single_add_to_cart_button').on('click', function(e) {
+            var $button = $(this);
+            if ($button.text().trim() === 'רכשו עכשיו') {
+                // Let the default action happen first
+                setTimeout(redirectToCheckout, 100);
+=======
+                // Show loading state
+                var originalText = $button.text();
+                $button.text('מועבר לתשלום...').prop('disabled', true);
+                
+                // Create a hidden form that goes straight to checkout
+                var form = document.createElement('form');
+                form.method = 'post';
+                form.action = '<?php echo esc_js($checkout_url); ?>';
+                
+                // Add product to cart
+                var input1 = document.createElement('input');
+                input1.type = 'hidden';
+                input1.name = 'add-to-cart';
+                input1.value = '<?php echo esc_js($product_id); ?>';
+                form.appendChild(input1);
+                
+                // Add nonce for security
+                var nonce = document.createElement('input');
+                nonce.type = 'hidden';
+                nonce.name = 'woocommerce-add-to-cart-nonce';
+                nonce.value = '<?php echo wp_create_nonce("woocommerce-add-to-cart"); ?>';
+                form.appendChild(nonce);
+                
+                // Add form to body and submit
+                document.body.appendChild(form);
+                form.submit();
+>>>>>>> 21d64a3 (coursepurchase)
+            }
+        });
+        
+        // If we're on the cart page and there are items, redirect to checkout
+        if ($('body').hasClass('woocommerce-cart') && $('.woocommerce-cart-form__contents').length) {
+            setTimeout(redirectToCheckout, 300);
+        }
+    });
+    </script>
+    <?php
+}
+
+/**
+ * Debug function to log to wp-content/debug.log
+ */
+if (!function_exists('write_log')) {
+    function write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+}
+
+/**
+ * Handle the redirect on add to cart
+ */
+add_filter('woocommerce_add_to_cart_redirect', function($url, $product_id = null) {
+    write_log('=== woocommerce_add_to_cart_redirect triggered ===');
+    write_log('Current URL: ' . $url);
+    write_log('Product ID: ' . print_r($product_id, true));
+    write_log('Is AJAX: ' . (defined('DOING_AJAX') ? 'yes' : 'no'));
+    write_log('Session ID: ' . WC()->session->get_customer_id());
+    
+    // Only redirect on single product pages and ensure we have a valid cart
+    if ((is_product() || $product_id) && !defined('DOING_AJAX')) {
+        write_log('Inside product page condition');
+        
+        // Force the cart to persist between requests
+        if (!WC()->cart->is_empty()) {
+            write_log('Cart is not empty');
+            write_log('Cart contents: ' . print_r(WC()->cart->get_cart_contents(), true));
+            
+            // Store the cart in the session
+            WC()->session->set('cart', WC()->cart->get_cart_for_session());
+            WC()->session->set('cart_totals', WC()->cart->get_totals());
+            WC()->session->set('applied_coupons', WC()->cart->get_applied_coupons());
+            
+            // Set a session flag to indicate we want to redirect
+            WC()->session->set('redirect_to_checkout', 'yes');
+            write_log('Set redirect_to_checkout = yes');
+            
+            // Force session save
+            WC()->session->save_data();
+            write_log('Session data saved');
+            
+            // Return the cart URL to prevent WooCommerce from redirecting yet
+            $cart_url = wc_get_cart_url();
+            write_log('Redirecting to cart: ' . $cart_url);
+            return $cart_url;
+        } else {
+            write_log('Cart is empty');
+        }
+    } else {
+        write_log('Not on product page or is AJAX request');
+    }
+    
+    write_log('Returning default URL: ' . $url);
+    return $url;
+}, 10, 2);
+
+/**
+ * Ensure cart is loaded from session
+ */
+add_action('wp_loaded', function() {
+    if (!is_admin() && !defined('DOING_CRON') && !defined('DOING_AJAX')) {
+        write_log('=== wp_loaded action ===');
+        
+        if (WC()->session) {
+            write_log('WC Session exists');
+            
+            // Initialize the cart from session
+            WC()->cart->get_cart_from_session();
+            write_log('Cart contents after session load: ' . print_r(WC()->cart->get_cart_contents(), true));
+            
+            $redirect_flag = WC()->session->get('redirect_to_checkout');
+            write_log('Redirect flag: ' . print_r($redirect_flag, true));
+            
+            // Check if we need to redirect to checkout
+            if ($redirect_flag === 'yes' && !WC()->cart->is_empty()) {
+                write_log('Redirecting to checkout');
+                
+                // Clear the flag
+                WC()->session->set('redirect_to_checkout', 'no');
+                WC()->session->save_data();
+                
+                // Redirect to checkout
+                $checkout_url = wc_get_checkout_url();
+                write_log('Checkout URL: ' . $checkout_url);
+                
+                wp_redirect($checkout_url);
+                exit;
+            } else {
+                write_log('No redirect needed - Flag: ' . print_r($redirect_flag, true) . ', Cart empty: ' . (WC()->cart->is_empty() ? 'yes' : 'no'));
+            }
+        } else {
+            write_log('WC Session does not exist');
+        }
+    }
+}, 1);
+
+/**
+ * Add JavaScript for AJAX add to cart redirect
+ */
+add_action('wp_footer', function() {
+    if (is_product() || is_shop() || is_product_category()) {
+        $checkout_url = wc_get_checkout_url();
+        write_log('Adding JavaScript redirect handler. Checkout URL: ' . $checkout_url);
+        ?>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            console.log('WooCommerce redirect script loaded');
+            
+            // Debug function
+            function logToConsole(message) {
+                console.log('WooCommerce Redirect: ' + message);
+                try {
+                    $.post('<?php echo admin_url('admin-ajax.php'); ?>', {
+                        action: 'log_to_console',
+                        message: message
+                    });
+                } catch(e) {}
+            }
+            
+            // Handle AJAX add to cart
+            $(document.body).on('added_to_cart', function(fragments, cart_hash, button) {
+                logToConsole('Product added to cart via AJAX');
+                logToConsole('Button text: ' + $(button).text());
+                
+                // Redirect to checkout after a short delay
+                setTimeout(function() {
+                    logToConsole('Redirecting to checkout: <?php echo esc_js($checkout_url); ?>');
+                    window.location.href = '<?php echo esc_js($checkout_url); ?>';
+                }, 1000);
+            });
+            
+            // Handle direct form submission (non-AJAX)
+            $('form.cart').on('submit', function(e) {
+                var $form = $(this);
+                var $button = $form.find('.single_add_to_cart_button');
+                
+                if ($button.length) {
+                    logToConsole('Form submission intercepted');
+                    e.preventDefault();
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: wc_add_to_cart_params.ajax_url,
+                        data: $form.serialize() + '&action=woocommerce_add_to_cart',
+                        success: function(response) {
+                            logToConsole('AJAX add to cart successful');
+                            window.location.href = '<?php echo esc_js($checkout_url); ?>';
+                        },
+                        error: function(xhr, status, error) {
+                            logToConsole('AJAX error: ' + error);
+                            logToConsole('Status: ' + status);
+                            logToConsole('Response: ' + xhr.responseText);
+                            // Fallback to normal form submission if AJAX fails
+                            $form.off('submit').submit();
+                        }
+                    });
+                    return false;
+                }
+                return true;
+            });
+        });
+        </script>
+        <?php
+    }
+});
+
+// Handle AJAX logging
+add_action('wp_ajax_log_to_console', 'handle_console_log');
+add_action('wp_ajax_nopriv_log_to_console', 'handle_console_log');
+function handle_console_log() {
+    if (isset($_POST['message'])) {
+        write_log('JS: ' . sanitize_text_field($_POST['message']));
+    }
+    wp_die();
+}
+
+/**
+ * Prevent cart empty redirect
+ */
+add_action('template_redirect', function() {
+    if (is_cart() && WC()->cart->is_empty() && !is_ajax()) {
+        $referer = wp_get_referer();
+        if ($referer) {
+            wp_safe_redirect($referer);
+            exit;
+        }
+    }
+});
+
+/**
+ * Customize checkout fields for school registration
+ */
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+function custom_override_checkout_fields($fields) {
+    // Remove order comments and unnecessary fields
+    unset($fields['order']['order_comments']);
+    
+    // Student Information Section
+    $fields['billing']['billing_first_name'] = array(
+        'label'       => 'שם פרטי',
+        'placeholder' => 'שם פרטי',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 10
+    );
+    
+    $fields['billing']['billing_last_name'] = array(
+        'label'       => 'שם משפחה',
+        'placeholder' => 'שם משפחה',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 20
+    );
+    
+    // School Code Section
+    $fields['billing']['school_code'] = array(
+        'type'        => 'text',
+        'label'       => 'קוד בית ספר',
+        'placeholder' => 'הזן קוד בית ספר',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 30,
+        'clear'       => true
+    );
+    
+    // School Info Section (will be populated via AJAX)
+    $fields['billing']['school_info'] = array(
+        'type'        => 'hidden',
+        'class'       => array('school-info-container'),
+        'priority'    => 35
+    );
+    
+    // Class Number
+    $fields['billing']['class_number'] = array(
+        'type'        => 'text',
+        'label'       => 'מספר כיתה',
+        'placeholder' => 'מספר הכיתה שלך',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 40
+    );
+    
+    // Phone and ID Section
+    $fields['billing']['billing_phone'] = array(
+        'label'       => 'טלפון נייד (זיהוי משתמש)',
+        'placeholder' => 'הזן מספר טלפון נייד',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 50,
+        'clear'       => true
+    );
+    
+    $fields['billing']['phone_confirm'] = array(
+        'type'        => 'text',
+        'label'       => 'וידוא טלפון נייד',
+        'placeholder' => 'הזן שוב את המספר',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 60
+    );
+    
+    $fields['billing']['id_number'] = array(
+        'type'        => 'text',
+        'label'       => 'מספר ת.ז (סיסמה)',
+        'placeholder' => 'תעודת זהות',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 70
+    );
+    
+    $fields['billing']['id_confirm'] = array(
+        'type'        => 'text',
+        'label'       => 'וידוא תעודת זהות',
+        'placeholder' => 'הזן שוב ת.ז',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 80
+    );
+    
+    // Email field
+    $fields['billing']['billing_email'] = array(
+        'label'       => 'אימייל לאישור',
+        'placeholder' => 'אימייל לאישור הרשמה',
+        'required'    => true,
+        'class'       => array('form-row-wide'),
+        'priority'    => 90,
+        'clear'       => true
+    );
+    
+    // Promo code link
+    $fields['billing']['promo_code'] = array(
+        'type'        => 'checkbox',
+        'label'       => 'יש ברשותי קוד הטבה',
+        'class'       => array('form-row-wide'),
+        'priority'    => 100
+    );
+    
+    // Remove all address fields for virtual products
+    if (WC()->cart && !empty(WC()->cart->get_cart())) {
+        $is_virtual = true;
+        foreach (WC()->cart->get_cart() as $cart_item) {
+            if (!$cart_item['data']->is_virtual()) {
+                $is_virtual = false;
+                break;
+            }
+        }
+        
+        if ($is_virtual) {
+            unset($fields['billing']['billing_company']);
+            unset($fields['billing']['billing_country']);
+            unset($fields['billing']['billing_address_1']);
+            unset($fields['billing']['billing_address_2']);
+            unset($fields['billing']['billing_city']);
+            unset($fields['billing']['billing_state']);
+            unset($fields['billing']['billing_postcode']);
+        }
+    }
+    
+    return $fields;
+}
+
+/**
+ * Set default country to Israel and hide country field
+ */
+add_filter('default_checkout_billing_country', function() {
+    return 'IL'; // ISO code for Israel
+});
+
+/**
+ * Remove address fields from checkout
+ */
+add_filter('woocommerce_checkout_fields', function($fields) {
+    // Remove shipping fields
+    unset($fields['shipping']);
+    
+    return $fields;
+});
+
+/**
+ * Remove duplicate product error message
+ */
+add_filter('woocommerce_add_error', function($error) {
+    if (strpos($error, 'You cannot add another') !== false) {
+        // Return an empty string to prevent the error from showing
+        return '';
+    }
+    return $error;
+});
+
+/**
+ * Clear any error notices on the cart page
+ */
+add_action('template_redirect', function() {
+    if (is_cart()) {
+        wc_clear_notices();
+        
+        // If cart is not empty, redirect to checkout
+        if (!WC()->cart->is_empty()) {
+            wp_redirect(wc_get_checkout_url());
+            exit;
+        }
+    }
+}, 99);
+
+/**
+ * Enqueue scripts and styles
+ */
+function hello_elementor_child_scripts_styles() {
+    // Enqueue parent theme styles
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('hello-elementor-theme-style'),
+        wp_get_theme()->get('Version')
+    );
+
+    // Enqueue WooCommerce scripts if WooCommerce is active
+    if (class_exists('WooCommerce')) {
+        wp_enqueue_script('wc-add-to-cart');
+        wp_enqueue_script('wc-cart-fragments');
+    
+    // Enqueue WooCommerce scripts and styles if WooCommerce is active
+    if (class_exists('WooCommerce')) {
+        // Enqueue WooCommerce scripts
+        if (is_product() || is_cart() || is_checkout()) {
+            wp_enqueue_script('wc-add-to-cart');
+            wp_enqueue_script('wc-cart-fragments');
+            
+            // Localize the script with the AJAX URL and other parameters
+            wp_localize_script('wc-add-to-cart', 'wc_add_to_cart_params', array(
+                'ajax_url' => WC()->ajax_url(),
+                'wc_ajax_url' => WC_AJAX::get_endpoint("%%endpoint%%"),
+                'i18n_view_cart' => __('View cart', 'woocommerce'),
+                'cart_url' => wc_get_cart_url(),
+                'is_cart' => is_cart(),
+                'cart_redirect_after_add' => get_option('woocommerce_cart_redirect_after_add')
+            ));
+        }
+    }
+    
+    // Enqueue custom scripts only if they exist
+    if (file_exists(get_stylesheet_directory() . '/assets/js/custom.js')) {
+        wp_enqueue_script(
+            'hello-elementor-child-script',
+            get_stylesheet_directory_uri() . '/assets/js/custom.js',
+            ['jquery'],
+            filemtime(get_stylesheet_directory() . '/assets/js/custom.js'),
+            true
+        );
+    }
+    
+    // Enqueue quiz answer handler on quiz pages
+    if (is_singular('sfwd-quiz')) {
+        wp_enqueue_script(
+            'quiz-answer-handler',
+            get_stylesheet_directory_uri() . '/assets/js/quiz-answer-handler.js',
+            ['jquery'],
+            filemtime(get_stylesheet_directory() . '/assets/js/quiz-answer-handler.js'),
+            true
+        );
+        
+        // Ensure jQuery is loaded
+        if (!wp_script_is('jquery', 'enqueued')) {
+            wp_enqueue_script('jquery');
+        }
+    }
+
+    // Enqueue child theme scripts
+    wp_enqueue_script(
+        'hello-elementor-child-script',
+        get_stylesheet_directory_uri() . '/js/scripts.js',
+        array('jquery'),
+        wp_get_theme()->get('Version'),
+        true
+    );
+
+    // Localize script with AJAX URL
+    wp_localize_script(
+        'hello-elementor-child-script',
+        'ajax_object',
+        array('ajax_url' => admin_url('admin-ajax.php'))
+    );
+
+    // Enqueue Font Awesome
+    wp_enqueue_style(
+        'font-awesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
+        array(),
+        '6.0.0-beta3'
+    );
+
+    // Enqueue custom styles if the file exists
+    $custom_styles_path = get_stylesheet_directory() . '/css/custom-styles.css';
+    if (file_exists($custom_styles_path)) {
+        wp_enqueue_style(
+            'custom-styles',
+            get_stylesheet_directory_uri() . '/css/custom-styles.css',
+            array(),
+            filemtime($custom_styles_path)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
+
+/**
+ * Enqueue progress bar styles
+ */
+function enqueue_progress_bar_styles() {
+    // Only load on quiz pages
+    if (is_singular('sfwd-quiz')) {
+        wp_enqueue_style(
+            'progress-bar-styles',
+            get_stylesheet_directory_uri() . '/assets/css/progress-bar.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/assets/css/progress-bar.css')
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_progress_bar_styles', 99);
+
+// Load other theme files
+require_once get_stylesheet_directory() . '/inc/shortcodes/loader.php';
+
+// Load Quiz Follow-up System
+require_once get_stylesheet_directory() . '/includes/messaging/class-quiz-followup.php';
+
+// Load Ultimate Member integration if UM is active
+function ccr_load_um_integration() {
+    if (class_exists('UM')) {
+        require_once get_stylesheet_directory() . '/includes/integrations/class-ultimate-member-integration.php';
+    }
+}
+add_action('after_setup_theme', 'ccr_load_um_integration', 5);
+
+// Load Messaging System
+function ccr_load_messaging_system() {
+    require_once get_stylesheet_directory() . '/includes/messaging/notifications.php';
+    
+    if (is_admin()) {
+        require_once get_stylesheet_directory() . '/includes/messaging/admin-functions.php';
+    }
+    
+    // Enqueue toast system and alert integration scripts
+    add_action('wp_enqueue_scripts', 'lilac_enqueue_toast_system');
+    add_action('wp_footer', 'lilac_add_toast_debug_code');
+}
+add_action('after_setup_theme', 'ccr_load_messaging_system', 10);
+
+/**
+ * Enqueue Toast Notification System scripts
+ */
+function lilac_enqueue_toast_system() {
+    // Force script versions to prevent caching during development
+    $force_version = time();
+    
+    // Enqueue jQuery as a dependency
+    wp_enqueue_script('jquery');
+    
+    // Enqueue Toast message system CSS FIRST
+    wp_enqueue_style(
+        'toast-system-css',
+        get_stylesheet_directory_uri() . '/includes/messaging/css/toast-system.css',
+        [],
+        $force_version
+    );
+    
+    // Enqueue Toast message system
+    wp_enqueue_script(
+        'toast-message-system',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/toast-system.js',
+        ['jquery'],
+        $force_version,
+        true // Load in footer for better performance
+    );
+    
+    // Enqueue Session Toast Extension
+    wp_enqueue_script(
+        'toast-session',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/session-toast.js',
+        ['jquery', 'toast-message-system'],
+        $force_version,
+        true
+    );
+    
+    // Enqueue Test Timer Extension
+    wp_enqueue_script(
+        'toast-test-timer',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/test-timer-toast.js',
+        ['jquery', 'toast-message-system'],
+        $force_version,
+        true
+    );
+    
+    // Enqueue Alert Helpers
+    wp_enqueue_script(
+        'alert-helpers',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/alert-helpers.js',
+        ['jquery', 'toast-message-system'],
+        $force_version,
+        true
+    );
+    
+    // Enqueue Toast Extensions CSS
+    wp_enqueue_style(
+        'toast-extensions-css',
+        get_stylesheet_directory_uri() . '/includes/messaging/css/toast-extensions.css',
+        ['toast-system-css'],
+        $force_version
+    );
+    
+    // Localize toast settings
+    wp_localize_script('toast-message-system', 'toastSettings', [
+        'defaultDuration' => 5000,
+        'position' => 'top-right', // Make sure the position is set correctly
+        'enableAlertIntegration' => true,
+        'debugMode' => true
+    ]);
+    
+    // Add a small fix to make sure the toast container uses the correct position
+    wp_add_inline_script('toast-message-system', '
+        jQuery(document).ready(function($) {
+            // Force the container to use the correct position
+            if ($("#lilac-toast-container").length) {
+                $("#lilac-toast-container").attr("class", "top-right");
+                console.log("Toast container position set to top-right");
+            }
+        });
+    ');
+}
+
+/**
+ * Add debug code to test toast functionality
+ */
+function lilac_add_toast_debug_code() {
+    ?>
+    <script type="text/javascript">
+    /* Toast System Debug Code */
+    console.log('Toast Debug Script Loaded');
+    
+    // Create global test function
+    window.TestToast = function() {
+        console.log('Testing Toast System...');
+        
+        if (typeof window.LilacToast !== 'undefined') {
+            console.log('LilacToast API found!');
+            window.LilacToast.success('Toast API is working!', 'Success');
+            return 'Test successful';
+        } else {
+            console.log('LilacToast API not found');
+            alert('This is a native alert - LilacToast not loaded');
+            return 'Test failed';
+        }
+    };
+    
+    // Test alert integration
+    window.TestAlert = function(message) {
+        console.log('Testing Alert Integration...');
+        alert(message || 'This is a test alert');
+        return 'Alert test completed';
+    };
+    
+    // Log toast system status on page load
+    jQuery(document).ready(function($) {
+        console.log('Toast System Status:', {
+            'jQuery Loaded': typeof $ === 'function',
+            'LilacToast Available': typeof window.LilacToast === 'function',
+            'LilacShowToast Available': typeof window.LilacShowToast === 'function',
+            'Alert Overridden': window.alert !== window.originalAlert
+        });
+    });
+    </script>
+    <?php
+}
+
+// Load Login System
+function ccr_load_login_system() {
+    if (!is_admin()) {
+        require_once get_stylesheet_directory() . '/src/Login/LoginManager.php';
+        require_once get_stylesheet_directory() . '/src/Login/Captcha.php';
+        require_once get_stylesheet_directory() . '/src/Login/UserAccountWidget.php';
+    }
+}
+add_action('after_setup_theme', 'ccr_load_login_system', 10);
+
+// Add body class for quiz types
+add_filter('body_class', function($classes) {
+    if (is_singular('sfwd-quiz')) {
+        $classes[] = 'quiz-page';
+        // Add quiz ID as a body class
+        global $post;
+        if ($post) {
+            $classes[] = 'quiz-' . $post->ID;
+        }
+        
+        // Backward compatibility
+        if ($enforce_hint === 'yes') {
+            $classes[] = 'forced-hint-quiz';
+        }
+    }
+    return $classes;
+}, 5); // Lower priority to ensure it runs early
+
+// Debug helper function
+if (!function_exists('write_log')) {
+    function write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+}
+
+
+function remove_css_js_version_query( $src ) {
+    if ( strpos( $src, '?ver=' ) !== false ) {
+        $src = remove_query_arg( 'ver', $src );
+    }
+    return $src;
+}
+add_filter( 'style_loader_src', 'remove_css_js_version_query', 9999 );
+add_filter( 'script_loader_src', 'remove_css_js_version_query', 9999 );
+
+// Load custom user functionality
+require_once get_stylesheet_directory() . '/includes/users/custom-user-redirects.php';
+
+// Load Registration Codes System
+function load_registration_codes_system() {
+    // Include the main registration codes class
+    $registration_codes_file = get_stylesheet_directory() . '/includes/registration/class-registration-codes.php';
+    
+    if (file_exists($registration_codes_file)) {
+        require_once $registration_codes_file;
+        
+        // Initialize the registration codes system
+        if (class_exists('Registration_Codes')) {
+            Registration_Codes::get_instance();
+            
+            // Add admin notice if current user is admin
+            if (current_user_can('manage_options')) {
+                add_action('admin_notices', function() {
+                   // echo '<div class="notice notice-success"><p>Registration Codes system is active. <a href="' . admin_url('admin.php?page=registration-codes') . '">Manage Registration Codes</a></p></div>';
+                });
+            }
+        }
+    }
+}
+add_action('after_setup_theme', 'load_registration_codes_system', 15);
+
+// Load WooCommerce Customizations
+if (class_exists('WooCommerce')) {
+    require_once get_stylesheet_directory() . '/includes/woocommerce/class-woocommerce-customizations.php';
+}

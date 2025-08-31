@@ -1,0 +1,231 @@
+<?php
+/**
+ * Theme functions and definitions
+ *
+ * This is the main functions file which now serves primarily as a loader
+ * for modular functionality organized in separate files.
+ *
+ * @package HelloElementorChild
+ */
+
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * ======================================================================
+ * Core Functionality Modules
+ * ======================================================================
+ */
+
+// Load script and style enqueuing functions
+require_once get_stylesheet_directory() . '/includes/core/enqueue-scripts.php';
+
+// Load registration system functions
+require_once get_stylesheet_directory() . '/includes/core/registration-functions.php';
+
+// Load LearnDash integration functions
+require_once get_stylesheet_directory() . '/includes/core/learndash-functions.php';
+
+/**
+ * ======================================================================
+ * Admin Functionality
+ * ======================================================================
+ */
+
+// Load admin functions
+require_once get_stylesheet_directory() . '/includes/admin/admin-functions.php';
+
+/**
+ * ======================================================================
+ * Shortcodes
+ * ======================================================================
+ */
+
+// Load all shortcodes from the shortcodes directory
+require_once get_stylesheet_directory() . '/inc/shortcodes/loader.php';
+
+/**
+ * ======================================================================
+ * Messaging & User Management Systems
+ * ======================================================================
+ */
+
+/**
+ * Include Ultimate Member integration if UM is active
+ */
+function ccr_load_um_integration() {
+    if (function_exists('UM')) {
+        $file = get_stylesheet_directory() . '/includes/integrations/ultimate-member.php';
+        
+        if (file_exists($file)) {
+            require_once $file;
+        }
+    }
+}
+add_action('after_setup_theme', 'ccr_load_um_integration', 5);
+
+/**
+ * Load Toast Messaging System and Course Progress Tracking System
+ */
+function ccr_load_messaging_system() {
+    // Include the toast messaging system
+    $file = get_stylesheet_directory() . '/includes/messaging/toast-system.php';
+    
+    if (file_exists($file)) {
+        require_once $file;
+    }
+    
+    // Include course progress tracking
+    if (class_exists('SFWD_LMS')) {
+        $progress_file = get_stylesheet_directory() . '/includes/learndash/course-progress.php';
+        
+        if (file_exists($progress_file)) {
+            require_once $progress_file;
+        }
+    }
+}
+add_action('after_setup_theme', 'ccr_load_messaging_system', 10);
+
+/**
+ * Load Custom Login System
+ */
+function ccr_load_login_system() {
+    // Include custom login functionality
+    $file = get_stylesheet_directory() . '/includes/authentication/login-system.php';
+    
+    if (file_exists($file)) {
+        require_once $file;
+    }
+}
+add_action('after_setup_theme', 'ccr_load_login_system', 10);
+
+/**
+ * ======================================================================
+ * Database & Theme Activation
+ * ======================================================================
+ */
+
+/**
+ * Activation hook for creating the registration codes table
+ */
+function ccr_theme_activation() {
+    global $wpdb;
+    
+    // Create tables for registration codes if they don't exist
+    $table_name = $wpdb->prefix . 'registration_codes';
+    $usage_table = $wpdb->prefix . 'registration_code_usage';
+    
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    
+    $charset_collate = $wpdb->get_charset_collate();
+    
+    // Registration codes table
+    $sql = "CREATE TABLE $table_name (
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        code varchar(255) NOT NULL,
+        description text,
+        role varchar(50) DEFAULT 'subscriber',
+        max_uses int DEFAULT 0,
+        used_count int DEFAULT 0,
+        expiry_date datetime DEFAULT NULL,
+        date_created datetime DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY  (id),
+        UNIQUE KEY code (code)
+    ) $charset_collate;";
+    
+    dbDelta($sql);
+    
+    // Registration code usage table
+    $sql = "CREATE TABLE $usage_table (
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        code varchar(255) NOT NULL,
+        user_id bigint(20) NOT NULL,
+        used_date datetime DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY  (id),
+        KEY code (code),
+        KEY user_id (user_id)
+    ) $charset_collate;";
+    
+    dbDelta($sql);
+}
+add_action('after_switch_theme', 'ccr_theme_activation');
+
+/**
+ * ======================================================================
+ * Debug Logging
+ * ======================================================================
+ */
+
+// Load debug logging functionality
+require_once get_stylesheet_directory() . '/debug-log.php';
+
+// Suppress translation notices and other minor warnings in debug.log
+if (defined('WP_DEBUG') && WP_DEBUG) {
+    set_error_handler(function($errno, $errstr, $errfile, $errline) {
+        // Suppress translation loading notices from WP 6.7+
+        if (strpos($errstr, 'Translation loading for the') !== false && 
+            strpos($errstr, 'was triggered too early') !== false) {
+            return true;
+        }
+        
+        // Let WordPress handle everything else
+        return false;
+    }, E_USER_NOTICE);
+}
+
+/**
+ * ======================================================================
+ * Registration Module Handlers
+ * ======================================================================
+ */
+
+// Load modular registration handlers
+foreach (glob(get_stylesheet_directory() . '/includes/registration/*.php') as $file) {
+    require_once $file;
+}
+
+// LearnDash Hints Module moved to plugin
+
+// Allow old [course-purchase] tags to use the new handler
+add_shortcode('course-purchase', 'course_purchase_render');
+
+add_filter('use_block_editor_for_post', '__return_false');
+
+/**
+ * ======================================================================
+ * Lesson & Topic Importers
+ * ======================================================================
+ */
+
+// Load Lesson & Topic Importer
+require_once get_stylesheet_directory() . '/includes/admin/class-lesson-importer.php';
+
+/**
+ * ======================================================================
+ * Plugin Integrations
+ * ======================================================================
+ */
+
+// ACF Settings for Plugin
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+// Disable Gravity Forms AJAX
+add_filter('gform_disable_ajax', '__return_true');
+
+// Auto-update Elementor templates
+add_filter('elementor/files/allow_regenerate_all_css', '__return_true');
+
+// Disable Elementor fonts in admin
+add_filter('elementor/editor/remote_info_data', function($data) {
+    if (isset($data['icons']) && is_array($data['icons'])) {
+        foreach ($data['icons'] as &$icon) {
+            // Fix icons loading on slow admin connections
+            if (!empty($icon['fetchTtl'])) {
+                $icon['fetchTtl'] = 7200000; // Every 2 hours max
+            }
+        }
+    }
+    return $data;
+});

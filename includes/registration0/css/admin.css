@@ -1,0 +1,396 @@
+/**
+ * Registration Codes Admin Styles
+ */
+
+/* General Styles */
+.registration-codes .card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.registration-codes .card h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.registration-codes .card h3 {
+    margin-top: 0;
+}
+
+/* Tabs */
+.registration-codes .nav-tab-wrapper {
+    margin: 20px 0 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.registration-codes .nav-tab {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-left: 0.5em;
+    padding: 5px 15px;
+    font-size: 14px;
+    line-height: 1.71428571;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #2271b1;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.registration-codes .nav-tab-active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    color: #1d2327;
+}
+
+.registration-codes .nav-tab:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Forms */
+.registration-codes .form-table th {
+    width: 200px;
+}
+
+.registration-codes .form-table td p.description {
+    margin: 4px 0 0;
+    color: #646970;
+}
+
+/* Code List Table */
+.registration-codes .wp-list-table {
+    margin-top: 15px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.registration-codes .wp-list-table th.column-code {
+    width: 20%;
+}
+
+/* Generated Codes Section */
+#generated-codes-container {
+    display: none;
+    margin-top: 30px;
+}
+
+.generated-codes-notice {
+    display: none;
+    margin: 15px 0;
+}
+
+.generated-codes-actions {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.generated-codes-actions .button {
+    display: flex;
+    align-items: center;
+}
+
+.generated-codes-actions .button .dashicons {
+    margin-right: 5px;
+}
+
+#generated-codes-output table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#generated-codes-output table th,
+#generated-codes-output table td {
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+
+#generated-codes-output table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+#generated-codes-output table code {
+    background: #f6f7f7;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Spinner */
+.spinner.is-active {
+    visibility: visible;
+    margin-top: 4px;
+}
+
+.registration-codes .wp-list-table th.column-group,
+.registration-codes .wp-list-table th.column-role {
+    width: 15%;
+}
+
+.registration-codes .wp-list-table th.column-status {
+    width: 10%;
+}
+
+.registration-codes .wp-list-table th.column-created,
+.registration-codes .wp-list-table th.column-used {
+    width: 20%;
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.status-active {
+    background-color: #e6f3e6;
+    color: #1d7e1d;
+}
+
+.status-used {
+    background-color: #f0f0f1;
+    color: #646970;
+}
+
+/* Code Generation */
+.code-output {
+    background: #f0f0f1;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1.5;
+}
+
+.generated-codes-actions {
+    margin: 15px 0;
+}
+
+.generated-codes-actions .button {
+    margin-right: 8px;
+}
+
+/* Import/Export */
+.import-export-tabs {
+    margin-top: 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.import-instructions {
+    background: #f8f9f9;
+    border-left: 4px solid #72aee6;
+    padding: 12px;
+    margin: 0 0 20px;
+}
+
+.import-instructions code {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-family: monospace;
+}
+
+/* Responsive Tables */
+@media screen and (max-width: 782px) {
+    .registration-codes .wp-list-table th.column-code,
+    .registration-codes .wp-list-table th.column-group,
+    .registration-codes .wp-list-table th.column-role,
+    .registration-codes .wp-list-table th.column-status,
+    .registration-codes .wp-list-table th.column-created,
+    .registration-codes .wp-list-table th.column-used {
+        width: auto;
+    }
+    
+    .registration-codes .form-table th {
+        width: auto;
+        display: block;
+    }
+    
+    .registration-codes .form-table td {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Modal */
+.registration-codes-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.registration-codes-modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.registration-codes-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 4px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.registration-codes-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.registration-codes-modal-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.registration-codes-modal-close:hover,
+.registration-codes-modal-close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.registration-codes-modal-body {
+    margin: 15px 0;
+}
+
+.registration-codes-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.registration-codes-modal-footer .button {
+    margin-left: 10px;
+}
+
+/* Loading Spinner */
+.registration-codes .spinner {
+    float: none;
+    margin-top: 0;
+    visibility: visible;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .registration-codes-modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .registration-codes .nav-tab-wrapper,
+    .registration-codes .page-title-action,
+    .generated-codes-actions,
+    .wp-header-end,
+    .wrap h1 .page-title-action,
+    .subsubsub,
+    .search-box,
+    .tablenav.top,
+    .tablenav.bottom,
+    .bulkactions,
+    .check-column,
+    .row-actions {
+        display: none !important;
+    }
+    
+    .registration-codes .card {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .registration-codes .wp-list-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .registration-codes .wp-list-table th,
+    .registration-codes .wp-list-table td {
+        padding: 5px;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Legacy styles for backward compatibility */
+#generated-codes {
+    margin-top: 20px;
+}
+
+#codes-list {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#codes-list code {
+    display: block;
+    margin: 5px 0;
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.wrap h1 {
+    margin-bottom: 20px;
+}

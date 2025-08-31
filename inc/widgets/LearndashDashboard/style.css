@@ -1,0 +1,129 @@
+/* Learndash Dashboard Widget Styles */
+.ld-dashboard-wrapper {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.ld-dashboard-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.ld-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ld-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ld-box h4 {
+    margin: 0 0 1.25rem 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.ld-button {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.ld-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.ld-button.red { background-color: #f8a29a; }
+.ld-button.purple { background-color: #d3c6f1; }
+.ld-button.turquoise { background-color: #30e6d0; }
+.ld-button.light-blue { background-color: #b8f5f8; }
+
+.ld-profile-box {
+    background: #1a1f71;
+    color: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+}
+
+.ld-profile-box h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.ld-profile-box p {
+    margin: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ld-profile-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+.ld-profile-box ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ld-profile-box ul li:last-child {
+    border-bottom: none;
+}
+
+.ld-profile-box ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: padding-right 0.2s ease;
+}
+
+.ld-profile-box ul li a:hover {
+    padding-right: 5px;
+}
+
+.ld-footer-note {
+    text-align: center;
+    margin: 2rem 0 0 0;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .ld-dashboard-columns {
+        flex-direction: column;
+    }
+    
+    .ld-box, .ld-profile-box {
+        max-width: 100%;
+    }
+}

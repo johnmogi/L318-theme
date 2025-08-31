@@ -1,0 +1,79 @@
+/**
+ * LearnDash Quiz State Indicators
+ * 
+ * Visual indicators for quiz states in force hint mode
+ */
+
+/* Question item states */
+.wpProQuiz_listItem.lilac-hint-viewed {
+    position: relative;
+}
+
+.wpProQuiz_listItem.lilac-hint-viewed::before {
+    content: "רמז נצפה";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 193, 7, 0.15);
+    color: #b78500;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    z-index: 5;
+}
+
+.wpProQuiz_listItem.lilac-answer-correct {
+    border-right: 4px solid #4CAF50;
+}
+
+/* Hint button states */
+.wpProQuiz_TipButton.lilac-hint-used {
+    background-color: #fffbeb;
+    border-color: #f0b429;
+    color: #b58a2d;
+    position: relative;
+}
+
+.wpProQuiz_TipButton.lilac-hint-used::after {
+    content: "✓";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: #f0b429;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* Selected answer styles */
+.wpProQuiz_questionListItem.lilac-selected-correct {
+    border: 2px solid #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Label with selected state */
+label.is-selected {
+    font-weight: bold;
+}
+
+/* Next button highlighting in force hint mode */
+.wpProQuiz_button[name=next]:not([disabled]) {
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+}

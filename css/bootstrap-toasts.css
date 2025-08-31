@@ -1,0 +1,243 @@
+/**
+ * Bootstrap Toasts CSS
+ * 
+ * Styles for the toast notification system based on Bootstrap's toast component
+ * but optimized for WordPress and our custom implementation.
+ */
+
+/* Toast container */
+.toast-container {
+  position: fixed;
+  z-index: 1055;
+  margin: 0.75rem;
+  pointer-events: none;
+}
+
+.toast-container.top-start {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+
+.toast-container.top-center {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast-container.top-end,
+.toast-container.top-right {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+}
+
+.toast-container.middle-start {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.toast-container.middle-center {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toast-container.middle-end {
+  top: 50%;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  transform: translateY(-50%);
+}
+
+.toast-container.bottom-start {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+}
+
+.toast-container.bottom-center {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast-container.bottom-end,
+.toast-container.bottom-right {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
+}
+
+/* RTL support */
+.rtl .toast-container.top-start {
+  right: 0;
+  left: auto;
+}
+
+.rtl .toast-container.top-end,
+.rtl .toast-container.top-right {
+  right: auto;
+  left: 0;
+}
+
+.rtl .toast-container.middle-start {
+  right: 0;
+  left: auto;
+}
+
+.rtl .toast-container.middle-end {
+  right: auto;
+  left: 0;
+}
+
+.rtl .toast-container.bottom-start {
+  right: 0;
+  left: auto;
+}
+
+.rtl .toast-container.bottom-end,
+.rtl .toast-container.bottom-right {
+  right: auto;
+  left: 0;
+}
+
+/* Individual toast */
+.toast {
+  width: 350px;
+  max-width: 100%;
+  font-size: 0.875rem;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  display: none;
+}
+
+.toast.showing {
+  opacity: 0;
+}
+
+.toast.show {
+  display: block;
+  opacity: 1;
+}
+
+.toast.hide {
+  display: none;
+}
+
+/* Toast header */
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: #6c757d;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.toast-body {
+  padding: 0.75rem;
+}
+
+/* Toast types */
+.toast.toast-success {
+  border-left: 4px solid #28a745;
+}
+
+.toast.toast-success .toast-header {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #155724;
+}
+
+.toast.toast-danger,
+.toast.toast-error {
+  border-left: 4px solid #dc3545;
+}
+
+.toast.toast-danger .toast-header,
+.toast.toast-error .toast-header {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #721c24;
+}
+
+.toast.toast-warning {
+  border-left: 4px solid #ffc107;
+}
+
+.toast.toast-warning .toast-header {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #856404;
+}
+
+.toast.toast-info {
+  border-left: 4px solid #17a2b8;
+}
+
+.toast.toast-info .toast-header {
+  background-color: rgba(23, 162, 184, 0.1);
+  color: #0c5460;
+}
+
+/* RTL support for colored borders */
+.rtl .toast.toast-success,
+.rtl .toast.toast-danger,
+.rtl .toast.toast-error,
+.rtl .toast.toast-warning,
+.rtl .toast.toast-info {
+  border-left: none;
+  border-right: 4px solid;
+}
+
+.rtl .toast.toast-success {
+  border-right-color: #28a745;
+}
+
+.rtl .toast.toast-danger,
+.rtl .toast.toast-error {
+  border-right-color: #dc3545;
+}
+
+.rtl .toast.toast-warning {
+  border-right-color: #ffc107;
+}
+
+.rtl .toast.toast-info {
+  border-right-color: #17a2b8;
+}
+
+/* Close button */
+.toast .btn-close {
+  background: transparent;
+  border: 0;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  padding: 0;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}

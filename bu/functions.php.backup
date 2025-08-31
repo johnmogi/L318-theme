@@ -1,0 +1,1218 @@
+<?php
+/**
+ * Theme functions and definitions
+ *
+ * @package HelloElementorChild
+ */
+
+/**
+ * Load child theme css and optional scripts
+ *
+ * @return void
+ */
+function hello_elementor_child_enqueue_scripts() {
+  
+    $style_path = __DIR__ . '/style.css';
+
+  
+    $style_version = file_exists($style_path) ? filemtime($style_path) : time();
+
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        ['hello-elementor-theme-style'], 
+        $style_version 
+    );
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20);
+
+/**
+ * Enqueue custom scripts and styles
+ */
+function enqueue_custom_scripts() {
+    // Enqueue parent theme's style
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        [
+            'hello-elementor-theme-style',
+        ],
+        wp_get_theme()->get('Version')
+    );
+
+    // Enqueue user account widget style
+    wp_enqueue_style(
+        'user-widget-style',
+        get_stylesheet_directory_uri() . '/css/user-widget.css',
+        [],
+        wp_get_theme()->get('Version')
+    );
+    
+    // Quiz layout CSS and scripts for LearnDash moved to plugin
+    
+    // Add custom JS for registration form if needed
+    if (is_page('registration') || is_page('student-registration') || is_page('register')) {
+        wp_enqueue_script(
+            'registration-js',
+            get_stylesheet_directory_uri() . '/js/registration.js',
+            ['jquery'],
+            '1.0.0',
+            true
+        );
+    }
+    
+    // Enqueue Ultimate Member integration styles and scripts if UM is active
+    if (class_exists('UM')) {
+        wp_enqueue_style(
+            'ccr-um-integration',
+            get_stylesheet_directory_uri() . '/includes/integrations/css/um-integration.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/includes/integrations/css/um-integration.css')
+        );
+        
+        wp_enqueue_script(
+            'ccr-um-integration',
+            get_stylesheet_directory_uri() . '/includes/integrations/js/um-integration.js',
+            array('jquery'),
+            filemtime(get_stylesheet_directory() . '/includes/integrations/js/um-integration.js'),
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+/**
+ * Include admin functionality for registration codes
+ */
+require_once __DIR__ . '/includes/admin/class-registration-codes.php';
+
+/**
+ * Include Ultimate Member integration if UM is active
+ */
+function ccr_load_um_integration() {
+    if (class_exists('UM')) {
+        require_once __DIR__ . '/includes/integrations/class-ultimate-member-integration.php';
+        
+        // Make sure stylesheet is loaded after UM stylesheet
+        function ccr_um_integration_style_fix() {
+            // Deregister and re-register with proper dependencies
+            wp_deregister_style('ccr-um-integration');
+            wp_register_style(
+                'ccr-um-integration',
+                get_stylesheet_directory_uri() . '/includes/integrations/css/um-integration.css',
+                array('um_styles'),
+                filemtime(get_stylesheet_directory() . '/includes/integrations/css/um-integration.css')
+            );
+            wp_enqueue_style('ccr-um-integration');
+        }
+        add_action('wp_enqueue_scripts', 'ccr_um_integration_style_fix', 101);
+    }
+}
+// Load as early as possible
+add_action('after_setup_theme', 'ccr_load_um_integration', 5);
+
+/**
+ * Load Toast Messaging System and Course Progress Tracking System
+ */
+function ccr_load_messaging_system() {
+    require_once __DIR__ . '/src/Messaging/Toast.php';
+    require_once __DIR__ . '/src/Messaging/CourseProgress.php';
+    require_once __DIR__ . '/src/Messaging/SiteMessage.php';
+    
+    // Load Shortcodes
+    require_once __DIR__ . '/inc/shortcodes/loader.php';
+    if (is_admin()) {
+        require_once __DIR__ . '/src/Messaging/Admin/MessagingAdmin.php';
+        require_once __DIR__ . '/src/Messaging/Admin/MessageManager.php';
+        require_once __DIR__ . '/src/Messaging/Admin/TeacherImport.php';
+        
+        // Initialize admin classes with proper namespace
+        \Lilac\Messaging\Admin\MessagingAdmin::get_instance();
+        \Lilac\Messaging\Admin\MessageManager::get_instance();
+        \Lilac\Messaging\Admin\TeacherImport::get_instance();
+    }
+    
+    // Initialize frontend classes
+    \Lilac\Messaging\Toast::get_instance();
+    \Lilac\Messaging\CourseProgress::get_instance();
+    \Lilac\Messaging\SiteMessage::get_instance();
+}
+add_action('after_setup_theme', 'ccr_load_messaging_system', 10);
+
+/**
+ * Load Custom Login System
+ */
+function ccr_load_login_system() {
+    // Start session for login errors and messages
+    if (!session_id()) {
+        session_start();
+    }
+    
+    // Load the LoginManager class
+    require_once __DIR__ . '/src/Login/LoginManager.php';
+    
+    // Load captcha system (if files exist)
+    $captcha_file = __DIR__ . '/src/Login/Captcha.php';
+    $captcha_validator_file = __DIR__ . '/src/Login/CaptchaValidator.php';
+    
+    if (file_exists($captcha_file)) {
+        require_once $captcha_file;
+    }
+    
+    if (file_exists($captcha_validator_file)) {
+        require_once $captcha_validator_file;
+    }
+    
+    // Load User Account Widget
+    require_once __DIR__ . '/src/Login/UserAccountWidget.php';
+    
+    // Load Student Expiration System (for school_student time limit June 30, 2025)
+    $student_expiration_file = __DIR__ . '/src/Login/StudentExpiration.php';
+    if (file_exists($student_expiration_file)) {
+        require_once $student_expiration_file;
+    }
+    
+    // Close session to free file lock and prevent blocking REST API/loopback requests
+    if (session_id()) {
+        session_write_close();
+    }
+}
+add_action('after_setup_theme', 'ccr_load_login_system', 10);
+
+/**
+ * Load LearnDash Access Control for Students and Teachers
+ */
+function ccr_load_learndash_access_control() {
+    require_once __DIR__ . '/src/LearnDash/AccessControl.php';
+    \Lilac\LearnDash\AccessControl::get_instance();
+}
+add_action('after_setup_theme', 'ccr_load_learndash_access_control', 10);
+
+/**
+ * Activation hook for creating the registration codes table
+ */
+function ccr_theme_activation() {
+    global $ccr_registration_codes;
+    if (isset($ccr_registration_codes)) {
+        $ccr_registration_codes->create_table();
+    }
+}
+add_action('after_switch_theme', 'ccr_theme_activation');
+
+/**
+ * Validate registration code in the frontend
+ * 
+ * @param string $code The registration code to validate
+ * @return array Status and message
+ */
+function ccr_validate_code($code) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'registration_codes';
+    
+    // Check if table exists
+    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+        return [
+            'valid' => false,
+            'message' => 'Registration system not initialized',
+            'code' => null
+        ];
+    }
+    
+    // Check if code exists and is active
+    $code_data = $wpdb->get_row($wpdb->prepare(
+        "SELECT * FROM $table_name WHERE code = %s LIMIT 1",
+        $code
+    ));
+    
+    if (!$code_data) {
+        return [
+            'valid' => false,
+            'message' => 'קוד לא קיים / טעות הקלדה',
+            'code' => null
+        ];
+    }
+    
+    if ($code_data->status !== 'active') {
+        // Get user who used the code
+        $used_by = !empty($code_data->used_by) ? get_userdata($code_data->used_by) : null;
+        $used_by_name = $used_by ? $used_by->display_name : 'משתמש אחר';
+        
+        return [
+            'valid' => false,
+            'message' => 'קוד כבר בשימוש ע"י ' . $used_by_name,
+            'code' => $code_data
+        ];
+    }
+    
+    return [
+        'valid' => true,
+        'message' => 'קוד תקין',
+        'code' => $code_data
+    ];
+}
+
+/**
+ * Mark a registration code as used
+ * 
+ * @param string $code The code to mark as used
+ * @param int $user_id The user ID who used the code
+ * @return bool Success status
+ */
+function ccr_mark_code_used($code, $user_id) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'registration_codes';
+    
+    $result = $wpdb->update(
+        $table_name,
+        [
+            'status' => 'used',
+            'used_by' => $user_id,
+            'used_at' => current_time('mysql')
+        ],
+        ['code' => $code],
+        ['%s', '%d', '%s'],
+        ['%s']
+    );
+    
+    return $result !== false;
+}
+
+// --- Custom registration via access code shortcode ---
+/**
+ * Handles a two-step registration flow requiring an access code.
+ */
+function ccr_render_shortcode($atts) {
+    $atts = shortcode_atts(array('courses' => ''), $atts, 'code_registration');
+    ob_start();
+    if ("POST" === $_SERVER['REQUEST_METHOD'] && ! empty($_POST['access_code_action'])) {
+        $code = sanitize_text_field($_POST['access_code']);
+        
+        // Validate the code using our database system
+        $validation = ccr_validate_code($code);
+        
+        if ($validation['valid']) {
+            // Code is valid, show registration form
+            ccr_show_registration_form($code, $validation['code'], $atts['courses']);
+        } else {
+            // Code is invalid, show error message
+            echo '<p class="error">' . esc_html($validation['message']) . '</p>';
+            ccr_show_code_form();
+        }
+    } else {
+        ccr_show_code_form();
+    }
+    return ob_get_clean();
+}
+add_shortcode('code_registration', 'ccr_render_shortcode');
+
+/** Display the access code input form */
+function ccr_show_code_form() {
+    echo '<form method="post"><p><label>הקלד את קוד הגישה:</label><br>';
+    echo '<input type="text" name="access_code" required></p>';
+    echo '<input type="hidden" name="access_code_action" value="1">';
+    echo '<p><button type="submit">שלח</button></p></form>';
+}
+
+/**
+ * Process the registration form submission and create a new user
+ */
+function ccr_process_registration() {
+    // Only run on POST with our expected registration data
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['registration_code'])) {
+        return;
+    }
+    
+    // Basic validation
+    $errors = array();
+    
+    // Required fields
+    $required_fields = array(
+        'first_name' => 'שם פרטי',
+        'last_name' => 'שם משפחה',
+        'phone' => 'טלפון נייד',
+        'phone_confirm' => 'אימות טלפון',
+        'password' => 'סיסמה',
+        'password_confirm' => 'אימות סיסמה'
+    );
+    
+    foreach ($required_fields as $field => $label) {
+        if (empty($_POST[$field])) {
+            $errors[] = sprintf('השדה %s הוא שדה חובה', $label);
+        }
+    }
+    
+    // Phone validation
+    if (isset($_POST['phone']) && isset($_POST['phone_confirm'])) {
+        if ($_POST['phone'] !== $_POST['phone_confirm']) {
+            $errors[] = 'מספרי הטלפון אינם תואמים';
+        }
+    }
+    
+    // Password validation
+    if (isset($_POST['password']) && isset($_POST['password_confirm'])) {
+        if ($_POST['password'] !== $_POST['password_confirm']) {
+            $errors[] = 'הסיסמאות אינן תואמות';
+        }
+    }
+    
+    // Email validation (if provided)
+    if (!empty($_POST['email'])) {
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'כתובת האימייל אינה תקינה';
+        }
+    }
+    
+    // If we have errors, output them and return
+    if (!empty($errors)) {
+        echo '<div class="ccr-errors">';
+        echo '<p>יש לתקן את השגיאות הבאות:</p>';
+        echo '<ul>';
+        foreach ($errors as $error) {
+            echo '<li>' . esc_html($error) . '</li>';
+        }
+        echo '</ul></div>';
+        
+        // Show the form again, populating with submitted values
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Format phone number (remove dashes, spaces, etc.)
+    $phone = preg_replace('/[^0-9]/', '', $_POST['phone']);
+    
+    // Check if phone is already in use as username
+    if (username_exists($phone)) {
+        echo '<div class="ccr-errors">';
+        echo '<p>מספר הטלפון כבר רשום במערכת. נסה להתחבר או לשחזר סיסמה.</p>';
+        echo '</div>';
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Check if email is already in use
+    if (!empty($_POST['email']) && email_exists($_POST['email'])) {
+        echo '<div class="ccr-errors">';
+        echo '<p>כתובת האימייל כבר רשומה במערכת.</p>';
+        echo '</div>';
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Determine user role based on registration code
+    // Default to student_private if no specific code type is detected
+    $role = 'student_private';
+    
+    // Check if this is a school student code
+    if (isset($_POST['registration_group']) && !empty($_POST['registration_group'])) {
+        $group = $_POST['registration_group'];
+        // If it's a school group code, assign school_student role
+        $role = 'school_student';
+        
+        // Unless they explicitly selected teacher role (for school registrations)
+        if (isset($_POST['role']) && $_POST['role'] === 'teacher') {
+            $role = 'school_teacher';
+        }
+    }
+    
+    // Prepare user data
+    $userdata = array(
+        'user_login'    => $phone,
+        'user_pass'     => $_POST['password'],
+        'display_name'  => sanitize_text_field($_POST['first_name'] . ' ' . $_POST['last_name']),
+        'first_name'    => sanitize_text_field($_POST['first_name']),
+        'last_name'     => sanitize_text_field($_POST['last_name']),
+        'user_email'    => !empty($_POST['email']) ? sanitize_email($_POST['email']) : '',
+        'role'          => $role, // Use dynamic role based on registration code
+    );
+    
+    // Create the user
+    $user_id = wp_insert_user($userdata);
+    
+    // Handle errors
+    if (is_wp_error($user_id)) {
+        echo '<div class="ccr-errors">';
+        echo '<p>אירעה שגיאה בתהליך ההרשמה: ' . esc_html($user_id->get_error_message()) . '</p>';
+        echo '</div>';
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Enforce correct role after creation
+    $user = new WP_User($user_id);
+    $user->set_role($role);
+    // Retain default Subscriber role
+    $user->add_role('subscriber');
+    
+    // Ensure capabilities meta is stored and cache cleared
+    if (function_exists('clean_user_cache')) {
+        clean_user_cache($user_id);
+    }
+    global $wpdb;
+    update_user_meta(
+        $user_id,
+        $wpdb->prefix . 'capabilities',
+        array(
+            $role => true,
+            'subscriber' => true,
+        )
+    );
+    
+    // Save additional user meta
+    update_user_meta($user_id, 'phone', $phone);
+    
+    // Save school information for grade10 users
+    if ($role === 'school_student') {
+        if (!empty($_POST['school_code'])) {
+            update_user_meta($user_id, 'school_code', sanitize_text_field($_POST['school_code']));
+        }
+        if (!empty($_POST['school_name'])) {
+            update_user_meta($user_id, 'school_name', sanitize_text_field($_POST['school_name']));
+        }
+        if (!empty($_POST['school_city'])) {
+            update_user_meta($user_id, 'school_city', sanitize_text_field($_POST['school_city']));
+        }
+        if (!empty($_POST['class_name'])) {
+            update_user_meta($user_id, 'class_name', sanitize_text_field($_POST['class_name']));
+        }
+        update_user_meta($user_id, 'group_name', sanitize_text_field($_POST['registration_group']));
+    }
+    
+    // Mark the registration code as used
+    $code = sanitize_text_field($_POST['registration_code']);
+    ccr_mark_code_used($code, $user_id);
+    
+    // Automatically log the user in
+    wp_set_current_user($user_id);
+    wp_set_auth_cookie($user_id);
+    
+    // Force LearnDash enrollment if missing
+    if (function_exists('ld_update_course_access')) {
+        // Determine courses to grant: allow override via shortcode attribute
+        if (!empty($_POST['registration_courses'])) {
+            $raw = sanitize_text_field($_POST['registration_courses']);
+            $course_ids = array_map('intval', explode(',', $raw));
+        } else {
+            $course_ids = array(898, 1292);
+        }
+        foreach ($course_ids as $course_id) {
+            ld_update_course_access($user_id, $course_id, false);
+        }
+        // Debug: log granted courses
+        lilac_debug_log(sprintf("CCR DEBUG REG: user_id=%d, role=%s, courses_granted=%s", $user_id, $role, implode(',', $course_ids)));
+    }
+    
+    // Fallback: ensure course access meta exists
+    $fallback_ids = array(898, 1292);
+    foreach ($fallback_ids as $cid) {
+        $meta_key = '_sfwd-course_access-' . $cid;
+        $current = get_user_meta($user_id, $meta_key, true);
+        if (empty($current)) {
+            $ts = time();
+            update_user_meta($user_id, $meta_key, $ts);
+        }
+    }
+    
+    // Assign user to LearnDash group 1294 (group-based enrollment)
+    if (function_exists('ld_update_group_access')) {
+        ld_update_group_access($user_id, 1294, false);
+        // Debug: log granted group
+        lilac_debug_log(sprintf("CCR DEBUG REG: user_id=%d, group_granted=%d", $user_id, 1294));
+    }
+    
+    // Display success message
+    echo '<div class="ccr-success">';
+    echo '<h3>ההרשמה הושלמה בהצלחה!</h3>';
+    echo '<p>ברוך הבא, ' . esc_html($_POST['first_name']) . '!</p>';
+    
+    // Redirect to appropriate page
+    $redirect = '';
+    if ($role === 'school_student') {
+        $redirect = get_permalink(get_option('lilac_school_student_dashboard_page', 0));
+    } else if ($role === 'student_private') {
+        $redirect = get_permalink(get_option('lilac_private_student_dashboard_page', 0));
+    } else if ($role === 'school_teacher') {
+        $redirect = get_permalink(get_option('lilac_teacher_dashboard_page', 0));
+    }
+    
+    if (!$redirect) {
+        $redirect = home_url();
+    }
+    
+    // Increase redirect time to 7 seconds to ensure sync completes
+    echo '<p>מועבר לדף הבית בעוד 7 שניות...</p>';
+    echo '<script>
+        setTimeout(function() {
+            window.location.href = "' . esc_url($redirect) . '";
+        }, 7000);
+    </script>';
+    echo '<p>אם אינך מועבר באופן אוטומטי, <a href="' . esc_url($redirect) . '">לחץ כאן</a></p>';
+    echo '</div>';
+}
+add_action('init', 'ccr_process_registration');
+
+/**
+ * Update the registration form to include email field but remove unnecessary fields
+ * Simplified version - automatically assigns role based on registration code
+ */
+function ccr_show_registration_form($code, $code_data = null, $courses_att = '') {
+    // Get group name from code data if available
+    $group_name = $code_data ? $code_data->group_name : '';
+    
+    echo '<form method="post">';
+    // Show the validated registration code
+    echo '<p><label>קוד גישה:</label><br><input type="text" value="' . esc_attr($code) . '" readonly></p>';
+    // Show the associated group name if available
+    if ( $group_name ) {
+        echo '<p><label>מסלול:</label><br>' . esc_html( $group_name ) . '</p>';
+    }
+    echo '<input type="hidden" name="registration_code" value="' . esc_attr($code) . '">';
+    echo '<input type="hidden" name="registration_group" value="' . esc_attr($group_name) . '">';
+    
+    // Basic user information - only what's necessary
+    echo '<p><label>שם פרטי:</label><br><input type="text" name="first_name" required value="' . esc_attr($_POST['first_name'] ?? '') . '"></p>';
+    echo '<p><label>שם משפחה:</label><br><input type="text" name="last_name" required value="' . esc_attr($_POST['last_name'] ?? '') . '"></p>';
+    echo '<p><label>טלפון נייד:</label><br><input type="text" name="phone" required value="' . esc_attr($_POST['phone'] ?? '') . '"></p>';
+    echo '<p><label>אימות טלפון:</label><br><input type="text" name="phone_confirm" required value="' . esc_attr($_POST['phone_confirm'] ?? '') . '"></p>';
+    
+    // Add email field
+    echo '<p><label>כתובת אימייל (לא חובה, לשחזור סיסמה):</label><br><input type="email" name="email" value="' . esc_attr($_POST['email'] ?? '') . '"></p>';
+    
+    echo '<p><label>סיסמה:</label><br><input type="password" name="password" required></p>';
+    echo '<p><label>אימות סיסמה:</label><br><input type="password" name="password_confirm" required></p>';
+    
+    // Program selection and school fields are now hidden and automatically determined by the registration code
+    echo '<input type="hidden" name="program" value="default">'; 
+    
+    $reg_courses = $_POST['registration_courses'] ?? $courses_att;
+    echo '<input type="hidden" name="registration_courses" value="' . esc_attr($reg_courses) . '">';
+    
+    echo '<p><button type="submit">רשום</button></p></form>';
+}
+
+/**
+ * Load debug logging functionality
+ */
+require_once __DIR__ . '/debug-log.php';
+
+/**
+ * Handle fixing users with missing roles or memberships
+ */
+function lilac_fix_user_role_membership() {
+    if (!isset($_POST['fix_role_membership']) || !isset($_POST['fix_user_id']) || !isset($_POST['role_fix'])) {
+        return;
+    }
+    
+    $user_id = intval($_POST['fix_user_id']);
+    $role = sanitize_text_field($_POST['role_fix']);
+    
+    // Verify valid role
+    $valid_roles = array('student_private', 'school_student', 'school_teacher');
+    if (!in_array($role, $valid_roles)) {
+        return;
+    }
+    
+    // Fix user role
+    $user = new WP_User($user_id);
+    // Remove all existing roles first
+    $user_roles = $user->roles;
+    foreach ($user_roles as $old_role) {
+        $user->remove_role($old_role);
+    }
+    
+    // Explicitly set the new role
+    $user->add_role($role);
+    
+    // EXTREMELY aggressive approach - direct DB update for user role
+    global $wpdb;
+    $serialized_roles = serialize(array($role => true));
+    
+    $wpdb->update(
+        $wpdb->usermeta,
+        array('meta_value' => $serialized_roles),
+        array(
+            'user_id' => $user_id,
+            'meta_key' => $wpdb->prefix . 'capabilities'
+        )
+    );
+    
+    // Force user data refresh
+    clean_user_cache($user_id);
+    
+    // Assign user to LearnDash group 1294 on login
+    if (function_exists('ld_update_group_access')) {
+        ld_update_group_access($user_id, 1294, false);
+    }
+    
+    // Add success message as a cookie (since we'll be redirecting)
+    setcookie('lilac_fix_success', '1', time() + 60, '/');
+    
+    // Redirect to refresh the page and show updated status
+    wp_redirect($_SERVER['REQUEST_URI']);
+    exit;
+}
+add_action('admin_init', 'lilac_fix_user_role_membership');
+
+/**
+ * Show success message after role fix if cookie is set
+ */
+function lilac_show_fix_success_message() {
+    if (isset($_COOKIE['lilac_fix_success'])) {
+        echo '<div style="margin: 10px; padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724;">';
+        echo '<strong>Success!</strong> User role and membership have been fixed. The page has been refreshed to show the updated status.';
+        echo '</div>';
+        
+        // Clear the cookie
+        setcookie('lilac_fix_success', '', time() - 3600, '/');
+    }
+}
+add_action('wp_footer', 'lilac_show_fix_success_message');
+
+/**
+ * Enqueue all theme styles with proper dependencies
+ */
+function lilac_enqueue_all_styles() {
+    $theme_dir = get_stylesheet_directory();
+    $theme_uri = get_stylesheet_directory_uri();
+    
+    // Define all CSS files with their dependencies
+    $css_files = [
+        // Design tokens (colors, typography, spacing, etc.)
+        'lilac-design-tokens' => [
+            'path' => '/css/_design-tokens.css',
+            'deps' => [],
+            'media' => 'all',
+            'condition' => true, // Always load
+        ],
+        // Component styles (buttons, forms, cards, etc.)
+        'lilac-components' => [
+            'path' => '/css/_components.css',
+            'deps' => ['lilac-design-tokens'],
+            'media' => 'all',
+            'condition' => true, // Always load
+        ],
+        // Core variables and mixins (no dependencies)
+        'lilac-variables' => [
+            'path' => '/css/_variables.css',
+            'deps' => ['lilac-design-tokens'],
+            'media' => 'all',
+            'condition' => true, // Always load
+        ],
+        // Base styles
+        'lilac-base' => [
+            'path' => '/css/base.css',
+            'deps' => ['lilac-variables', 'lilac-components'],
+            'media' => 'all',
+            'condition' => true,
+        ],
+        // ACF Hints specific styles
+        'acf-hint-styles' => [
+            'path' => '/js/acf-hint-styles.css',
+            'deps' => ['lilac-variables', 'lilac-components'],
+            'media' => 'all',
+            'condition' => is_singular(['sfwd-quiz']) || 
+                          (is_singular() && has_shortcode(get_post()->post_content, 'learndash_quiz')),
+        ],
+        // Quiz specific styles
+        'quiz-layout' => [
+            'path' => '/css/quiz-layout.css',
+            'deps' => ['lilac-variables', 'lilac-components'],
+            'media' => 'all',
+            'condition' => is_singular(['sfwd-quiz']) || 
+                          is_singular(['sfwd-topic', 'sfwd-lesson']) ||
+                          (is_singular() && has_shortcode(get_post()->post_content, 'learndash_quiz')),
+        ],
+        // ACF hint highlights
+        'acf-hint-highlights' => [
+            'path' => '/css/acf-hint-highlights.css',
+            'deps' => ['lilac-variables', 'lilac-components'],
+            'media' => 'all',
+            'condition' => is_singular(['sfwd-quiz']) || 
+                          (is_singular() && has_shortcode(get_post()->post_content, 'learndash_quiz')),
+        ],
+    ];
+    
+    // Enqueue each CSS file if its condition is met
+    foreach ($css_files as $handle => $file) {
+        if (!empty($file['condition'])) {
+            if (file_exists($theme_dir . $file['path'])) {
+                wp_enqueue_style(
+                    $handle,
+                    $theme_uri . $file['path'],
+                    $file['deps'],
+                    filemtime($theme_dir . $file['path']),
+                    $file['media']
+                );
+            } else {
+                error_log('CSS file not found: ' . $theme_dir . $file['path']);
+            }
+        }
+    }
+}
+add_action('wp_enqueue_scripts', 'lilac_enqueue_all_styles', 10);
+
+// Remove any existing style enqueues to avoid conflicts
+function lilac_remove_conflicting_styles() {
+    // Remove the old ACF hint CSS enqueue
+    remove_action('wp_enqueue_scripts', 'lilac_enqueue_acf_hint_css', 20);
+}
+add_action('wp_enqueue_scripts', 'lilac_remove_conflicting_styles', 5);
+
+// Add to footer for easier debugging
+add_action('wp_footer', function() {
+    if (current_user_can('administrator') || isset($_GET['show_membership_debug'])) {
+        // Removed lilac_dump_user_membership function call
+    }
+});
+
+// Admin debug: inspect LearnDash access meta via ?check_ld_meta=1
+add_action('wp_footer', function() {
+    if (current_user_can('administrator') && isset($_GET['check_ld_meta'])) {
+        $param = sanitize_text_field($_GET['check_ld_meta']);
+        $uid = absint($param) > 0 ? absint($param) : get_current_user_id();
+        echo '<p>Inspecting LearnDash access meta for user ID ' . esc_html($uid) . '</p>';
+        $all_meta = get_user_meta($uid);
+        echo '<pre style="background:#f9f9f9;padding:10px;max-height:300px;overflow:auto;">'
+            . var_export($all_meta, true)
+            . '</pre>';
+        // Debug: show group membership
+        if (function_exists('learndash_get_users_group_ids')) {
+            $groups = learndash_get_users_group_ids($uid);
+            echo '<p>Group IDs: ' . esc_html(implode(', ', (array) $groups)) . '</p>';
+        }
+    }
+});
+
+// Auto-enroll new users into group 1294 and courses 898 & 1292
+add_action('user_register','lilac_auto_enroll',10,1);
+function lilac_auto_enroll($user_id) {
+    $user = new WP_User($user_id);
+    $roles = (array) $user->roles;
+    if (in_array('student_private',$roles,true) || in_array('student_school',$roles,true)) {
+        ld_update_group_access($user_id,1294);
+        ld_update_course_access($user_id,898,false);
+        ld_update_course_access($user_id,1292,false);
+    }
+}
+
+// Load modular registration handlers
+foreach ( glob( get_stylesheet_directory() . '/includes/registration/*.php' ) as $file ) {
+    require_once $file;
+}
+
+// allow old [course-purchase] tags to use the new handler
+add_shortcode('course-purchase', 'course_purchase_render');
+
+add_filter('use_block_editor_for_post', '__return_false');
+
+
+
+// Debug: log on user login
+add_action('wp_login', 'ccr_debug_login', 10, 2);
+function ccr_debug_login($user_login, $user) {
+    $uid = $user->ID;
+    $courses = function_exists('learndash_user_get_enrolled_courses') ? learndash_user_get_enrolled_courses($uid) : [];
+    $all_courses = [898,1292,1367];
+    $disallowed = array_diff($all_courses, $courses);
+    $groups = function_exists('learndash_get_users_group_ids') ? learndash_get_users_group_ids($uid) : [];
+    error_log(sprintf(
+        "CCR DEBUG LOGIN: user_id=%d, login=%s, courses=%s, disallowed=%s, groups=%s",
+        $uid,
+        $user_login,
+        implode(",", $courses),
+        implode(",", $disallowed),
+        implode(",", $groups)
+    ));
+}
+
+// Suppress translation notices and other minor warnings in debug.log
+if (defined('WP_DEBUG') && WP_DEBUG) {
+    set_error_handler(function($errno, $errstr, $errfile, $errline) {
+        // Suppress translation loading notices from WP 6.7+
+        if (strpos($errstr, '_load_textdomain_just_in_time was called') !== false) {
+            return true;
+        }
+        // List of suppressed translation domains
+        $suppressed_domains = [
+            '_load_textdomain_just_in_time',
+            'woocommerce',
+            'learndash-woocommerce',
+            'learndash'
+        ];
+        
+        // Check if error is related to text domain loading
+        if ($errno === E_NOTICE) {
+            foreach ($suppressed_domains as $domain) {
+                if (strpos($errstr, $domain) !== false) {
+                    return true; // Suppress this notice
+                }
+            }
+        }
+        
+        // Use default error handler for everything else
+        return false;
+    }, E_NOTICE);
+}
+
+// Fix teacher access to Registration Codes page
+add_filter('user_has_cap', function($allcaps, $caps, $args, $user) {
+    // Only modify capabilities for teachers
+    if (isset($user->roles) && is_array($user->roles) && in_array('school_teacher', $user->roles)) {
+        // Add specific capabilities teachers need
+        $teacher_caps = [
+            'manage_registration_codes' => true,
+            'view_teacher_dashboard' => true,
+            'edit_posts' => true,
+            'read' => true
+        ];
+        
+        // Check for specific admin page access
+        if (is_admin() && isset($_GET['page']) && $_GET['page'] === 'registration-codes') {
+            // Log access attempt for debugging
+            error_log('Teacher accessing registration codes: User ID ' . $user->ID);
+            
+            // Force capability for registration codes specifically
+            foreach ($caps as $cap) {
+                $allcaps[$cap] = true;
+            }
+        }
+        
+        $allcaps = array_merge($allcaps, $teacher_caps);
+    }
+    
+    return $allcaps;
+}, 99, 4);
+
+// Also add an explicit capability filter for CC Registration Codes page
+add_filter('ccr_user_can_access_registration_codes', function($can_access, $user_id) {
+    $user = get_userdata($user_id);
+    if ($user && in_array('school_teacher', $user->roles)) {
+        return true;
+    }
+    return $can_access;
+}, 10, 2);
+
+// Teacher role capabilities and login redirection
+add_action('init', function() {
+    // Ensure teacher role exists with proper capabilities
+    $role = get_role('school_teacher');
+    if ($role) {
+        // Add required capabilities for registration codes
+        $role->add_cap('manage_registration_codes', true);
+        $role->add_cap('view_teacher_dashboard', true);
+    }
+});
+
+// Redirect teachers to teacher dashboard after login
+add_filter('login_redirect', function($redirect_to, $requested_redirect_to, $user) {
+    // If there's already a specific redirect, respect it
+    if (!empty($requested_redirect_to)) {
+        return $requested_redirect_to;
+    }
+    
+    // Check if user is a teacher
+    if (isset($user->roles) && is_array($user->roles) && in_array('school_teacher', $user->roles)) {
+        return admin_url('admin.php?page=teacher-dashboard');
+    }
+    
+    return $redirect_to;
+}, 10, 3);
+
+// Handle teacher redirection from frontend to admin
+add_action('template_redirect', function() {
+    if (is_user_logged_in() && current_user_can('school_teacher') && is_page('teacher-dashboard')) {
+        wp_redirect(admin_url('admin.php?page=teacher-dashboard'));
+        exit;
+    }
+});
+
+/**
+ * Add teacher role field to user profile
+ */
+function add_teacher_role_field($user) {
+    // Only show to admins
+    if (!current_user_can('manage_options')) return;
+    
+    $is_teacher = in_array('school_teacher', $user->roles);
+    ?>
+    <h3>Teacher Role Assignment</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="school_teacher_role">Assign as Teacher</label></th>
+            <td>
+                <input type="checkbox" name="school_teacher_role" id="school_teacher_role" <?php checked($is_teacher); ?> />
+                <span class="description">Check to assign this user as a teacher</span>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+// Save teacher role assignment
+add_action('personal_options_update', 'save_teacher_role_field');
+add_action('edit_user_profile_update', 'save_teacher_role_field');
+
+function save_teacher_role_field($user_id) {
+    if (!current_user_can('edit_user', $user_id)) return;
+    
+    $user = get_userdata($user_id);
+    $is_teacher = isset($_POST['school_teacher_role']);
+    
+    if ($is_teacher) {
+        // Add teacher role
+        $user->add_role('school_teacher');
+    } else {
+        // Remove teacher role
+        $user->remove_role('school_teacher');
+    }
+}
+
+// School Teacher Admin Menu Restrictions
+add_action('admin_init', function() {
+    if (current_user_can('school_teacher')) {
+        // Remove all menus except our two allowed ones
+        global $menu, $submenu;
+        
+        $allowed_menus = [
+            'registration-codes',
+            'learndash-lms'
+        ];
+        
+        foreach ((array) $menu as $key => $item) {
+            if (!in_array($item[2], $allowed_menus)) {
+                remove_menu_page($item[2]);
+            }
+        }
+        
+        // Set view-only access for LearnDash (course management)
+        if (isset($submenu['learndash-lms'])) {
+            foreach ((array) $submenu['learndash-lms'] as $key => $item) {
+                // Only keep these submenu items (view-only)
+                $allowed_submenus = ['learndash-setup', 'edit.php?post_type=sfwd-courses'];
+                if (!in_array($item[2], $allowed_submenus)) {
+                    remove_submenu_page('learndash-lms', $item[2]);
+                }
+            }
+        }
+    }
+});
+
+// Add required capabilities for school_teacher role
+add_action('init', function() {
+    $role = get_role('school_teacher');
+    if ($role) {
+        // Minimum capabilities to view the allowed menus
+        $role->add_cap('read');
+        $role->add_cap('list_users');
+        $role->add_cap('edit_posts');
+        
+        // LearnDash view-only capabilities
+        $role->add_cap('view_courses');
+        $role->add_cap('view_lessons');
+        $role->add_cap('view_topics');
+        
+        // Registration codes capabilities
+        $role->add_cap('manage_registration_codes');
+    }
+});
+
+
+
+// Register Minimal Login Shortcode
+add_shortcode('lilac_minimal_login', function($atts) {
+    // Parse attributes
+    $atts = shortcode_atts(
+        array(
+            'title' => 'התחברות', // Default title
+            'login_button_text' => 'התחבר',
+            'show_remember_me' => 'yes',
+            'show_forgot_password' => 'yes'
+        ),
+        $atts,
+        'lilac_minimal_login'
+    );
+    
+    // Start output buffering
+    ob_start();
+    
+    // Display error message if login failed
+    $login_error = '';
+    if (isset($_GET['login']) && $_GET['login'] === 'failed') {
+        $error_message = isset($_SESSION['lilac_login_error']) ? $_SESSION['lilac_login_error'] : __('שם משתמש או סיסמה שגויים.', 'hello-child');
+        $login_error = '<div class="login-error">' . esc_html($error_message) . '</div>';
+        // Clear the error from session
+        unset($_SESSION['lilac_login_error']);
+    }
+    
+    // Display success message after registration
+    $success_message = '';
+    if (isset($_GET['registered']) && $_GET['registered'] === 'success') {
+        $success_message = '<div class="login-success">' . __('הרישום הושלם בהצלחה! כעת ניתן להתחבר.', 'hello-child') . '</div>';
+    }
+    
+    ?>
+    <div class="lilac-minimal-login-container">
+        <h3><?php echo esc_html($atts['title']); ?></h3>
+        
+        <?php echo $login_error; ?>
+        <?php echo $success_message; ?>
+        
+        <form method="post" class="lilac-minimal-login-form">
+            <div class="form-group">
+                <input type="text" name="log" id="lilac-minimal-username" required 
+                    placeholder="<?php echo esc_attr__('טלפון / אימייל', 'hello-child'); ?>" />
+            </div>
+            
+            <div class="form-group">
+                <input type="password" name="pwd" id="lilac-minimal-password" required 
+                    placeholder="<?php echo esc_attr__('סיסמה', 'hello-child'); ?>" />
+            </div>
+            
+            <?php if ($atts['show_remember_me'] === 'yes') : ?>
+            <div class="form-group remember-me">
+                <input type="checkbox" name="rememberme" id="lilac-minimal-rememberme" value="forever" />
+                <label for="lilac-minimal-rememberme"><?php _e('זכור אותי', 'hello-child'); ?></label>
+            </div>
+            <?php endif; ?>
+            
+            <input type="hidden" name="lilac_login_action" value="1" />
+            <?php wp_nonce_field('lilac_login_action', 'lilac_login_nonce'); ?>
+            
+            <div class="form-group submit-group">
+                <button type="submit" class="lilac-minimal-login-button">
+                    <?php echo esc_html($atts['login_button_text']); ?>
+                </button>
+            </div>
+            
+            <?php if ($atts['show_forgot_password'] === 'yes') : ?>
+            <div class="form-group links-group">
+                <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="forgot-password">
+                    <?php _e('שכחת סיסמה?', 'hello-child'); ?>
+                </a>
+            </div>
+            <?php endif; ?>
+        </form>
+    </div>
+    <style>
+        .lilac-minimal-login-container {
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            direction: rtl;
+        }
+
+        .lilac-minimal-login-container h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        .lilac-minimal-login-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .lilac-minimal-login-form input[type="text"],
+        .lilac-minimal-login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .lilac-minimal-login-form .remember-me {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .lilac-minimal-login-form .remember-me input {
+            margin-left: 8px;
+        }
+
+        .lilac-minimal-login-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .lilac-minimal-login-button:hover {
+            background-color: #2980b9;
+        }
+
+        .links-group {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .links-group a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .links-group a:hover {
+            text-decoration: underline;
+        }
+
+        .login-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .login-success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+    <?php
+    
+    // Return the buffered content
+    return ob_get_clean();
+});
+
+
+
+// Register the Admin Classes
+
+
+
+// Load Lesson & Topic Importer
+require_once get_stylesheet_directory() . '/includes/admin/class-lesson-importer.php';
+
+
+
+
+// a simple WordPress function to remove version query strings (e.g., ?ver=1.2.3) from enqueued CSS and JS files. 
+function remove_css_js_version_query( $src ) {
+    if ( strpos( $src, '?ver=' ) ) {
+        $src = remove_query_arg( 'ver', $src );
+    }
+    return $src;
+}
+
+add_filter( 'style_loader_src', 'remove_css_js_version_query', 10, 1 );
+add_filter( 'script_loader_src', 'remove_css_js_version_query', 10, 1 );
+

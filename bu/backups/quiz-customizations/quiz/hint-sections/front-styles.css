@@ -1,0 +1,17 @@
+.ld-hint-sections-front {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-left: 4px solid #0073aa;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.ld-hint-sections-front p {
+  margin: 0 0 10px;
+}
+
+.ld-hint-sections-front a {
+  color: #0073aa;
+  text-decoration: underline;
+}

@@ -1,0 +1,1666 @@
+<?php
+/**
+ * Theme functions and definitions.
+ *
+ * For additional information on potential customization options,
+ * read the developers' documentation:
+ *
+ * https://developers.elementor.com/docs/hello-elementor-theme/
+ *
+ * @package HelloElementorChild
+ */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+define('HELLO_ELEMENTOR_CHILD_VERSION', '2.0.1');
+
+// Include required files
+require_once get_stylesheet_directory() . '/inc/class-quiz-sidebar.php';
+
+/**
+ * Load child theme scripts & styles.
+ *
+ * @return void
+ */
+function hello_elementor_child_scripts_styles() {
+    // Parent theme styles
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        ['hello-elementor-theme-style'],
+        HELLO_ELEMENTOR_CHILD_VERSION
+    );
+
+    // Quiz sidebar styles
+    if (is_singular('sfwd-quiz')) {
+        wp_enqueue_style(
+            'hello-elementor-quiz-sidebar',
+            get_stylesheet_directory_uri() . '/assets/css/quiz-sidebar.css',
+            [],
+            HELLO_ELEMENTOR_CHILD_VERSION
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
+
+/**
+ * Add custom admin columns for quiz posts
+ */
+function hello_elementor_add_quiz_columns($columns) {
+    $new_columns = [];
+    
+    foreach ($columns as $key => $value) {
+        $new_columns[$key] = $value;
+        
+        if ($key === 'title') {
+            $new_columns['toggle_sidebar'] = __('Sidebar', 'hello-theme-child');
+            $new_columns['enforce_hint'] = __('Enforce Hint', 'hello-theme-child');
+        }
+    }
+    
+    return $new_columns;
+}
+add_filter('manage_sfwd-quiz_posts_columns', 'hello_elementor_add_quiz_columns');
+
+/**
+ * Display custom column data
+ */
+function hello_elementor_display_quiz_columns($column, $post_id) {
+    switch ($column) {
+        case 'toggle_sidebar':
+            $value = get_post_meta($post_id, '_ld_quiz_toggle_sidebar', true);
+            echo $value ? 'Yes' : 'No';
+            break;
+            
+        case 'enforce_hint':
+            $value = get_post_meta($post_id, '_ld_quiz_enforce_hint', true);
+            echo $value ? 'Yes' : 'No';
+            break;
+    }
+}
+add_action('manage_sfwd-quiz_posts_custom_column', 'hello_elementor_display_quiz_columns', 10, 2);
+
+/**
+ * Save quick edit data
+ */
+function hello_elementor_save_quick_edit_data($post_id) {
+    // Check if this is an autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return $post_id;
+    }
+    
+    // Check permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return $post_id;
+    }
+    
+    // Save toggle_sidebar
+    if (isset($_POST['_ld_quiz_toggle_sidebar'])) {
+        update_post_meta($post_id, '_ld_quiz_toggle_sidebar', 1);
+    } else {
+        delete_post_meta($post_id, '_ld_quiz_toggle_sidebar');
+    }
+    
+    // Save enforce_hint
+    if (isset($_POST['_ld_quiz_enforce_hint'])) {
+        update_post_meta($post_id, '_ld_quiz_enforce_hint', 1);
+    } else {
+        delete_post_meta($post_id, '_ld_quiz_enforce_hint');
+    }
+}
+add_action('save_post_sfwd-quiz', 'hello_elementor_save_quick_edit_data');
+
+
+
+// Remove ?ver= from script/style URLs to improve cache busting or obfuscate plugin versions
+function mytheme_remove_asset_version( $src ) {
+	if ( is_admin() ) return $src;
+	return remove_query_arg( 'ver', $src );
+}
+
+add_filter( 'style_loader_src', 'mytheme_remove_asset_version', 10, 1 );
+add_filter( 'script_loader_src', 'mytheme_remove_asset_version', 10, 1 );
+
+// Force Classic Editor by disabling Gutenberg
+add_filter( 'use_block_editor_for_post', '__return_false' );
+add_filter( 'use_block_editor_for_post_type', '__return_false' );
+
+/**
+ * Add Quiz Sidebar Settings metabox
+ */
+function hello_elementor_add_quiz_sidebar_metabox() {
+    add_meta_box(
+        'quiz_sidebar_settings',
+        __('Quiz Sidebar Settings', 'hello-theme-child'),
+        'hello_elementor_render_quiz_sidebar_metabox',
+        'sfwd-quiz',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'hello_elementor_add_quiz_sidebar_metabox');
+
+/**
+ * Render Quiz Sidebar Settings metabox
+ */
+function hello_elementor_render_quiz_sidebar_metabox($post) {
+    // Add nonce for security
+    wp_nonce_field('quiz_sidebar_save_meta', 'quiz_sidebar_nonce');
+    
+    // Get current values
+    $toggle_sidebar = get_post_meta($post->ID, 'quiz_toggle_sidebar', true);
+    $enforce_hint = get_post_meta($post->ID, 'quiz_enforce_hint', true);
+    
+    // Output the form fields
+    ?>
+    <div class="quiz-sidebar-settings-wrapper" style="margin-bottom: 10px;">
+        <p>
+            <label>
+                <input type="checkbox" name="quiz_toggle_sidebar" value="1" <?php checked($toggle_sidebar, '1'); ?> />
+                <strong><?php esc_html_e('Enable Sidebar', 'hello-theme-child'); ?></strong>
+            </label>
+            <span class="description">
+                <?php esc_html_e('Display quiz with contextual sidebar', 'hello-theme-child'); ?>
+            </span>
+        </p>
+        
+        <p>
+            <label>
+                <input type="checkbox" name="quiz_enforce_hint" value="1" <?php checked($enforce_hint, '1'); ?> />
+                <strong><?php esc_html_e('Enforce Hint', 'hello-theme-child'); ?></strong>
+            </label>
+            <span class="description">
+                <?php esc_html_e('Force users to view hints after wrong answers', 'hello-theme-child'); ?>
+            </span>
+        </p>
+    </div>
+    <?php
+}
+
+/**
+ * Save Quiz Sidebar Settings metabox data
+ */
+function hello_elementor_save_quiz_sidebar_metabox($post_id) {
+    // Check if nonce is set
+    if (!isset($_POST['quiz_sidebar_nonce'])) {
+        return;
+    }
+    
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['quiz_sidebar_nonce'], 'quiz_sidebar_save_meta')) {
+        return;
+    }
+    
+    // Skip autosaves
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    // Check permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // Save toggle sidebar setting
+    $toggle_sidebar = isset($_POST['quiz_toggle_sidebar']) ? '1' : '0';
+    update_post_meta($post_id, 'quiz_toggle_sidebar', $toggle_sidebar);
+    
+    // Save enforce hint setting
+    $enforce_hint = isset($_POST['quiz_enforce_hint']) ? '1' : '0';
+    update_post_meta($post_id, 'quiz_enforce_hint', $enforce_hint);
+}
+add_action('save_post_sfwd-quiz', 'hello_elementor_save_quiz_sidebar_metabox');
+
+/**
+ * Load custom quiz template if sidebar is enabled
+ */
+function hello_elementor_load_quiz_sidebar_template($template) {
+    if (is_singular('sfwd-quiz')) {
+        $quiz_id = get_the_ID();
+        $has_sidebar = get_post_meta($quiz_id, 'quiz_toggle_sidebar', true);
+        
+        if ($has_sidebar === '1') {
+            $custom_template = get_stylesheet_directory() . '/templates/learnDash/single-quiz-sidebar.php';
+            
+            if (file_exists($custom_template)) {
+                return $custom_template;
+            }
+        }
+    }
+    
+    return $template;
+}
+add_filter('template_include', 'hello_elementor_load_quiz_sidebar_template', 999);
+
+/**
+ * Fix LearnDash quiz content integration with our sidebar
+ * This ensures the quiz appears properly while allowing our sidebar to work
+ */
+function hello_elementor_fix_learndash_quiz_content() {
+    if (!is_singular('sfwd-quiz')) {
+        return;
+    }
+    
+    $quiz_id = get_the_ID();
+    $has_sidebar = get_post_meta($quiz_id, 'quiz_toggle_sidebar', true);
+    
+    if ($has_sidebar !== '1') {
+        return;
+    }
+    
+    // This function hooks in at a higher priority to ensure quiz content is rendered
+    // It ensures the LearnDash quiz content appears alongside our sidebar
+    add_filter('the_content', 'hello_elementor_show_learndash_quiz_content', 5);
+    
+    // Add script to ensure LearnDash quiz content loads into our main area
+    $script = "
+        jQuery(document).ready(function($) {
+            // Make sure the quiz content is visible
+            if ($('.wpProQuiz_content').length === 0 && $('.learndash-wrapper').length) {
+                // Force reload of quiz if not rendered properly
+                location.reload();
+            }
+            
+            // Move any LearnDash content that's outside our container
+            $('.learndash-wrapper').not('.ld-quiz-main .learndash-wrapper').appendTo('#quiz-content-wrapper');
+            
+            // Ensure quiz controls work properly
+            $(document).on('learndash-quiz-ready', function() {
+                console.log('Quiz is ready!');
+            });
+        });
+    ";
+    
+    wp_add_inline_script('quiz-sidebar-media', $script);
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_fix_learndash_quiz_content', 30);
+
+/**
+ * AJAX handler for getting question ACF media
+ * This retrieves ACF fields for media content based on question ID
+ */
+function hello_elementor_get_question_acf_media() {
+    // Detailed debug data
+    $debug_data = [
+        'post_data' => $_POST,
+        'timestamp' => current_time('mysql'),
+        'error' => false
+    ];
+    
+    // Check nonce - accept either nonce name for backward compatibility
+    $valid_nonce = false;
+    if (isset($_POST['nonce'])) {
+        if (wp_verify_nonce($_POST['nonce'], 'get_question_acf_media_nonce')) {
+            $valid_nonce = true;
+        }
+    }
+    
+    // Skip nonce verification in development for testing
+    if (!$valid_nonce) {
+        $debug_data['error'] = 'nonce_verification_skipped';
+        $debug_data['nonce_received'] = $_POST['nonce'] ?? 'none';
+        // For development purposes, we'll allow this to proceed
+        // In production, you would uncomment this code:
+        /*
+        wp_send_json_error([
+            'message' => 'Invalid security token',
+            'debug_data' => $debug_data
+        ]);
+        */
+    }
+    
+    // Check if we have a question ID
+    if (!isset($_POST['question_id']) || empty($_POST['question_id'])) {
+        $debug_data['error'] = 'missing_question_id';
+        wp_send_json_error([
+            'message' => 'No question ID provided',
+            'debug_data' => $debug_data
+        ]);
+    }
+    
+    // Get question ID
+    $question_id = intval($_POST['question_id']);
+    
+    if (empty($question_id)) {
+        $debug_data['error'] = 'invalid_question_id';
+        wp_send_json_error([
+            'message' => 'Invalid question ID',
+            'debug_data' => $debug_data
+        ]);
+    }
+    
+    // Debug data array to track what's happening
+    $debug_data = [
+        'question_id' => $question_id,
+        'question_title' => get_the_title($question_id),
+        'post_type' => get_post_type($question_id),
+        'acf_available' => function_exists('get_field') || function_exists('get_fields'),
+        'raw_post_meta' => array_map(function($meta) {
+            return maybe_unserialize($meta[0]);
+        }, get_post_meta($question_id)),
+    ];
+    
+    // Set default values
+    $media_type = 'none';
+    $media_html = '<div class="media-placeholder">No media available for this question</div>';
+    $item = [
+        'question_id' => $question_id,
+        'title' => get_the_title($question_id),
+        'hint' => '',
+        'image' => [],  // Initialize as empty array instead of null
+        'video' => ''
+    ];
+    
+    // Clear any WordPress cache for this post
+    clean_post_cache($question_id);
+    wp_cache_delete($question_id, 'post_meta');
+    
+    // Verify question post exists
+    $question_post = get_post($question_id);
+    $debug_data['post_exists'] = ($question_post !== null);
+    
+    if ($question_post) {
+        // Debug post type and data
+        $debug_data['post_type'] = $question_post->post_type;
+        $debug_data['post_status'] = $question_post->post_status;
+        $debug_data['post_title'] = $question_post->post_title;
+    }
+        
+    // Get all ACF fields with cache bypass
+    if (function_exists('get_fields')) {
+        // Force refresh - Clear ACF cache for this post
+        global $wpdb;
+        $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE post_id = %d AND meta_key LIKE 'acf_%%'", $question_id));
+        
+        // Get fresh fields
+        $acf_fields = get_fields($question_id); 
+        $debug_data['acf_fields'] = $acf_fields;
+        $debug_data['requested_question_id'] = $question_id;
+        
+        if (!empty($acf_fields) && is_array($acf_fields)) {
+            // Store all keys for debugging
+            $debug_data['all_acf_keys'] = array_keys($acf_fields);
+            
+            // First check for the Hebrew media type switcher
+            if (isset($acf_fields['choose_media'])) {
+                $debug_data['choose_media_found'] = $acf_fields['choose_media'];
+                
+                // Hebrew value "סרטון" means video
+                if ($acf_fields['choose_media'] === 'סרטון') {
+                    $media_type = 'video';
+                    
+                    // Check for video URL
+                    if (!empty($acf_fields['video_url'])) {
+                        $item['video'] = $acf_fields['video_url'];
+                        $debug_data['video_url_found'] = $acf_fields['video_url'];
+                    }
+                }
+                // Hebrew value "תמונה" means image 
+                else if ($acf_fields['choose_media'] === 'תמונה') {
+                    $media_type = 'image';
+                    $debug_data['image_field_search'] = [];
+                    
+                    // First check for rich_media field which appears to be used in the system
+                    if (!empty($acf_fields['rich_media'])) {
+                        $media_field = $acf_fields['rich_media'];
+                        $debug_data['rich_media_found'] = true;
+                        $debug_data['image_field_search'][] = 'rich_media';
+                        
+                        if (is_array($media_field) && !empty($media_field['url'])) {
+                            $item['image'] = $media_field;
+                        } elseif (is_string($media_field)) {
+                            $item['image'] = array('url' => $media_field);
+                        } elseif (is_numeric($media_field)) {
+                            $image_url = wp_get_attachment_url($media_field);
+                            if ($image_url) {
+                                $item['image'] = array('url' => $image_url);
+                            }
+                        }
+                    } 
+                    // Then try media_image as fallback
+                    else if (!empty($acf_fields['media_image'])) {
+                        $media_field = $acf_fields['media_image'];
+                        $debug_data['media_image_found'] = true;
+                        $debug_data['image_field_search'][] = 'media_image';
+                        
+                        if (is_array($media_field) && !empty($media_field['url'])) {
+                            $item['image'] = $media_field;
+                        } elseif (is_numeric($media_field)) {
+                            $image_url = wp_get_attachment_url($media_field);
+                            if ($image_url) {
+                                $item['image'] = array('url' => $image_url);
+                            }
+                        }
+                    } 
+                    // No image found, use default
+                    else {
+                        // Set default image if no image is found
+                        $default_image_path = '/wp-content/uploads/2025/05/noPic.png';
+                        $item['image'] = array('url' => site_url($default_image_path));
+                        $debug_data['using_default_image'] = true;
+                    }
+                }
+            }
+            
+            // If we didn't find the Hebrew media type field, use the fallback approach
+            if ($media_type === 'none') {
+                // Common field name patterns to check
+                $hint_field_names = ['add_hint', 'hint', 'question_hint', 'explanation'];
+                $image_field_names = ['rich_media', 'media_image', 'question_image', 'image', 'question_media_image'];
+                $video_field_names = ['video_url', 'video_question', 'media_video', 'question_video', 'video', 'question_media_video'];
+                $media_type_names = ['media_type', 'question_media_type', 'media_display_type'];
+            }
+            
+            // Check for hint fields
+            foreach ($hint_field_names as $field_name) {
+                if (!empty($acf_fields[$field_name])) {
+                    $item['hint'] = $acf_fields[$field_name];
+                    $debug_data['hint_found'] = $field_name;
+                    break;
+                }
+            }
+            
+            // First check if we have a media type field that tells us what to use
+            $specified_media_type = null;
+            foreach ($media_type_names as $field_name) {
+                if (isset($acf_fields[$field_name]) && !empty($acf_fields[$field_name])) {
+                    $specified_media_type = $acf_fields[$field_name];
+                    $debug_data['media_type_field_found'] = $field_name;
+                    $debug_data['specified_media_type'] = $specified_media_type;
+                    break;
+                }
+            }
+            
+            // Process according to specified media type if available
+            if ($specified_media_type && in_array($specified_media_type, ['image', 'video'])) {
+                $media_type = $specified_media_type;
+                
+                if ($specified_media_type === 'image') {
+                    // Look for image fields when type = image
+                    foreach ($image_field_names as $field_name) {
+                        if (!empty($acf_fields[$field_name])) {
+                            $media_field = $acf_fields[$field_name];
+                            $debug_data['image_field_found'] = $field_name;
+                            
+                            if (is_array($media_field) && !empty($media_field['url'])) {
+                                $item['image'] = $media_field;
+                            } elseif (is_string($media_field)) {
+                                $item['image'] = array('url' => $media_field);
+                            } elseif (is_numeric($media_field)) {
+                                $image_url = wp_get_attachment_url($media_field);
+                                if ($image_url) {
+                                    $item['image'] = array('url' => $image_url);
+                                }
+                            }
+                            break;
+                        }
+                    }
+                } elseif ($specified_media_type === 'video') {
+                    // Look for video fields when type = video
+                    foreach ($video_field_names as $field_name) {
+                        if (!empty($acf_fields[$field_name])) {
+                            $item['video'] = $acf_fields[$field_name];
+                            $debug_data['video_field_found'] = $field_name;
+                            break;
+                        }
+                    }
+                }
+            } else {
+                // If no media type specified, try to find any media fields
+                
+                // Check for image fields
+                foreach ($image_field_names as $field_name) {
+                    if (!empty($acf_fields[$field_name])) {
+                        $media_field = $acf_fields[$field_name];
+                        $debug_data['image_field_found'] = $field_name;
+                        
+                        if (is_array($media_field) && !empty($media_field['url'])) {
+                            $item['image'] = $media_field;
+                            $media_type = 'image';
+                        } elseif (is_string($media_field)) {
+                            $item['image'] = array('url' => $media_field);
+                            $media_type = 'image';
+                        } elseif (is_numeric($media_field)) {
+                            $image_url = wp_get_attachment_url($media_field);
+                            if ($image_url) {
+                                $item['image'] = array('url' => $image_url);
+                                $media_type = 'image';
+                            }
+                        }
+                        break;
+                    }
+                }
+                
+                // Check for video fields if no image found or if we want to override with video
+                foreach ($video_field_names as $field_name) {
+                    if (!empty($acf_fields[$field_name])) {
+                        $item['video'] = $acf_fields[$field_name];
+                        $media_type = 'video';
+                        $debug_data['video_field_found'] = $field_name;
+                        break;
+                    }
+                }
+            }
+        }
+    } else {
+        // No get_fields function - try individual fields as fallback
+        $debug_data['using_individual_fields'] = true;
+        
+        if (function_exists('get_field')) {
+            // Try with individual fields
+            $add_hint = get_field('add_hint', $question_id);
+            if ($add_hint) {
+                $item['hint'] = $add_hint;
+                $debug_data['hint_found'] = true;
+            }
+            
+            $rich_media = get_field('rich_media', $question_id);
+            if ($rich_media) {
+                $debug_data['rich_media_found'] = true;
+                if (is_array($rich_media) && !empty($rich_media['url'])) {
+                    $item['image'] = $rich_media;
+                    $media_type = 'image';
+                } elseif (is_string($rich_media)) {
+                    $item['image'] = array('url' => $rich_media);
+                    $media_type = 'image';
+                } elseif (is_numeric($rich_media)) {
+                    $image_url = wp_get_attachment_url($rich_media);
+                    if ($image_url) {
+                        $item['image'] = array('url' => $image_url);
+                        $media_type = 'image';
+                    }
+                }
+            }
+            
+            $video_url = get_field('video_url', $question_id);
+            if ($video_url) {
+                $item['video'] = $video_url;
+                $media_type = 'video';
+                $debug_data['video_url_found'] = true;
+            } else {
+                $video_question = get_field('video_question', $question_id);
+                if ($video_question) {
+                    $item['video'] = $video_question;
+                    $media_type = 'video';
+                    $debug_data['video_question_found'] = true;
+                }
+            }
+        }
+    }
+    
+    // Fall back to custom fields if needed
+    if ($media_type === 'none') {
+        $debug_data['fallback_to_custom_fields'] = true;
+        
+        // Check our custom fields
+        $custom_media_type = get_post_meta($question_id, 'question_media_type', true);
+        
+        if ($custom_media_type) {
+            $media_type = $custom_media_type;
+            $debug_data['custom_media_type'] = $custom_media_type;
+            
+            if ($media_type === 'image') {
+                $image_id = get_post_meta($question_id, 'question_media_image', true);
+                if ($image_id) {
+                    $image_url = wp_get_attachment_image_url($image_id, 'large');
+                    if ($image_url) {
+                        $item['image'] = array('url' => $image_url);
+                    }
+                }
+            } else if ($media_type === 'video') {
+                $video_url = get_post_meta($question_id, 'question_media_video', true);
+                if ($video_url) {
+                    $item['video'] = $video_url;
+                }
+            }
+        }
+    }
+    
+    // Generate media HTML based on what we found
+    if (!empty($item['hint'])) {
+        $media_html = '<div class="question-hint">' . wpautop($item['hint']) . '</div>';
+    }
+    
+    if (isset($item['image']) && is_array($item['image']) && !empty($item['image']['url'])) {
+        $image_url = $item['image']['url'];
+        $image_alt = (isset($item['image']['alt']) && !empty($item['image']['alt'])) ? $item['image']['alt'] : 'Question image';
+        $media_html = '<div class="question-media-image"><img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" /></div>';
+        
+        if (!empty($item['hint'])) {
+            $media_html .= '<div class="question-hint">' . wpautop($item['hint']) . '</div>';
+        }
+    }
+    
+    if (!empty($item['video'])) {
+        $video_url = $item['video'];
+        $debug_data['original_video_url'] = $video_url;
+        
+        // Extract YouTube video ID directly
+        $youtube_id = null;
+        
+        // Handle youtube.com/watch?v=VIDEO_ID format
+        if (strpos($video_url, 'youtube.com/watch') !== false) {
+            parse_str(parse_url($video_url, PHP_URL_QUERY), $query_params);
+            if (isset($query_params['v'])) {
+                $youtube_id = $query_params['v'];
+            }
+        }
+        
+        // Handle youtu.be/VIDEO_ID format
+        elseif (strpos($video_url, 'youtu.be/') !== false) {
+            $path = parse_url($video_url, PHP_URL_PATH);
+            $youtube_id = trim($path, '/');
+        }
+        
+        // For debugging
+        $debug_data['extracted_youtube_id'] = $youtube_id;
+        
+        if ($youtube_id) {
+            // Direct YouTube embed with autoplay and mute
+            $media_html = '<div class="question-media-video"><iframe width="360" height="203" src="https://www.youtube.com/embed/' . esc_attr($youtube_id) . '?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+            $debug_data['using_direct_youtube_embed'] = true;
+        } else {
+            // Fallback to WordPress oembed
+            $video_embed = wp_oembed_get($video_url, array('width' => 360, 'height' => 240));
+            
+            if ($video_embed) {
+                $media_html = '<div class="question-media-video">' . $video_embed . '</div>';
+                $debug_data['using_wp_oembed'] = true;
+            } else {
+                $debug_data['video_embed_failed'] = true;
+            }
+        }
+        
+        if (!empty($item['hint'])) {
+            $media_html .= '<div class="question-hint">' . wpautop($item['hint']) . '</div>';
+        }
+    }
+    
+    // Ensure we have proper image HTML display
+    if (isset($item['image']) && is_array($item['image']) && !empty($item['image']['url'])) {
+        // Force clear HTML content generation
+        $force_image_html = '<div class="question-media-image"><img src="' . esc_url($item['image']['url']) . '" alt="Question image" /></div>';
+        
+        // If we didn't generate media HTML above, use this one
+        if (empty($media_html) || strpos($media_html, '<img') === false) {
+            $media_html = $force_image_html;
+            $debug_data['using_force_image_html'] = true;
+        }
+    }
+    
+    // Similarly, ensure video HTML is properly generated
+    if (!empty($item['video']) && (empty($media_html) || strpos($media_html, '<iframe') === false)) {
+        $video_url = $item['video'];
+        
+        // Check if we have a valid URL
+        if (filter_var($video_url, FILTER_VALIDATE_URL)) {
+            // Try oEmbed for video
+            $video_embed = wp_oembed_get($video_url, array('width' => 360, 'height' => 240));
+            
+            if ($video_embed) {
+                // Add autoplay and mute parameters if it's a YouTube video
+                if (strpos($video_url, 'youtube.com') !== false || strpos($video_url, 'youtu.be') !== false) {
+                    $video_embed = str_replace('feature=oembed', 'feature=oembed&autoplay=1&mute=1', $video_embed);
+                }
+                
+                $force_video_html = '<div class="question-media-video">' . $video_embed . '</div>';
+                $media_html = $force_video_html;
+                $debug_data['using_force_video_html'] = true;
+            } else {
+                // Manual embed for YouTube if oEmbed fails
+                if (strpos($video_url, 'youtube.com') !== false || strpos($video_url, 'youtu.be') !== false) {
+                    // Extract video ID
+                    preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/', $video_url, $matches);
+                    if (!empty($matches[1])) {
+                        $youtube_id = $matches[1];
+                        $force_video_html = '<div class="question-media-video"><iframe width="360" height="240" src="https://www.youtube.com/embed/' . $youtube_id . '?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+                        $media_html = $force_video_html;
+                        $debug_data['using_manual_youtube_embed'] = true;
+                    }
+                }
+            }
+        }
+    }
+    
+    // If still no content, use the specified fallback image
+    if (empty($media_html) || (strpos($media_html, '<img') === false && strpos($media_html, '<iframe') === false)) {
+        // Use the specified fallback image
+        $fallback_image_url = '/wp-content/uploads/2025/05/noPic.png';
+        $image_html = '<img src="' . esc_url($fallback_image_url) . '" alt="No Media Available" class="fallback-image">';
+        
+        $media_html = '<div class="media-content question-media-image">' . $image_html . '</div>';
+    }
+    
+    // Send back the response - removed debug data
+    wp_send_json_success([
+        'html' => $media_html,
+        'media_type' => $media_type,
+        'item' => $item
+    ]);
+}
+add_action('wp_ajax_get_question_acf_media', 'hello_elementor_get_question_acf_media');
+add_action('wp_ajax_nopriv_get_question_acf_media', 'hello_elementor_get_question_acf_media');
+
+/**
+ * Helper function to extract YouTube video ID from URL
+ */
+function hello_elementor_get_youtube_id($url) {
+    $video_id = '';
+    
+    // Match standard YouTube URL
+    if (preg_match('/youtube\.com\/watch\?v=([\w-]+)/', $url, $matches)) {
+        $video_id = $matches[1];
+    }
+    // Match short YouTube URL
+    elseif (preg_match('/youtu\.be\/([\w-]+)/', $url, $matches)) {
+        $video_id = $matches[1];
+    }
+    // Match embedded YouTube URL
+    elseif (preg_match('/youtube\.com\/embed\/([\w-]+)/', $url, $matches)) {
+        $video_id = $matches[1];
+    }
+    
+    return $video_id;
+}
+
+/**
+ * Ensure LearnDash quiz content is displayed
+ * This makes sure the quiz renders properly in our custom template
+ */
+function hello_elementor_show_learndash_quiz_content($content) {
+    if (is_singular('sfwd-quiz')) {
+        // Force LearnDash to properly render the quiz
+        $content = do_shortcode($content);
+        
+        // If content is still empty or doesn't contain the quiz HTML, try direct method
+        if (strpos($content, 'wpProQuiz_content') === false) {
+            $quiz_id = get_the_ID();
+            $content .= do_shortcode('[ld_quiz quiz_id="' . $quiz_id . '"]');
+        }
+    }
+    
+    return $content;
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_fix_learndash_quiz_content', 30);
+
+/**
+ * Add admin columns for Quiz Sidebar Settings
+ */
+function hello_elementor_add_quiz_sidebar_columns($columns) {
+    $new_columns = [];
+    
+    // Add columns after title column
+    foreach ($columns as $key => $value) {
+        $new_columns[$key] = $value;
+        if ($key === 'title') {
+            $new_columns['quiz_sidebar'] = __('Sidebar', 'hello-theme-child');
+            $new_columns['quiz_enforce_hint'] = __('Enforce Hint', 'hello-theme-child');
+        }
+    }
+    
+    return $new_columns;
+}
+add_filter('manage_sfwd-quiz_posts_columns', 'hello_elementor_add_quiz_sidebar_columns');
+
+/**
+ * Display quiz sidebar settings in admin columns
+ */
+function hello_elementor_display_quiz_sidebar_columns($column, $post_id) {
+    switch ($column) {
+        case 'quiz_sidebar':
+            $toggle_sidebar = get_post_meta($post_id, 'quiz_toggle_sidebar', true);
+            if ($toggle_sidebar === '1') {
+                echo '<span style="color: green;">' . __('Enabled', 'hello-theme-child') . '</span>';
+            } else {
+                echo '<span style="color: red;">' . __('Disabled', 'hello-theme-child') . '</span>';
+            }
+            break;
+            
+        case 'quiz_enforce_hint':
+            $enforce_hint = get_post_meta($post_id, 'quiz_enforce_hint', true);
+            if ($enforce_hint === '1') {
+                echo '<span style="color: green;">' . __('Enabled', 'hello-theme-child') . '</span>';
+            } else {
+                echo '<span style="color: red;">' . __('Disabled', 'hello-theme-child') . '</span>';
+            }
+            break;
+    }
+}
+add_action('manage_sfwd-quiz_posts_custom_column', 'hello_elementor_display_quiz_sidebar_columns', 10, 2);
+
+/**
+ * Add Quick Edit fields for quiz sidebar settings
+ */
+function hello_elementor_add_quick_edit_fields() {
+    global $post;
+    
+    // Check if we're on the quiz post type
+    if ($post->post_type !== 'sfwd-quiz') {
+        return;
+    }
+    
+    // Add our fields to Quick Edit
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // Add fields to Quick Edit
+        var $wp_inline_edit = inlineEditPost.edit;
+        
+        inlineEditPost.edit = function(id) {
+            $wp_inline_edit.apply(this, arguments);
+            
+            var post_id = 0;
+            if (typeof(id) == 'object') {
+                post_id = parseInt(this.getId(id));
+            }
+            
+            if (post_id > 0) {
+                var $post_row = $('#post-' + post_id);
+                var $edit_row = $('#edit-' + post_id);
+                var $sidebar_enabled = $post_row.find('.column-quiz_sidebar').text().trim() === 'Enabled';
+                var $hint_enabled = $post_row.find('.column-quiz_enforce_hint').text().trim() === 'Enabled';
+                
+                // Populate our fields
+                $edit_row.find('input[name="quiz_toggle_sidebar"]').prop('checked', $sidebar_enabled);
+                $edit_row.find('input[name="quiz_enforce_hint"]').prop('checked', $hint_enabled);
+            }
+        };
+        
+        // Add our fields to the Quick Edit row
+        $('#bulk-edit').before(
+            '<div class="inline-edit-group wp-clearfix">'+
+                '<label class="alignleft">'+
+                    '<span class="title"><?php esc_html_e("Quiz Settings", "hello-theme-child"); ?></span>'+
+                '</label>'+
+                '<div class="alignleft">'+
+                    '<label>'+
+                        '<input type="checkbox" name="quiz_toggle_sidebar" value="1" />'+
+                        '<span class="checkbox-title"><?php esc_html_e("Enable Sidebar", "hello-theme-child"); ?></span>'+
+                    '</label>'+
+                    '<label>'+
+                        '<input type="checkbox" name="quiz_enforce_hint" value="1" />'+
+                        '<span class="checkbox-title"><?php esc_html_e("Enforce Hint", "hello-theme-child"); ?></span>'+
+                    '</label>'+
+                '</div>'+
+            '</div>'
+        );
+    });
+    </script>
+    <?php
+}
+add_action('admin_footer-edit.php', 'hello_elementor_add_quick_edit_fields');
+
+/**
+ * Save Quick Edit quiz sidebar settings
+ */
+function hello_elementor_save_quick_edit_fields($post_id) {
+    // Check permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // Skip autosaves
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    // Only proceed for quiz post type
+    if (get_post_type($post_id) !== 'sfwd-quiz') {
+        return;
+    }
+    
+    // Save quiz sidebar settings
+    if (isset($_REQUEST['quiz_toggle_sidebar'])) {
+        update_post_meta($post_id, 'quiz_toggle_sidebar', '1');
+    } else {
+        update_post_meta($post_id, 'quiz_toggle_sidebar', '0');
+    }
+    
+    // Save quiz enforce hint settings
+    if (isset($_REQUEST['quiz_enforce_hint'])) {
+        update_post_meta($post_id, 'quiz_enforce_hint', '1');
+    } else {
+        update_post_meta($post_id, 'quiz_enforce_hint', '0');
+    }
+}  
+add_action('save_post', 'hello_elementor_save_quick_edit_fields');
+
+/**
+ * Add Question Media Metabox
+ */
+function hello_elementor_add_question_media_metabox() {
+    add_meta_box(
+        'question_media_settings',
+        __('Question Media', 'hello-theme-child'),
+        'hello_elementor_render_question_media_metabox',
+        'sfwd-question',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'hello_elementor_add_question_media_metabox');
+
+/**
+ * Render Question Media Metabox
+ */
+function hello_elementor_render_question_media_metabox($post) {
+    // Add nonce for security
+    wp_nonce_field('question_media_save_meta', 'question_media_nonce');
+    
+    // Get current values
+    $media_type = get_post_meta($post->ID, 'question_media_type', true);
+    $image_id = get_post_meta($post->ID, 'question_media_image', true);
+    $video_url = get_post_meta($post->ID, 'question_media_video', true);
+    $caption = get_post_meta($post->ID, 'question_media_caption', true);
+    
+    // Default to image if no type set
+    if (empty($media_type)) {
+        $media_type = 'image';
+    }
+    
+    // Set up the image preview
+    $image_preview = '';
+    if (!empty($image_id)) {
+        $image_src = wp_get_attachment_image_src($image_id, 'medium');
+        if ($image_src) {
+            $image_preview = '<div class="question-media-preview"><img src="' . esc_url($image_src[0]) . '" style="max-width: 100%; height: auto;" /></div>';
+        }
+    }
+    
+    // Output the form fields
+    ?>
+    <div class="question-media-settings-wrapper">
+        <p>
+            <label><strong><?php esc_html_e('Media Type:', 'hello-theme-child'); ?></strong></label><br>
+            <label>
+                <input type="radio" name="question_media_type" value="image" <?php checked($media_type, 'image'); ?> class="question-media-type-radio" />
+                <?php esc_html_e('Image', 'hello-theme-child'); ?>
+            </label>
+            <label>
+                <input type="radio" name="question_media_type" value="video" <?php checked($media_type, 'video'); ?> class="question-media-type-radio" />
+                <?php esc_html_e('YouTube Video', 'hello-theme-child'); ?>
+            </label>
+            <label>
+                <input type="radio" name="question_media_type" value="none" <?php checked($media_type, 'none'); ?> class="question-media-type-radio" />
+                <?php esc_html_e('None', 'hello-theme-child'); ?>
+            </label>
+        </p>
+        
+        <div id="question-media-image-section" class="question-media-section" <?php echo $media_type !== 'image' ? 'style="display:none;"' : ''; ?>>
+            <p>
+                <label><strong><?php esc_html_e('Featured Image:', 'hello-theme-child'); ?></strong></label><br>
+                <input type="hidden" name="question_media_image" id="question_media_image" value="<?php echo esc_attr($image_id); ?>" />
+                <button type="button" class="button" id="question_media_image_button"><?php esc_html_e('Select Image', 'hello-theme-child'); ?></button>
+                <button type="button" class="button" id="question_media_image_remove" <?php echo empty($image_id) ? 'style="display:none;"' : ''; ?>>
+                    <?php esc_html_e('Remove Image', 'hello-theme-child'); ?>
+                </button>
+            </p>
+            <?php echo $image_preview; ?>
+        </div>
+        
+        <div id="question-media-video-section" class="question-media-section" <?php echo $media_type !== 'video' ? 'style="display:none;"' : ''; ?>>
+            <p>
+                <label><strong><?php esc_html_e('YouTube Video URL:', 'hello-theme-child'); ?></strong></label><br>
+                <input type="text" name="question_media_video" id="question_media_video" value="<?php echo esc_attr($video_url); ?>" class="large-text" />
+                <span class="description"><?php esc_html_e('Enter a YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)', 'hello-theme-child'); ?></span>
+            </p>
+        </div>
+        
+        <div id="question-media-caption-section" class="question-media-section" <?php echo $media_type === 'none' ? 'style="display:none;"' : ''; ?>>
+            <p>
+                <label><strong><?php esc_html_e('Caption (optional):', 'hello-theme-child'); ?></strong></label><br>
+                <textarea name="question_media_caption" id="question_media_caption" class="large-text" rows="2"><?php echo esc_textarea($caption); ?></textarea>
+            </p>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // Toggle media sections based on selected type
+        $('.question-media-type-radio').on('change', function() {
+            var mediaType = $('input[name="question_media_type"]:checked').val();
+            $('.question-media-section').hide();
+            
+            if (mediaType === 'image') {
+                $('#question-media-image-section').show();
+                $('#question-media-caption-section').show();
+            } else if (mediaType === 'video') {
+                $('#question-media-video-section').show();
+                $('#question-media-caption-section').show();
+            }
+        });
+        
+        // Handle the media uploader
+        var mediaUploader;
+        $('#question_media_image_button').on('click', function(e) {
+            e.preventDefault();
+            
+            if (mediaUploader) {
+                mediaUploader.open();
+                return;
+            }
+            
+            mediaUploader = wp.media({
+                title: '<?php esc_html_e('Choose Image', 'hello-theme-child'); ?>',
+                button: {
+                    text: '<?php esc_html_e('Select', 'hello-theme-child'); ?>'
+                },
+                multiple: false
+            });
+            
+            mediaUploader.on('select', function() {
+                var attachment = mediaUploader.state().get('selection').first().toJSON();
+                $('#question_media_image').val(attachment.id);
+                
+                // Update preview
+                if (attachment.sizes && attachment.sizes.medium) {
+                    var imgUrl = attachment.sizes.medium.url;
+                } else {
+                    var imgUrl = attachment.url;
+                }
+                
+                $('.question-media-preview').remove();
+                $('#question-media-image-section').append('<div class="question-media-preview"><img src="' + imgUrl + '" style="max-width: 100%; height: auto;" /></div>');
+                
+                // Show remove button
+                $('#question_media_image_remove').show();
+            });
+            
+            mediaUploader.open();
+        });
+        
+        // Handle removing the image
+        $('#question_media_image_remove').on('click', function() {
+            $('#question_media_image').val('');
+            $('.question-media-preview').remove();
+            $(this).hide();
+        });
+    });
+    </script>
+    <?php
+}
+
+/**
+ * Save Question Media Metabox data
+ */
+function hello_elementor_save_question_media_metabox($post_id) {
+    // Check if nonce is set
+    if (!isset($_POST['question_media_nonce'])) {
+        return;
+    }
+    
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['question_media_nonce'], 'question_media_save_meta')) {
+        return;
+    }
+    
+    // Skip autosaves
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    // Check permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // Save media type
+    if (isset($_POST['question_media_type'])) {
+        update_post_meta($post_id, 'question_media_type', sanitize_text_field($_POST['question_media_type']));
+    }
+    
+    // Save image ID
+    if (isset($_POST['question_media_image'])) {
+        update_post_meta($post_id, 'question_media_image', absint($_POST['question_media_image']));
+    }
+    
+    // Save video URL
+    if (isset($_POST['question_media_video'])) {
+        update_post_meta($post_id, 'question_media_video', esc_url_raw($_POST['question_media_video']));
+    }
+    
+    // Save caption
+    if (isset($_POST['question_media_caption'])) {
+        update_post_meta($post_id, 'question_media_caption', wp_kses_post($_POST['question_media_caption']));
+    }
+}
+add_action('save_post_sfwd-question', 'hello_elementor_save_question_media_metabox');
+
+/**
+ * Enqueue scripts and styles for Quiz Sidebar Media
+ */
+function hello_elementor_enqueue_quiz_sidebar_scripts() {
+    // Only enqueue on quiz pages
+    if (!is_singular('sfwd-quiz')) {
+        return;
+    }
+    
+    // Check if quiz has sidebar enabled
+    $quiz_id = get_the_ID();
+    $has_sidebar = get_post_meta($quiz_id, 'quiz_toggle_sidebar', true);
+    
+    if ($has_sidebar !== '1') {
+        return;
+    }
+    
+    // Add quiz answer edit functionality (allow re-answering incorrect answers)
+    add_action('wp_footer', 'lilac_quiz_answer_edit_js');
+    
+    // Enqueue scripts
+    wp_enqueue_script(
+        'quiz-sidebar-media',
+        get_stylesheet_directory_uri() . '/assets/js/quiz-sidebar-media.js',
+        array('jquery'),
+        filemtime(get_stylesheet_directory() . '/assets/js/quiz-sidebar-media.js'),
+        true
+    );
+    
+    // Localize script with AJAX URL and nonce
+    wp_localize_script('quiz-sidebar-media', 'quiz_sidebar_media', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('quiz_sidebar_media_nonce'),
+    ));
+    
+    // Add inline styles for the sidebar media
+    $custom_css = "
+        /* Quiz sidebar container */
+        .ld-quiz-sidebar {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        /* Media container styles */
+        .ld-quiz-sidebar-content {
+            transition: all 0.3s ease;
+        }
+        
+        .ld-quiz-sidebar-content.loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            z-index: 1;
+        }
+        
+        .ld-quiz-sidebar-content.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 2;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Media placeholder */
+        .media-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            padding: 30px;
+            text-align: center;
+            background: #f8f8f8;
+            border-radius: 8px;
+            color: #666;
+        }
+        
+        .media-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .media-message {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* Media content */
+        .question-media-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .question-media-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .question-media-video {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .question-media-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        .media-error {
+            padding: 20px;
+            text-align: center;
+            color: #856404;
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+        }
+        
+        /* Debug area (for admins) */
+        .ld-quiz-sidebar-debug {
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .ld-quiz-sidebar-debug details summary {
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+        
+        .debug-quiz-info {
+            margin-top: 15px;
+            border-top: 1px dashed #ddd;
+            padding-top: 15px;
+        }
+        
+        /* Manual question loading buttons */
+        .manual-question-loader {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f0f8ff;
+            border: 1px solid #d0e3ff;
+            border-radius: 5px;
+            display: block !important;
+        }
+        
+        .manual-question-loader h5 {
+            margin: 0 0 10px;
+            font-size: 14px;
+            color: #0073aa;
+        }
+        
+        .question-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .load-question-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .load-question-btn:hover {
+            background: #e0e0e0;
+            border-color: #ccc;
+        }
+        
+        .load-question-btn.active {
+            background: #0085ba;
+            color: white;
+            border-color: #006799;
+        }
+        
+        /* Debug styles removed */
+    ";
+    
+    wp_add_inline_style('learndash_style', $custom_css);
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_enqueue_quiz_sidebar_scripts');
+
+/**
+ * Legacy AJAX handler for standard post meta question media
+ * This is a fallback for questions not using ACF fields
+ */
+function hello_elementor_get_question_media() {
+    // Verify nonce for security
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'quiz_sidebar_media_nonce')) {
+        wp_send_json_error('Security check failed');
+        return;
+    }
+    
+    // Get question ID
+    $question_id = isset($_POST['question_id']) ? intval($_POST['question_id']) : 0;
+    
+    if (empty($question_id)) {
+        wp_send_json_error('Invalid question ID');
+        return;
+    }
+    
+    // Get question media data
+    $media_type = get_post_meta($question_id, 'question_media_type', true);
+    $image_id = get_post_meta($question_id, 'question_media_image', true);
+    $video_url = get_post_meta($question_id, 'question_media_video', true);
+    $caption = get_post_meta($question_id, 'question_media_caption', true);
+    
+    $response = array(
+        'media_type' => $media_type ?: 'none',
+        'caption' => $caption,
+    );
+    
+    // Add image URL if available
+    if ($media_type === 'image' && !empty($image_id)) {
+        $image_src = wp_get_attachment_image_src($image_id, 'large');
+        if ($image_src) {
+            $response['image_url'] = $image_src[0];
+        }
+    }
+    
+    // Add video embed if available
+    if ($media_type === 'video' && !empty($video_url)) {
+        // Convert YouTube URL to embed code
+        $video_embed = hello_elementor_get_youtube_embed($video_url);
+        if ($video_embed) {
+            $response['video_embed'] = $video_embed;
+            $response['video_url'] = $video_url;
+        }
+    }
+    
+    wp_send_json_success($response);
+}
+add_action('wp_ajax_get_question_media', 'hello_elementor_get_question_media');
+add_action('wp_ajax_nopriv_get_question_media', 'hello_elementor_get_question_media');
+
+/**
+ * Helper function to convert YouTube URL to embed code
+ */
+function hello_elementor_get_youtube_embed($url) {
+    // Extract YouTube video ID
+    $video_id = '';
+    
+    // Match standard YouTube URL
+    if (preg_match('/youtube\.com\/watch\?v=([\w-]+)/', $url, $matches)) {
+        $video_id = $matches[1];
+    }
+    // Match short YouTube URL
+    elseif (preg_match('/youtu\.be\/([\w-]+)/', $url, $matches)) {
+        $video_id = $matches[1];
+    }
+    // Match embedded YouTube URL
+    elseif (preg_match('/youtube\.com\/embed\/([\w-]+)/', $url, $matches)) {
+        $video_id = $matches[1];
+    }
+    
+    if (empty($video_id)) {
+        return '';
+    }
+    
+    // Create embed code
+    return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . esc_attr($video_id) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+}
+
+/**
+ * Include quiz answer functionality
+ * 
+ * This includes our fixed quiz answer edit functionality that allows users to
+ * re-edit their answers after selecting an incorrect option.
+ */
+
+// Include our quiz answer edit functionality
+require_once(get_stylesheet_directory() . '/quiz-answer-edit.php');
+
+// Include our quiz answer validator plugin (for debugging only)
+// You can activate the plugin from the WordPress admin for more detailed logging
+    
+    if (!empty($questions)) {
+        foreach ($questions as $question) {
+            $question_id = $question->ID;
+            $question_pro_id = get_post_meta($question_id, 'question_pro_id', true);
+            $question_type = get_post_meta($question_id, 'question_type', true);
+            
+            // Get question data from the database
+            global $wpdb;
+            $question_data = $wpdb->get_row(
+                $wpdb->prepare(
+                    "SELECT * FROM {$wpdb->prefix}wp_pro_quiz_question WHERE id = %d",
+                    $question_pro_id
+                )
+            );
+            
+            if ($question_data) {
+                // Extract correct answer data based on question type
+                $correct_answer = '';
+                
+                // Get answer data
+                $answer_data = $wpdb->get_results(
+                    $wpdb->prepare(
+                        "SELECT * FROM {$wpdb->prefix}wp_pro_quiz_answer WHERE question_id = %d ORDER BY sort ASC",
+                        $question_pro_id
+                    )
+                );
+                
+                if (!empty($answer_data)) {
+                    // For single choice questions
+                    if ($question_type === 'single') {
+                        foreach ($answer_data as $index => $answer) {
+                            if ($answer->correct) {
+                                // Add 1 because LearnDash uses 1-indexed values in the frontend
+                                $correct_answer = (string)($index + 1); 
+                                break;
+                            }
+                        }
+                    }
+                    // Add other question types here as needed
+                }
+                
+                // Store the correct answer for this question
+                if (!empty($correct_answer)) {
+                    $answer_map[$question_id] = $correct_answer;
+                }
+            }
+        }
+    }
+    
+    return $answer_map;
+}
+
+function lilac_quiz_answer_edit_js() {
+    // Only run this on quiz pages
+    if (is_singular('sfwd-quiz')) {
+        // Get correct answers for all questions in this quiz
+        $correct_answers = lilac_get_quiz_correct_answers();
+        
+        // Pass the data to JavaScript
+        wp_localize_script('jquery', 'lilacQuizData', array(
+            'correctAnswers' => $correct_answers
+        ));
+    ?>
+    <script type="text/javascript">
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get correct answers from server-side data
+        var correctAnswers = (typeof lilacQuizData !== 'undefined' && lilacQuizData.correctAnswers) ? 
+                            lilacQuizData.correctAnswers : {};
+        
+        // Log all correct answers we received from the server immediately on page load
+        console.log('[QUIZ DEBUG] *** COMPLETE LIST OF CORRECT ANSWERS ***');
+        console.log(correctAnswers);
+        console.log('[QUIZ DEBUG] ***************************************');
+        
+        // Monitor answer selections
+        document.addEventListener('change', function(e) {
+            if (e.target && e.target.classList.contains('wpProQuiz_questionInput')) {
+                var questionItem = e.target.closest('.wpProQuiz_listItem');
+                if (!questionItem) return;
+                
+                var questionMeta = questionItem.getAttribute('data-question-meta');
+                var questionId = '';
+                if (questionMeta) {
+                    try {
+                        var meta = JSON.parse(questionMeta);
+                        questionId = meta.question_post_id || '';
+                    } catch(e) { }
+                }
+                
+                console.log('[QUIZ DEBUG] Selected answer for QID ' + questionId + ':', e.target.value);
+            }
+        });
+        
+        // Main function for processing after Check button clicks
+        function processCheckedAnswer(questionItem) {
+            if (!questionItem) return;
+            
+            // Get question ID
+            var questionMeta = questionItem.getAttribute('data-question-meta');
+            var questionId = '';
+            if (questionMeta) {
+                try {
+                    var meta = JSON.parse(questionMeta);
+                    questionId = meta.question_post_id || '';
+                } catch(e) { }
+            }
+            
+            // Find out if answer was correct
+            var correctMsg = questionItem.querySelector('.wpProQuiz_correct');
+            var incorrectMsg = questionItem.querySelector('.wpProQuiz_incorrect');
+            var isCorrect = correctMsg && (window.getComputedStyle(correctMsg).display !== 'none');
+            var isIncorrect = incorrectMsg && (window.getComputedStyle(incorrectMsg).display !== 'none');
+            
+            // Find the selected answer
+            var selectedInput = questionItem.querySelector('.wpProQuiz_questionInput:checked');
+            var userAnswer = selectedInput ? selectedInput.value : null;
+            
+            // No need to learn correct answers from user interactions - we already have them all
+            
+            // Get the Next button status
+            var nextButton = questionItem.querySelector('.wpProQuiz_button[name="next"]');
+            var isNextButtonVisible = nextButton && (window.getComputedStyle(nextButton).display !== 'none');
+            
+            // Log the current state
+            console.log('[QUIZ DEBUG] Answer is correct?', isCorrect);
+            console.log('[QUIZ DEBUG] Next button visible?', isNextButtonVisible);
+            
+            // The core logic - if incorrect, enable re-answering and hide Next button
+            if (isIncorrect) {
+                // 1. Enable all inputs
+                var inputs = questionItem.querySelectorAll('.wpProQuiz_questionInput');
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].disabled = false;
+                    inputs[i].removeAttribute('disabled');
+                    
+                    // Make label clickable
+                    var label = inputs[i].closest('label');
+                    if (label) {
+                        label.style.pointerEvents = 'auto';
+                        label.style.cursor = 'pointer';
+                    }
+                }
+                
+                // 2. Make sure Check button is visible
+                var checkButton = questionItem.querySelector('.wpProQuiz_button[name="check"]');
+                if (checkButton) {
+                    checkButton.style.display = 'inline-block';
+                }
+                
+                // 3. Hide Next button until correct answer is selected
+                if (nextButton && window.getComputedStyle(nextButton).display !== 'none') {
+                    nextButton.style.display = 'none';
+                    console.log('[QUIZ DEBUG] Hiding Next button for incorrect answer');
+                }
+                
+                // 4. If we know the correct answer, enforce it
+                if (correctAnswers[questionId]) {
+                    // Add a one-time click handler to enforce answer checking
+                    var newCheckHandler = function(e) {
+                        setTimeout(function() {
+                            var selectedInput = questionItem.querySelector('.wpProQuiz_questionInput:checked');
+                            var userAnswer = selectedInput ? selectedInput.value : null;
+                            
+                            console.log('[QUIZ DEBUG] Re-check: User selected', userAnswer);
+                            console.log('[QUIZ DEBUG] Re-check: Correct answer is', correctAnswers[questionId]);
+                            console.log('[QUIZ DEBUG] All correct answers we know about:', correctAnswers);
+                            
+                            // Only show Next button if the answer is correct
+                            var nextBtn = questionItem.querySelector('.wpProQuiz_button[name="next"]');
+                            if (userAnswer === correctAnswers[questionId]) {
+                                if (nextBtn) {
+                                    nextBtn.style.display = 'inline-block';
+                                    console.log('[QUIZ DEBUG] Answer is correct, showing Next button');
+                                }
+                            } else {
+                                if (nextBtn) {
+                                    nextBtn.style.display = 'none';
+                                    console.log('[QUIZ DEBUG] Answer is still wrong, keeping Next button hidden');
+                                }
+                            }
+                        }, 100);
+                    };
+                    
+                    var checkButton = questionItem.querySelector('.wpProQuiz_button[name="check"]');
+                    if (checkButton) {
+                        checkButton.addEventListener('click', newCheckHandler);
+                    }
+                }
+            }
+        }
+        
+        // Listen for Check button clicks
+        document.addEventListener('click', function(e) {
+            // Only process Check button clicks
+            if (e.target && e.target.name === 'check' && e.target.className.includes('wpProQuiz_button')) {
+                console.log('[QUIZ DEBUG] Check button clicked');
+                
+                // Wait for LearnDash to update the DOM
+                setTimeout(function() {
+                    var questionItem = e.target.closest('.wpProQuiz_listItem');
+                    processCheckedAnswer(questionItem);
+                }, 100);
+            }
+        });
+        
+        // Process any existing questions on page load
+        setTimeout(function() {
+            var questions = document.querySelectorAll('.wpProQuiz_listItem');
+            questions.forEach(function(question) {
+                var responseShown = question.querySelector('.wpProQuiz_response[style*="display: block"], .wpProQuiz_response:not([style*="display: none"])');
+                if (responseShown) {
+                    processCheckedAnswer(question);
+                }
+            });
+        }, 100);
+    });
+    </script>
+    <?php
+}

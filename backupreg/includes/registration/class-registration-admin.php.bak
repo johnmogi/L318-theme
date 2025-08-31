@@ -1,0 +1,136 @@
+<?php
+/**
+ * Registration Codes Admin
+ *
+ * @deprecated Use class-registration-codes.php instead
+ * This file is kept for backward compatibility only
+ */
+
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+// Prevent loading if the main class is already loaded
+if (class_exists('Registration_Codes')) {
+    return;
+}
+
+class Registration_Codes_Admin {
+    /**
+     * The single instance of the class.
+     *
+     * @var Registration_Codes_Admin
+     */
+    protected static $_instance = null;
+
+    /**
+     * Main Instance.
+     * 
+     * @return Registration_Codes_Admin
+     */
+    public static function instance() {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * Constructor.
+     */
+    public function __construct() {
+        add_action('admin_menu', array($this, 'add_admin_menu'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
+    }
+
+    /**
+     * Add admin menu item.
+     */
+    public function add_admin_menu() {
+        // Debug: Check if function is being called
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('Registration_Codes_Admin::add_admin_menu() called');
+        }
+        
+        $hook = add_menu_page(
+            __('Registration Codes', 'registration-codes'),
+            __('Registration Codes', 'registration-codes'),
+            'manage_options',
+            'registration-codes',
+            array($this, 'render_admin_page'),
+            'dashicons-tickets',
+            30
+        );
+        
+        // Debug: Log the result of add_menu_page
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('add_menu_page result: ' . ($hook ? $hook : 'false'));
+        }
+        
+        return $hook;
+    }
+
+    /**
+     * Enqueue admin assets.
+     *
+     * @param string $hook The current admin page.
+     */
+    public function enqueue_admin_assets($hook) {
+        if ('toplevel_page_registration-codes' !== $hook) {
+            return;
+        }
+
+        // Enqueue admin CSS
+        wp_enqueue_style(
+            'registration-codes-admin',
+            get_stylesheet_directory_uri() . '/includes/registration/css/admin.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/includes/registration/css/admin.css')
+        );
+
+        // Enqueue admin JS
+        wp_enqueue_script(
+            'registration-codes-admin',
+            get_stylesheet_directory_uri() . '/includes/registration/js/admin.js',
+            array('jquery', 'jquery-ui-datepicker'),
+            filemtime(get_stylesheet_directory() . '/includes/registration/js/admin.js'),
+            true
+        );
+
+        // Localize script with AJAX URL and other variables
+        wp_localize_script(
+            'registration-codes-admin',
+            'registrationCodes',
+            array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('registration_codes_nonce'),
+                'dateFormat' => get_option('date_format'),
+                'i18n' => array(
+                    'generating_codes' => __('Generating codes...', 'registration-codes'),
+                )
+            )
+        );
+    }
+
+
+    /**
+     * Render the admin page.
+     */
+    public function render_admin_page() {
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        // Include the admin page template
+        include get_stylesheet_directory() . '/includes/registration/templates/admin-page.php';
+    }
+}
+
+// Initialize the admin
+function init_registration_codes_admin() {
+    return Registration_Codes_Admin::instance();
+}
+
+// Initialize on after_setup_theme to match the registration codes system
+add_action('after_setup_theme', 'init_registration_codes_admin', 20);

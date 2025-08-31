@@ -1,0 +1,47 @@
+includes:
+    - vendor/phpstan/phpstan/conf/level8.neon
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+    - vendor/szepeviktor/phpstan-wordpress/rules.neon
+
+parameters:
+    level: 8
+    paths:
+        - includes/src
+    excludePaths:
+        - node_modules
+        - vendor
+        - wp-content/plugins
+        - wp-content/themes/**/node_modules
+        - wp-includes
+
+    # WordPress specific settings
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+        - vendor/php-stubs/wordpress-globals/wordpress-globals.php
+
+    # Ignore common WordPress patterns that might trigger errors
+    ignoreErrors:
+        - '#Call to an undefined method WP_Query::.*#'
+        - '#Undefined property: WP_#
+
+    # Treat missing return types as errors
+    checkMissingIterableValueType: false
+    checkMissingCallableSignature: true
+    checkMissingTypehint: true
+
+    # WordPress specific rules
+    wordpress:
+        globalVariables: true
+        globalFunctions: true
+        globalConstants: true
+        globalClasses: true
+
+    # Cache results for better performance
+    cache:
+        directory: tmp/phpstan/cache
+
+    # Report unmatched ignores
+    reportUnmatchedIgnoredErrors: false
+
+    # Memory limit
+    memoryLimit: 2G

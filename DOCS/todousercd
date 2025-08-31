@@ -1,0 +1,68 @@
+# ✅ LearnDash Instructor Demo Setup Checklist
+
+## 🧑‍🏫 STEP 1: Prepare Roles & Users
+
+- [x] Confirm `school_teacher` role exists
+- [x] Confirm it has `group_leader` capabilities
+- [x] Create at least one `school_teacher` user
+- [x] Create 2–3 student users (`student_school` or `student_private`)
+
+---
+
+## 📘 STEP 2: Create Demo Course
+
+- [x] Create new course: `Road Safety 101`
+- [x] Add 1 lesson to the course
+- [x] Add 1 quiz to the course or lesson
+- [x] Publish the course
+
+---
+
+## 👥 STEP 3: Create Group + Assign Users
+
+- [X] Create group: `test` [9805]
+- [X] Assign `תעבורתי` course to the group [98]
+- [X] Assign `David Cohen` user as Group Leader [0501234567]
+- [ ] Add 2–3 students to the group
+- [ ] Publish the group
+
+---
+
+## 🧪 STEP 4: Simulate Student Progress
+
+- [ ] Log in as each student and complete the quiz
+  - OR manually assign quiz scores via LearnDash > Reports
+- [ ] Confirm quiz attempts exist for each student
+
+---
+
+## 📊 STEP 5: Create Gradebook
+
+- [ ] Create a new gradebook: `Class A Gradebook`
+- [ ] Assign it to the group: `Class A – Demo`
+- [ ] Link the course: `Road Safety 101`
+- [ ] Add the quiz to the gradebook
+
+---
+
+## 🖥️ STEP 6: Create Teacher Dashboard Page
+
+- [ ] Create a new page: `Teacher Dashboard`
+- [ ] Add shortcodes:
+  - `[ld_group_list]`
+  - `[ld_user_activity]`
+  - `[ld_gradebook group_id="123"]` (replace with actual group ID)
+- [ ] Publish the page
+- [ ] Optional: Restrict access to `school_teacher` role
+
+---
+
+## 🔎 STEP 7: Test as Instructor
+
+- [ ] Log in as the `school_teacher` user
+- [ ] Visit the `/teacher-dashboard/` page
+- [ ] Confirm:
+  - Group(s) are listed
+  - Student activity is visible
+  - Gradebook displays students and average grade
+

@@ -1,0 +1,187 @@
+/**
+ * Quiz Enforce Hint Styles
+ */
+
+/* Quiz container - Ensure right-to-left alignment for Hebrew */
+.wpProQuiz_content {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Question styling when answer is incorrect */
+.enforce-hint-wrong-answer {
+    border-right: 4px solid #e53935;
+    padding-right: 15px;
+    position: relative;
+    background-color: rgba(229, 57, 53, 0.05);
+}
+
+/* Instruction message */
+.enforce-hint-instruction {
+    background-color: #ffebee;
+    color: #b71c1c;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border-right: 4px solid #e53935;
+    text-align: right;
+    direction: rtl;
+}
+
+.enforce-hint-instruction:before {
+    content: "\26A0";  /* Warning symbol */
+    margin-left: 10px;
+    margin-right: 0;
+    font-size: 18px;
+}
+
+/* Hint button highlight - Matches old site */
+.wpProQuiz_TipButton.highlight,
+.enforce-hint-button-highlight {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    animation: pulse-button 1.5s infinite;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
+    border-color: #ff6f00 !important;
+}
+
+/* Tooltip styling to match old site */
+.hint-tooltip {
+    position: absolute;
+    background-color: #ffc107;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+    max-width: 250px;
+    text-align: center;
+    font-size: 14px;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+.hint-tooltip:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid #ffc107;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+/* Text prompt for hint */
+.enforce-hint-prompt {
+    display: inline-block;
+    margin-right: 10px;
+    color: #b71c1c;
+    font-weight: bold;
+    font-size: 1.1em;
+    animation: fade-in 0.3s ease-in;
+}
+
+/* Hint highlight */
+.enforce-hint-highlight {
+    border: 2px solid #ffeb3b;
+    box-shadow: 0 2px 8px rgba(255, 235, 59, 0.4);
+    animation: pulse-highlight 2s infinite;
+}
+
+/* Message inside hint */
+.enforce-hint-message {
+    background-color: #fff9c4;
+    padding: 10px;
+    margin: -10px -10px 10px -10px;
+    border-bottom: 1px solid #ffd54f;
+    font-weight: 500;
+    color: #ff6f00;
+    text-align: right;
+    direction: rtl;
+}
+
+/* Make hint visible */
+.wpProQuiz_tipp {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Always keep the hint button visible */
+.wpProQuiz_TipButton {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Animation for hint highlight */
+@keyframes pulse-highlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 235, 59, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 235, 59, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 235, 59, 0);
+    }
+}
+
+/* Animation for button pulse */
+@keyframes pulse-button {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Make sure next button stays hidden when disabled */
+.wpProQuiz_button[name="next"]:disabled,
+.wpProQuiz_button[name="next"].disabled,
+.wpProQuiz_button[name="next"].force-hide {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+/* Ensure question inputs remain enabled */
+.wpProQuiz_questionInput {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+}
+
+/* Ensure check button is visible */
+.wpProQuiz_button[name="check"] {
+    display: inline-block !important;
+}
+
+/* RTL support for tooltip */
+html[dir="rtl"] .hint-tooltip {
+    direction: rtl;
+}
+
+html[dir="rtl"] .hint-tooltip:after {
+    right: 50%;
+    left: auto;
+    margin-right: -8px;
+    margin-left: 0;
+}

@@ -1,0 +1,130 @@
+/* ===================================
+ * Login Forms
+ * =================================== */
+
+/* Base Container */
+.lilac-login-container {
+    max-width: 28rem; /* 448px */
+    margin: var(--spacing-8) auto;
+    padding: var(--spacing-8);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    direction: rtl;
+    text-align: right;
+}
+
+/* Headings */
+.lilac-login-container h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-4);
+    color: var(--color-gray-900);
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+}
+
+/* Descriptions */
+.lilac-login-container .description {
+    margin-bottom: var(--spacing-6);
+    color: var(--color-text-muted);
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Form Elements */
+.lilac-login-form .form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.lilac-login-form label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    color: var(--color-gray-700);
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+}
+
+.lilac-login-form input[type="text"],
+.lilac-login-form input[type="email"],
+.lilac-login-form input[type="password"] {
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.lilac-login-form input:focus {
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(44, 51, 145, 0.1);
+}
+
+/* Buttons */
+.lilac-login-form .submit-button {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-4);
+    background-color: var(--color-primary);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-on-primary);
+    font-size: 1rem; /* 16px */
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.lilac-login-form .submit-button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+
+.lilac-login-form .submit-button:active {
+    transform: translateY(0);
+}
+
+/* Links */
+.lilac-login-form .forgot-password,
+.lilac-login-form .register-link {
+    display: inline-block;
+    margin-top: var(--spacing-4);
+    color: var(--color-primary);
+    font-size: 0.875rem; /* 14px */
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.lilac-login-form .forgot-password:hover,
+.lilac-login-form .register-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* Error Messages */
+.lilac-login-form .error-message {
+    margin-top: var(--spacing-2);
+    color: var(--color-danger);
+    font-size: 0.875rem; /* 14px */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .lilac-login-container {
+        margin: var(--spacing-4);
+        padding: var(--spacing-6) var(--spacing-4);
+    }
+    
+    .lilac-login-container h2 {
+        font-size: 1.25rem; /* 20px */
+    }
+}

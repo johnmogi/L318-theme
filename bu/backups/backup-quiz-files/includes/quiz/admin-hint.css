@@ -1,0 +1,12 @@
+/* Highlight the hint meta box on the question edit screen */
+#ld_hint_metabox {
+    background-color: #fff8e1; /* light yellow background */
+    border-left: 4px solid #ffeb3b; /* yellow highlight */
+}
+#ld_hint_metabox h2.hndle {
+    color: #ff9800; /* orange title */
+}
+#ld_hint_metabox textarea {
+    background-color: #fffff0; /* subtle off-white */
+    border: 1px solid #ffd54f;
+}

@@ -1,0 +1,130 @@
+/* ===================================
+ * LearnDash Quiz Buttons
+ * =================================== */
+
+/* Base button styles for all quiz buttons */
+.wpProQuiz_button,
+.wpProQuiz_QuestionButton,
+.wpProQuiz_Button,
+.wpProQuiz_Button2,
+.wpProQuiz_TipButton,
+.wpProQuiz_CheckButton,
+.wpProQuiz_ViewQuestionButton,
+.wpProQuiz_QuestionButton,
+.wpProQuiz_QuestionButton:visited,
+.wpProQuiz_QuestionButton:active,
+.wpProQuiz_QuestionButton:focus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--button-padding-y, 0.5rem) var(--button-padding-x, 1rem);
+    font-size: var(--button-font-size, 1rem);
+    font-weight: 500;
+    line-height: var(--button-line-height, 1.5);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: var(--button-border-radius, 0.25rem);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    float: none !important; /* Remove float */
+    margin: 0.25rem !important; /* Consistent margin */
+}
+
+/* Primary Action Buttons (Next, Complete Quiz) */
+.wpProQuiz_button[name="next"],
+.wpProQuiz_button[name="completeQuiz"],
+.wpProQuiz_QuestionButton[value*="סיים"], /* Hebrew for "Finish" */
+.wpProQuiz_QuestionButton[value*="הבא"],  /* Hebrew for "Next" */
+.wpProQuiz_CheckButton {
+    background-color: var(--button-primary-bg, #4a6cf7);
+    color: var(--button-primary-color, #ffffff);
+    border-color: var(--button-primary-border, #4a6cf7);
+}
+
+.wpProQuiz_button[name="next"]:hover,
+.wpProQuiz_button[name="completeQuiz"]:hover,
+.wpProQuiz_QuestionButton[value*="סיים"]:hover,
+.wpProQuiz_QuestionButton[value*="הבא"]:hover,
+.wpProQuiz_CheckButton:hover {
+    background-color: var(--button-primary-hover-bg, #3a5bd9);
+    color: var(--button-primary-color, #ffffff);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary Buttons (Back, Reset) */
+.wpProQuiz_button[name="back"],
+.wpProQuiz_QuestionButton[value*="אחורה"], /* Hebrew for "Back" */
+.wpProQuiz_ViewQuestionButton {
+    background-color: var(--button-secondary-bg, #f8f9fa);
+    color: var(--button-secondary-color, #333333);
+    border-color: var(--button-secondary-border, #dee2e6);
+}
+
+.wpProQuiz_button[name="back"]:hover,
+.wpProQuiz_QuestionButton[value*="אחורה"]:hover,
+.wpProQuiz_ViewQuestionButton:hover {
+    background-color: var(--button-secondary-hover-bg, #e2e6ea);
+    color: var(--button-secondary-color, #333333);
+}
+
+/* Danger Buttons (Reset Quiz) */
+.wpProQuiz_Button2[onclick*="reset"] {
+    background-color: var(--color-danger, #dc3545);
+    color: white;
+    border-color: var(--color-danger, #dc3545);
+}
+
+.wpProQuiz_Button2[onclick*="reset"]:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Quiz Navigation Buttons Container */
+.wpProQuiz_questionButton {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    clear: both;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .wpProQuiz_button,
+    .wpProQuiz_QuestionButton {
+        width: 100%;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .wpProQuiz_questionButton {
+        flex-direction: column;
+    }
+}
+
+/* RTL Support */
+html[dir="rtl"] .wpProQuiz_questionButton {
+    direction: rtl;
+}
+
+/* Focus states for accessibility */
+.wpProQuiz_button:focus-visible,
+.wpProQuiz_QuestionButton:focus-visible {
+    outline: 2px solid var(--color-primary, #4a6cf7);
+    outline-offset: 2px;
+}
+
+/* Disabled state */
+.wpProQuiz_button:disabled,
+.wpProQuiz_QuestionButton:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    background-color: var(--color-gray-300, #dee2e6);
+    border-color: var(--color-gray-400, #ced4da);
+    color: var(--color-gray-700, #495057);
+}

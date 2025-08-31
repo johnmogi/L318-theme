@@ -1,0 +1,88 @@
+/* Clean up LearnDash navigation and button styles */
+.ld-content-actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+    margin: 30px 0 !important;
+}
+
+/* Navigation buttons */
+.ld-content-actions a,
+.ld-content-actions .ld-button {
+    background-color: #66f2c2 !important;
+    color: #000000 !important;
+    padding: 12px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    min-width: 150px !important;
+    white-space: nowrap !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.ld-content-actions a:hover {
+    background-color: #45e1b0 !important;
+}
+
+/* Navigation icons */
+.ld-content-actions .ld-icon {
+    font-size: 18px !important;
+}
+
+/* Complete button */
+.learndash_mark_complete_button {
+    background-color: #66f2c2 !important;
+    color: #000000 !important;
+    padding: 12px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    border: none !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    min-width: 150px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    direction: rtl !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.learndash_mark_complete_button:hover {
+    background-color: #45e1b0 !important;
+}
+
+/* Back to course button */
+.ld-course-step-back {
+    display: inline-block !important;
+    background-color: transparent !important;
+    color: #000000 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    border: 2px solid #66f2c2 !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+}
+
+.ld-course-step-back:hover {
+    background-color: #66f2c2 !important;
+    color: #000000 !important;
+}
+
+/* Override specific Elementor styles */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash-wrapper .ld-content-actions a.ld-primary-color {
+    color: #000000 !important;
+}

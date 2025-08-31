@@ -1,0 +1,79 @@
+/**
+ * Ultimate Member Integration Styles
+ *
+ * This stylesheet contains custom styles for the Ultimate Member integration.
+ */
+
+/* Code verification form */
+.ccr-code-form {
+    max-width: 500px;
+    margin: 0 0 30px 0;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ccr-code-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.ccr-code-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ccr-code-form button {
+    background-color: #2271b1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.ccr-code-form button:hover {
+    background-color: #135e96;
+}
+
+/* Success message */
+.ccr-code-verified {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #ecf8e6;
+    border-left: 4px solid #46b450;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ccr-code-verified p.success {
+    color: #2c7635;
+    font-weight: bold;
+}
+
+/* Error messages */
+.ccr-code-form + p.error {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #faeaea;
+    border-left: 4px solid #dc3232;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #b32d2e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .ccr-code-form {
+        padding: 15px;
+    }
+    
+    .ccr-code-form button {
+        width: 100%;
+    }
+}

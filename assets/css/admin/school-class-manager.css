@@ -1,0 +1,174 @@
+/**
+ * School Class Manager admin styles
+ * Updated for both admin and teacher views
+ */
+
+.school-class-manager-container {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.school-class-manager-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.school-class-manager-content {
+    flex-grow: 1;
+}
+
+/* Teacher and Class Selection */
+.teacher-selection,
+.class-selection {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.teacher-selection h2,
+.class-selection h2 {
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#teacher-selector,
+#class-selector {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Statistics Cards */
+.statistics-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 15px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stat-title {
+    font-size: 14px;
+    color: #646970;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+/* Course Progress */
+.course-progress-section,
+.students-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.course-progress-section h2,
+.students-section h2 {
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    background-color: #f0f0f1;
+    border-radius: 4px;
+    height: 20px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background-color: #2271b1;
+    height: 100%;
+    position: absolute;
+    transition: width 0.6s ease;
+}
+
+.progress-text {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 0 2px rgba(0,0,0,0.4);
+}
+
+/* Support for RTL */
+.rtl .school-class-manager-container {
+    flex-direction: row-reverse;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 782px) {
+    .school-class-manager-container {
+        flex-direction: column;
+    }
+    
+    .school-class-manager-sidebar {
+        width: 100%;
+    }
+    
+    .statistics-cards {
+        flex-direction: column;
+    }
+}
+
+/* Loading State */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: #2271b1;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Element with loading state */
+.is-loading {
+    position: relative;
+    min-height: 100px;
+}

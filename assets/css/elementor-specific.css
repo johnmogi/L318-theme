@@ -1,0 +1,417 @@
+/* Elementor Specific Overrides - Mint Green Theme */
+
+/* Color Variables */
+:root {
+    --mint-green: #66f2c2;
+    --mint-green-dark: #45e1b0;
+    --text-black: #000000;
+    --text-gray: #666666;
+    --text-light: #999999;
+    --bg-white: #ffffff;
+    --bg-light: #f0f3f6;
+    --bg-dark: #2c3391;
+    --border-radius: 6px;
+    --spacing-unit: 12px;
+    --transition-speed: 0.3s;
+}
+
+/* Container Overrides */
+.elementor-922 .elementor-element {
+    font-family: "Assistant", sans-serif !important;
+    line-height: 1.6 !important;
+}
+
+/* Breadcrumbs */
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs {
+    background-color: var(--bg-white) !important;
+    padding: var(--spacing-unit) !important;
+    border-radius: var(--border-radius) !important;
+    margin-bottom: calc(var(--spacing-unit) * 2) !important;
+}
+
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs a {
+    color: var(--text-black) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: color var(--transition-speed) ease !important;
+}
+
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs a:hover {
+    color: var(--mint-green) !important;
+}
+
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs .ld-breadcrumbs-segments {
+    display: flex !important;
+    align-items: center !important;
+    gap: calc(var(--spacing-unit) / 2) !important;
+}
+
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs .ld-breadcrumbs-segments span::after {
+    color: var(--text-gray) !important;
+    content: "›" !important;
+    margin: 0 calc(var(--spacing-unit) / 4) !important;
+}
+
+/* Course Info Bar */
+.elementor-922 .elementor-element-1282152 {
+    background-color: var(--bg-white) !important;
+    padding: calc(var(--spacing-unit) * 2) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Topic List */
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list {
+    background: none !important;
+}
+
+/* High-Specificity Override for Topic List Header */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list .ld-table-list-header {
+    background-color: #2c3391 !important;
+    style="background-color: var(--mint-green) !important; 
+           color: var(--text-black) !important; 
+           padding: 15px !important; 
+           border-radius: 8px !important; 
+           margin-bottom: 20px !important; 
+           border: none !important; 
+           box-shadow: none !important;"
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list .ld-table-list-header.ld-primary-background {
+    background-color: #2c3391 !important;
+    style="background-color: var(--mint-green) !important; 
+           color: var(--text-black) !important; 
+           padding: 15px !important; 
+           border-radius: 8px !important; 
+           margin-bottom: 20px !important; 
+           border: none !important; 
+           box-shadow: none !important;"
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header {
+    background: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    margin-bottom: 20px !important;
+    style="background: var(--mint-green) !important; 
+           background-color: var(--mint-green) !important; 
+           color: var(--text-black) !important; 
+           padding: 15px !important; 
+           border-radius: 8px !important; 
+           margin-bottom: 20px !important; 
+           border: none !important; 
+           box-shadow: none !important;"
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header[bis_skin_checked],
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header.ld-primary-background[bis_skin_checked] {
+    /* Inline important styles */
+    style="background: var(--mint-green) !important; 
+            background-color: var(--mint-green) !important; 
+            background-image: none !important; 
+            background-position: initial !important; 
+            background-size: initial !important; 
+            background-repeat: initial !important; 
+            background-attachment: initial !important; 
+            color: var(--text-black) !important; 
+            font-weight: 600 !important; 
+            padding: calc(var(--spacing-unit) * 1.5) !important; 
+            margin-bottom: calc(var(--spacing-unit) * 2) !important; 
+            border-radius: var(--border-radius) !important; 
+            border: none !important; 
+            box-shadow: none !important; 
+            transition: none !important; 
+            direction: ltr !important; 
+            text-align: left !important;"
+    
+    /* CSS overrides */
+    background: var(--mint-green) !important;
+    background-color: var(--mint-green) !important;
+    background-image: none !important;
+    background-position: initial !important;
+    background-size: initial !important;
+    background-repeat: initial !important;
+    background-attachment: initial !important;
+    
+    /* Color and Typography */
+    color: var(--text-black) !important;
+    font-weight: 600 !important;
+    
+    /* Spacing and Layout */
+    padding: calc(var(--spacing-unit) * 1.5) !important;
+    margin-bottom: calc(var(--spacing-unit) * 2) !important;
+    
+    /* Visual Style */
+    border-radius: var(--border-radius) !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Transitions */
+    transition: none !important;
+    
+    /* RTL Support */
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Override for RTL direction */
+[dir="rtl"] .elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header,
+[dir="rtl"] .elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header.ld-primary-background {
+    direction: rtl !important;
+    text-align: right !important;
+    
+    /* RTL-specific spacing adjustments */
+    padding-left: calc(var(--spacing-unit) * 1.5) !important;
+    padding-right: calc(var(--spacing-unit) * 1.5) !important;
+}
+
+/* Override for all possible combinations */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list .ld-table-list-header * {
+    background: none !important;
+    background-color: transparent !important;
+    color: var(--text-black) !important;
+    
+    /* Reset Elementor's inline styles */
+    -webkit-text-fill-color: var(--text-black) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Override for title and text elements */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header .ld-text,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header .ld-item-icon {
+    color: var(--text-black) !important;
+    font-weight: 600 !important;
+    
+    /* Reset icon colors */
+    .ld-icon {
+        color: var(--text-black) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Override for details section */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header .ld-table-list-lesson-details {
+    color: var(--text-gray) !important;
+    font-weight: 500 !important;
+    
+    /* Override progress and steps text */
+    .ld-lesson-list-progress,
+    .ld-lesson-list-steps {
+        color: var(--text-gray) !important;
+        font-size: 0.9em !important;
+    }
+}
+
+/* Override for all hover states */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header:hover,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header.ld-primary-background:hover {
+    background-color: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    
+    /* Reset hover effects */
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list .ld-table-list-items {
+    background: none !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list-items .ld-table-list-item {
+    background: var(--bg-white) !important;
+    border-radius: var(--border-radius) !important;
+    margin-bottom: calc(var(--spacing-unit) / 2) !important;
+    transition: box-shadow var(--transition-speed) ease !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list-items .ld-table-list-item:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Status Indicators */
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-status {
+    color: var(--text-black) !important;
+    font-weight: 500 !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-status.ld-status-complete {
+    color: var(--text-black) !important;
+    background-color: var(--mint-green) !important;
+    border-radius: var(--border-radius) !important;
+    padding: calc(var(--spacing-unit) / 4) calc(var(--spacing-unit) / 2) !important;
+}
+
+/* Action Buttons */
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: calc(var(--spacing-unit) * 1.5) !important;
+    margin-top: calc(var(--spacing-unit) * 2) !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action a.ld-button {
+    background-color: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    border-radius: var(--border-radius) !important;
+    padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: calc(var(--spacing-unit) / 2) !important;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-weight: 500 !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action a.ld-button:hover {
+    background-color: var(--mint-green-dark) !important;
+    transform: translateY(-1px) !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action input.learndash_mark_complete_button {
+    background-color: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    border-radius: var(--border-radius) !important;
+    padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2) !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-weight: 500 !important;
+}
+
+/* RTL Support */
+[dir="rtl"] .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs-segments span::after {
+    content: "‹" !important;
+}
+
+[dir="rtl"] .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs-segments {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list-items {
+    direction: rtl !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs {
+        padding: var(--spacing-unit) !important;
+    }
+
+    .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs .ld-breadcrumbs-segments {
+        flex-wrap: wrap !important;
+        gap: calc(var(--spacing-unit) / 2) !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-actions {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action a.ld-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list-items .ld-table-list-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action a.ld-button {
+        background: none !important;
+        border: none !important;
+        color: var(--text-black) !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-status.ld-status-complete {
+        color: var(--text-black) !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list-items .ld-table-list-item:hover {
+        box-shadow: none !important;
+    }
+}
+
+/* Course Status */
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-course-status .ld-status.ld-status-complete {
+    color: var(--text-black) !important;
+    background-color: var(--mint-green) !important;
+}
+
+/* Lesson Status */
+.elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-lesson-status .ld-status {
+    color: var(--text-black) !important;
+    background-color: var(--mint-green) !important;
+}
+
+/* Topic List Header */
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list .ld-table-list-header {
+    background-color: var(--mint-green) !important;
+}
+
+/* Topic Items */
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-item-list .ld-item-list-item {
+    background-color: var(--bg-white) !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-table-list-items .ld-table-list-item a {
+    color: var(--text-black) !important;
+}
+
+/* Action Buttons */
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-actions a.ld-primary-color {
+    color: var(--text-black) !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action a.ld-button {
+    color: var(--text-black) !important;
+    background-color: var(--mint-green) !important;
+}
+
+.elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action input.learndash_mark_complete_button {
+    color: var(--text-black) !important;
+    background-color: var(--mint-green) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs .ld-breadcrumbs-segments {
+        font-size: 1.2em !important;
+    }
+
+    .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs .ld-status {
+        font-size: 1.2em !important;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs-segments span::after {
+    content: "‹" !important;
+}
+
+[dir="rtl"] .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs-segments {
+    flex-direction: row-reverse !important;
+}
+
+/* Print Styles */
+@media print {
+    .elementor-922 .elementor-element-3b8ba46 .learndash-wrapper .ld-breadcrumbs {
+        background: none !important;
+    }
+
+    .elementor-922 .elementor-element-c2f99d0 .learndash-wrapper .ld-content-action a.ld-button {
+        background: none !important;
+        border: none !important;
+    }
+}

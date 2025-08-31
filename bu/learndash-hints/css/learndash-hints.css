@@ -1,0 +1,30 @@
+.ld-hint-wrapper {
+    margin-top: 1em;
+}
+
+.ld-show-hint-button,
+.ld-reveal-answer-button {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+
+.ld-show-hint-button:hover,
+.ld-reveal-answer-button:hover {
+    background: #005177;
+}
+
+.ld-hint-message,
+.ld-answer-message {
+    margin: 0.5em 0;
+    padding: 0.5em;
+    background: #f9f9f9;
+    border-left: 4px solid #0073aa;
+}
+
+.ld-answer-message mark {
+    background: yellow;
+}

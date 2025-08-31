@@ -1,0 +1,136 @@
+/* Promo Code Registration Form */
+.promo-code-registration {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    background: #fff;
+    border: 1px solid #e2e4e7;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.promo-code-registration h2 {
+    margin-top: 0;
+    color: #1d2327;
+}
+
+.promo-code-registration .form-field {
+    margin-bottom: 1.5em;
+}
+
+.promo-code-registration label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.promo-code-registration .required {
+    color: #d63638;
+}
+
+.promo-code-registration input[type="text"],
+.promo-code-registration input[type="email"],
+.promo-code-registration input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.promo-code-field {
+    position: relative;
+}
+
+.promo-code-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+#validate-promo-code {
+    margin-right: 10px;
+}
+
+#promo-code-status {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+#promo-code-status.valid {
+    color: #00a32a;
+}
+
+#promo-code-status.error {
+    color: #d63638;
+}
+
+.form-actions {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid #e2e4e7;
+}
+
+.button-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.button-primary:hover {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff;
+}
+
+/* Validation styles */
+.promo-code-registration input.error {
+    border-color: #d63638;
+}
+
+.promo-code-registration .error-message {
+    color: #d63638;
+    font-size: 0.85em;
+    margin-top: 4px;
+    display: none;
+}
+
+.promo-code-registration .error-message.visible {
+    display: block;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 782px) {
+    .promo-code-registration {
+        padding: 1em;
+        margin: 0 1em;
+    }
+    
+    .promo-code-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #validate-promo-code {
+        margin-bottom: 8px;
+    }
+}
+
+/* RTL support */
+.rtl .promo-code-actions {
+    flex-direction: row-reverse;
+}
+
+.rtl #validate-promo-code {
+    margin-right: 0;
+    margin-left: 10px;
+}

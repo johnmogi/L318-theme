@@ -1,0 +1,106 @@
+/**
+ * ACF Hint Styling
+ * 
+ * Styles for highlighting and displaying ACF hints in LearnDash quizzes
+ */
+
+/* Hint highlighting */
+.highlight-hint {
+    background-color: yellow !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+    display: inline-block !important;
+    font-weight: bold !important;
+}
+
+/* Active highlight class */
+.highlight-hint.active {
+    background-color: #ffdc73 !important;
+    border: 1px solid #ffc107 !important;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5) !important;
+}
+
+/* Correct answer highlighting */
+.hint-correct-answer {
+    background-color: #d6ffcf !important;
+    border: 1px solid #5cb85c !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+    display: inline-block !important;
+    font-weight: bold !important;
+}
+
+/* Hint container styling */
+.wpProQuiz_tipp {
+    background-color: #fff !important;
+    border: 1px solid #ddd !important;
+    padding: 15px !important;
+    border-radius: 5px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+/* Hint container inner div */
+.wpProQuiz_tipp > div {
+    padding: 10px !important;
+}
+
+/* ACF hint content styling */
+.acf-hint-content {
+    padding: 10px !important;
+    margin: 10px 0 !important;
+    border: 1px solid #e0e0e0 !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    font-size: 1em !important;
+    line-height: 1.6 !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+    direction: rtl !important; /* For Hebrew content */
+    text-align: right !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+}
+
+/* Loading indicator */
+.acf-hint-loading {
+    padding: 10px !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-style: italic !important;
+}
+
+/* Hint controls */
+.hint-controls {
+    margin-top: 15px !important;
+    border-top: 1px solid #eee !important;
+    padding-top: 10px !important;
+    text-align: right !important;
+}
+
+/* Hint control buttons */
+.hint-controls button {
+    padding: 5px 10px !important;
+    margin-right: 5px !important;
+    background: #0073aa !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+}
+
+/* All possible answers list */
+.hint-all-answers {
+    margin-top: 10px !important;
+    background-color: #f5f5f5 !important;
+    padding: 10px !important;
+    border-radius: 4px !important;
+}
+
+/* Correct answer display */
+.correct-answer-display {
+    margin-top: 10px !important;
+    border-top: 1px dashed #ccc !important;
+    padding-top: 10px !important;
+}

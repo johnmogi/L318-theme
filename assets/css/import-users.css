@@ -1,0 +1,344 @@
+.ccr-import-container {
+    max-width: 1000px;
+    margin: 20px 0;
+}
+
+.ccr-import-form {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.ccr-form-group {
+    margin-bottom: 15px;
+}
+
+.ccr-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.ccr-form-group input[type="text"],
+.ccr-form-group input[type="file"],
+.ccr-form-group select {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ccr-form-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.ccr-progress-container {
+    margin-top: 30px;
+    display: none;
+}
+
+.ccr-progress-bar {
+    height: 20px;
+    background: #f1f1f1;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.ccr-progress {
+    height: 100%;
+    background: #0073aa;
+    width: 0%;
+    transition: width 0.3s ease;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.ccr-progress-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.ccr-progress-message {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.ccr-messages {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.ccr-messages .notice {
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 4px solid #00a0d2;
+}
+
+.ccr-messages .notice-error {
+    border-left-color: #dc3232;
+}
+
+.ccr-messages .notice-success {
+    border-left-color: #46b450;
+}
+
+.ccr-button {
+    padding: 8px 16px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ccr-button:hover {
+    background: #005177;
+}
+
+.ccr-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.ccr-button-secondary {
+    background: #f7f7f7;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+.ccr-button-secondary:hover {
+    background: #e0e0e0;
+}
+
+.ccr-spinner {
+    display: inline-block;
+    background: url(../images/spinner.gif) no-repeat;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+/* Import Users Styles */
+.ccr-import-container {
+    max-width: 1200px;
+    margin: 20px 0;
+}
+
+.ccr-import-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.ccr-import-card h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.ccr-form-group {
+    margin-bottom: 20px;
+}
+
+.ccr-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.ccr-form-group .description {
+    color: #646970;
+    font-style: italic;
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.ccr-form-actions {
+    margin: 25px 0 10px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Progress Bar */
+.ccr-progress-container {
+    margin: 20px 0;
+    background: #f5f5f5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ccr-progress-bar {
+    height: 20px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.ccr-progress {
+    height: 100%;
+    background: #2271b1;
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+}
+
+.ccr-progress-text {
+    text-align: center;
+    font-weight: 600;
+    color: #2271b1;
+}
+
+/* Import Log */
+.ccr-import-log {
+    max-height: 300px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.ccr-import-log li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.ccr-import-log li:last-child {
+    border-bottom: none;
+}
+
+/* Summary */
+.ccr-import-summary {
+    margin-top: 30px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-left: 4px solid #2271b1;
+    border-radius: 0 4px 4px 0;
+}
+
+.ccr-summary-grid {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.ccr-summary-item {
+    text-align: center;
+    padding: 15px;
+    border-radius: 4px;
+    flex: 1;
+    margin: 0 10px;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ccr-summary-count {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.ccr-summary-item.success .ccr-summary-count {
+    color: #00a32a;
+}
+
+.ccr-summary-item.error .ccr-summary-count {
+    color: #d63638;
+}
+
+.ccr-summary-item.total .ccr-summary-count {
+    color: #2271b1;
+}
+
+/* Error Messages */
+.ccr-error-messages {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    color: #721c24;
+    display: none;
+}
+
+.ccr-error-messages h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.ccr-error-messages ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ccr-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 782px) {
+    .ccr-form-group input[type="text"],
+    .ccr-form-group input[type="file"],
+    .ccr-form-group select {
+        width: 100%;
+    }
+    
+    .ccr-form-actions {
+        text-align: center;
+    }
+    
+    .ccr-import-actions .button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    .ccr-summary-grid {
+        flex-direction: column;
+    }
+    
+    .ccr-summary-item {
+        margin: 5px 0;
+    }
+}

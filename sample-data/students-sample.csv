@@ -1,0 +1,11 @@
+student_id_number,first_name,last_name,email,phone,address,city,state,postal_code,country,date_of_birth,status
+S001,Emily,Johnson,emily.johnson@example.com,555-111-2222,123 Main St,Springfield,IL,62701,USA,1995-05-15,active
+S002,Michael,Williams,michael.williams@example.com,555-222-3333,456 Oak Ave,Riverdale,NY,10471,USA,1996-08-22,active
+S003,Sophia,Brown,sophia.brown@example.com,555-333-4444,789 Elm Blvd,Lakeside,CA,92040,USA,1997-03-10,active
+S004,Daniel,Jones,daniel.jones@example.com,555-444-5555,101 Pine Dr,Cedar Rapids,IA,52401,USA,1995-11-28,active
+S005,Olivia,Miller,olivia.miller@example.com,555-555-6666,202 Maple Rd,Portland,OR,97201,USA,1996-07-19,active
+S006,James,Davis,james.davis@example.com,555-666-7777,303 Birch Ln,Austin,TX,78701,USA,1998-01-05,active
+S007,Emma,Garcia,emma.garcia@example.com,555-777-8888,404 Cedar St,Miami,FL,33101,USA,1997-09-12,active
+S008,Alexander,Rodriguez,alexander.rodriguez@example.com,555-888-9999,505 Willow Ave,Denver,CO,80201,USA,1996-04-30,active
+S009,Ava,Martinez,ava.martinez@example.com,555-999-0000,606 Aspen Rd,Seattle,WA,98101,USA,1998-06-25,active
+S010,Ethan,Lopez,ethan.lopez@example.com,555-000-1111,707 Redwood Blvd,Chicago,IL,60601,USA,1997-12-03,active

@@ -1,0 +1,234 @@
+/* Elementor Overrides - Inline Styles */
+
+/* Mint Green Color Variables */
+:root {
+    --mint-green: #66f2c2;
+    --mint-green-dark: #45e1b0;
+    --text-black: #000000;
+    --text-gray: #666666;
+}
+
+/* Course Info Bar */
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .learndash-wrapper {
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Breadcrumbs */
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-breadcrumbs {
+    background: #ffffff !important;
+    padding: 15px !important;
+    border-radius: 6px !important;
+    margin-bottom: 20px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-breadcrumbs a {
+    color: var(--text-black) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-breadcrumbs a:hover {
+    color: var(--mint-green) !important;
+}
+
+/* Progress Bar */
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress {
+    background: #ffffff !important;
+    padding: 15px !important;
+    border-radius: 6px !important;
+    margin-bottom: 20px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress-heading {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress-label {
+    color: var(--text-black) !important;
+    font-weight: 500 !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress-percentage {
+    color: var(--mint-green) !important;
+    font-weight: 600 !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress-steps {
+    color: var(--text-gray) !important;
+    font-size: 0.9em !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress-bar {
+    height: 8px !important;
+    background: #f0f3f6 !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-3b8ba46 .ld-progress-bar-percentage {
+    background: var(--mint-green) !important;
+    height: 100% !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Topic List Header */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-header {
+    background: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    margin-bottom: 20px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-title {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-item-icon {
+    color: var(--text-black) !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-text {
+    font-weight: 600 !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-lesson-details {
+    color: var(--text-gray) !important;
+    font-size: 0.9em !important;
+}
+
+/* Topic Items */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-item {
+    background: #ffffff !important;
+    border-radius: 6px !important;
+    padding: 12px !important;
+    margin-bottom: 10px !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-item:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-topic-title,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-item-title {
+    color: var(--text-black) !important;
+    font-weight: 600 !important;
+}
+
+/* Status Icons */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-status-icon {
+    color: var(--text-black) !important;
+}
+
+/* Quiz Items */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-item-quiz {
+    background: #f0f3f6 !important;
+    border-radius: 6px !important;
+    padding: 12px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Action Buttons */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-content-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 15px !important;
+    margin-top: 30px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-content-action {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-button,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-content-action a {
+    background: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    border-radius: 6px !important;
+    padding: 12px 20px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-button:hover,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-content-action a:hover {
+    background: var(--mint-green-dark) !important;
+}
+
+/* Complete Button */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash_mark_complete_button {
+    background: var(--mint-green) !important;
+    color: var(--text-black) !important;
+    border-radius: 6px !important;
+    padding: 12px 20px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash_mark_complete_button:hover {
+    background: var(--mint-green-dark) !important;
+}
+
+/* Back to Course Button */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-course-step-back {
+    color: var(--text-black) !important;
+    border: 2px solid var(--mint-green) !important;
+    border-radius: 6px !important;
+    padding: 12px 20px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-course-step-back:hover {
+    background: var(--mint-green) !important;
+    color: var(--text-black) !important;
+}
+
+/* RTL Support */
+[dir="rtl"] .elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-icon-arrow-left {
+    transform: rotate(180deg) !important;
+}
+
+/* Typography */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-item-title,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-table-list-items .ld-table-list-item a {
+    color: var(--text-black) !important;
+    font-weight: 600 !important;
+}
+
+/* Progress Indicators */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-lesson-list-progress,
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-lesson-list-steps {
+    color: var(--text-gray) !important;
+    font-size: 0.9em !important;
+}
+
+/* Override Elementor's default styles */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash-wrapper {
+    background: none !important;
+    padding: 0 !important;
+}
+
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .ld-empty {
+    display: none !important;
+}

@@ -1,0 +1,2169 @@
+<?php
+/**
+ * Theme functions and definitions
+ *
+ * @package HelloElementorChild
+ */
+
+/**
+ * Force video display in LD30 theme
+ */
+add_filter('learndash_30_forced_theme_mods', function($mods) {
+    $mods['ld30_show_video_in_lesson'] = true;
+    return $mods;
+});
+
+/**
+ * Ensure video container is visible and properly styled
+ */
+add_action('wp_head', function() {
+    if (is_singular(['sfwd-lessons', 'sfwd-topic'])) {
+        ?>
+        <style>
+            /* Video container styling */
+            .ld-video {
+                display: block !important;
+                margin: 20px 0;
+                min-height: 450px;
+                opacity: 1 !important;
+                visibility: visible !important;
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Make YouTube iframe responsive */
+            .ld-video iframe,
+            .learndash-video iframe,
+            .wp-video {
+                width: 100% !important;
+                height: 450px !important;
+                max-width: 800px;
+                margin: 0 auto;
+                display: block;
+                border: none;
+                border-radius: 4px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            /* Fix for video container visibility */
+            .learndash-wrapper .ld-video {
+                display: block !important;
+            }
+            
+            /* Ensure video is above other content */
+            .ld-item-list.ld-lesson-list {
+                position: relative;
+                z-index: 2;
+            }
+        </style>
+        <?php
+    }
+}, 999);
+
+/**
+ * Ensure video shortcode is processed
+ */
+add_filter('learndash_content', function($content, $post) {
+    if (is_singular(['sfwd-lessons', 'sfwd-topic'])) {
+        $video_url = get_post_meta($post->ID, '_ld_lesson_video_url', true);
+        if (!empty($video_url) && !has_shortcode($content, 'ld_video')) {
+            $content = '[ld_video]' . $content;
+        }
+    }
+    return $content;
+}, 10, 2);
+
+// Debug check for Timed Access module - DISABLED
+// Now using lilac-ajax-fix.php MU-plugin for better handling
+
+// Enhanced debug logging function
+function custom_log($message, $data = null) {
+    // Use wp-content/debug-lilac.log for better accessibility
+    $log_file = WP_CONTENT_DIR . '/debug-lilac.log';
+    $timestamp = current_time('mysql');
+    $log_message = "[$timestamp] $message" . PHP_EOL;
+    
+    // Add request URI and method
+    $log_message .= "[URL] " . (isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'N/A') . PHP_EOL;
+    $log_message .= "[METHOD] " . (isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'N/A') . PHP_EOL;
+    
+    // Add POST data if this is a POST request
+    if (!empty($_POST)) {
+        $log_message .= "[POST DATA] " . print_r($_POST, true) . PHP_EOL;
+    }
+    
+    // Add GET data if this is a GET request
+    if (!empty($_GET)) {
+        $log_message .= "[GET DATA] " . print_r($_GET, true) . PHP_EOL;
+    }
+    
+    // Add any additional data
+    if ($data !== null) {
+        $log_message .= "[DATA] " . (is_array($data) || is_object($data) ? print_r($data, true) : $data) . PHP_EOL;
+    }
+    
+    // Add a separator
+    $log_message .= str_repeat('-', 80) . PHP_EOL;
+    
+    // Ensure the log directory exists and is writable
+    if (!file_exists(dirname($log_file))) {
+        @mkdir(dirname($log_file), 0755, true);
+    }
+    
+    // Write to the log file
+    @file_put_contents($log_file, $log_message, FILE_APPEND);
+    
+    // Also log to PHP error log for visibility
+    error_log('LILAC DEBUG: ' . strip_tags($message));
+}
+
+// Add debug test endpoint
+add_action('init', function() {
+    if (isset($_GET['test_debug'])) {
+        custom_log('Debug test', 'This is a test message');
+        echo 'Debug test completed. Check debug-lilac.log';
+        exit;
+    }
+});
+
+// AJAX handler for client-side debug logging
+add_action('wp_ajax_lilac_debug_log', 'lilac_handle_debug_log');
+add_action('wp_ajax_nopriv_lilac_debug_log', 'lilac_handle_debug_log');
+function lilac_handle_debug_log() {
+    if (!empty($_POST['message'])) {
+        $log_file = WP_CONTENT_DIR . '/debug-lilac.log';
+        $message = '[' . current_time('mysql') . '] ' . sanitize_text_field($_POST['message']) . "\n";
+        error_log($message, 3, $log_file);
+    }
+    wp_die();
+}
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+// Define plugin constants
+if (!defined('LILAC_QUIZ_FOLLOWUP_VERSION')) {
+    define('LILAC_QUIZ_FOLLOWUP_VERSION', '1.0.0');
+}
+
+/**
+ * Change Add to Cart button text for WooCommerce
+ */
+add_filter('woocommerce_product_single_add_to_cart_text', 'ccr_custom_add_to_cart_text');
+add_filter('woocommerce_product_add_to_cart_text', 'ccr_custom_add_to_cart_text');
+function ccr_custom_add_to_cart_text() {
+    return 'רכשו עכשיו';
+}
+
+/**
+ * Debug function to log to wp-content/debug.log
+ */
+if (!function_exists('write_log')) {
+    function write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+}
+
+/**
+ * Log WooCommerce add to cart actions
+ */
+add_action('woocommerce_add_to_cart', 'log_add_to_cart_action', 10, 6);
+function log_add_to_cart_action($cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data) {
+    write_log('=== ADD TO CART ACTION TRIGGERED ===');
+    write_log('Product ID: ' . $product_id);
+    write_log('Variation ID: ' . $variation_id);
+    write_log('Quantity: ' . $quantity);
+    write_log('Cart Item Data: ' . print_r($cart_item_data, true));
+    write_log('$_REQUEST: ' . print_r($_REQUEST, true));
+    write_log('$_POST: ' . print_r($_POST, true));
+}
+
+/**
+ * Handle all add to cart redirects to checkout
+ */
+add_filter('woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect', 99, 1);
+function custom_add_to_cart_redirect($url) {
+    // Log the start of the redirection process
+    custom_log('=== START ADD TO CART REDIRECT ===');
+    custom_log('Original URL', $url);
+    
+    // Log request data
+    custom_log('Request Data', [
+        'is_ajax' => wp_doing_ajax(),
+        'is_cart' => is_cart(),
+        'is_checkout' => is_checkout(),
+        'is_product' => is_product(),
+        'request' => $_REQUEST
+    ]);
+    
+    // Don't redirect if this is an AJAX request - let the JS handle it
+    if (wp_doing_ajax()) {
+        custom_log('AJAX request detected, letting JS handle redirection');
+        return $url;
+    }
+    
+    // Check if this is an add to cart action
+    $is_add_to_cart = (
+        (isset($_REQUEST['add-to-cart']) && is_numeric($_REQUEST['add-to-cart'])) ||
+        (isset($_REQUEST['add-to-cart-nonce']) && wp_verify_nonce($_REQUEST['add-to-cart-nonce'], 'add-to-cart')) ||
+        (isset($_REQUEST['add-to-cart-variation']) && is_numeric($_REQUEST['add-to-cart-variation']))
+    );
+    
+    if ($is_add_to_cart) {
+        custom_log('Add to cart action detected');
+        
+        // Get the product ID
+        $product_id = 0;
+        $variation_id = 0;
+        
+        if (isset($_REQUEST['add-to-cart']) && is_numeric($_REQUEST['add-to-cart'])) {
+            $product_id = absint($_REQUEST['add-to-cart']);
+            custom_log('Simple product detected', ['product_id' => $product_id]);
+        } 
+        
+        if (isset($_REQUEST['add-to-cart-variation']) && is_numeric($_REQUEST['add-to-cart-variation'])) {
+            $variation_id = absint($_REQUEST['add-to-cart-variation']);
+            $product_id = $variation_id; // For variations, use variation ID as product ID
+            custom_log('Variable product detected', [
+                'variation_id' => $variation_id,
+                'variation' => isset($_REQUEST['variation_id']) ? $_REQUEST['variation_id'] : 'N/A'
+            ]);
+        }
+        
+        if ($product_id > 0) {
+            // Clear any notices to prevent duplicate messages
+            wc_clear_notices();
+            
+            // Get the checkout URL
+            $checkout_url = wc_get_checkout_url();
+            $redirect_url = add_query_arg('added-to-cart', $product_id, $checkout_url);
+            
+            custom_log('Redirecting to checkout', [
+                'product_id' => $product_id,
+                'variation_id' => $variation_id,
+                'redirect_url' => $redirect_url
+            ]);
+            
+            return $redirect_url;
+        }
+    }
+    
+    custom_log('No redirect needed, returning original URL');
+    return $url;
+}
+
+/**
+ * Handle AJAX add to cart redirects and variable product forms
+ */
+add_action('wp_footer', 'custom_add_to_cart_script');
+function custom_add_to_cart_script() {
+    // Only load on relevant pages
+    if (!is_woocommerce() && !is_cart() && !is_checkout() && !is_product()) return;
+    
+    $checkout_url = wc_get_checkout_url();
+    $is_ajax = wp_doing_ajax();
+    ?>
+    <script type="text/javascript">
+    (function($) {
+        'use strict';
+        
+        // Enhanced debug function
+        function debugLog() {
+            if (!window.console || !window.console.log) return;
+            
+            var args = Array.prototype.slice.call(arguments);
+            var timestamp = new Date().toISOString();
+            
+            // Add timestamp and prefix to all log messages
+            args.unshift('[Lilac Debug ' + timestamp + ']');
+            
+            // Log to console
+            console.log.apply(console, args);
+            
+            // Also log to a global array for debugging
+            if (!window.lilacDebugLog) {
+                window.lilacDebugLog = [];
+            }
+            window.lilacDebugLog.push({
+                time: timestamp,
+                message: args.join(' ')
+            });
+            
+            // Send log to server for persistent logging
+            try {
+                $.ajax({
+                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                    type: 'POST',
+                    data: {
+                        action: 'lilac_debug_log',
+                        message: args.join(' ')
+                    }
+                });
+            } catch (e) {
+                console.error('Failed to send debug log:', e);
+            }
+        }
+        
+        // Function to redirect to checkout
+        function redirectToCheckout() {
+            var checkoutUrl = '<?php echo esc_js($checkout_url); ?>';
+            debugLog('Redirecting to checkout:', checkoutUrl);
+            
+            // Add a small random parameter to prevent caching
+            var timestamp = new Date().getTime();
+            var separator = checkoutUrl.includes('?') ? '&' : '?';
+            window.location.href = checkoutUrl + separator + 'nocache=' + timestamp;
+            
+            // If we're still here after 1 second, force redirect
+            setTimeout(function() {
+                debugLog('Force redirecting to checkout after delay');
+                window.location.href = checkoutUrl;
+            }, 1000);
+            
+            return false;
+        }
+        
+        // Handle AJAX add to cart
+        function handleAddedToCart(event, fragments, hash, $button) {
+            debugLog('=== ADDED TO CART EVENT ===');
+            debugLog('Event:', event);
+            debugLog('Fragments:', fragments);
+            debugLog('Hash:', hash);
+            debugLog('Button:', $button ? $button.attr('class') : 'No button');
+            
+            // Get the product ID from the button if available
+            var productId = $button ? $button.data('product_id') || $button.closest('[data-product_id]').data('product_id') : 'unknown';
+            debugLog('Product ID from button:', productId);
+            
+            // Check if this is a variation product
+            var isVariation = $button && $button.closest('.variations_form').length > 0;
+            var delay = isVariation ? 1500 : 800; // Longer delay for variations
+            
+            debugLog('Is variation:', isVariation, 'Using delay:', delay + 'ms');
+            
+            // Clear any existing timeouts
+            if (window.addToCartTimeout) {
+                clearTimeout(window.addToCartTimeout);
+            }
+            
+            // Set a new timeout
+            window.addToCartTimeout = setTimeout(function() {
+                debugLog('Executing redirect after delay');
+                redirectToCheckout();
+            }, delay);
+        }
+        
+        // Document ready
+        $(function() {
+            debugLog('Document ready');
+            
+            // Handle AJAX add to cart events
+            $(document.body).on('added_to_cart', handleAddedToCart);
+            
+            // Handle variable product form submission
+            $('form.variations_form').on('submit', function(e) {
+                debugLog('Variable product form submission');
+                var $form = $(this);
+                var $button = $form.find('.single_add_to_cart_button');
+                
+                // Update button text and disable
+                $button.text('מועבר לתשלום...').prop('disabled', true);
+                
+                // For AJAX add to cart
+                if ($form.hasClass('variations_form')) {
+                    debugLog('Variable product form detected');
+                    return true; // Let the form submit normally
+                }
+                
+                return true;
+            });
+            
+            // Handle variation selection
+            $('form.variations_form').on('found_variation', function(event, variation) {
+                debugLog('Variation selected: ' + JSON.stringify(variation));
+                $(this).find('.single_add_to_cart_button').text('רכשו עכשיו');
+            });
+            
+            // Handle direct add to cart buttons (simple products)
+            $(document).on('click', '.add_to_cart_button:not(.product_type_variable)', function(e) {
+                debugLog('Add to cart button clicked');
+                var $button = $(this);
+                
+                // Only proceed if not already processing
+                if ($button.is('.processing, .disabled, :disabled, [disabled=disabled]')) {
+                    return false;
+                }
+                
+                // Mark as processing
+                $button.addClass('processing').text('מועבר לתשלום...');
+                
+                // If this is an AJAX add to cart
+                if (typeof wc_add_to_cart_params !== 'undefined' && $button.is('.ajax_add_to_cart')) {
+                    return true; // Let WooCommerce handle the AJAX request
+                }
+                
+                return true;
+            });
+            
+            // Redirect if on cart page with items
+            if ($('body').hasClass('woocommerce-cart') && $('.woocommerce-cart-form__contents').length) {
+                debugLog('On cart page, redirecting to checkout');
+                setTimeout(redirectToCheckout, 500);
+            }
+            
+            // Debug AJAX requests
+            $(document).ajaxComplete(function(event, xhr, settings) {
+                if (settings.url && settings.url.includes('wc-ajax=add_to_cart')) {
+                    debugLog('AJAX add to cart completed');
+                    debugLog('URL: ' + settings.url);
+                    debugLog('Status: ' + xhr.status);
+                    
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        debugLog('Response: ' + JSON.stringify(response));
+                    } catch (e) {
+                        debugLog('Could not parse response as JSON');
+                    }
+                }
+            });
+            
+            // Enhanced form submission handler for all add to cart forms
+            $(document).on('submit', 'form.cart:not(.grouped_form)', function(e) {
+                debugLog('=== FORM SUBMIT TRIGGERED ===');
+                var $form = $(this);
+                var $button = $form.find('.single_add_to_cart_button');
+                var isAjax = $form.attr('enctype') === 'multipart/form-data' || 
+                             $form.hasClass('variations_form') || 
+                             $form.find('input[name="add-to-cart"]').length > 0;
+                
+                debugLog('Form data:', $form.serialize());
+                debugLog('Is AJAX submission:', isAjax);
+                
+                // Always prevent default for our custom handling
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                
+                // Disable the button to prevent multiple clicks
+                $button.prop('disabled', true).addClass('loading');
+                
+                if (isAjax) {
+                    debugLog('Processing as AJAX submission');
+                    
+                    // For variable products, we need to wait for variation data to be set
+                    if ($form.hasClass('variations_form')) {
+                        debugLog('Variable product form detected');
+                        // Trigger variation selection if not already done
+                        if (typeof $form.data('product_variations') === 'undefined') {
+                            $form.find('.variations select').trigger('change');
+                        }
+                    }
+                    
+                    // Submit via AJAX
+                    $.ajax({
+                        url: wc_add_to_cart_params.ajax_url,
+                        type: 'POST',
+                        data: $form.serialize() + '&action=woocommerce_add_to_cart',
+                        dataType: 'json',
+                        success: function(response) {
+                            debugLog('AJAX add to cart success:', response);
+                            if (response.error && response.product_url) {
+                                window.location = response.product_url;
+                                return;
+                            }
+                            // Redirect to checkout after successful add to cart
+                            redirectToCheckout();
+                        },
+                        error: function(xhr, status, error) {
+                            var errorMsg = 'שגיאה בהוספת המוצר לעגלה. אנא נסה שוב.';
+                            try {
+                                var response = JSON.parse(xhr.responseText);
+                                if (response.error_message) {
+                                    errorMsg = response.error_message;
+                                }
+                                debugLog('AJAX add to cart error:', response);
+                            } catch (e) {
+                                debugLog('Error parsing error response:', e);
+                            }
+                            alert(errorMsg);
+                            $button.prop('disabled', false).removeClass('loading');
+                        }
+                    });
+                } else {
+                    debugLog('Processing as standard form submission');
+                    // For non-AJAX forms, submit normally
+                    this.submit();
+                }
+            });
+        });
+        
+    })(jQuery);
+    </script>
+    <?php
+}
+
+/**
+ * Debug function to log to wp-content/debug.log
+ */
+if (!function_exists('write_log')) {
+    function write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+}
+
+// Remove any other conflicting redirects
+remove_action('template_redirect', 'wc_redirect_to_checkout');
+remove_action('template_redirect', 'wc_cart_redirect_after_error');
+
+// Ensure WooCommerce session is started for all users
+add_action('wp_loaded', function() {
+    if (!is_admin() && !defined('DOING_CRON') && !defined('DOING_AJAX') && function_exists('WC')) {
+        // Initialize session if not already started
+        if (is_null(WC()->session)) {
+            WC()->initialize_session();
+        }
+        // Ensure customer session cookie is set
+        if (WC()->session && !WC()->session->has_session()) {
+            WC()->session->set_customer_session_cookie(true);
+        }
+    }
+});
+
+// Ensure cart is initialized for all users
+add_action('wp_loaded', function() {
+    if (function_exists('WC') && !is_admin() && !defined('DOING_CRON') && !defined('DOING_AJAX')) {
+        if (is_null(WC()->cart)) {
+            WC()->initialize_cart();
+        }
+    }
+}, 5);
+
+// Handle AJAX logging
+add_action('wp_ajax_log_to_console', 'handle_console_log');
+add_action('wp_ajax_nopriv_log_to_console', 'handle_console_log');
+function handle_console_log() {
+    if (isset($_POST['message'])) {
+        write_log('JS: ' . sanitize_text_field($_POST['message']));
+    }
+    wp_die();
+}
+
+/**
+ * Prevent cart empty redirect
+ */
+add_action('template_redirect', function() {
+    if (is_cart() && WC()->cart->is_empty() && !is_ajax()) {
+        $referer = wp_get_referer();
+        if ($referer) {
+            wp_safe_redirect($referer);
+            exit;
+        }
+    }
+});
+
+/**
+ * Customize checkout fields for school registration
+ */
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+function custom_override_checkout_fields($fields) {
+    // Remove order comments and unnecessary fields
+    unset($fields['order']['order_comments']);
+    
+    // Student Information Section
+    $fields['billing']['billing_first_name'] = array(
+        'label'       => 'שם פרטי',
+        'placeholder' => 'שם פרטי',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 10
+    );
+    
+    $fields['billing']['billing_last_name'] = array(
+        'label'       => 'שם משפחה',
+        'placeholder' => 'שם משפחה',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 20
+    );
+    
+    // School Code Section
+    $fields['billing']['school_code'] = array(
+        'type'        => 'text',
+        'label'       => 'קוד בית ספר',
+        'placeholder' => 'הזן קוד בית ספר',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 30,
+        'clear'       => true
+    );
+    
+    // School Info Section (will be populated via AJAX)
+    $fields['billing']['school_info'] = array(
+        'type'        => 'hidden',
+        'class'       => array('school-info-container'),
+        'priority'    => 35
+    );
+    
+    // Class Number
+    $fields['billing']['class_number'] = array(
+        'type'        => 'text',
+        'label'       => 'מספר כיתה',
+        'placeholder' => 'מספר הכיתה שלך',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 40
+    );
+    
+    // Phone and ID Section
+    $fields['billing']['billing_phone'] = array(
+        'label'       => 'טלפון נייד (זיהוי משתמש)',
+        'placeholder' => 'הזן מספר טלפון נייד',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 50,
+        'clear'       => true
+    );
+    
+    $fields['billing']['phone_confirm'] = array(
+        'type'        => 'text',
+        'label'       => 'וידוא טלפון נייד',
+        'placeholder' => 'הזן שוב את המספר',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 60
+    );
+    
+    $fields['billing']['id_number'] = array(
+        'type'        => 'text',
+        'label'       => 'מספר ת.ז (סיסמה)',
+        'placeholder' => 'תעודת זהות',
+        'required'    => true,
+        'class'       => array('form-row-first'),
+        'priority'    => 70
+    );
+    
+    $fields['billing']['id_confirm'] = array(
+        'type'        => 'text',
+        'label'       => 'וידוא תעודת זהות',
+        'placeholder' => 'הזן שוב ת.ז',
+        'required'    => true,
+        'class'       => array('form-row-last'),
+        'priority'    => 80
+    );
+    
+    // Email field
+    $fields['billing']['billing_email'] = array(
+        'label'       => 'אימייל לאישור',
+        'placeholder' => 'אימייל לאישור הרשמה',
+        'required'    => true,
+        'class'       => array('form-row-wide'),
+        'priority'    => 90,
+        'clear'       => true
+    );
+    
+    // Promo code link
+    $fields['billing']['promo_code'] = array(
+        'type'        => 'checkbox',
+        'label'       => 'יש ברשותי קוד הטבה',
+        'class'       => array('form-row-wide'),
+        'priority'    => 100
+    );
+    
+    // Remove all address fields for virtual products
+    if (WC()->cart && !empty(WC()->cart->get_cart())) {
+        $is_virtual = true;
+        foreach (WC()->cart->get_cart() as $cart_item) {
+            if (!$cart_item['data']->is_virtual()) {
+                $is_virtual = false;
+                break;
+            }
+        }
+        
+        if ($is_virtual) {
+            unset($fields['billing']['billing_company']);
+            unset($fields['billing']['billing_country']);
+            unset($fields['billing']['billing_address_1']);
+            unset($fields['billing']['billing_address_2']);
+            unset($fields['billing']['billing_city']);
+            unset($fields['billing']['billing_state']);
+            unset($fields['billing']['billing_postcode']);
+        }
+    }
+    
+    return $fields;
+}
+
+/**
+ * Set default country to Israel and hide country field
+ */
+add_filter('default_checkout_billing_country', function() {
+    return 'IL'; // ISO code for Israel
+});
+
+/**
+ * Remove address fields from checkout
+ */
+add_filter('woocommerce_checkout_fields', function($fields) {
+    // Remove shipping fields
+    unset($fields['shipping']);
+    
+    return $fields;
+});
+
+/**
+ * Remove duplicate product error message
+ */
+add_filter('woocommerce_add_error', function($error) {
+    if (strpos($error, 'You cannot add another') !== false) {
+        // Return an empty string to prevent the error from showing
+        return '';
+    }
+    return $error;
+});
+
+/**
+ * Clear any error notices on the cart page
+ */
+add_action('template_redirect', function() {
+    if (is_cart()) {
+        wc_clear_notices();
+        
+        // If cart is not empty, redirect to checkout
+        if (!WC()->cart->is_empty()) {
+            wp_redirect(wc_get_checkout_url());
+            exit;
+        }
+    }
+}, 99);
+
+/**
+ * Enqueue scripts and styles
+ */
+function hello_elementor_child_scripts_styles() {
+    // Enqueue parent theme styles
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('hello-elementor-theme-style'),
+        wp_get_theme()->get('Version')
+    );
+
+    // Enqueue WooCommerce scripts and styles if WooCommerce is active
+    if (class_exists('WooCommerce')) {
+        // Enqueue WooCommerce scripts
+        if (is_product() || is_cart() || is_checkout()) {
+            wp_enqueue_script('wc-add-to-cart');
+            wp_enqueue_script('wc-cart-fragments');
+            
+            // Localize the script with the AJAX URL and other parameters
+            wp_localize_script('wc-add-to-cart', 'wc_add_to_cart_params', array(
+                'ajax_url' => WC()->ajax_url(),
+                'wc_ajax_url' => WC_AJAX::get_endpoint("%%endpoint%%"),
+                'i18n_view_cart' => __('View cart', 'woocommerce'),
+                'cart_url' => wc_get_cart_url(),
+                'is_cart' => is_cart(),
+                'cart_redirect_after_add' => get_option('woocommerce_cart_redirect_after_add')
+            ));
+        }
+    }
+    
+    // Enqueue custom scripts only if they exist
+    if (is_product() || is_shop() || is_product_category()) {
+        // Enqueue debug script
+        wp_enqueue_script(
+            'lilac-debug',
+            get_stylesheet_directory_uri() . '/js/debug-test.js',
+            array('jquery'),
+            filemtime(get_stylesheet_directory() . '/js/debug-test.js'),
+            true
+        );
+        
+        // Enqueue add to cart script
+        wp_enqueue_script(
+            'lilac-add-to-cart',
+            get_stylesheet_directory_uri() . '/js/add-to-cart.js',
+            array('jquery', 'wc-add-to-cart', 'wc-cart-fragments'),
+            filemtime(get_stylesheet_directory() . '/js/add-to-cart.js'),
+            true
+        );
+        
+        // Localize script with necessary data
+        $lilac_vars = array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'checkout_url' => wc_get_checkout_url(),
+            'is_product' => is_product() ? 'yes' : 'no',
+            'is_shop' => is_shop() ? 'yes' : 'no',
+            'is_product_category' => is_product_category() ? 'yes' : 'no',
+            'home_url' => home_url('/'),
+            'wc_ajax_url' => WC_AJAX::get_endpoint('%%endpoint%%'),
+            'debug' => WP_DEBUG ? 'yes' : 'no',
+            'user_logged_in' => is_user_logged_in() ? 'yes' : 'no',
+            'wc_cart_url' => wc_get_cart_url(),
+            'nonce' => wp_create_nonce('woocommerce-cart')
+        );
+        
+        wp_localize_script('lilac-add-to-cart', 'lilac_vars', $lilac_vars);
+        
+        // Log the debug info to PHP error log
+        if (WP_DEBUG) {
+            error_log('Lilac Debug - Enqueued Scripts: ' . print_r($lilac_vars, true));
+        }
+        
+        // Also make sure WooCommerce scripts have the right data
+        wp_localize_script('wc-add-to-cart', 'wc_add_to_cart_params', array(
+            'ajax_url' => WC()->ajax_url(),
+            'wc_ajax_url' => WC_AJAX::get_endpoint('%%endpoint%%'),
+            'i18n_view_cart' => __('View cart', 'woocommerce'),
+            'cart_url' => wc_get_cart_url(),
+            'is_cart' => is_cart() ? '1' : '0',
+            'cart_redirect_after_add' => 'no'
+        ));
+    }
+    if (file_exists(get_stylesheet_directory() . '/assets/js/custom.js')) {
+        wp_enqueue_script(
+            'hello-elementor-child-script',
+            get_stylesheet_directory_uri() . '/assets/js/custom.js',
+            ['jquery'],
+            filemtime(get_stylesheet_directory() . '/assets/js/custom.js'),
+            true
+        );
+    }
+    
+    // Enqueue quiz answer handler on quiz pages
+    if (is_singular('sfwd-quiz')) {
+        wp_enqueue_script(
+            'quiz-answer-handler',
+            get_stylesheet_directory_uri() . '/assets/js/quiz-answer-handler.js',
+            ['jquery'],
+            filemtime(get_stylesheet_directory() . '/assets/js/quiz-answer-handler.js'),
+            true
+        );
+        
+        // Ensure jQuery is loaded
+        if (!wp_script_is('jquery', 'enqueued')) {
+            wp_enqueue_script('jquery');
+        }
+    }
+
+    // Enqueue child theme scripts
+    wp_enqueue_script(
+        'hello-elementor-child-script',
+        get_stylesheet_directory_uri() . '/js/scripts.js',
+        array('jquery'),
+        wp_get_theme()->get('Version'),
+        true
+    );
+
+    // Localize script with AJAX URL
+    wp_localize_script(
+        'hello-elementor-child-script',
+        'ajax_object',
+        array('ajax_url' => admin_url('admin-ajax.php'))
+    );
+
+    // Enqueue Font Awesome
+    wp_enqueue_style(
+        'font-awesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
+        array(),
+        '6.0.0-beta3'
+    );
+
+    // Enqueue custom styles if the file exists
+    $custom_styles_path = get_stylesheet_directory() . '/css/custom-styles.css';
+    if (file_exists($custom_styles_path)) {
+        wp_enqueue_style(
+            'custom-styles',
+            get_stylesheet_directory_uri() . '/css/custom-styles.css',
+            array(),
+            filemtime($custom_styles_path)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
+
+/**
+ * Enqueue progress bar styles
+ */
+function enqueue_progress_bar_styles() {
+    // Only load on quiz pages
+    if (is_singular('sfwd-quiz')) {
+        wp_enqueue_style(
+            'progress-bar-styles',
+            get_stylesheet_directory_uri() . '/assets/css/progress-bar.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/assets/css/progress-bar.css')
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_progress_bar_styles', 99);
+
+// Load other theme files
+require_once get_stylesheet_directory() . '/inc/shortcodes/loader.php';
+
+// Load YITH status check (admin only)
+if (is_admin()) {
+    require_once get_stylesheet_directory() . '/inc/admin/yith-status-check.php';
+}
+
+// Load Quiz Follow-up System
+require_once get_stylesheet_directory() . '/includes/messaging/class-quiz-followup.php';
+
+// Load Subscription Activation System
+require_once get_stylesheet_directory() . '/includes/subscription-activation.php';
+
+// Load Ultimate Member integration if UM is active
+function ccr_load_um_integration() {
+    if (class_exists('UM')) {
+        require_once get_stylesheet_directory() . '/includes/integrations/class-ultimate-member-integration.php';
+    }
+}
+add_action('after_setup_theme', 'ccr_load_um_integration', 5);
+
+// Load Messaging System
+function ccr_load_messaging_system() {
+    require_once get_stylesheet_directory() . '/includes/messaging/notifications.php';
+    
+    if (is_admin()) {
+        require_once get_stylesheet_directory() . '/includes/messaging/admin-functions.php';
+    }
+    
+    // Enqueue toast system and alert integration scripts
+    add_action('wp_enqueue_scripts', 'lilac_enqueue_toast_system');
+    add_action('wp_footer', 'lilac_add_toast_debug_code');
+}
+add_action('after_setup_theme', 'ccr_load_messaging_system', 10);
+
+/**
+ * Enqueue Toast Notification System scripts
+ */
+function lilac_enqueue_toast_system() {
+    // Force script versions to prevent caching during development
+    $force_version = time();
+    
+    // Enqueue jQuery as a dependency
+    wp_enqueue_script('jquery');
+    
+    // Enqueue Toast message system CSS FIRST
+    wp_enqueue_style(
+        'toast-system-css',
+        get_stylesheet_directory_uri() . '/includes/messaging/css/toast-system.css',
+        [],
+        $force_version
+    );
+    
+    // Enqueue Toast message system
+    wp_enqueue_script(
+        'toast-message-system',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/toast-system.js',
+        ['jquery'],
+        $force_version,
+        true // Load in footer for better performance
+    );
+    
+    // Enqueue Session Toast Extension
+    wp_enqueue_script(
+        'toast-session',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/session-toast.js',
+        ['jquery', 'toast-message-system'],
+        $force_version,
+        true
+    );
+    
+    // Enqueue Test Timer Extension
+    wp_enqueue_script(
+        'toast-test-timer',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/test-timer-toast.js',
+        ['jquery', 'toast-message-system'],
+        $force_version,
+        true
+    );
+    
+    // Enqueue Alert Helpers
+    wp_enqueue_script(
+        'alert-helpers',
+        get_stylesheet_directory_uri() . '/includes/messaging/js/alert-helpers.js',
+        ['jquery', 'toast-message-system'],
+        $force_version,
+        true
+    );
+    
+    // Enqueue Toast Extensions CSS
+    wp_enqueue_style(
+        'toast-extensions-css',
+        get_stylesheet_directory_uri() . '/includes/messaging/css/toast-extensions.css',
+        ['toast-system-css'],
+        $force_version
+    );
+    
+    // Localize toast settings
+    wp_localize_script('toast-message-system', 'toastSettings', [
+        'defaultDuration' => 5000,
+        'position' => 'top-right', // Make sure the position is set correctly
+        'enableAlertIntegration' => true,
+        'debugMode' => true
+    ]);
+    
+    // Add a small fix to make sure the toast container uses the correct position
+    wp_add_inline_script('toast-message-system', '
+        jQuery(document).ready(function($) {
+            // Force the container to use the correct position
+            if ($("#lilac-toast-container").length) {
+                $("#lilac-toast-container").attr("class", "top-right");
+                console.log("Toast container position set to top-right");
+            }
+        });
+    ');
+}
+
+/**
+ * Add debug code to test toast functionality
+ */
+function lilac_add_toast_debug_code() {
+    ?>
+    <script type="text/javascript">
+    /* Toast System Debug Code */
+    console.log('Toast Debug Script Loaded');
+    
+    // Create global test function
+    window.TestToast = function() {
+        console.log('Testing Toast System...');
+        
+        if (typeof window.LilacToast !== 'undefined') {
+            console.log('LilacToast API found!');
+            window.LilacToast.success('Toast API is working!', 'Success');
+            return 'Test successful';
+        } else {
+            console.log('LilacToast API not found');
+            alert('This is a native alert - LilacToast not loaded');
+            return 'Test failed';
+        }
+    };
+    
+    // Test alert integration
+    window.TestAlert = function(message) {
+        console.log('Testing Alert Integration...');
+        alert(message || 'This is a test alert');
+        return 'Alert test completed';
+    };
+    
+    // Log toast system status on page load
+    jQuery(document).ready(function($) {
+        console.log('Toast System Status:', {
+            'jQuery Loaded': typeof $ === 'function',
+            'LilacToast Available': typeof window.LilacToast === 'function',
+            'LilacShowToast Available': typeof window.LilacShowToast === 'function',
+            'Alert Overridden': window.alert !== window.originalAlert
+        });
+    });
+    </script>
+    <?php
+}
+
+// Load Login System
+function ccr_load_login_system() {
+    if (!is_admin()) {
+        error_log('Loading LoginManager...');
+        
+        $login_manager_path = get_stylesheet_directory() . '/src/Login/LoginManager.php';
+        
+        if (file_exists($login_manager_path)) {
+            error_log('LoginManager.php found, including file...');
+            require_once $login_manager_path;
+            
+            // Check if the class exists and can be loaded
+            if (class_exists('Lilac\Login\LoginManager')) {
+                error_log('LoginManager class exists, initializing...');
+                // The init method will handle the initialization
+                $instance = Lilac\Login\LoginManager::init();
+                if ($instance) {
+                    error_log('LoginManager initialized successfully');
+                } else {
+                    error_log('WARNING: LoginManager::init() returned null');
+                }
+            } else {
+                error_log('ERROR: Lilac\Login\LoginManager class not found!');
+            }
+        } else {
+            error_log('ERROR: LoginManager.php not found at: ' . $login_manager_path);
+        }
+        
+        // Load other required files
+        $captcha_path = get_stylesheet_directory() . '/src/Login/Captcha.php';
+        if (file_exists($captcha_path)) {
+            require_once $captcha_path;
+        }
+        
+        $widget_path = get_stylesheet_directory() . '/src/Login/UserAccountWidget.php';
+        if (file_exists($widget_path)) {
+            require_once $widget_path;
+        }
+    } else {
+        error_log('Skipping login system load in admin');
+    }
+}
+add_action('after_setup_theme', 'ccr_load_login_system', 10);
+
+/**
+ * Debug function to log YITH subscription data
+ */
+function lilac_log_subscription_data($data, $title = 'YITH Subscription Debug') {
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log('=== ' . $title . ' ===');
+        if (is_array($data) || is_object($data)) {
+            error_log(print_r($data, true));
+        } else {
+            error_log($data);
+        }
+        error_log('==================');
+    }
+}
+
+/**
+ * Get user's subscriptions by directly querying the database
+ */
+function lilac_get_user_subscriptions_directly($user_id) {
+    global $wpdb;
+    
+    // Get all subscription posts for the user
+    $subscription_posts = $wpdb->get_results($wpdb->prepare(
+        "SELECT * FROM {$wpdb->prefix}posts p 
+        INNER JOIN {$wpdb->prefix}postmeta pm ON p.ID = pm.post_id 
+        WHERE p.post_type = 'ywsbs_subscription' 
+        AND pm.meta_key = 'user_id' 
+        AND pm.meta_value = %d",
+        $user_id
+    ));
+    
+    // Get all subscription meta for each subscription
+    $subscriptions = array();
+    foreach ($subscription_posts as $post) {
+        $subscription = new stdClass();
+        $subscription->ID = $post->ID;
+        $subscription->post = $post;
+        $subscription->meta = get_post_meta($post->ID);
+        $subscriptions[] = $subscription;
+    }
+    
+    return $subscriptions;
+}
+
+/**
+ * Debug function to check YITH plugin status
+ */
+function lilac_check_yith_plugin_status() {
+    global $wpdb;
+    
+    $status = array(
+        'is_plugin_active' => class_exists('YITH_WC_Subscription'),
+        'is_plugin_installed' => file_exists(WP_PLUGIN_DIR . '/yith-woocommerce-subscription-premium/init.php'),
+        'plugin_version' => defined('YITH_YWSBS_VERSION') ? YITH_YWSBS_VERSION : 'Not defined',
+        'plugin_paths' => array(
+            'main_file' => defined('YITH_YWSBS_INIT') ? YITH_YWSBS_INIT : 'Not defined',
+            'templates' => defined('YITH_YWSBS_TEMPLATE_PATH') ? YITH_YWSBS_TEMPLATE_PATH : 'Not defined',
+        ),
+        'database_tables' => array(
+            'posts' => $wpdb->get_results("SHOW TABLES LIKE '{$wpdb->prefix}posts'"),
+            'postmeta' => $wpdb->get_results("SHOW TABLES LIKE '{$wpdb->prefix}postmeta'")
+        ),
+        'subscription_post_type' => array(
+            'registered' => post_type_exists('ywsbs_subscription'),
+            'count' => $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type = 'ywsbs_subscription'")
+        )
+    );
+    
+    return $status;
+}
+
+/**
+ * Get all subscriptions from the database with their meta data
+ */
+function lilac_get_all_subscriptions() {
+    global $wpdb;
+    
+    $subscriptions = array();
+    
+    // Get all subscription posts
+    $posts = $wpdb->get_results(
+        "SELECT * FROM {$wpdb->posts} 
+        WHERE post_type = 'ywsbs_subscription' 
+        ORDER BY ID DESC"
+    );
+    
+    if (empty($posts)) {
+        return array();
+    }
+    
+    // Get all meta for these posts in a single query
+    $post_ids = array_map('intval', wp_list_pluck($posts, 'ID'));
+    $post_ids_placeholders = implode(',', array_fill(0, count($post_ids), '%d'));
+    
+    $meta_results = $wpdb->get_results($wpdb->prepare(
+        "SELECT post_id, meta_key, meta_value 
+        FROM {$wpdb->postmeta} 
+        WHERE post_id IN ($post_ids_placeholders)",
+        $post_ids
+    ));
+    
+    // Organize meta by post ID
+    $meta_by_post = array();
+    foreach ($meta_results as $meta) {
+        if (!isset($meta_by_post[$meta->post_id])) {
+            $meta_by_post[$meta->post_id] = array();
+        }
+        $meta_by_post[$meta->post_id][$meta->meta_key] = maybe_unserialize($meta->meta_value);
+    }
+    
+    // Combine posts with their meta
+    foreach ($posts as $post) {
+        $subscription = array(
+            'ID' => $post->ID,
+            'post_status' => $post->post_status,
+            'post_date' => $post->post_date,
+            'meta' => isset($meta_by_post[$post->ID]) ? $meta_by_post[$post->ID] : array()
+        );
+        
+        $subscriptions[] = $subscription;
+    }
+    
+    return $subscriptions;
+}
+
+/**
+ * YITH WooCommerce Subscription Controls Shortcode
+ * 
+ * Usage: [yith_subscription_controls] or [yith_subscription_controls id="123"]
+ */
+add_shortcode('yith_subscription_controls', function($atts) {
+    // Debug mode
+    $debug_mode = defined('WP_DEBUG') && WP_DEBUG;
+    
+    // Check if we're in debug mode via shortcode attribute
+    $debug = isset($atts['debug']) && $atts['debug'] === 'yes';
+    $debug_mode = $debug_mode || $debug;
+    
+    // Check if YITH WooCommerce Subscription is active
+    $plugin_status = lilac_check_yith_plugin_status();
+    
+    if ($debug_mode) {
+        error_log('YITH Plugin Status: ' . print_r($plugin_status, true));
+    }
+    
+    // Check if plugin is active and required functions exist
+    if (!function_exists('ywsbs_get_subscription') || !class_exists('YWSBS_Subscription_User')) {
+        $error_msg = 'Error: Required YITH WooCommerce Subscription plugin functions not found.';
+        if ($debug_mode) error_log($error_msg);
+        if (current_user_can('manage_options')) {
+            return '<div class="notice notice-error"><p>' . esc_html($error_msg) . '</p></div>';
+        }
+        return '';
+    }
+    
+    if (!$plugin_status['is_plugin_active']) {
+        $error_msg = 'Error: YITH WooCommerce Subscription plugin is not active.';
+        if ($debug_mode) error_log($error_msg);
+        if (current_user_can('manage_options')) {
+            return '<div class="notice notice-error"><p>' . esc_html($error_msg) . '</p></div>';
+        }
+        return '';
+    }
+
+    // Only show to logged in users
+    if (!is_user_logged_in()) {
+        $error_msg = 'Please log in to manage your subscription.';
+        if ($debug_mode) error_log($error_msg);
+        return '<div class="notice notice-info"><p>' . __($error_msg, 'hello-theme-child') . '</p></div>';
+    }
+
+    $atts = shortcode_atts([
+        'id' => '',
+        'status' => 'any', // any, active, paused, cancelled, expired, pending
+        'debug' => $debug_mode ? 'yes' : 'no'
+    ], $atts, 'yith_subscription_controls');
+
+    $debug = $atts['debug'] === 'yes';
+    $user_id = get_current_user_id();
+    $output = '';
+
+    try {
+        if ($debug_mode) {
+            error_log('YITH Subscription Shortcode - User ID: ' . $user_id);
+            error_log('YITH Subscription Shortcode - Attributes: ' . print_r($atts, true));
+            
+            // Log all subscription post types in the database
+            global $wpdb;
+            $subscription_posts = $wpdb->get_results(
+                "SELECT ID, post_title, post_status, post_type, post_author 
+                FROM {$wpdb->posts} 
+                WHERE post_type = 'ywsbs_subscription'"
+            );
+            error_log('All subscription posts in database: ' . print_r($subscription_posts, true));
+            
+            // Log all user's subscriptions from database
+            $user_subscriptions = lilac_get_user_subscriptions_directly($user_id);
+            error_log('User subscriptions from direct query: ' . print_r($user_subscriptions, true));
+        }
+
+        // Get all user's subscriptions using plugin's method
+        $all_subscriptions = array();
+        try {
+            if (class_exists('YWSBS_Subscription_User') && method_exists('YWSBS_Subscription_User', 'get_subscriptions')) {
+                $all_subscriptions = YWSBS_Subscription_User::get_subscriptions($user_id);
+            } elseif (function_exists('ywsbs_get_user_subscriptions')) {
+                $all_subscriptions = ywsbs_get_user_subscriptions($user_id);
+            }
+            
+            // If no subscriptions found via plugin, try direct DB query
+            if (empty($all_subscriptions)) {
+                $direct_subscriptions = lilac_get_user_subscriptions_directly($user_id);
+                if (!empty($direct_subscriptions)) {
+                    if ($debug) error_log('Found ' . count($direct_subscriptions) . ' subscriptions via direct DB query');
+                    // Convert to format expected by the template
+                    foreach ($direct_subscriptions as $sub) {
+                        if (is_object($sub) && isset($sub->ID)) {
+                            $subscription = ywsbs_get_subscription($sub->ID);
+                            if ($subscription) {
+                                $all_subscriptions[] = $subscription;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            if ($debug) error_log('Error getting subscriptions: ' . $e->getMessage());
+        }
+        
+        if ($debug_mode) {
+            error_log('Total subscriptions found via plugin: ' . count($all_subscriptions));
+            if (!empty($all_subscriptions)) {
+                foreach ($all_subscriptions as $sub) {
+                    error_log(sprintf(
+                        'Subscription ID: %d, Status: %s, Product ID: %d, User ID: %d',
+                        $sub->get_id(),
+                        $sub->get_status(),
+                        $sub->get_product_id(),
+                        $sub->get_user_id()
+                    ));
+                }
+            } else {
+                // Try alternative method to get subscriptions
+                $args = array(
+                    'post_type' => 'ywsbs_subscription',
+                    'meta_key' => 'user_id',
+                    'meta_value' => $user_id,
+                    'posts_per_page' => -1,
+                    'post_status' => 'any'
+                );
+                $subscription_posts = get_posts($args);
+                error_log('Alternative query found ' . count($subscription_posts) . ' subscriptions');
+                
+                if (!empty($subscription_posts)) {
+                    $subscription_ids = wp_list_pluck($subscription_posts, 'ID');
+                    error_log('Subscription IDs found: ' . implode(', ', $subscription_ids));
+                }
+            }
+        }
+
+        // Filter by ID if specified
+        if (!empty($atts['id'])) {
+            $subscription = ywsbs_get_subscription($atts['id']);
+            
+            if (!$subscription || $subscription->get_user_id() != $user_id) {
+                $error_msg = 'Subscription not found or access denied.';
+                if ($debug) error_log($error_msg);
+                return '<div class="notice notice-warning"><p>' . __($error_msg, 'hello-theme-child') . '</p></div>';
+            }
+            
+            // Check if subscription status matches the filter
+            if ($atts['status'] !== 'any' && !$subscription->has_status($atts['status'])) {
+                if ($debug) error_log('Subscription status does not match filter');
+                return '';
+            }
+            
+            $subscriptions = array($subscription);
+        } else {
+            $subscriptions = $all_subscriptions;
+            
+            // Filter by status if needed
+            if ($atts['status'] !== 'any') {
+                $filtered_subscriptions = array();
+                foreach ($subscriptions as $subscription) {
+                    if ($subscription->has_status($atts['status'])) {
+                        $filtered_subscriptions[] = $subscription;
+                    }
+                }
+                $subscriptions = $filtered_subscriptions;
+                if ($debug) error_log('After status filtering, subscriptions count: ' . count($subscriptions));
+            }
+        }
+        
+        if (empty($subscriptions)) {
+            $error_msg = 'No subscriptions found for the current user.';
+            if ($debug) error_log($error_msg);
+            return '<div class="notice notice-info"><p>' . __($error_msg, 'hello-theme-child') . '</p>' . 
+                   ($debug ? '<pre>' . print_r($all_subscriptions, true) . '</pre>' : '') . '</div>';
+        }
+
+        // Debug template path
+        $template_path = '';
+        if (defined('YITH_YWSBS_TEMPLATE_PATH')) {
+            $template_path = YITH_YWSBS_TEMPLATE_PATH . '/myaccount/my-subscriptions.php';
+        } else {
+            // Fallback path if constant not defined
+            $template_path = WP_PLUGIN_DIR . '/yith-woocommerce-subscription-premium/templates/myaccount/my-subscriptions.php';
+        }
+        
+        if ($debug) {
+            error_log('Template path: ' . $template_path);
+            error_log('Template exists: ' . (file_exists($template_path) ? 'Yes' : 'No'));
+            
+            if (!file_exists($template_path)) {
+                error_log('Template search paths:');
+                error_log('- ' . $template_path);
+                error_log('- ' . get_stylesheet_directory() . '/woocommerce/myaccount/my-subscriptions.php');
+                error_log('- ' . get_template_directory() . '/woocommerce/myaccount/my-subscriptions.php');
+            }
+        }
+        
+        // Start output
+        ob_start();
+        
+        // Include the template part that shows the subscriptions table
+        if (file_exists($template_path)) {
+            wc_get_template(
+                'myaccount/my-subscriptions.php',
+                array(
+                    'subscriptions' => $subscriptions,
+                    'current_page' => 1,
+                    'pages' => 1,
+                    'current_view' => $atts['status'],
+                    'subscription_endpoint' => 'subscriptions',
+                    'endpoint' => 'subscriptions',
+                ),
+                '',
+                YITH_YWSBS_TEMPLATE_PATH . '/'
+            );
+        } else {
+            // Fallback template if the main one doesn't exist
+            echo '<div class="ywsbs-subscriptions-list">';
+            echo '<h3>' . __('Your Subscriptions', 'yith-woocommerce-subscription') . '</h3>';
+            
+            if (!empty($subscriptions)) {
+                echo '<ul class="ywsbs-subscriptions">';
+                foreach ($subscriptions as $subscription) {
+                    echo '<li class="subscription-item">';
+                    echo '<h4>' . sprintf(__('Subscription #%s', 'yith-woocommerce-subscription'), $subscription->get_id()) . '</h4>';
+                    echo '<p>Status: ' . $subscription->get_status() . '</p>';
+                    echo '<p>Product: ' . get_the_title($subscription->get_product_id()) . '</p>';
+                    echo '<p>Next Payment: ' . $subscription->get_payment_due_date() . '</p>';
+                    // Add more subscription details as needed
+                    echo '</li>';
+                }
+                echo '</ul>';
+            } else {
+                echo '<p>' . __('No subscriptions found.', 'yith-woocommerce-subscription') . '</p>';
+            }
+            echo '</div>';
+        }
+        
+        $output = ob_get_clean();
+        
+    } catch (Exception $e) {
+        $error_msg = 'Error: ' . $e->getMessage();
+        if ($debug) error_log($error_msg);
+        
+        if (current_user_can('manage_options')) {
+            return '<div class="notice notice-error"><p>' . 
+                   $error_msg . 
+                   '</p><pre>' . $e->getTraceAsString() . '</pre></div>';
+        }
+        return '<div class="notice notice-error"><p>' . 
+               __('An error occurred while loading subscription information.', 'hello-theme-child') . 
+               '</p></div>';
+    }
+
+    // Enqueue the plugin's styles
+    if (function_exists('YWSBS_Subscription_Assets') && method_exists('YWSBS_Subscription_Assets', 'enqueue_styles_scripts')) {
+        YWSBS_Subscription_Assets()->enqueue_styles_scripts();
+    } elseif ($debug_mode) {
+        error_log('Could not enqueue YITH Subscription assets');
+    }
+    
+    // Add debug info for admins
+    if ($debug_mode && current_user_can('manage_options')) {
+        $all_subs = lilac_get_all_subscriptions();
+        $user_subs = array_filter($all_subs, function($sub) use ($user_id) {
+            return isset($sub['meta']['user_id']) && $sub['meta']['user_id'] == $user_id;
+        });
+        
+        $output .= '<div class="yith-debug-info" style="margin: 20px 0; padding: 15px; background: #f8f8f8; border: 1px solid #ddd; max-height: 500px; overflow: auto;">';
+        $output .= '<h3>YITH Subscription Debug Information</h3>';
+        
+        // Plugin status
+        $output .= '<h4>Plugin Status:</h4>';
+        $output .= '<pre>' . print_r($plugin_status, true) . '</pre>';
+        
+        // Current user info
+        $output .= '<h4>Current User:</h4>';
+        $output .= '<pre>User ID: ' . $user_id . '</pre>';
+        
+        // All subscriptions in database
+        $output .= '<h4>All Subscriptions in Database (' . count($all_subs) . '):</h4>';
+        $output .= '<pre>' . print_r(array_map(function($sub) {
+            return [
+                'ID' => $sub['ID'],
+                'status' => $sub['post_status'],
+                'date' => $sub['post_date'],
+                'user_id' => $sub['meta']['user_id'] ?? 'N/A',
+                'product_id' => $sub['meta']['product_id'] ?? 'N/A',
+                'status_meta' => $sub['meta']['status'] ?? 'N/A'
+            ];
+        }, $all_subs), true) . '</pre>';
+        
+        // Current user's subscriptions
+        $output .= '<h4>Current User\'s Subscriptions (' . count($user_subs) . '):</h4>';
+        if (!empty($user_subs)) {
+            $output .= '<pre>' . print_r(array_map(function($sub) {
+                return [
+                    'ID' => $sub['ID'],
+                    'status' => $sub['post_status'],
+                    'date' => $sub['post_date'],
+                    'product_id' => $sub['meta']['product_id'] ?? 'N/A',
+                    'status_meta' => $sub['meta']['status'] ?? 'N/A'
+                ];
+            }, $user_subs), true) . '</pre>';
+        } else {
+            $output .= '<p>No subscriptions found for this user in the database.</p>';
+        }
+        
+        // Debug log note
+        $output .= '<div style="margin-top: 20px; padding: 10px; background: #fff; border: 1px solid #ddd;">';
+        $output .= '<h4>Debug Notes:</h4>';
+        $output .= '<ul>';
+        $output .= '<li>Check if the subscription post type exists in the database</li>';
+        $output .= '<li>Verify the user_id meta_key is correctly set on subscriptions</li>';
+        $output .= '<li>Check WooCommerce > YITH Subscriptions for active subscriptions</li>';
+        $output .= '<li>Review the debug.log for more detailed information</li>';
+        $output .= '</ul>';
+        $output .= '</div>';
+        
+        $output .= '</div>';
+    }
+
+    return $output;
+});
+
+// Shortcode to display trial subscription button
+add_shortcode('demo_subscription_button', function($atts) {
+    if (!is_user_logged_in()) {
+        return '<div class="notice notice-info">' . 
+               __('Please log in to start your free trial.', 'hello-theme-child') . 
+               '</div>';
+    }
+    
+    $demo_product_id = get_option('lilac_demo_subscription_id');
+    if (!$demo_product_id) {
+        return '<div class="notice notice-error">' . 
+               __('Trial subscription is not available at the moment.', 'hello-theme-child') . 
+               '</div>';
+    }
+    
+    $product = wc_get_product($demo_product_id);
+    if (!$product) {
+        return '<div class="notice notice-error">' . 
+               __('Invalid trial subscription product.', 'hello-theme-child') . 
+               '</div>';
+    }
+    
+    // Enqueue necessary scripts
+    wp_enqueue_script('wc-add-to-cart');
+    
+    ob_start();
+    ?>
+    <div class="demo-subscription-box">
+        <h3><?php _e('Start Your 14-Day Free Trial', 'hello-theme-child'); ?></h3>
+        <p><?php _e('Get full access to all premium features for 14 days. No credit card required.', 'hello-theme-child'); ?></p>
+        
+        <form class="cart" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>" method="post" enctype="multipart/form-data">
+            <button type="submit" name="add-to-cart" value="<?php echo esc_attr($demo_product_id); ?>" class="single_add_to_cart_button button alt">
+                <?php _e('Start Free Trial', 'hello-theme-child'); ?>
+            </button>
+        </form>
+        
+        <p class="trial-terms">
+            <small><?php _e('By clicking "Start Free Trial", you agree to our Terms of Service and Privacy Policy.', 'hello-theme-child'); ?></small>
+        </p>
+    </div>
+    
+    <style>
+    .demo-subscription-box {
+        max-width: 500px;
+        margin: 2em auto;
+        padding: 2em;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .demo-subscription-box h3 {
+        margin-top: 0;
+        color: #333;
+    }
+    .demo-subscription-box .button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .demo-subscription-box .button:hover {
+        background-color: #45a049;
+    }
+    .trial-terms {
+        margin-top: 1.5em;
+        color: #666;
+        font-size: 0.9em;
+    }
+    </style>
+    <?php
+    return ob_get_clean();
+});
+
+// Add admin notice if YITH WooCommerce Subscription is not active
+add_action('admin_notices', function() {
+    if (!class_exists('YITH_WC_Subscription') && current_user_can('activate_plugins')) {
+        echo '<div class="notice notice-warning"><p>' . 
+             sprintf(
+                 __('The YITH WooCommerce Subscription plugin is required for the subscription controls shortcode to work. %s', 'hello-theme-child'),
+                 '<a href="' . admin_url('plugin-install.php?s=yith+woocommerce+subscription&tab=search&type=term') . '">' . 
+                 __('Install/Activate it now', 'hello-theme-child') . '</a>'
+             ) . 
+             '</p></div>';
+    }
+});
+
+// Debug function to check registered shortcodes
+function debug_registered_shortcodes() {
+    global $shortcode_tags;
+    error_log('Registered Shortcodes: ' . print_r(array_keys($shortcode_tags), true));
+}
+add_action('init', 'debug_registered_shortcodes', 999);
+
+/**
+ * Add custom body class for LearnDash courses
+ */
+function add_learndash_course_body_class($classes) {
+    if (is_singular('sfwd-courses')) {
+        global $post;
+        if ($post && isset($post->ID)) {
+            $classes[] = 'course-id-' . $post->ID;
+        }
+    }
+    return $classes;
+}
+add_filter('body_class', 'add_learndash_course_body_class', 20);
+
+// Add body class for quiz types
+add_filter('body_class', function($classes) {
+    if (is_singular('sfwd-quiz')) {
+        global $post;
+        if ($post) {
+            $classes[] = 'quiz-' . $post->ID;
+            
+            // Safely check for enforce hint setting
+            $enforce_hint = get_post_meta($post->ID, 'lilac_quiz_enforce_hint', true);
+            if ($enforce_hint === '1' || $enforce_hint === 'yes') {
+                $classes[] = 'forced-hint-quiz';
+            }
+        }
+    }
+    return $classes;
+}, 5); // Lower priority to ensure it runs early
+
+// Debug helper function
+if (!function_exists('write_log')) {
+    function write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+}
+
+
+function remove_css_js_version_query( $src ) {
+    if ( strpos( $src, '?ver=' ) !== false ) {
+        $src = remove_query_arg( 'ver', $src );
+    }
+    return $src;
+}
+add_filter( 'style_loader_src', 'remove_css_js_version_query', 9999 );
+add_filter( 'script_loader_src', 'remove_css_js_version_query', 9999 );
+
+// Load custom user functionality
+require_once get_stylesheet_directory() . '/includes/users/custom-user-redirects.php';
+require_once get_stylesheet_directory() . '/includes/users/class-user-dashboard-shortcode.php';
+
+// Load Learndash Dashboard Widget
+if (file_exists(get_stylesheet_directory() . '/inc/widgets/LearndashDashboard/LearndashDashboard.php')) {
+    require_once get_stylesheet_directory() . '/inc/widgets/LearndashDashboard/LearndashDashboard.php';
+    new \Windstorm\Widgets\LearndashDashboard();
+}
+
+// Create Demo Subscription Product
+add_action('init', 'lilac_maybe_create_demo_subscription', 99); // Higher priority to ensure YITH is loaded
+function lilac_maybe_create_demo_subscription() {
+    // Check if WooCommerce is active
+    if (!class_exists('WooCommerce')) {
+        error_log('[LILAC] WooCommerce is not active. Cannot create demo subscription product.');
+        return;
+    }
+    
+    // Check if YITH WooCommerce Subscription is active
+    if (!function_exists('ywsbs_is_subscription_product')) {
+        error_log('[LILAC] YITH WooCommerce Subscription is not active. Cannot create demo subscription product.');
+        return;
+    }
+    
+    // Use a transient to prevent multiple runs
+    $transient_key = 'lilac_demo_subscription_creating';
+    if (get_transient($transient_key)) {
+        error_log('[LILAC] Demo subscription creation already in progress');
+        return;
+    }
+    
+    // Set transient for 5 minutes to prevent multiple runs
+    set_transient($transient_key, '1', 5 * MINUTE_IN_SECONDS);
+    
+    // Check if the demo subscription product already exists
+    $demo_product_id = get_option('lilac_demo_subscription_id');
+    if ($demo_product_id && 'publish' === get_post_status($demo_product_id)) {
+        $product = wc_get_product($demo_product_id);
+        if ($product) {
+            error_log('[LILAC] Demo subscription product already exists with ID: ' . $demo_product_id);
+            delete_transient($transient_key);
+            return;
+        }
+    }
+    
+    try {
+        error_log('[LILAC] Starting to create demo subscription product');
+        
+        // Create a new simple product with subscription meta
+        $product = new WC_Product_Simple();
+        $product->set_name('14-Day Premium Trial');
+        $product->set_slug('14-day-premium-trial');
+        $product->set_status('publish');
+        $product->set_catalog_visibility('visible');
+        $product->set_virtual(true);
+        $product->set_downloadable(false);
+        $product->set_price(0);
+        $product->set_regular_price(0);
+        $product->set_sale_price(0);
+        $product->set_sold_individually(true);
+        
+        // Set product description
+        $product->set_description('Start your 14-day free trial of our premium features. No credit card required. Cancel anytime.');
+        $product->set_short_description('14 days free trial of premium features');
+        
+        // Set as subscription
+        $product->update_meta_data('_ywsbs_subscription', 'yes');
+        $product->update_meta_data('_ywsbs_price_is_per', '1'); // Billing interval (1)
+        $product->update_meta_data('_ywsbs_price_time_option', 'days'); // Billing period (days)
+        $product->update_meta_data('_ywsbs_max_length', '1'); // One-time payment (trial only)
+        $product->update_meta_data('_ywsbs_trial_per', '14'); // 14-day trial
+        $product->update_meta_data('_ywsbs_trial_time_option', 'days');
+        $product->update_meta_data('_ywsbs_trial_fee', '0'); // Free trial
+        
+        // Set categories
+        $default_cat = get_option('default_product_cat');
+        if ($default_cat) {
+            $product->set_category_ids(array($default_cat));
+        }
+        
+        // Save the product
+        $product_id = $product->save();
+        
+        if (is_wp_error($product_id)) {
+            throw new Exception('Failed to save product: ' . $product_id->get_error_message());
+        }
+        
+        // Save the product ID for future reference
+        update_option('lilac_demo_subscription_id', $product_id);
+        
+        // Verify the product was created correctly
+        $created_product = wc_get_product($product_id);
+        if (!$created_product) {
+            throw new Exception('Failed to verify created product');
+        }
+        
+        // Log success with product details
+        error_log('[LILAC] Successfully created demo subscription product with ID: ' . $product_id);
+        error_log('[LILAC] Product details: ' . print_r([
+            'name' => $created_product->get_name(),
+            'status' => $created_product->get_status(),
+            'price' => $created_product->get_price(),
+            'is_subscription' => ywsbs_is_subscription_product($created_product) ? 'yes' : 'no',
+            'subscription_meta' => [
+                'price_is_per' => $created_product->get_meta('_ywsbs_price_is_per'),
+                'price_time_option' => $created_product->get_meta('_ywsbs_price_time_option'),
+                'max_length' => $created_product->get_meta('_ywsbs_max_length'),
+                'trial_per' => $created_product->get_meta('_ywsbs_trial_per'),
+                'trial_time_option' => $created_product->get_meta('_ywsbs_trial_time_option'),
+                'trial_fee' => $created_product->get_meta('_ywsbs_trial_fee')
+            ]
+        ], true));
+        
+    } catch (Exception $e) {
+        error_log('[LILAC] Error creating demo subscription product: ' . $e->getMessage());
+        if (isset($product_id) && $product_id) {
+            wp_delete_post($product_id, true); // Clean up if product was partially created
+        }
+    } finally {
+        // Always delete the transient when done
+        delete_transient($transient_key);
+    }
+}
+
+// Load Registration Codes System
+function load_registration_codes_system() {
+    $registration_codes_file = get_stylesheet_directory() . '/includes/registration/class-registration-codes.php';
+    $promo_code_file = get_stylesheet_directory() . '/includes/promo-code.php';
+    
+    // Log whether files exist
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log('Registration codes file exists: ' . (file_exists($registration_codes_file) ? 'Yes' : 'No'));
+        error_log('Promo code file exists: ' . (file_exists($promo_code_file) ? 'Yes' : 'No'));
+    }
+    
+    // Load the registration codes file if it exists
+    if (file_exists($registration_codes_file)) {
+        require_once $registration_codes_file;
+        if (class_exists('Registration_Codes')) {
+            new Registration_Codes();
+        }
+    }
+    
+    // Load the promo code file if it exists
+    if (file_exists($promo_code_file)) {
+        require_once $promo_code_file;
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('Promo code file loaded');
+            error_log('Shortcode promo_code is registered: ' . (shortcode_exists('promo_code') ? 'Yes' : 'No'));
+        }
+    } else {
+        error_log('ERROR: Promo code file not found: ' . $promo_code_file);
+    }
+}
+add_action('after_setup_theme', 'load_registration_codes_system', 15);
+
+// Load Quiz Assets
+function enqueue_quiz_assets() {
+    if (is_singular('sfwd-quiz')) {
+        global $post;
+        if (!$post) return;
+        
+        $quiz_id = $post->ID;
+        $enforce_hint = get_post_meta($quiz_id, 'lilac_quiz_enforce_hint', true);
+        
+        // Enqueue quiz styles
+        $css_path = get_stylesheet_directory() . '/includes/quiz/assets/css/quiz-styles.css';
+        if (file_exists($css_path)) {
+            wp_enqueue_style(
+                'lilac-quiz-styles',
+                get_stylesheet_directory_uri() . '/includes/quiz/assets/css/quiz-styles.css',
+                array(),
+                filemtime($css_path)
+            );
+        }
+        
+        // Enqueue jQuery UI dialog if not already enqueued
+        if (!wp_script_is('jquery-ui-dialog', 'enqueued')) {
+            wp_enqueue_script('jquery-ui-dialog');
+            wp_enqueue_style('wp-jquery-ui-dialog');
+        }
+        
+        // Enqueue quiz answer reselection script
+        $reselect_js_path = get_stylesheet_directory() . '/includes/quiz/assets/js/quiz-answer-reselection.js';
+        if (file_exists($reselect_js_path)) {
+            wp_enqueue_script(
+                'lilac-quiz-answer-reselection',
+                get_stylesheet_directory_uri() . '/includes/quiz/assets/js/quiz-answer-reselection.js',
+                array('jquery'),
+                filemtime($reselect_js_path),
+                true
+            );
+        }
+        
+        // Enqueue main quiz script - Note: This is now handled by QuizFlowManager.php
+        // to ensure proper script handles and dependencies
+        // The script is enqueued with handle 'lilac-quiz-answer-flow'
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_quiz_assets', 20);
+
+// Load WooCommerce Customizations
+if (class_exists('WooCommerce')) {
+    require_once get_stylesheet_directory() . '/includes/woocommerce/class-woocommerce-customizations.php';
+    require_once get_stylesheet_directory() . '/includes/admin/thank-you-page-settings.php';
+    
+    // Load Subscription Manager
+    require_once get_stylesheet_directory() . '/includes/class-lilac-subscription.php';
+    
+    // Enqueue subscription styles
+    add_action('wp_enqueue_scripts', function() {
+        if (!is_wc_endpoint_url('order-received')) {
+            return;
+        }
+        
+        $css = "
+        /* Subscription Box */
+        .lilac-subscription-box {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 25px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .lilac-subscription-box h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+        .lilac-subscription-box p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        /* Toggle Switch */
+        #lilac-subscription-toggle {
+            width: 40px;
+            height: 20px;
+            position: relative;
+            -webkit-appearance: none;
+            background: #ddd;
+            border-radius: 20px;
+            outline: none;
+            transition: .4s;
+            cursor: pointer;
+            vertical-align: middle;
+            margin: 0 10px 0 0;
+        }
+        #lilac-subscription-toggle:checked {
+            background: #4CAF50;
+        }
+        #lilac-subscription-toggle:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            background: white;
+            transition: .4s;
+        }
+        #lilac-subscription-toggle:checked:before {
+            transform: translateX(20px);
+        }
+        /* Admin column */
+        .column-subscription {
+            text-align: center;
+            width: 80px;
+        }
+        .subscription-status {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .subscription-status.yes {
+            color: #4CAF50;
+        }
+        .subscription-status.no {
+            color: #ccc;
+        }";
+        
+        wp_add_inline_style('woocommerce-general', $css);
+    }, 20);
+}
+
+
+
+// ============================================
+// WooCommerce Checkout Redirect Functionality
+// ============================================
+
+// 1. Change Add to Cart button text
+add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text');
+add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_text');
+function custom_add_to_cart_text() {
+    return 'רכשו עכשיו';
+}
+
+// 2. Clear cart before adding new product and handle add to cart
+add_filter('woocommerce_add_to_cart_validation', 'clear_cart_before_adding', 10, 3);
+function clear_cart_before_adding($passed, $product_id, $quantity) {
+    // Debug log
+    error_log('Adding to cart - Product ID: ' . $product_id . ', Quantity: ' . $quantity);
+    
+    // Clear the cart before adding new item
+    if (!WC()->cart->is_empty()) {
+        WC()->cart->empty_cart();
+        error_log('Cart was not empty - Cleared cart before adding new item');
+    }
+    
+    return $passed;
+}
+
+// 3. Force redirect to checkout on any add-to-cart action
+add_action('template_redirect', 'force_checkout_redirect');
+function force_checkout_redirect() {
+    // Debug log
+    error_log('Force redirect check - is_cart: ' . (is_cart() ? 'yes' : 'no') . ', add-to-cart: ' . (isset($_REQUEST['add-to-cart']) ? $_REQUEST['add-to-cart'] : 'not set'));
+    
+    if (is_cart() || (isset($_REQUEST['add-to-cart']) && is_numeric($_REQUEST['add-to-cart']))) {
+        if (!WC()->cart->is_empty()) {
+            error_log('Redirecting to checkout');
+            wp_redirect(wc_get_checkout_url());
+            exit;
+        } else {
+            error_log('Cannot redirect - Cart is empty');
+        }
+    }
+}
+
+// 3.1 Fix for AJAX add to cart
+add_filter('woocommerce_add_to_cart_fragments', 'intercept_ajax_add_to_cart');
+function intercept_ajax_add_to_cart($fragments) {
+    error_log('AJAX add to cart intercepted');
+    if (!WC()->cart->is_empty()) {
+        wp_send_json(array(
+            'error' => false,
+            'redirect' => wc_get_checkout_url()
+        ));
+    }
+    $fragments['redirect_url'] = wc_get_checkout_url();
+    return $fragments;
+}
+
+// 4. Add JavaScript to handle all add to cart actions
+add_action('wp_footer', 'add_checkout_redirect_js', 999);
+function add_checkout_redirect_js() {
+    if (is_admin()) return;
+    
+    // Get the checkout URL with a random parameter to prevent caching
+    $checkout_url = add_query_arg('nocache', time(), wc_get_checkout_url());
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // 1. Intercept all add to cart forms
+        $('body').on('submit', 'form.cart', function(e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $button = $form.find('.single_add_to_cart_button');
+            
+            // Disable button to prevent multiple clicks
+            $button.prop('disabled', true).addClass('loading');
+            
+            // Submit the form via AJAX
+            $.ajax({
+                type: 'POST',
+                url: wc_add_to_cart_params.ajax_url,
+                data: $form.serialize() + '&action=woocommerce_add_to_cart',
+                success: function(response) {
+                    // Redirect to checkout on success
+                    window.location.href = '<?php echo esc_js($checkout_url); ?>';
+                },
+                error: function() {
+                    // If AJAX fails, submit the form normally
+                    $form.off('submit').submit();
+                }
+            });
+            
+            return false;
+        });
+        
+        // 2. Handle simple add to cart links
+        $('body').on('click', '.add_to_cart_button:not(.product_type_variable, .product_type_grouped, .product_type_external)', function(e) {
+            e.preventDefault();
+            var $button = $(this);
+            
+            // Skip if already processing
+            if ($button.hasClass('loading')) return false;
+            
+            // Get the product ID and URL
+            var product_id = $button.data('product_id');
+            var product_url = $button.attr('href');
+            
+            // Disable button
+            $button.addClass('loading');
+            
+            // Add to cart via AJAX
+            $.ajax({
+                type: 'POST',
+                url: wc_add_to_cart_params.ajax_url,
+                data: 'add-to-cart=' + product_id + '&action=woocommerce_add_to_cart',
+                success: function() {
+                    // Redirect to checkout
+                    window.location.href = '<?php echo esc_js($checkout_url); ?>';
+                },
+                error: function() {
+                    // If AJAX fails, redirect to the product URL
+                    window.location.href = product_url;
+                }
+            });
+            
+            return false;
+        });
+        
+        // 3. Handle AJAX add to cart events
+        $(document.body).on('added_to_cart', function() {
+            // Small delay to ensure cart is updated
+            setTimeout(function() {
+                window.location.href = '<?php echo esc_js($checkout_url); ?>';
+            }, 100);
+        });
+    });
+    </script>
+    <?php
+}
+
+/**
+ * Strip the “/ 12 months …” tail that YITH Subscription
+ * appends after the actual number.
+ */
+add_filter( 'woocommerce_get_price_html', 'ld_show_price_only_on_subs', 20, 2 );
+function ld_show_price_only_on_subs( $html, $product ) {
+
+	// only touch YITH-subscription product types
+	if ( in_array( $product->get_type(), [ 'ywsbs_subscription', 'subscription' ], true ) ) {
+
+		// keep the first <span class="woocommerce-Price-amount …">…</span>
+		if ( preg_match( '/<span class="woocommerce-Price-amount.*?<\/span>/i', $html, $m ) ) {
+			return $m[0];           // “₪ 49.00”
+		}
+	}
+
+	return $html;                  // anything else: leave untouched
+}

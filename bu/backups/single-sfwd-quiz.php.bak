@@ -1,0 +1,311 @@
+<?php
+/**
+ * Template: Single LearnDash Quiz (sfwd-quiz)
+ * Custom container for full Elementor/ACF/media control
+ * Place in your child theme root directory
+ */
+
+global $post;
+
+get_header();
+?>
+
+<?php
+// Helper: Check if this quiz has the rich sidebar enabled via admin settings
+define('LILAC_QUIZ_EXTENSIONS_OPTION', 'ccr_quiz_extensions_settings');
+if (!function_exists('lilac_quiz_has_rich_sidebar')) {
+    function lilac_quiz_has_rich_sidebar($quiz_id) {
+        $settings = get_option(LILAC_QUIZ_EXTENSIONS_OPTION, []);
+        return !empty($settings[$quiz_id]['rich_sidebar']);
+    }
+}
+?>
+
+<style>
+.quiz-layout-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+}
+.quiz-main-area { flex: 3 1 0; min-width: 0; }
+.quiz-sidebar-area { flex: 1 1 0; min-width: 0; }
+@media (max-width: 900px) {
+    .quiz-layout-flex { flex-direction: column; }
+    .quiz-main-area, .quiz-sidebar-area { width: 100%; }
+}
+body.rtl .quiz-layout-flex { flex-direction: row-reverse; }
+.quiz-sidebar-area {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-top: 1.5rem;
+}
+.quiz-extended-hint {
+    background: #f9f9f9;
+    border-left: 4px solid #0073aa;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-style: italic;
+}
+</style>
+
+<main id="main" class="site-main quiz-container">
+    <div class="quiz-header">
+        <h1 class="quiz-title"><?php echo esc_html(get_the_title()); ?></h1>
+        <?php
+        // Example: Output an ACF field (change 'extended_hint' as needed)
+        if (function_exists('get_field')) {
+            $hint = get_field('extended_hint', $post->ID);
+            if ($hint) {
+                echo '<div class="quiz-extended-hint">' . wp_kses_post($hint) . '</div>';
+            }
+        }
+        // Example: Output quiz featured image or other media fields
+        if (has_post_thumbnail()) {
+            echo '<div class="quiz-featured-image">' . get_the_post_thumbnail($post->ID, 'large') . '</div>';
+        }
+        ?>
+    </div>
+
+    <?php if (lilac_quiz_has_rich_sidebar($post->ID)) : ?>
+        <div class="quiz-layout-flex">
+            <div class="quiz-main-area">
+                <?php if (have_posts()) : while (have_posts()) : the_post(); the_content(); endwhile; endif; ?>
+            </div>
+            <aside class="quiz-sidebar-area"></aside>
+        </div>
+    <?php else : ?>
+        <div class="quiz-content">
+            <?php if (have_posts()) : while (have_posts()) : the_post(); the_content(); endwhile; endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php
+    // Example: Output additional ACF/media fields below the quiz
+    // $media = get_field('related_media', $post->ID);
+    // if ($media) { echo '<div class="quiz-media">' . wp_kses_post($media) . '</div>'; }
+    ?>
+</main>
+
+<?php // QUIZ DATA INSPECTOR - Comprehensive data dump
+?>
+<div class="quiz-data-inspector" style="margin-top:50px; padding:20px; background:#f8f9fa; border:1px solid #ddd; border-radius:5px;">
+    <h2 style="border-bottom:2px solid #4a90e2; padding-bottom:10px;">Quiz Data Inspector</h2>
+    
+    <?php if(current_user_can('administrator') || current_user_can('school_teacher') || !is_user_logged_in()): ?>
+    <div class="inspector-section">
+        <h3>🔍 Basic Quiz Data</h3>
+        <?php 
+        // Get quiz post data
+        $quiz_id = get_the_ID();
+        $quiz_title = get_the_title();
+        $quiz_content = get_the_content();
+        $quiz_post_type = get_post_type();
+        
+        echo "<p><strong>Quiz ID:</strong> {$quiz_id}</p>";
+        echo "<p><strong>Title:</strong> {$quiz_title}</p>";
+        echo "<p><strong>Post Type:</strong> {$quiz_post_type}</p>";
+        
+        // Get quiz post meta
+        $quiz_meta = get_post_meta($quiz_id);
+        echo "<div style='margin:10px 0; padding:10px; background:#fff; border:1px solid #ddd; max-height:200px; overflow:auto;'>";
+        echo "<h4>Quiz Meta Fields (Key Ones)</h4>";
+        echo "<ul>";
+        foreach($quiz_meta as $key => $value) {
+            // Only show specific keys we care about
+            if(stripos($key, 'quiz') !== false || 
+               stripos($key, 'question') !== false || 
+               stripos($key, 'learndash') !== false ||
+               stripos($key, 'rich') !== false ||
+               stripos($key, 'acf') !== false) {
+                echo "<li><strong>{$key}</strong>: " . (is_array($value) ? json_encode($value) : esc_html($value)) . "</li>";
+            }
+        }
+        echo "</ul>";
+        echo "</div>";
+        ?>
+    </div>
+    
+    <div class="inspector-section" style="margin-top:20px;">
+        <h3>📋 Quiz Questions</h3>
+        <?php
+        global $wpdb;
+        // Direct database query to get all questions associated with this quiz
+        $questions = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT qq.ID as quiz_question_id, qq.question_post_id, qq.quiz_id, qq.title, q.quiz_post_id
+                FROM {$wpdb->prefix}learndash_pro_quiz_question as qq 
+                JOIN {$wpdb->prefix}learndash_quizzes as q ON qq.quiz_id = q.quiz_id 
+                WHERE q.quiz_post_id = %d",
+                $quiz_id
+            )
+        );
+        
+        if($questions) {
+            echo "<p>Found " . count($questions) . " questions in this quiz</p>";
+            echo "<div style='margin:10px 0; padding:10px; background:#fff; border:1px solid #ddd; max-height:400px; overflow:auto;'>";
+            echo "<table style='width:100%; border-collapse:collapse;'>";
+            echo "<tr style='background:#4a90e2; color:white;'>";
+            echo "<th style='padding:8px; border:1px solid #ddd;'>Quiz Question ID</th>";
+            echo "<th style='padding:8px; border:1px solid #ddd;'>Question Post ID</th>";
+            echo "<th style='padding:8px; border:1px solid #ddd;'>Title</th>";
+            echo "<th style='padding:8px; border:1px solid #ddd;'>ACF Fields</th>";
+            echo "</tr>";
+            
+            foreach($questions as $q) {
+                echo "<tr>";
+                echo "<td style='padding:8px; border:1px solid #ddd;'>{$q->quiz_question_id}</td>";
+                echo "<td style='padding:8px; border:1px solid #ddd;'>{$q->question_post_id}</td>";
+                echo "<td style='padding:8px; border:1px solid #ddd;'>{$q->title}</td>";
+                
+                // Check for ACF fields for each question
+                if(function_exists('get_fields')) {
+                    $acf_fields = get_fields($q->question_post_id);
+                    echo "<td style='padding:8px; border:1px solid #ddd;'>";
+                    
+                    if($acf_fields) {
+                        echo "<ul>";
+                        foreach($acf_fields as $field_key => $field_value) {
+                            $value_preview = is_array($field_value) ? 'Array' : substr(strip_tags($field_value), 0, 100);
+                            echo "<li><strong>{$field_key}</strong>: {$value_preview}";
+                            
+                            // Special handling for rich_media field
+                            if($field_key == 'rich_media' && !empty($field_value)) {
+                                echo " <a href='#' onclick='jQuery(\"#rich-content-{$q->question_post_id}\").toggle(); return false;' style='color:blue;'>Toggle Preview</a>";
+                                echo "<div id='rich-content-{$q->question_post_id}' style='display:none; margin-top:10px; padding:10px; background:#f0f7ff; border:1px solid #4a90e2;'>";
+                                echo $field_value;
+                                echo "</div>";
+                            }
+                            
+                            echo "</li>";
+                        }
+                        echo "</ul>";
+                    } else {
+                        // No ACF fields found, check direct post meta
+                        $post_meta = get_post_meta($q->question_post_id);
+                        if(!empty($post_meta)) {
+                            echo "<p>No ACF fields found but post meta exists:</p>";
+                            echo "<ul>";
+                            foreach($post_meta as $meta_key => $meta_value) {
+                                if(stripos($meta_key, 'rich') !== false || stripos($meta_key, 'acf') !== false) {
+                                    $value_preview = is_array($meta_value) ? 'Array' : substr(strip_tags(is_array($meta_value) ? implode(',', $meta_value) : $meta_value), 0, 100);
+                                    echo "<li><strong>{$meta_key}</strong>: {$value_preview}</li>";
+                                }
+                            }
+                            echo "</ul>";
+                        } else {
+                            echo "<p style='color:red;'>No ACF fields or relevant post meta found!</p>";
+                        }
+                    }
+                    
+                    echo "</td>";
+                } else {
+                    echo "<td style='padding:8px; border:1px solid #ddd;'><em>ACF not active</em></td>";
+                }
+                
+                echo "</tr>";
+            }
+            
+            echo "</table>";
+            echo "</div>";
+        } else {
+            echo "<p style='color:red;'>No questions found for this quiz!</p>";
+        }
+        ?>
+    </div>
+    
+    <div class="inspector-section" style="margin-top:20px;">
+        <h3>🛠️ System Configuration</h3>
+        <?php
+        // Check QuizData variable
+        echo "<p><strong>Quiz Extensions Rich Sidebar Enabled:</strong> ";
+        echo lilac_quiz_has_rich_sidebar($quiz_id) ? "<span style='color:green;'>YES ✓</span>" : "<span style='color:red;'>NO ✗</span>";
+        echo "</p>";
+        
+        // Check ACF
+        echo "<p><strong>ACF Plugin Active:</strong> ";
+        echo function_exists('get_field') ? "<span style='color:green;'>YES ✓</span>" : "<span style='color:red;'>NO ✗</span>";
+        echo "</p>";
+        
+        // Check JS script enqueued
+        echo "<p><strong>Rich Media Script Status:</strong> ";
+        if(wp_script_is('acf-hint-test-script', 'enqueued')) {
+            echo "<span style='color:green;'>Enqueued ✓</span>";
+        } elseif(wp_script_is('acf-hint-test-script', 'registered')) {
+            echo "<span style='color:orange;'>Registered but not enqueued ⚠️</span>";
+        } else {
+            echo "<span style='color:red;'>Not registered ✗</span>";
+        }
+        echo "</p>";
+        
+        // Quiz Extensions Settings
+        $settings = get_option(LILAC_QUIZ_EXTENSIONS_OPTION, []);
+        echo "<p><strong>Quiz Extensions Settings:</strong></p>";
+        echo "<div style='margin:10px 0; padding:10px; background:#fff; border:1px solid #ddd; max-height:200px; overflow:auto;'>";
+        echo "<pre>" . print_r($settings, true) . "</pre>";
+        echo "</div>";
+        ?>
+    </div>
+    
+    <div class="inspector-section" style="margin-top:20px;">
+        <h3>🧪 Raw Question Data</h3>
+        <button onclick="jQuery('#raw-question-data').toggle();" style="background:#4a90e2; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;">Toggle Raw Data</button>
+        <div id="raw-question-data" style="display:none; margin-top:10px; padding:10px; background:#fff; border:1px solid #ddd; max-height:400px; overflow:auto;">
+            <?php
+            // Get raw question data from database
+            if($questions) {
+                $question_ids = array_map(function($q) { return $q->quiz_question_id; }, $questions);
+                $question_ids_string = implode(',', $question_ids);
+                
+                $question_data = $wpdb->get_results(
+                    "SELECT * FROM {$wpdb->prefix}learndash_pro_quiz_question 
+                    WHERE ID IN($question_ids_string)"
+                );
+                
+                if($question_data) {
+                    echo "<table style='width:100%; border-collapse:collapse;'>";
+                    echo "<tr style='background:#4a90e2; color:white;'>";
+                    echo "<th style='padding:8px; border:1px solid #ddd;'>ID</th>";
+                    echo "<th style='padding:8px; border:1px solid #ddd;'>Quiz ID</th>";
+                    echo "<th style='padding:8px; border:1px solid #ddd;'>Question Post ID</th>";
+                    echo "<th style='padding:8px; border:1px solid #ddd;'>Points</th>";
+                    echo "<th style='padding:8px; border:1px solid #ddd;'>Answer Type</th>";
+                    echo "<th style='padding:8px; border:1px solid #ddd;'>Answer Data Preview</th>";
+                    echo "</tr>";
+                    
+                    foreach($question_data as $qd) {
+                        echo "<tr>";
+                        echo "<td style='padding:8px; border:1px solid #ddd;'>{$qd->ID}</td>";
+                        echo "<td style='padding:8px; border:1px solid #ddd;'>{$qd->quiz_id}</td>";
+                        echo "<td style='padding:8px; border:1px solid #ddd;'>{$qd->question_post_id}</td>";
+                        echo "<td style='padding:8px; border:1px solid #ddd;'>{$qd->points}</td>";
+                        echo "<td style='padding:8px; border:1px solid #ddd;'>{$qd->answer_type}</td>";
+                        
+                        // Preview of answer data (usually serialized)
+                        $answer_preview = "N/A";
+                        if(!empty($qd->answer_data) && is_serialized($qd->answer_data)) {
+                            $answer_data = @unserialize($qd->answer_data);
+                            if($answer_data) {
+                                $answer_preview = "<pre style='max-height:100px; overflow:auto;'>" . substr(print_r($answer_data, true), 0, 300) . "...</pre>";
+                            }
+                        }
+                        echo "<td style='padding:8px; border:1px solid #ddd;'>{$answer_preview}</td>";
+                        
+                        echo "</tr>";
+                    }
+                    
+                    echo "</table>";
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php else: ?>
+        <p>You must be an administrator or teacher to view detailed quiz data.</p>
+    <?php endif; ?>
+</div>
+
+<?php
+get_footer(); ?>

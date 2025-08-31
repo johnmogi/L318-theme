@@ -1,0 +1,289 @@
+/* Form Base Styles */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Ensure text inputs and textareas don't have the dropdown arrow */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Focus State */
+.form-control:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #000;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 1.25rem;
+    text-align: right;
+    direction: rtl;
+}
+
+/* Form Label */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Form Select - Keep white background */
+select,
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23333' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #333;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23333' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: left 1rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: right;
+}
+
+/* Form Select */
+select.form-select {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Form Select Focus */
+.form-select:focus {
+    border-color: #000;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #333;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.btn:focus {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Validation */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+.form-control.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+    text-align: right;
+    direction: rtl;
+}
+
+/* Responsive form layout */
+@media (min-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+/* Form spacing */
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+/* Form text */
+.form-text {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875em;
+    color: #666;
+    text-align: right;
+}
+
+/* Form check */
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-right: 1.5em;
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+
+.form-check-input {
+    float: right;
+    margin-right: -1.5em;
+    margin-left: 0.5em;
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+/* Form switch */
+.form-switch .form-check-input {
+    width: 2.5em;
+    margin-right: -3em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ddd'/%3e%3c/svg%3e");
+    background-position: right center;
+    border-radius: 2em;
+    transition: background-position 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:checked {
+    background-position: left center;
+    background-color: #000;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .form-control {
+        color: #f0f0f0;
+        background-color: #2a2a2a;
+        border-color: #444;
+    }
+    
+    /* Keep select dropdowns light in dark mode for better readability */
+    select,
+    .form-select {
+        color: #333;
+        background-color: #fff;
+        border-color: #ddd;
+    }
+    
+    /* Keep select dropdowns light in dark mode for better readability */
+    .form-select {
+        color: #333;
+        background-color: #fff;
+        border-color: #ddd;
+    }
+    
+    .form-control:focus,
+    .form-select:focus {
+        color: #fff;
+        background-color: #2a2a2a;
+        border-color: #000;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    .form-control:disabled,
+    .form-select:disabled {
+        background-color: #333;
+    }
+    
+    .form-check-input:not(:checked) {
+        background-color: #333;
+        border-color: #555;
+    }
+    
+    .form-label {
+        color: #f0f0f0;
+    }
+    
+    .form-text {
+        color: #aaa;
+    }
+    
+    .btn {
+        background-color: #333;
+        border-color: #333;
+    }
+    
+    .btn:hover,
+    .btn:focus {
+        background-color: #111;
+        border-color: #111;
+    }
+}

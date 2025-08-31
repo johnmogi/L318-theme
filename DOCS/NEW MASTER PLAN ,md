@@ -1,0 +1,182 @@
+Certainly! Here's a **comprehensive Developer Specification File** for Phase 1 of your plugin’s wizard form, including detailed instructions and placeholders to connect the broader Teacher/Class/Promo workflow. This document can be saved as `DEV_SPEC.md` or used directly inside Windsurf IDE.
+
+---
+
+```markdown
+# 🎓 Promo Code Wizard & Teacher/Class Management – Developer Spec
+
+## 1. Overview
+
+A WordPress admin module enabling admin/super-admin users to:
+
+- Create or select a **Teacher**.
+- Create or select a **Class** for that teacher.
+- Generate **Promo Codes** tied to teacher + class (single-use, with metadata).
+- Optionally pre-create a **Student** with assigned class and promo.
+- Store all created promo codes for easy retrieval.
+- Layout built in wizard steps for intuitive flow.
+
+This is **Phase 1** of the system; statistics, question/test building, resources download, and student progress tracking will be built in future phases.
+
+---
+
+## 2. File Setup & Structure
+
+Place under `wp-content/plugins/promo-wizard/`:
+
+```
+
+promo-wizard/
+├── promo-wizard.php           ← Plugin bootstrap
+├── includes/
+│   ├── AdminPage.php          ← Renders wizard page
+│   ├── PromoGenerator.php     ← Logic for promo code generation
+│   ├── TeacherManager.php     ← Manage teacher user creation/retrieval
+│   ├── ClassManager.php       ← Manage CPT ld\_class
+│   └── StudentManager.php     ← Handle optional student creation
+└── DEV\_SPEC.md                ← This document
+
+````
+
+---
+
+## 3. Plugin Bootstrap (`promo-wizard.php`)
+
+```php
+<?php
+/*
+Plugin Name: Promo Wizard & Teacher/Class Manager
+*/
+
+require_once __DIR__.'/includes/TeacherManager.php';
+require_once __DIR__.'/includes/ClassManager.php';
+require_once __DIR__.'/includes/PromoGenerator.php';
+require_once __DIR__.'/includes/StudentManager.php';
+require_once __DIR__.'/includes/AdminPage.php';
+
+add_action('admin_menu', function(){
+    add_submenu_page(
+        'tools',
+        'Promo Wizard',
+        'Promo Wizard',
+        'manage_options',
+        'promo_wizard',
+        [ 'PromoWizard\AdminPage', 'render' ]
+    );
+});
+````
+
+---
+
+## 4. Admin Page (`AdminPage.php`)
+
+```php
+namespace PromoWizard;
+
+class AdminPage {
+    public static function render() {
+        session_start(); // for wizard steps
+        $step = $_POST['step'] ?? $_SESSION['step'] ?? 1;
+
+        include __DIR__.'/views/wizard_step'.$step.'.php';
+        
+        if ($_SERVER['REQUEST_METHOD']==='POST') {
+            switch ($step) {
+              case 1: self::processStep1(); break;
+              case 2: self::processStep2(); break;
+              case 3: self::processStep3(); break;
+            }
+        }
+    }
+    private static function processStep1(): void { /* teacher flow logic */ }
+    private static function processStep2(): void { /* class flow logic */ }
+    private static function processStep3(): void { /* promo code logic */ }
+}
+```
+
+---
+
+## 5. Managers & Modules
+
+* **TeacherManager::getAllTeachers()** – returns WP\_User list.
+* **TeacherManager::createTeacher(\$name, \$email)** – creates user with role `teacher` or `group_leader`.
+* **ClassManager::getClassesByTeacher(\$teacher\_id)** – returns `ld_class` CPT list.
+* **ClassManager::createClass(\$teacher\_id, \$name, \$course\_id)** – creates class CPT.
+* **PromoGenerator::generate(\$data)** – encapsulates logic:
+
+  * Args: `teacher_id`, `class_id`, `qty`, `prefix`, `length`, `max_uses`, `expiry`
+  * Returns array of created code strings.
+* **PromoGenerator::saveCodesToDB(\$codes, \$data)** – store in plugin table.
+* **StudentManager::create(\$studentData)** – optionally create user and assign class\_id metadata.
+
+---
+
+## 6. Views & Wizard Steps
+
+Located under `includes/views/`:
+
+* `wizard_step1.php` – Teacher choose/create form
+* `wizard_step2.php` – Class choose/create form
+* `wizard_step3.php` – Promo code config form
+
+Each includes:
+
+* `<form method="post">` markup with hidden `step` fields.
+* Use WP Admin HTML (`form-table`, `.button`).
+* Pre-filled values from `$_SESSION`.
+
+---
+
+## 7. Flow Details
+
+| Step | Input                                 | Output                                                                        |
+| ---- | ------------------------------------- | ----------------------------------------------------------------------------- |
+| 1    | `teacher_id` or `new_teacher + email` | Instantiate TeacherManager; store `$_SESSION['teacher_id']`                   |
+| 2    | `class_id` or `new_class_name`        | Instantiate ClassManager; store `$_SESSION['class_id']`                       |
+| 3    | Promo details + optional student info | Generate promo codes, optionally create student and assign, render codes list |
+
+---
+
+## 8. Front-end Shortcode (Future Phase)
+
+Shortcode `[promo_redeem code="XYZ"]`:
+
+* Validate code and availability.
+* Enroll user in correct class/course.
+* Mark code as used by `user_id` + timestamp.
+
+---
+
+## 9. Later IntegrationPoints
+
+* **WizardHeader** – big buttons for: *Statistics*, *Create Questions*, *Create Achievement Test*, *Question Pool*, *Test Pool*, *Downloads*.
+* **Subpage Pages** – Built via AdminPage in future phases for each module.
+
+---
+
+## 🔧 Detailed Dev Tasks (for IDE)
+
+* [ ] Scaffold plugin files per folder structure.
+* [ ] Implement admin submenu and `AdminPage::render()`.
+* [ ] Build views with form markup matching provided spec.
+* [ ] Use Managers to create/retrieve Teacher/Class entities.
+* [ ] Hook promo generation on Step 3 submit.
+* [ ] Return list of generated codes or error messages.
+* [ ] Ensure wizard can go “Back” or “Next” preserving state.
+* [ ] Add PHP-level validation on each step.
+* [ ] Extend `TeacherManager` for future Stat button integration.
+* [ ] Include basic CPT registration for `ld_class`.
+
+---
+
+## ✅ Notes for Implementation
+
+* Use WP functions like `wp_insert_user()`, `register_post_type()`, `$wpdb` for tables.
+* Use nonces and capabilities checks (`current_user_can`) for security.
+* Store session data safely; remove at final step or on cancellation.
+* All UI built in native WP admin styles with RTL compatibility.
+* Hooks should allow others to extend functionality (e.g. after promo creation).
+
+---
+
+This spec file should provide a **clear, robust blueprint** for Windsurf IDE to launch the first phase of the teacher/class wizard, ready for expansion into statistics, question/test building, and more. Let me know if you'd like to fill in any core methods or view templates!

@@ -1,0 +1,38 @@
+/* Progress Bar */
+.wpProQuiz_progress {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+/* Hide any arrow elements */
+.wpProQuiz_progress::before,
+.wpProQuiz_progress::after,
+.wpProQuiz_progress .wpProQuiz_progress_bar::before,
+.wpProQuiz_progress .wpProQuiz_progress_bar::after {
+    display: none !important;
+}
+
+/* Hide any button elements inside progress bar */
+.wpProQuiz_progress button,
+.wpProQuiz_progress .wpProQuiz_button {
+    display: none !important;
+}
+
+.wpProQuiz_progress > div {
+    height: 100%;
+    background-color: #2196F3;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Ensure no extra spacing from potential arrow containers */
+.wpProQuiz_progress {
+    padding: 0 !important;
+    margin: 20px 0 !important;
+    border: none !important;
+}

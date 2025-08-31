@@ -1,0 +1,382 @@
+/* 
+Theme Name: Hello Elementor Child PROD
+Theme URI: https://github.com/elementor/hello-theme/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 1.0.2
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/**
+ * Main stylesheet for Hello Elementor Child theme
+ * 
+ * CSS files are loaded via WordPress enqueue in functions.php
+ * - _variables.css: Theme variables and custom properties
+ * - acf-hint-highlights.css: Styles for ACF hint highlights in quizzes
+ * - quiz-layout.css: Layout styles for quiz pages
+ */
+
+/*
+ * Custom styles specific to this child theme
+ */
+
+/* Force two-column layout for course items */
+.ld-item-list.ld-lesson-list .ld-item-list-items {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 15px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    width: 100% !important;
+}
+
+.ld-item-list-item {
+    background: #fff !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+    transition: all 0.3s ease !important;
+    display: block !important;
+    position: relative;
+}
+
+/* Show all content by default */
+.ld-item-list-item-expanded {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 15px !important;
+}
+
+/* Remove collapse/expand functionality */
+.ld-expand-button,
+.ld-item-details {
+    display: none !important;
+}
+
+/* Style the lesson/topic items */
+.ld-item-title {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin: 0 0 10px 0 !important;
+    display: block !important;
+    padding-right: 35px !important;
+}
+
+.ld-item-components {
+    display: block !important;
+    font-size: 14px !important;
+    color: #666 !important;
+    margin-top: 8px !important;
+}
+
+/* Status icons */
+.ld-status-icon {
+    position: absolute !important;
+    right: 15px !important;
+    top: 15px !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+}
+
+.ld-status-incomplete {
+    background-color: #FF6B6B !important;
+}
+
+.ld-status-complete {
+    background-color: #4CAF50 !important;
+}
+
+.ld-quiz-incomplete {
+    background-color: #FFC107 !important;
+    color: #333 !important;
+}
+
+/* Table list items */
+.ld-table-list {
+    margin-top: 15px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.ld-table-list-header {
+    padding: 12px 15px !important;
+    background: #f8f9fa !important;
+    border-bottom: 1px solid #e0e0f0 !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.ld-table-list-items {
+    background: #fff !important;
+    display: block !important;
+}
+
+.ld-table-list-item {
+    padding: 12px 15px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.ld-course-button.primary {
+    background: linear-gradient(135deg, #00c9b7, #00b4a0) !important;
+    color: white !important;
+}
+
+.ld-course-button.secondary {
+    background: white !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+}
+
+.ld-course-button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+/* Make sure quizzes are visible */
+.ld-table-list-item-quiz {
+    display: block !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .ld-item-list.ld-lesson-list .ld-item-list-items {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .ld-item-list-item {
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .ld-item-title {
+        font-size: 16px !important;
+        padding-right: 30px !important;
+    }
+    
+    .ld-status-icon {
+        width: 18px !important;
+        height: 18px !important;
+        font-size: 10px !important;
+    }
+}
+
+.ld-course-actions {
+    flex-direction: column !important;
+}
+
+/* RTL support */
+.rtl .ld-topic-title,
+.rtl .ld-item-title {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+.rtl .ld-status-icon {
+    margin-left: 0 !important;
+    margin-right: 10px !important;
+}
+
+/* Hide toast notifications on product pages */
+.single-product #lilac-toast-container,
+.single-product .lilac-toast,
+.single-product .lilac-toast-error {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Hide only the duplicate product error message */
+.woocommerce-notices-wrapper .woocommerce-error:has(li:contains('You cannot add another')),
+.woocommerce-notices-wrapper .woocommerce-error:has(li:contains('אין אפשרות להוסיף')),
+.woocommerce .woocommerce-error:has(li:contains('You cannot add another')),
+.woocommerce-page .woocommerce-error:has(li:contains('You cannot add another')),
+.woocommerce-notices-wrapper .woocommerce-error:has(li:contains('already in cart')),
+.woocommerce-notices-wrapper .woocommerce-error:has(li:contains('בסל הקניות')) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0) !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Hide the view cart button in error messages */
+.woocommerce-error .button.wc-forward {
+    display: none !important;
+}
+
+.single-product .woocommerce-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: none; /* Hide error by default, we'll handle it in JS */
+}
+
+
+ .lilac-profile-pic img {
+    float: right;
+    width: 30px;
+    margin-left: 5px;
+    height: auto;
+    max-width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+ }
+ .lilac-profile-links {
+    max-width: 150px;
+    float: right;
+ }
+.lilac-profile-details h3{
+    font-size: 12px;
+    color: white;
+    float: right;
+    margin-left: 15px;
+}
+
+/* ===== Utility Classes ===== */
+.highlight-effect {
+    background-color: var(--color-highlight, yellow) !important;
+    font-weight: bold !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: var(--quiz-border-radius, 3px);
+}
+
+.btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm, 0.5rem);
+}
+
+.ld-logout.ld-logout.ld-login-text.ld-login-button {
+    width: auto;
+    min-width: 5vw;
+    color: var(--color-white, #fff);
+    transition: color var(--transition-base, 0.3s ease);
+}
+
+.ld-logout.ld-logout.ld-login-text.ld-login-button:hover {
+    color: var(--color-secondary, blueviolet);
+}
+
+/* ===== Quiz Layout Components ===== */
+.quiz-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg, 2rem);
+    position: relative;
+    margin-bottom: var(--spacing-lg, 2rem);
+}
+
+.quiz-main-content {
+    flex: 1;
+    min-width: 0; /* Prevents flex items from overflowing */
+    background: var(--quiz-question-bg, #fff);
+    border-radius: var(--quiz-border-radius, 8px);
+    padding: var(--spacing-md, 1rem);
+    box-shadow: var(--quiz-box-shadow, 0 1px 3px rgba(0,0,0,0.1));
+}
+
+.quiz-media-sidebar {
+    width: 350px;
+    background: var(--quiz-sidebar-bg, #f8f9fa);
+    border-radius: var(--quiz-border-radius, 8px);
+    padding: var(--spacing-md, 1rem);
+    box-shadow: var(--quiz-box-shadow, 0 2px 10px rgba(0,0,0,0.1));
+    position: sticky;
+    top: var(--spacing-lg, 1.5rem);
+    align-self: flex-start;
+    margin-bottom: 2rem;
+}
+
+.media-content {
+    transition: opacity 0.3s ease;
+}
+
+.media-loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.rich-media-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.rich-media-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .quiz-container {
+        flex-direction: column;
+    }
+    
+    .quiz-media-sidebar {
+        width: 100%;
+        position: static;
+        margin-top: 2rem;
+    }
+}

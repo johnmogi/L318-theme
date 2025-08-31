@@ -1,0 +1,84 @@
+/*
+ * Theme CSS Variables
+ * Defines the color scheme and other design tokens
+ * Version: 1.0.0
+ */
+
+:root {
+  /* ===== Global Colors ===== */
+  --color-primary: #000000;
+  --color-secondary: #EAC6F2; /* Keep original for other elements */
+  --color-text: #333333;      /* Dark gray instead of pink */
+  --color-highlight: #C8FFBE;
+  
+  /* ===== Utility Colors ===== */
+  --color-white: #FFFFF9;
+  --color-light-blue: #FDF6FF;
+  --color-yellow-accent: #FFFB83;
+  --color-gray-bg: #F5F5F5;
+  --color-blue-primary: #2C3391;
+  --color-blue-muted: #DDE1FF;
+  
+  /* ===== UI Elements ===== */
+  --color-border: #E0E0E0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-light: rgba(0, 0, 0, 0.05);
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* ===== Quiz Specific ===== */
+  /* Backgrounds */
+  --quiz-bg: var(--color-white);
+  --quiz-sidebar-bg: var(--color-gray-bg);
+  --quiz-question-bg: var(--color-white);
+  
+  /* Text */
+  --quiz-text: var(--color-primary);
+  --quiz-text-muted: #666666;
+  
+  /* Interactive Elements */
+  --quiz-border: var(--color-border);
+  --quiz-border-radius: 5px;
+  --quiz-box-shadow: 0 1px 3px var(--color-shadow);
+  
+  /* Hints & Feedback */
+  --quiz-hint-bg: var(--color-highlight);
+  --quiz-hint-text: var(--color-primary);
+  --quiz-hint-border: var(--color-highlight);
+  
+  /* Active/Selected States */
+  --quiz-active-bg: var(--color-blue-muted);
+  --quiz-active-text: var(--color-blue-primary);
+  --quiz-active-border: var(--color-blue-primary);
+  
+  /* Buttons */
+  --quiz-button-bg: var(--color-blue-primary);
+  --quiz-button-text: var(--color-white);
+  --quiz-button-hover-bg: #1a2168;
+  
+  /* Progress & Status */
+  --quiz-progress-bg: #E0E0E0;
+  --quiz-progress-fill: var(--color-blue-primary);
+  
+  /* ===== Transitions & Animations ===== */
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-fast: 0.15s ease;
+  
+  /* ===== Typography ===== */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-heading: var(--font-base);
+  --font-mono: 'Courier New', Courier, monospace;
+  
+  /* ===== Spacing ===== */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* ===== Breakpoints ===== */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}

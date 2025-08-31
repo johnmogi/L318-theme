@@ -1,0 +1,214 @@
+/**
+ * Quiz Template Styles
+ * Styling for the LearnDash quiz template
+ */
+
+/* Main Quiz Container */
+.quiz-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Quiz Content Area */
+.quiz-content-wrapper {
+    flex: 1 1 65%;
+    min-width: 0; /* Prevents flex items from overflowing */
+}
+
+/* Quiz Sidebar */
+.quiz-sidebar {
+    flex: 0 0 350px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Media Container */
+.quiz-media-container {
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-featured-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.quiz-media-placeholder {
+    padding: 2rem;
+    text-align: center;
+    background: #f0f2f5;
+}
+
+.quiz-media-placeholder img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.5;
+}
+
+/* Quiz Meta */
+.quiz-meta {
+    margin-bottom: 2rem;
+}
+
+.quiz-lesson {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.meta-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.quiz-settings h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #343a40;
+}
+
+.quiz-settings ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quiz-settings li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+    color: #6c757d;
+}
+
+/* Progress Bar */
+.quiz-progress {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.quiz-progress h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #343a40;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-completed {
+    height: 100%;
+    background: #4e73df;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: right;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .quiz-container {
+        flex-direction: column;
+    }
+    
+    .quiz-sidebar {
+        flex: 1 1 100%;
+        order: -1;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Quiz Specific Overrides */
+.lilac-quiz .wpProQuiz_list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.lilac-quiz .wpProQuiz_listItem {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.lilac-quiz .wpProQuiz_question_text {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #343a40;
+}
+
+.lilac-quiz .wpProQuiz_questionList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lilac-quiz .wpProQuiz_questionListItem {
+    margin-bottom: 0.5rem;
+}
+
+.lilac-quiz .wpProQuiz_questionInput {
+    margin-right: 0.5rem;
+}
+
+/* Hint Styling */
+.quiz-hint-enforced .wpProQuiz_TipButton {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-hint-enforced .wpProQuiz_TipButton:hover {
+    background: #e9ecef;
+    border-color: #ced4da;
+}
+
+/* Hide next button when hint is enforced */
+.quiz-hint-enforced .wpProQuiz_controls .wpProQuiz_button {
+    display: none;
+}
+
+.quiz-hint-enforced .wpProQuiz_controls .wpProQuiz_button.wpProQuiz_NextButton {
+    display: inline-block;
+    background: #4e73df;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quiz-hint-enforced .wpProQuiz_controls .wpProQuiz_button.wpProQuiz_NextButton:hover {
+    background: #2e59d9;
+}

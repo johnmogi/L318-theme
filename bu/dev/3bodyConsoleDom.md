@@ -1,0 +1,1914 @@
+<body class="rtl wp-singular sfwd-quiz-template-default single single-sfwd-quiz postid-1367 logged-in admin-bar wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master theme-hello-elementor woocommerce-js theme-default elementor-default elementor-kit-11 learndash-cpt learndash-cpt-sfwd-quiz learndash-template-ld30 learndash-cpt-sfwd-quiz-1367-current learndash-embed-responsive customize-support dialog-body dialog-buttons-body dialog-container dialog-buttons-container e--ua-isTouchDevice e--ua-blink e--ua-chrome e--ua-webkit" __processed_40ee1ca8-5f02-4b35-a471-a8b950588a61__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJMSU5LRURJTiI6ImRpc2FibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMC4yMiIsInNjb3JlIjoyMDAyMn1d" data-elementor-device-mode="desktop">
+
+<script>
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+				request = true;
+	
+			b[c] = b[c].replace( rcs, ' ' );
+			// The customizer requires postMessage and CORS (if the site is cross domain).
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	
+</script>
+		<div id="wpadminbar" class="nojq" bis_skin_checked="1">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="סרגל כלים" bis_skin_checked="1">
+				<ul role="menu" id="wp-admin-bar-root-default" class="ab-top-menu"><li role="group" id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://lilac.local/wp-admin/about.php"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">אודות וורדפרס</span></a><div class="ab-sub-wrapper" bis_skin_checked="1"><ul role="menu" aria-label="אודות וורדפרס" id="wp-admin-bar-wp-logo-default" class="ab-submenu"><li role="group" id="wp-admin-bar-about"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/about.php">אודות וורדפרס</a></li><li role="group" id="wp-admin-bar-contribute"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/contribute.php">Get Involved</a></li></ul><ul role="menu" aria-label="אודות וורדפרס" id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li role="group" id="wp-admin-bar-wporg"><a class="ab-item" role="menuitem" href="https://he.wordpress.org/">WordPress.org</a></li><li role="group" id="wp-admin-bar-documentation"><a class="ab-item" role="menuitem" href="https://wordpress.org/documentation/">תיעוד</a></li><li role="group" id="wp-admin-bar-learn"><a class="ab-item" role="menuitem" href="https://learn.wordpress.org/">Learn WordPress</a></li><li role="group" id="wp-admin-bar-support-forums"><a class="ab-item" role="menuitem" href="https://wordpress.org/support/forums/">תמיכה</a></li><li role="group" id="wp-admin-bar-feedback"><a class="ab-item" role="menuitem" href="https://wordpress.org/support/forum/requests-and-feedback">משוב</a></li></ul></div></li><li role="group" id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://lilac.local/wp-admin/">lilac</a><div class="ab-sub-wrapper" bis_skin_checked="1"><ul role="menu" aria-label="lilac" id="wp-admin-bar-site-name-default" class="ab-submenu"><li role="group" id="wp-admin-bar-dashboard"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/">לוח בקרה</a></li><li role="group" id="wp-admin-bar-plugins"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/plugins.php">תוספים</a></li></ul><ul role="menu" aria-label="lilac" id="wp-admin-bar-appearance" class="ab-submenu"><li role="group" id="wp-admin-bar-themes"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/themes.php">תבניות</a></li><li role="group" id="wp-admin-bar-menus"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/nav-menus.php">תפריטים</a></li></ul></div></li><li role="group" id="wp-admin-bar-woocommerce-site-visibility-badge" class="woocommerce-site-status-badge-live"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/admin.php?page=wc-settings&amp;tab=site-visibility">בזמן אמת</a></li><li role="group" id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/customize.php?url=https%3A%2F%2Flilac.local%2Fquizzes%2F%25d7%2594%25d7%259e%25d7%25a8%25d7%2597%25d7%2591-%25d7%2594%25d7%25aa%25d7%25a2%25d7%2591%25d7%2595%25d7%25a8%25d7%25aa%25d7%2599-%25d7%2594%25d7%2592%25d7%2593%25d7%25a8%25d7%2594-%25d7%2595%25d7%259e%25d7%2590%25d7%25a4%25d7%2599%25d7%2599%25d7%25a0%25d7%2599%25d7%259d-2%2F">התאמה אישית</a></li><li role="group" id="wp-admin-bar-updates"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/update-core.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">3</span><span class="screen-reader-text updates-available-text">קיימים 3 עדכונים זמינים</span></a></li><li role="group" id="wp-admin-bar-comments"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/edit-comments.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 תגובות בהמתנה</span></a></li><li role="group" id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://lilac.local/wp-admin/post-new.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">חדש</span></a><div class="ab-sub-wrapper" bis_skin_checked="1"><ul role="menu" aria-label="חדש" id="wp-admin-bar-new-content-default" class="ab-submenu"><li role="group" id="wp-admin-bar-new-post"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php">פוסט</a></li><li role="group" id="wp-admin-bar-new-media"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/media-new.php">מדיה</a></li><li role="group" id="wp-admin-bar-new-page"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=page">עמוד</a></li><li role="group" id="wp-admin-bar-new-e-floating-buttons"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/edit.php?action=elementor_new_post&amp;post_type=e-floating-buttons&amp;template_type=floating-buttons&amp;_wpnonce=9dababb417">Floating Element</a></li><li role="group" id="wp-admin-bar-new-elementor_library"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=elementor_library">טמפלט</a></li><li role="group" id="wp-admin-bar-new-tipes"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=tipes">טיפ</a></li><li role="group" id="wp-admin-bar-new-product"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=product">מוצר</a></li><li role="group" id="wp-admin-bar-new-shop_order"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=shop_order">הזמנה</a></li><li role="group" id="wp-admin-bar-new-shop_coupon"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=shop_coupon">קופון</a></li><li role="group" id="wp-admin-bar-new-sfwd-courses"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=sfwd-courses">קורס</a></li><li role="group" id="wp-admin-bar-new-sfwd-lessons"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=sfwd-lessons">שיעור</a></li><li role="group" id="wp-admin-bar-new-sfwd-topic"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=sfwd-topic">נושא</a></li><li role="group" id="wp-admin-bar-new-sfwd-quiz"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=sfwd-quiz">מבחן</a></li><li role="group" id="wp-admin-bar-new-sfwd-question"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=sfwd-question">שאלה</a></li><li role="group" id="wp-admin-bar-new-ld-exam"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=ld-exam">Challenge Exam</a></li><li role="group" id="wp-admin-bar-new-sfwd-certificates"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=sfwd-certificates">תעודה</a></li><li role="group" id="wp-admin-bar-new-groups"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post-new.php?post_type=groups">קבוצה</a></li><li role="group" id="wp-admin-bar-new-user"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/user-new.php">משתמש</a></li></ul></div></li><li role="group" id="wp-admin-bar-edit"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/post.php?post=1367&amp;action=edit">ערוך מבחן</a></li><li id="wp-admin-bar-elementor_edit_page" class="menupop"><div aria-haspopup="true" class="ab-item ab-empty-item " bis_skin_checked="1"><span class="elementor-edit-link-title">עריכה באמצעות אלמנטור</span></div><div class="ab-sub-wrapper" bis_skin_checked="1"><ul class="ab-submenu" id="wp-admin-bar-elementor_edit_page-default"><li id="wp-admin-bar-elementor_edit_doc_891" class="elementor-general-section"><a class="ab-item  " href="https://lilac.local/wp-admin/post.php?post=891&amp;action=elementor"><span class="elementor-edit-link-title">אלמנטור Header #891</span><span class="elementor-edit-link-type">הדר</span></a></li><li id="wp-admin-bar-elementor_edit_doc_1287" class="elementor-general-section"><a class="ab-item  " href="https://lilac.local/wp-admin/post.php?post=1287&amp;action=elementor"><span class="elementor-edit-link-title">אלמנטור פוטר #1287</span><span class="elementor-edit-link-type">פוטר</span></a></li><li id="wp-admin-bar-elementor_site_settings" class="elementor-second-section"><a class="ab-item  elementor-site-settings" href="https://lilac.local/wp-admin/post.php?post=1219&amp;action=elementor&amp;active-document=11"><span class="elementor-edit-link-title">הגדרות אתר</span><span class="elementor-edit-link-type">אתר</span></a></li><li id="wp-admin-bar-elementor_app_site_editor" class="elementor-second-section"><a class="ab-item  elementor-app-link" href="https://lilac.local/wp-admin/admin.php?page=elementor-app&amp;ver=3.28.4#/site-editor"><span class="elementor-edit-link-title">בונה תבנית</span><span class="elementor-edit-link-type">אתר</span></a></li><li id="wp-admin-bar-elementor_site_clear_cache" class="elementor-general-section"><a class="ab-item  " href="https://lilac.local/wp-admin/admin-post.php?action=elementor_site_clear_cache&amp;_wpnonce=0fb7cffbff"><span class="elementor-edit-link-title">נקה קבצים ונתונים</span><span class="elementor-edit-link-type">אתר</span></a></li></ul></div></li><li role="group" id="wp-admin-bar-elementor_notes"><a class="ab-item" role="menuitem" href="#">פתקים</a></li><li role="group" id="wp-admin-bar-elementor_inspector" class="menupop"><div class="ab-item ab-empty-item" role="menuitem" aria-expanded="false" bis_skin_checked="1">אלמנטור דיבאגר</div><div class="ab-sub-wrapper" bis_skin_checked="1"><ul role="menu" id="wp-admin-bar-elementor_inspector-default" class="ab-submenu"><li role="group" id="wp-admin-bar-elementor_inspector_theme" class="menupop"><div class="ab-item ab-empty-item" role="menuitem" aria-expanded="false" bis_skin_checked="1"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Theme</div><div class="ab-sub-wrapper" bis_skin_checked="1"><ul role="menu" id="wp-admin-bar-elementor_inspector_theme-default" class="ab-submenu"><li role="group" id="wp-admin-bar-elementor_inspector_log_theme_0"><div class="ab-item ab-empty-item" role="menuitem" target="_blank" bis_skin_checked="1">Template File: No Templates for condition &gt; /themes/hello-elementor/index.php</div></li></ul></div></li></ul></div></li></ul><ul role="menu" id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li role="group" id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" role="menuitem" aria-expanded="false" href="https://lilac.local/wp-admin/profile.php">שלום, <span class="display-name">testihrt_admin</span><img alt="" src="https://secure.gravatar.com/avatar/471e5d51a295f05e9822ba62469b417f503435cbf642fbc5d7f94d8742262661?s=26&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/471e5d51a295f05e9822ba62469b417f503435cbf642fbc5d7f94d8742262661?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26" decoding="async"></a><div class="ab-sub-wrapper" bis_skin_checked="1"><ul role="menu" aria-label="שלום, testihrt_admin" id="wp-admin-bar-user-actions" class="ab-submenu"><li role="group" id="wp-admin-bar-user-info"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-admin/profile.php"><img alt="" src="https://secure.gravatar.com/avatar/471e5d51a295f05e9822ba62469b417f503435cbf642fbc5d7f94d8742262661?s=64&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/471e5d51a295f05e9822ba62469b417f503435cbf642fbc5d7f94d8742262661?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64" decoding="async"><span class="display-name">testihrt_admin</span><span class="display-name edit-profile">עריכת פרופיל</span></a></li><li role="group" id="wp-admin-bar-logout"><a class="ab-item" role="menuitem" href="https://lilac.local/wp-login.php?action=logout&amp;_wpnonce=ff78d17300">יציאה</a></li></ul></div></li><li role="group" id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1" role="menuitem" bis_skin_checked="1"><form action="https://lilac.local/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">חיפוש</label><input type="submit" class="adminbar-button" value="חיפוש"></form></div></li></ul>			</div>
+		</div>
+
+		
+<a class="skip-link screen-reader-text" href="#content">דלג לתוכן</a>
+
+		<div data-elementor-type="header" data-elementor-id="891" class="elementor elementor-891 elementor-location-header" data-elementor-post-type="elementor_library" bis_skin_checked="1">
+			<div class="elementor-element elementor-element-f337361 e-con-full e-flex e-con e-parent e-lazyloaded" data-id="f337361" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" bis_skin_checked="1">
+		<div class="elementor-element elementor-element-9061211 e-con-full e-flex e-con e-child" data-id="9061211" data-element_type="container" bis_skin_checked="1">
+		<div class="elementor-element elementor-element-3a954a0 e-con-full e-flex e-con e-child" data-id="3a954a0" data-element_type="container" bis_skin_checked="1">
+		<div class="elementor-element elementor-element-319e0d8 e-con-full e-flex e-con e-child" data-id="319e0d8" data-element_type="container" bis_skin_checked="1">
+				<div class="elementor-element elementor-element-c532764 elementor-widget elementor-widget-image" data-id="c532764" data-element_type="widget" data-widget_type="image.default" bis_skin_checked="1">
+				<div class="elementor-widget-container" bis_skin_checked="1">
+																<a href="https://lilac.local">
+							<img fetchpriority="high" width="978" height="283" src="https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט.png" class="attachment-full size-full wp-image-1076" alt="" srcset="https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט.png 978w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט-600x174.png 600w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט-300x87.png 300w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט-768x222.png 768w" sizes="(max-width: 978px) 100vw, 978px">								</a>
+															</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4e296e6 e-con-full e-flex e-con e-child" data-id="4e296e6" data-element_type="container" bis_skin_checked="1">
+				<div class="elementor-element elementor-element-c3fb80f elementor-nav-menu--dropdown-mobile elementor-nav-menu--stretch elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="c3fb80f" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default" bis_skin_checked="1">
+				<div class="elementor-widget-container" bis_skin_checked="1">
+								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-c3fb80f" class="elementor-nav-menu" data-smartmenus-id="17466050542779985"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1054"><a href="#" class="elementor-item elementor-item-anchor">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1055"><a href="#" class="elementor-item elementor-item-anchor has-submenu" id="sm-17466050542779985-1" aria-haspopup="true" aria-controls="sm-17466050542779985-2" aria-expanded="false">למה ללמוד אצלנו<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17466050542779985-2" role="group" aria-hidden="true" aria-labelledby="sm-17466050542779985-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1230"><a href="#" class="elementor-sub-item elementor-item-anchor">חינוך תעבורתי</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1056"><a href="#" class="elementor-item elementor-item-anchor">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1057"><a href="#" class="elementor-item elementor-item-anchor has-submenu" id="sm-17466050542779985-3" aria-haspopup="true" aria-controls="sm-17466050542779985-4" aria-expanded="false">טיפים למבחן התיאוריה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17466050542779985-4" role="group" aria-hidden="true" aria-labelledby="sm-17466050542779985-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-tipes menu-item-1228"><a href="https://lilac.local/tipes/6-%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%97%d7%a9%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%9c%d7%9e%d7%91%d7%97%d7%9f-%d7%94%d7%aa/" class="elementor-sub-item">6 טיפים חשובים לחינוך תעבורתי – למבחן התיאוריה בבתי הספר</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-tipes menu-item-1229"><a href="https://lilac.local/tipes/%d7%98%d7%99%d7%a4-7-%d7%98%d7%99%d7%a4-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa%d7%99-%d7%97%d7%a9%d7%95%d7%91-%d7%9c%d7%9e%d7%91%d7%97%d7%9f/" class="elementor-sub-item">טיפ 7 – טיפ בטיחותי חשוב למבחן</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-tipes menu-item-1227"><a href="https://lilac.local/tipes/%d7%a1%d7%a8%d7%98%d7%95%d7%9f-%d7%94%d7%a8%d7%a9%d7%9e%d7%94-%d7%9c%d7%9c%d7%90-%d7%a7%d7%95%d7%93-%d7%94%d7%98%d7%91%d7%94-%d7%90%d7%99%d7%9a-%d7%9c%d7%94%d7%a4%d7%a8%d7%99%d7%93-%d7%91%d7%99/" class="elementor-sub-item">סרטון – הרשמה ללא קוד הטבה: איך להפריד בין הרישום לפתיחת המנוי?</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1058"><a href="#" class="elementor-item elementor-item-anchor">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1059"><a href="#" class="elementor-item elementor-item-anchor">ספרי ההוצאה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1192"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1184"><a href="https://lilac.local/%d7%99%d7%a6%d7%99%d7%a8%d7%aa-%d7%a7%d7%a9%d7%a8/" class="elementor-item">יצירת קשר</a></li>
+<li class="ld-button menu-item menu-item-type-custom menu-item-object-custom menu-item-1115"><a href="https://lilac.local/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Flilac.local%2Fquizzes%2F%25d7%2594%25d7%259e%25d7%25a8%25d7%2597%25d7%2591-%25d7%2594%25d7%25aa%25d7%25a2%25d7%2591%25d7%2595%25d7%25a8%25d7%25aa%25d7%2599-%25d7%2594%25d7%2592%25d7%2593%25d7%25a8%25d7%2594-%25d7%2595%25d7%259e%25d7%2590%25d7%25a4%25d7%2599%25d7%2599%25d7%25a0%25d7%2599%25d7%259d-2%2F&amp;_wpnonce=ff78d17300" class="elementor-item">התחברות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1231"><a href="https://lilac.local/testlogin/" class="elementor-item">test</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false" style="" bis_skin_checked="1">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true" style="top: 43.9815px; width: 2343px; right: -2103.92px;">
+				<ul id="menu-2-c3fb80f" class="elementor-nav-menu" data-smartmenus-id="17466050542804724"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1054"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1055"><a href="#" class="elementor-item elementor-item-anchor has-submenu" tabindex="-1" id="sm-17466050542804724-1" aria-haspopup="true" aria-controls="sm-17466050542804724-2" aria-expanded="false">למה ללמוד אצלנו<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17466050542804724-2" role="group" aria-hidden="true" aria-labelledby="sm-17466050542804724-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1230"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">חינוך תעבורתי</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1056"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1057"><a href="#" class="elementor-item elementor-item-anchor has-submenu" tabindex="-1" id="sm-17466050542804724-3" aria-haspopup="true" aria-controls="sm-17466050542804724-4" aria-expanded="false">טיפים למבחן התיאוריה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17466050542804724-4" role="group" aria-hidden="true" aria-labelledby="sm-17466050542804724-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-tipes menu-item-1228"><a href="https://lilac.local/tipes/6-%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%97%d7%a9%d7%95%d7%91%d7%99%d7%9d-%d7%9c%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%9c%d7%9e%d7%91%d7%97%d7%9f-%d7%94%d7%aa/" class="elementor-sub-item" tabindex="-1">6 טיפים חשובים לחינוך תעבורתי – למבחן התיאוריה בבתי הספר</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-tipes menu-item-1229"><a href="https://lilac.local/tipes/%d7%98%d7%99%d7%a4-7-%d7%98%d7%99%d7%a4-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa%d7%99-%d7%97%d7%a9%d7%95%d7%91-%d7%9c%d7%9e%d7%91%d7%97%d7%9f/" class="elementor-sub-item" tabindex="-1">טיפ 7 – טיפ בטיחותי חשוב למבחן</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-tipes menu-item-1227"><a href="https://lilac.local/tipes/%d7%a1%d7%a8%d7%98%d7%95%d7%9f-%d7%94%d7%a8%d7%a9%d7%9e%d7%94-%d7%9c%d7%9c%d7%90-%d7%a7%d7%95%d7%93-%d7%94%d7%98%d7%91%d7%94-%d7%90%d7%99%d7%9a-%d7%9c%d7%94%d7%a4%d7%a8%d7%99%d7%93-%d7%91%d7%99/" class="elementor-sub-item" tabindex="-1">סרטון – הרשמה ללא קוד הטבה: איך להפריד בין הרישום לפתיחת המנוי?</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1058"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1059"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">ספרי ההוצאה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1192"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item" tabindex="-1">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1184"><a href="https://lilac.local/%d7%99%d7%a6%d7%99%d7%a8%d7%aa-%d7%a7%d7%a9%d7%a8/" class="elementor-item" tabindex="-1">יצירת קשר</a></li>
+<li class="ld-button menu-item menu-item-type-custom menu-item-object-custom menu-item-1115"><a href="https://lilac.local/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Flilac.local%2Fquizzes%2F%25d7%2594%25d7%259e%25d7%25a8%25d7%2597%25d7%2591-%25d7%2594%25d7%25aa%25d7%25a2%25d7%2591%25d7%2595%25d7%25a8%25d7%25aa%25d7%2599-%25d7%2594%25d7%2592%25d7%2593%25d7%25a8%25d7%2594-%25d7%2595%25d7%259e%25d7%2590%25d7%25a4%25d7%2599%25d7%2599%25d7%25a0%25d7%2599%25d7%259d-2%2F&amp;_wpnonce=ff78d17300" class="elementor-item" tabindex="-1">התחברות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1231"><a href="https://lilac.local/testlogin/" class="elementor-item" tabindex="-1">test</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-87e3881 e-con-full e-flex e-con e-parent e-lazyloaded" data-id="87e3881" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" bis_skin_checked="1">
+				<div class="elementor-element elementor-element-103af19 elementor-widget__width-initial elementor-widget elementor-widget-shortcode" data-id="103af19" data-element_type="widget" data-widget_type="shortcode.default" bis_skin_checked="1">
+				<div class="elementor-widget-container" bis_skin_checked="1">
+							<div class="elementor-shortcode" bis_skin_checked="1">        <div class="lilac-user-widget lilac-user-logged-in" bis_skin_checked="1">
+            <div class="lilac-user-wrap" bis_skin_checked="1">
+                                <div class="lilac-profile-pic" bis_skin_checked="1">
+                    <a href="https://lilac.local/quizzes/%d7%94%d7%9e%d7%a8%d7%97%d7%91-%d7%94%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%94%d7%92%d7%93%d7%a8%d7%94-%d7%95%d7%9e%d7%90%d7%a4%d7%99%d7%99%d7%a0%d7%99%d7%9d-2/">
+                        <img src="https://secure.gravatar.com/avatar/471e5d51a295f05e9822ba62469b417f503435cbf642fbc5d7f94d8742262661?s=60&amp;d=mm&amp;r=g" alt="testihrt_admin">
+                    </a>
+                </div>
+                                
+                <div class="lilac-profile-details" bis_skin_checked="1">
+                    <h3>שלום, testihrt_admin!</h3>
+                                    </div>
+            </div>
+            
+                        
+            <div class="lilac-profile-links" bis_skin_checked="1">
+                                
+                <div class="lilac-edit" bis_skin_checked="1">
+                    <a href="https://lilac.local/quizzes/%d7%94%d7%9e%d7%a8%d7%97%d7%91-%d7%94%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%94%d7%92%d7%93%d7%a8%d7%94-%d7%95%d7%9e%d7%90%d7%a4%d7%99%d7%99%d7%a0%d7%99%d7%9d-2/">
+                        ערוך חשבון
+                    </a>
+                </div>
+                
+                                <div class="lilac-stats" bis_skin_checked="1">
+                    <a href="https://lilac.local/quizzes/%d7%94%d7%9e%d7%a8%d7%97%d7%91-%d7%94%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%94%d7%92%d7%93%d7%a8%d7%94-%d7%95%d7%9e%d7%90%d7%a4%d7%99%d7%99%d7%a0%d7%99%d7%9d-2/">
+                        סטטיסטיקות לימוד
+                    </a>
+                </div>
+                                
+                <div class="lilac-logout" bis_skin_checked="1">
+                    <a href="https://lilac.local/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Flilac.local&amp;_wpnonce=ff78d17300">
+                        התנתק
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+						</div>
+				</div>
+				</div>
+				</div>
+		
+<main id="content" class="site-main post-1367 sfwd-quiz type-sfwd-quiz status-publish hentry">
+
+			<div class="page-header" bis_skin_checked="1">
+			<h1 class="entry-title">TEST with hint 2</h1>		</div>
+	
+	<div class="page-content" bis_skin_checked="1">
+		<div class="learndash user_has_no_access" id="learndash_post_1367" bis_skin_checked="1"><div class="learndash-wrapper" bis_skin_checked="1">
+
+<div class="ld-tabs ld-tab-count-1" bis_skin_checked="1">
+	
+	<div class="ld-tabs-content" bis_skin_checked="1">
+		
+			<div aria-labelledby="ld-content-tab-1367" class="ld-tab-content ld-visible" id="ld-tab-content-1367" role="tabpanel" tabindex="0" bis_skin_checked="1">
+								<p>לפניך שאלות לפי נושאי לימוד למבחן התיאוריה. תשובה שגויה מסומנת באדום.<br>
+באתר ישנו מנגנון ייחודי של קבלת רמזים לכל שאלה. ללמידה נכונה העזרו במנגון הרמזים. לתיקון התשובה לחצו: קבל רמז!</p>
+<p><img decoding="async" src="https://lilac.local/wp-content/uploads/2025/02/noPic.png" alt="" width="290" height="180"></p>
+<p><a role="button"><br>
+קח רמז<br>
+</a></p>
+			</div>
+
+			
+	</div> <!--/.ld-tabs-content-->
+
+</div> <!--/.ld-tabs-->
+		<div class="wpProQuiz_content" id="wpProQuiz_9" data-quiz-meta="{&quot;quiz_pro_id&quot;:9,&quot;quiz_post_id&quot;:1367}" bis_skin_checked="1"><div id="lilac-timer-controls" class="lilac-timer-controls" bis_skin_checked="1">
+            <h3>Quiz Timer Test Controls</h3>
+            <div class="timer-buttons" bis_skin_checked="1">
+                <button class="lilac-test-btn" data-seconds="60">Test: דקה אחת נותרה</button>
+                <button class="lilac-test-btn" data-seconds="30">Test: 30 שניות נותרו</button>
+                <button class="lilac-test-btn" data-seconds="10">Test: 10 שניות נותרו</button>
+                <button class="lilac-test-btn" data-seconds="0">Test: זמן הסתיים</button>
+                <button class="lilac-test-btn" data-message="inactive">Test: עדיין כאן?</button>
+            </div>
+            <div class="timer-status" bis_skin_checked="1">
+                <label>
+                    <input type="checkbox" id="lilac-demo-mode"> הפעל מצב הדגמה
+                </label>
+                <div id="lilac-time-display" bis_skin_checked="1">Current time: 0:00</div>
+            </div>
+        </div>
+			<div class="wpProQuiz_spinner" style="display:none" bis_skin_checked="1">
+				<div bis_skin_checked="1"></div>
+			</div>
+			<div style="display: none;" class="wpProQuiz_time_limit" bis_skin_checked="1">
+	<div class="time" bis_skin_checked="1">
+		זמן מוגבל: <span>0</span>	</div>
+	<div class="wpProQuiz_progress" bis_skin_checked="1"></div>
+</div>
+<div class="wpProQuiz_checkPage" style="display: none;" bis_skin_checked="1">
+	<h4 class="wpProQuiz_header">
+	תקציר המבחן	</h4>
+	<p><span>0</span> מתוך 8 שאלות הושלמו</p>	<p>שאלות:</p>
+	<div class="wpProQuiz_reviewSummary" bis_skin_checked="1"></div>
+
+	
+	<input type="button" name="endQuizSummary" value="סיים מבחן" class="wpProQuiz_button"> </div>
+<div class="wpProQuiz_infopage" style="display: none;" bis_skin_checked="1">
+	<h4>מידע</h4>
+		<input type="button" name="endInfopage" value="סיים מבחן" class="wpProQuiz_button"> </div>
+<div class="wpProQuiz_text" style="display: none;" bis_skin_checked="1">
+		<div bis_skin_checked="1">
+		<input class="wpProQuiz_button" type="button" value="התחל מבחן" name="startQuiz">	</div>
+</div>
+<div style="display: none;" class="wpProQuiz_lock" bis_skin_checked="1">		
+	<p>כבר השלמת את המבחן בעבר. לכן אינך יכול להתחיל אותו שוב.</p></div>
+<div style="display: none;" class="wpProQuiz_loadQuiz" bis_skin_checked="1">
+	<p>
+		המבחן נטען…	</p>
+</div>
+<div style="display: none;" class="wpProQuiz_startOnlyRegisteredUser" bis_skin_checked="1">
+	<p>עליך להתחבר או להירשם כדי להתחיל את המבחן.</p></div>
+<div style="display: none;" class="wpProQuiz_prerequisite" bis_skin_checked="1">
+	<p>אתה חייב להשלים קודם את הבאים: <span></span></p></div>
+<div style="display: none;" class="wpProQuiz_sending" bis_skin_checked="1">
+	<h4 class="wpProQuiz_header">תוצאות</h4>
+	<p>
+		</p><div bis_skin_checked="1">
+		מבחןהושלם. התוצאות נרשמות.		</div>
+		<div bis_skin_checked="1">
+			<dd class="course_progress">
+				<div class="course_progress_blue sending_progress_bar" style="width: 0%;" bis_skin_checked="1">
+				</div>
+			</dd>
+		</div>
+	<p></p>
+</div>
+
+<div style="display: none;" class="wpProQuiz_results" bis_skin_checked="1">
+	<h4 class="wpProQuiz_header">תוצאות</h4>
+	<p><span class="wpProQuiz_correct_answer">0</span> מתוך <span>8</span> שאלות נענו נכון</p>		<p class="wpProQuiz_quiz_time">
+		הזמן שלך: <span></span>		</p>
+			<p class="wpProQuiz_time_limit_expired" style="display: none;">
+	זמן חלף	</p>
+
+			<p class="wpProQuiz_points">
+		השגת <span>0</span> מתוך <span>0</span> נקודה(ות), (<span>0</span>)		</p>
+		<p class="wpProQuiz_graded_points" style="display: none;">
+		נקודה(ות) שקיבלת: <span>0</span> מתוך <span>0</span>, (<span>0</span>)		<br>
+		<span>0</span> שאלות פתוחות בהמתנה (נקודה(ות) אפשרית(יות): <span>0</span>)		<br>
+		</p>
+				<p class="wpProQuiz_certificate" style="display: none ;"></p>
+		<script>var certificate_details = [];</script><script>var certificate_pending = "התעודה בהמתנה - עדיין צריך לתת ציון לשאלות, אנא בדוק את הפרופיל שלך";</script><script>var continue_details ='';</script>		
+	<div class="wpProQuiz_catOverview" style="display:none;" bis_skin_checked="1">
+		<h4>
+		קטגוריות		</h4>
+
+		<div style="margin-top: 10px;" bis_skin_checked="1">
+			<ol>
+							<li data-category_id="0">
+					<span class="wpProQuiz_catName">כללי</span>
+					<span class="wpProQuiz_catPercent">0%</span>
+				</li>
+							</ol>
+		</div>
+	</div>
+	<div bis_skin_checked="1">
+		<ul class="wpProQuiz_resultsList">
+							<li style="display: none;">
+					<div bis_skin_checked="1">
+											</div>
+				</li>
+					</ul>
+	</div>
+		<div class="ld-quiz-actions" style="margin: 10px 0px;" bis_skin_checked="1">
+				<div class="quiz_continue_link
+				" bis_skin_checked="1">
+
+		</div>
+					<input class="wpProQuiz_button wpProQuiz_button_restartQuiz" type="button" name="restartQuiz" value="התחל מבחן מחדש">						<input class="wpProQuiz_button wpProQuiz_button_reShowQuestion" type="button" name="reShowQuestion" value="הצג שאלות">					</div>
+</div>
+<div class="wpProQuiz_reviewDiv" style="" bis_skin_checked="1">
+	<div class="wpProQuiz_reviewQuestion" bis_skin_checked="1">
+	<ol style="margin-top: 0px !important">
+					<li class="wpProQuiz_reviewQuestionTarget">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+			</ol>
+	<div style="display: none; top: 0px;" bis_skin_checked="1"></div>
+</div>
+<div class="wpProQuiz_reviewLegend" bis_skin_checked="1">
+	<ol>
+		<li class="learndash-quiz-review-legend-item-current">
+			<span class="wpProQuiz_reviewColor wpProQuiz_reviewQuestion_Target"></span>
+			<span class="wpProQuiz_reviewText">הנוכחי</span>
+		</li>
+		<li class="learndash-quiz-review-legend-item-review">
+			<span class="wpProQuiz_reviewColor wpProQuiz_reviewColor_Review"></span>
+			<span class="wpProQuiz_reviewText">ביקורת</span>
+		</li>
+		<li class="learndash-quiz-review-legend-item-answered">
+			<span class="wpProQuiz_reviewColor wpProQuiz_reviewColor_Answer"></span>
+			<span class="wpProQuiz_reviewText">נענו</span>
+		</li>
+		<li class="learndash-quiz-review-legend-item-correct">
+			<span class="wpProQuiz_reviewColor wpProQuiz_reviewColor_AnswerCorrect"></span>
+			<span class="wpProQuiz_reviewText">נכון</span>
+		</li>
+		<li class="learndash-quiz-review-legend-item-incorrect">
+			<span class="wpProQuiz_reviewColor wpProQuiz_reviewColor_AnswerIncorrect"></span>
+			<span class="wpProQuiz_reviewText">לא נכון</span>
+		</li>
+	</ol>
+	<div style="clear: both;" bis_skin_checked="1"></div>
+</div>
+<div class="wpProQuiz_reviewButtons" bis_skin_checked="1">
+			<input type="button" name="review" value="סקור שאלה" class="wpProQuiz_button2" style="float: left; display: block;"> 				<div style="clear: both;" bis_skin_checked="1"></div>
+	</div>
+</div>
+<div class="wpProQuiz_quizAnker" style="display: none;" bis_skin_checked="1"></div>
+<div style="" class="wpProQuiz_quiz" bis_skin_checked="1">
+	<ol class="wpProQuiz_list">
+					<li class="wpProQuiz_listItem" style="" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:41,&quot;question_post_id&quot;:1369}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>1</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>1</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>מהם מרכיבי ה”מרחב התעבורתי”?</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="41" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_41" value="1"> כל מה שנמצא בעולם, כולל הרכוש ומזג האוויר שבתוך הבתים.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_41" value="2"> כל מה שנמצא בדרך וכל מי שמשתמש בדרך: פני הדרך, עוברי דרך, כלי הרכב ותנאי הסביבה.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_41" value="3"> מרכיבים ששייכים לעולם התעבורה בלבד: עוברי דרך וכלי רכב.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_41" value="4"> מרכיבים ששייכים למרחב בלבד: פני הדרך ותנאי הסביבה.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p>המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.<br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p><span class="highlight-hint">א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב. עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</span></p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:42,&quot;question_post_id&quot;:1370}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>2</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>2</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>במרחב התעבורתי מתקיימים מפגשים רבים בין עוברי דרך בהם עליהם להתחשב אחד בשני. נכון או לא נכון?</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="42" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_42" value="1"> לא נכון. אם עוברי הדרך ינהגו לפי הוראות החוק לא יתקיימו נקודות מגע ביניהם.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_42" value="2"> לא נכון, בכל מקרה במרחב התעבורתי אין מפגשים בין עוברי דרך.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_42" value="3"> לא נכון, כל אחד ממשתמשי הדרך נע בנתיב שלו ולא נפגש עם אחרים.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_42" value="4"> נכון, מפגשים מתקיימים במרחב התעבורתי בכל שעות היום ובכל מקום בדרך.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p>המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.<br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p>א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב.עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. <span class="highlight-hint">ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</span></p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:43,&quot;question_post_id&quot;:1371}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>3</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>3</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>הנהיגה היא משימה מורכבת. נכון או לא נכון?</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="43" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_43" value="1"> לא נכון. רק כשיש עומס בדרכים לפעמים קשה לנהוג.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_43" value="2"> לא נכון. רק נהגי משאיות כבדות מתעייפים בנהיגה בגלל משאם הכבד.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_43" value="3"> נכון. מטלת הנהיגה דורשת ביצוע מספר מטלות במקביל ובזמן קצר וזה מורכב.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_43" value="4"> נכון. אבל רק בגלל שלנהגים אין סבלנות והם לא מעניקים זכות קדימה כנדרש בחוק.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p>המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.<br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p>א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב. עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש</p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p><span class="highlight-hint">הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</span></p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:44,&quot;question_post_id&quot;:1372}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>4</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>4</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>האם תלמיד נהיגה הוא חלק מהמרחב התעבורתי?</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="44" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_44" value="1"> לא. רק אחרי שיקבל רישיון נהיגה יהפוך תלמיד נהיגה לחלק מהמרחב התעבורתי.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_44" value="2"> לא. המרחב התעבורתי לא כולל תלמידי נהיגה הנוהגים ברכב ללימוד נהיגה.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_44" value="3"> כן, אבל רק אם הוא נוהג בדרך בינעירונית.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_44" value="4"> כן, כל מי שנמצא בדרך ומשתמש בה הוא חלק מהמרחב התעבורתי.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p><span class="highlight-hint">המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.</span><br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p>א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב.עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:45,&quot;question_post_id&quot;:1373}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>5</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>5</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>האם יש סיכונים במרחב התעבורתי?</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="45" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_45" value="1"> ממש לא.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_45" value="2"> כן, רק בדרכים בינעירוניות.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_45" value="3"> כן, המרחב התעבורתי מאופיין באי ודאות ובסכנות רבות.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_45" value="4"> כן, רק בדרכים עירוניות צפופות.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p>המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.<br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p>א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב.עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p><span class="highlight-hint">נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</span></p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:46,&quot;question_post_id&quot;:1374}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>6</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>6</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>מפגש בין עובר דרך לסביבה הוא:</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="46" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_46" value="1"> מפגש בצומת מרומזר בין הולך רגל לנהג.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_46" value="2"> מפגש בין תמרור להולך רגל.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_46" value="3"> מפגש בין רוכב אופניים חשמליים לנהג.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_46" value="4"> נהיגה בשעה שקרני השמש מסנוורות את הנהג.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p>המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.<br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p><span class="highlight-hint">א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב.עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</span></p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:47,&quot;question_post_id&quot;:1375}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>7</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>7</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>מפגש בין הדרך לעובר דרך הוא:</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="47" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_47" value="1"> מפגש בצומת מרומזר בין הולך רגל לנהג.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_47" value="2"> מפגש בשעות הלילה בין נהג להולך רגל.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_47" value="3"> מפגש ביום גשום בין רוכב אופניים חשמליים לנהג.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_47" value="4"> נהיגה בשעה שקרני השמש מסנוורות את הנהג.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p>המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.<br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p><span class="highlight-hint">א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב.עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</span></p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="הבא" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+					<li class="wpProQuiz_listItem" style="display: none;" data-type="single" data-question-meta="{&quot;type&quot;:&quot;single&quot;,&quot;question_pro_id&quot;:48,&quot;question_post_id&quot;:1376}">
+				<div class="wpProQuiz_question_page" style="display:none;" bis_skin_checked="1">
+				שאלה <span>8</span> מתוך <span>8</span>				</div>
+				<h5 style="display: none;" class="wpProQuiz_header">
+					<span>8</span>. שאלה
+				</h5>
+
+				
+								<div class="wpProQuiz_question" style="margin: 10px 0px 0px 0px;" bis_skin_checked="1">
+					<div class="wpProQuiz_question_text" bis_skin_checked="1">
+						<p>מהו “מרחב תעבורתי”?</p>
+					</div>
+					<p class="wpProQuiz_clear" style="clear:both;"></p>
+
+										
+										<ul class="wpProQuiz_questionList" data-question_id="48" data-type="single">
+						
+								<li class="wpProQuiz_questionListItem" data-pos="0">
+																			<span style="display:none;">1. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_48" value="1"> מרחב תעבורתי הוא המרחב שבו כלי הרכב נעים בדרך.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="1">
+																			<span style="display:none;">2. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_48" value="2"> מרחב תעבורתי כולל את כל בני האדם המשתמשים בדרך.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="2">
+																			<span style="display:none;">3. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_48" value="3"> מרחב תעבורתי הוא מושג רחב הכולל את כל מי שנמצא בדרך ואת כל מי שמשתמש בדרך.										</label>
+
+																		</li>
+								
+								<li class="wpProQuiz_questionListItem" data-pos="3">
+																			<span style="display:none;">4. </span>
+										<label>
+											<input class="wpProQuiz_questionInput" autocomplete="off" type="radio" name="question_9_48" value="4"> מרחב תעבורתי הוא מושג רחב הכולל את כל מי שנמצא בדרך ואת כל מי שמשתמש בדרך, מלבד עגלות שאין להן מנוע.										</label>
+
+																		</li>
+													</ul>
+									</div>
+									<div class="wpProQuiz_response" style="display: none;" bis_skin_checked="1">
+						<div style="display: none;" class="wpProQuiz_correct" bis_skin_checked="1">
+															<span>
+								נכון								</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+						<div style="display: none;" class="wpProQuiz_incorrect" bis_skin_checked="1">
+															<span>
+								לא נכון							</span>
+														<div class="wpProQuiz_AnswerMessage" bis_skin_checked="1"></div>
+						</div>
+					</div>
+				
+									<div class="wpProQuiz_tipp" style="display: none; position: relative;" bis_skin_checked="1">
+						<div bis_skin_checked="1">
+							<h5 style="margin: 0px 0px 10px;" class="wpProQuiz_header">
+							רמז							</h5>
+							<p><span class="highlight-hint" id="hinted">המרחב התעבורתי הוא מושג רחב הכולל בתוכו את כל מה שנמצא בדרך, את כל מי שמשתמש בדרך ואת כל מה שיש לו השפעה על הנסיעה בדרך.</span><br>
+למרחב התעבורתי חברו ארבעה שותפים מרכזיים:</p>
+<p>א. פני הדרך – כל מה שישנו בדרך ובסביבתה: מרחבים פתוחים, מרחבים בנויים, כבישים, מדרכות, תמרורים ורמזורים, ועוד. ב.עוברי הדרך – כל משתמשי הדרך הנמצאים בה לכל מטרה: להליכה, לרכיבה, לנסיעה ועוד. ג. כלי רכב – כל כלי הרכב הנעים בדרך על מאפייניהם וסוגיהם השונים. ד. הסביבה – כל תנאי שמשפיע על הנסיעה כגון: תנאי הנראות, שעות היום או הלילה או כמות הנוסעים בכביש.</p>
+<p>כפי שתראו בתמונה, להקות בעלי חיים יכולות לנוע בצפיפות כגוף אחד מבלי להתנגש אחד בשני ובלי נפגעים.</p>
+<p>שלושה מאפיינים עיקריים למרחב התעבורתי:</p>
+<p>א. תנועה רבה ומהירה</p>
+<p>ב. שונות ורבגוניות של משתמשי הדרך או של הרכבים הנעים בדרך, כגון השוני העצום שקיים בין רכב לבין אופנוע, או בין נהג ותיק ובעל ניסיון לנהג צעיר חדש חסר ניסיון.</p>
+<p>ג. ריבוי מפגשים בין משתמשי הדרך – כל גורם הנע במרחב התעבורתי נתקל בדרכו במשתמשי דרך אחרים הנעים לצידו ומה שיקרה במפגש ביניהם תלוי באמצעי הזהירות שנקטו בהם.</p>
+<p>נסכם ונאמר כי סכנות ואי וודאות רבה מאפיינות את המרחב התעבורתי בשל מאפייניו</p>
+<p>מורכבותה של מטלת הנהיגה</p>
+<p>הנהיגה היא מטלה מורכבת ומסובכת. תראו כמה פעולות על הנהג לבצע בזמן קצר: עליו לאסוף מידע על הסביבה. היות והדרך מתאפיינת בתנועה רבה ומהירה, בשונות גדולה בין משתתפי הדרך ובריבוי מפגשים ביניהם – פעולת איסוף המידע קשה במיוחד שהרי הסביבה משתנה או יכולה להשתנות בכל רגע.</p>
+<p>משימה:</p>
+<p>לפניכם סרטון הממחיש ומדגים את מורכבות מטלת הנהיגה ביום רגיל במנהטן. בתמונות דומות תתקלו גם בארצנו בערים הגדולות.</p>
+<p>התוכלו להצביע על הרגעים בסרטון בהם הנהיגה מורכבת ומחייבת זהירות ועירנות רבה מצד הנהג? רשמו במהלך הצפייה לפחות 5 מצבים שדרשו מהנהג היערכות מיוחדת ותשומת לב מירבית.</p>
+<p>הפנייה לסרטון מתוך “תורת החינוך התעבורתי” פרק 1 עמ` 11-12.</p>
+<p>למורה: מומלץ מומלץ לעצור את הסרטון מפעם לפעם, לשתף את התלמידים ולהדגיש בפניהם את המורכבות של מצבי הנהיגה שראו בסרטון זה עתה.</p>
+<p>מהירות התנועה היא נתון משפיע ביותר. פעמים רבות אירועים מתרחשים בקצב מהיר הרבה יותר ממה שנדרש לאדם באופן טבעי כדי להגיב להם. בנוסף, לכל נהג רצון משלו שמנוגד לעיתים לרצון חברו ופעמים רבות לנהגים אין רגישות מספקת לזולת ונהג צריך לקחת זאת בחשבון.</p>
+<p>לכן נכון יהיה לחזור ולהזכיר שהמרחב התעבורתי מתאפיין באי ודאות ובסכנות רבות.</p>
+<div class="btn-wrapper" bis_skin_checked="1"><button id="mark-hint" type="button">סמן רמז</button><br>
+<button id="close-hint" type="button">סגור רמז</button></div>
+						</div>
+					</div>
+				
+													<input type="button" name="next" value="סיים מבחן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: left ; margin-right: 10px ; display: none;"> 													<input type="button" name="tip" value="רמז" class="wpProQuiz_button wpProQuiz_QuestionButton wpProQuiz_TipButton" style="float: left ; display: inline-block; margin-right: 10px ;"> 								<input type="button" name="check" value="סמן" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; margin-right: 10px;"> 								<input type="button" name="back" value="חזרה" class="wpProQuiz_button wpProQuiz_QuestionButton" style="float: right; display: none;"> 								<div style="clear: both;" bis_skin_checked="1"></div>
+
+							</li>
+
+			</ol>
+	</div>
+		</div>
+		
+</div> <!--/.learndash-wrapper-->
+</div>
+		
+			</div>
+
+	
+</main>
+
+			<div data-elementor-type="footer" data-elementor-id="1287" class="elementor elementor-1287 elementor-location-footer" data-elementor-post-type="elementor_library" bis_skin_checked="1">
+			<div class="elementor-element elementor-element-354aa413 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="354aa413" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" bis_skin_checked="1">
+					<div class="e-con-inner" bis_skin_checked="1">
+				<div class="elementor-element elementor-element-2e4d3e28 elementor-widget elementor-widget-heading" data-id="2e4d3e28" data-element_type="widget" data-widget_type="heading.default" bis_skin_checked="1">
+				<div class="elementor-widget-container" bis_skin_checked="1">
+					<p class="elementor-heading-title elementor-size-default">© All Rights Reserved.</p>				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+        
+        			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script type="text/template" id="tmpl-elementor-templates-modal__header">
+	<div class="elementor-templates-modal__header__logo-area"></div>
+	<div class="elementor-templates-modal__header__menu-area"></div>
+	<div class="elementor-templates-modal__header__items-area">
+		<# if ( closeType ) { #>
+			<div class="elementor-templates-modal__header__close elementor-templates-modal__header__close--{{{ closeType }}} elementor-templates-modal__header__item">
+				<# if ( 'skip' === closeType ) { #>
+				<span>דלג</span>
+				<# } #>
+				<i class="eicon-close"
+					aria-hidden="true"
+					title="{{{ $e.components?.get( 'document/elements' )?.utils?.getTitleForLibraryClose() }}}"></i>
+				<span class="elementor-screen-only">{{{ $e.components?.get( 'document/elements' )?.utils?.getTitleForLibraryClose() }}}</span>
+			</div>
+		<# } #>
+		<div id="elementor-template-library-header-tools"></div>
+	</div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-templates-modal__header__logo">
+	<span class="elementor-templates-modal__header__logo__icon-wrapper e-logo-wrapper">
+		<i class="eicon-elementor"></i>
+	</span>
+	<span class="elementor-templates-modal__header__logo__title">{{{ title }}}</span>
+</script>
+<script type="text/template" id="tmpl-elementor-finder">
+	<div id="elementor-finder__search">
+		<i class="eicon-search" aria-hidden="true"></i>
+		<input id="elementor-finder__search__input" placeholder="הקלד כדי למצוא משהו באלמנטור" autocomplete="off">
+	</div>
+	<div id="elementor-finder__content"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder-results-container">
+	<div id="elementor-finder__no-results">לא נמצאו תוצאות</div>
+	<div id="elementor-finder__results"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder__results__category">
+	<div class="elementor-finder__results__category__title">{{{ title }}}</div>
+	<div class="elementor-finder__results__category__items"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder__results__item">
+	<a href="{{ url }}" class="elementor-finder__results__item__link">
+		<div class="elementor-finder__results__item__icon">
+			<i class="eicon-{{{ icon }}}" aria-hidden="true"></i>
+		</div>
+		<div class="elementor-finder__results__item__title">{{{ title }}}</div>
+		<# if ( description ) { #>
+			<div class="elementor-finder__results__item__description">- {{{ description }}}</div>
+		<# } #>
+
+		<# if ( lock ) { #>
+		<div class="elementor-finder__results__item__badge"><i class="{{{ lock.badge.icon }}}"></i>{{ lock.badge.text }}</div>
+		<# } #>
+	</a>
+	<# if ( actions.length ) { #>
+		<div class="elementor-finder__results__item__actions">
+		<# jQuery.each( actions, function() { #>
+			<a class="elementor-finder__results__item__action elementor-finder__results__item__action--{{ this.name }}" href="{{ this.url }}" target="_blank">
+				<i class="eicon-{{{ this.icon }}}"></i>
+			</a>
+		<# } ); #>
+		</div>
+	<# } #>
+</script>
+<script>console.log("ACF Hint Debug Panel: Visible only to administrators and teachers");</script>	<script>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel="stylesheet" id="wc-blocks-style-rtl-css" href="https://lilac.local/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks-rtl.css?ver=1745821976" media="all">
+<style id="core-block-supports-inline-css">
+/**
+ * Core styles: block-supports
+ */
+
+</style>
+<script id="elementor-web-cli-js-before">
+var elementorWebCliConfig = {"isDebug":true,"urls":{"rest":"https:\/\/lilac.local\/wp-json\/","assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"de2ba3ba85","version":"3.28.4"};
+var elementorWebCliConfig = {"isDebug":true,"urls":{"rest":"https:\/\/lilac.local\/wp-json\/","assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"de2ba3ba85","version":"3.28.4"};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/web-cli.js?ver=3.28.4" id="elementor-web-cli-js"></script>
+<script src="https://lilac.local/wp-includes/js/dist/vendor/react.js?ver=18.3.1.1" id="react-js"></script>
+<script src="https://lilac.local/wp-includes/js/dist/vendor/react-dom.js?ver=18.3.1.1" id="react-dom-js"></script>
+<script src="https://lilac.local/wp-includes/js/dist/hooks.js?ver=be67dc331e61e06d52fa" id="wp-hooks-js"></script>
+<script src="https://lilac.local/wp-includes/js/dist/i18n.js?ver=5edc734adb78e0d7d00e" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+</script>
+<script id="elementor-pro-notes-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "elementor-pro", {"translation-revision-date":"2025-03-11 10:00:14+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"he_IL"},"(deleted user)":["(\u05d9\u05d5\u05d6\u05e8 \u05e9\u05e0\u05de\u05d7\u05e7)"],"Notes":["\u05e4\u05ea\u05e7\u05d9\u05dd"]}},"comment":{"reference":"assets\/js\/notes\/notes.js"}} );
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/notes/notes.js?ver=3.28.3" id="elementor-pro-notes-js"></script>
+<script id="elementor-pro-notes-app-initiator-js-before">
+var elementorNotesConfig = {"route":{"title":"TEST with hint 2","url":"\/?p=1367","note_url_pattern":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-pro-notes-proxy&note-id={{NOTE_ID}}","post_id":1367,"is_elementor_library":false},"direction":"rtl","is_debug":false,"current_user_can":{"create":true,"create_users":true,"edit_users":true},"urls":{"admin_url_create_user":"https:\/\/lilac.local\/wp-admin\/user-new.php","admin_url_edit_user":"https:\/\/lilac.local\/wp-admin\/user-edit.php","avatar_defaults":{"24":"https:\/\/secure.gravatar.com\/avatar\/?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/?s=96&d=mm&r=g"},"help_notes_features":"https:\/\/go.elementor.com\/app-notes"}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/notes/notes-app-initiator.js?ver=3.28.3" id="elementor-pro-notes-app-initiator-js"></script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_pager.js?ver=4.20.2.1-1746605052" id="learndash_pager_js-js"></script>
+<script id="learndash_template_script_js-js-extra">
+var sfwd_data = {"json":"{\"ajaxurl\":\"https:\\\/\\\/lilac.local\\\/wp-admin\\\/admin-ajax.php\"}"};
+</script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_template_script.js?ver=4.20.2.1-1746605052" id="learndash_template_script_js-js"></script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/assets/js/jquery.dropdown.min.js?ver=4.20.2.1-1746605052" id="jquery-dropdown-js-js"></script>
+<script id="ld-hints-script-js-extra">
+var LD_HINTS_AJAX = {"ajax_url":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"e024dab552"};
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/learndash-hints/js/learndash-hints.js" id="ld-hints-script-js"></script>
+<script id="lilac-toast-js-extra">
+var lilacToastData = {"sessionCounter":"380","ajaxUrl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"7e18810127"};
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/src/Messaging/assets/js/toast.js?ver=1745390895" id="lilac-toast-js"></script>
+<script id="lilac-timer-observer-js-before">
+console.log('Lilac Quiz Timer Notifications loaded on: TEST with hint 2');
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/includes/quiz/timer-notifications/timer-observer.js?ver=1746456080" id="lilac-timer-observer-js"></script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/includes/quiz/timer-notifications/timer-ui.js?ver=1746456123" id="lilac-timer-ui-js"></script>
+<script id="acf-quiz-hints-js-extra">
+var quizHint = {"ajaxUrl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"9bc6db43f4"};
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/js/acf-quiz-hints.js?ver=1746506234" id="acf-quiz-hints-js"></script>
+<script src="https://lilac.local/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.3.0" id="hello-theme-frontend-js"></script>
+<script id="lilac-progress-js-extra">
+var lilacProgressData = {"ajaxUrl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","courseViews":{"1292":{"total":7,"items":{"1292":7}}},"courseProgress":[],"lastActivity":"1746604202","nonce":"8446644467"};
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/src/Messaging/assets/js/progress.js?ver=1745374079" id="lilac-progress-js"></script>
+<script id="learndash-front-js-extra">
+var ldVars = {"postID":"1367","videoReqMsg":"\u05d0\u05ea\u05d4 \u05d7\u05d9\u05d9\u05d1 \u05dc\u05e6\u05e4\u05d5\u05ea \u05d1\u05e1\u05e8\u05d8\u05d5\u05df \u05db\u05d3\u05d9 \u05dc\u05d2\u05e9\u05ea \u05dc\u05ea\u05d5\u05db\u05df \u05d4\u05d6\u05d4","ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php"};
+</script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/themes/ld30/assets/js/learndash.js?ver=4.20.2.1-1746605052" id="learndash-front-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.js?ver=1.2.1" id="smartmenus-js"></script>
+<script src="https://lilac.local/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.js?ver=9.8.2" id="sourcebuster-js-js"></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.js?ver=9.8.2" id="wc-order-attribution-js"></script>
+<script src="https://lilac.local/wp-includes/js/jquery/ui/core.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script src="https://lilac.local/wp-includes/js/jquery/ui/mouse.js?ver=1.13.3" id="jquery-ui-mouse-js"></script>
+<script src="https://lilac.local/wp-includes/js/jquery/ui/draggable.js?ver=1.13.3" id="jquery-ui-draggable-js"></script>
+<script src="https://lilac.local/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script src="https://lilac.local/wp-includes/js/backbone.min.js?ver=1.6.0" id="backbone-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/lib/backbone/backbone.marionette.js?ver=2.4.5.e1" id="backbone-marionette-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/lib/backbone/backbone.radio.js?ver=1.0.4" id="backbone-radio-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/common-modules.js?ver=3.28.4" id="elementor-common-modules-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/lib/dialog/dialog.js?ver=4.9.3" id="elementor-dialog-js"></script>
+<script id="wp-api-request-js-extra">
+var wpApiSettings = {"root":"https:\/\/lilac.local\/wp-json\/","nonce":"de2ba3ba85","versionString":"wp\/v2\/"};
+</script>
+<script src="https://lilac.local/wp-includes/js/api-request.js?ver=6.8" id="wp-api-request-js"></script>
+<script id="elementor-dev-tools-js-before">
+var elementorDevToolsConfig = {"isDebug":true,"urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"3.28.4"}};
+var elementorDevToolsConfig = {"isDebug":true,"urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"3.28.4"}};
+var elementorDevToolsConfig = {"isDebug":true,"urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"3.28.4"}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/dev-tools.js?ver=3.28.4" id="elementor-dev-tools-js"></script>
+<script id="elementor-common-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "elementor", {"translation-revision-date":"2025-04-21 17:10:41+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"he_IL"},"To upload them anyway, ask the site administrator to enable unfiltered file uploads.":["\u05db\u05d3\u05d9 \u05dc\u05d4\u05e2\u05dc\u05d5\u05ea \u05d0\u05d5\u05ea\u05dd \u05d1\u05db\u05dc \u05d6\u05d0\u05ea, \u05d9\u05e9 \u05dc\u05d1\u05e7\u05e9 \u05de\u05de\u05e0\u05d4\u05dc \u05d4\u05d0\u05ea\u05e8 \u05dc\u05d0\u05e4\u05e9\u05e8 \u05d4\u05e2\u05dc\u05d0\u05d5\u05ea \u05e7\u05d1\u05e6\u05d9\u05dd \u05dc\u05d0 \u05de\u05e1\u05d5\u05e0\u05e0\u05d9\u05dd."],"This is because JSON files may pose a security risk.":["\u05d4\u05e1\u05d9\u05d1\u05d4 \u05dc\u05db\u05da \u05d4\u05d9\u05d0 \u05e9\u05e7\u05d1\u05e6\u05d9 JSON \u05e2\u05e9\u05d5\u05d9\u05d9\u05dd \u05dc\u05d4\u05d5\u05d5\u05ea \u05e1\u05d9\u05db\u05d5\u05df \u05d0\u05d1\u05d8\u05d7\u05d4."],"Sorry, you can't upload that file yet":["\u05de\u05e6\u05d8\u05e2\u05e8\u05d9\u05dd, \u05d0\u05ea\u05d4 \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05d9\u05db\u05d5\u05dc \u05dc\u05d4\u05e2\u05dc\u05d5\u05ea \u05d0\u05ea \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d4\u05d6\u05d4"],"Import Without Enabling":["\u05d9\u05d1\u05d5\u05d0 \u05de\u05d1\u05dc\u05d9 \u05dc\u05d0\u05e4\u05e9\u05e8"],"Enable and Import":["\u05d0\u05e4\u05e9\u05e8 \u05d5\u05d9\u05d1\u05d0"],"If you do not enable uploading unfiltered files, any SVG or JSON (including lottie) files used in the uploaded template will not be imported.":["\u05d0\u05dd \u05dc\u05d0 \u05ea\u05d0\u05e4\u05e9\u05e8 \u05d4\u05e2\u05dc\u05d0\u05ea \u05e7\u05d1\u05e6\u05d9\u05dd \u05dc\u05d0 \u05de\u05e1\u05d5\u05e0\u05e0\u05d9\u05dd, \u05db\u05dc \u05e7\u05d1\u05e6\u05d9 SVG \u05d0\u05d5 JSON (\u05db\u05d5\u05dc\u05dc lottie) \u05d4\u05de\u05e9\u05de\u05e9\u05d9\u05dd \u05d1\u05ea\u05d1\u05e0\u05d9\u05ea \u05e9\u05d4\u05d5\u05e2\u05dc\u05ea\u05d4 \u05dc\u05d0 \u05d9\u05d9\u05d5\u05d1\u05d0\u05d5."],"The file exceeds the maximum upload size for this site.":["\u05d4\u05e7\u05d5\u05d1\u05e5 \u05d7\u05d5\u05e8\u05d2 \u05de\u05d2\u05d5\u05d3\u05dc \u05d4\u05d4\u05e2\u05dc\u05d0\u05d4 \u05d4\u05de\u05e8\u05d1\u05d9 \u05dc\u05d0\u05ea\u05e8 \u05d6\u05d4."],"Uploading...":["\u05de\u05e2\u05dc\u05d4..."],"Got it":["\u05d4\u05d1\u05e0\u05ea\u05d9"],"Enable Unfiltered File Uploads":["\u05d0\u05e4\u05e9\u05e8 \u05d4\u05e2\u05dc\u05d0\u05ea \u05e7\u05d1\u05e6\u05d9\u05dd \u05dc\u05dc\u05d0 \u05e1\u05d9\u05e0\u05d5\u05df"],"Unable to connect":["\u05dc\u05d0 \u05e0\u05d9\u05ea\u05df \u05dc\u05d4\u05ea\u05d7\u05d1\u05e8"],"Before you enable unfiltered files upload, note that such files include a security risk. Elementor does run a process to remove possible malicious code, but there is still risk involved when using such files.":["\u05dc\u05e4\u05e0\u05d9 \u05e9\u05de\u05d0\u05e4\u05e9\u05e8\u05d9\u05dd \u05d4\u05e2\u05dc\u05d0\u05ea \u05e7\u05d1\u05e6\u05d9\u05dd \u05dc\u05dc\u05d0 \u05e1\u05d9\u05e0\u05d5\u05df \u05d9\u05e9 \u05dc\u05e9\u05d9\u05dd \u05dc\u05d1 \u05e9\u05e7\u05d1\u05e6\u05d9 \u05d0\u05dc\u05d5 \u05e2\u05dc\u05d5\u05dc\u05d9\u05dd \u05dc\u05d4\u05d5\u05d5\u05ea \u05e1\u05d9\u05db\u05d5\u05df \u05d0\u05d1\u05d8\u05d7\u05d4. \u05d4\u05de\u05e2\u05e8\u05db\u05ea \u05ea\u05e0\u05e1\u05d4 \u05dc\u05e0\u05e7\u05d5\u05ea \u05e7\u05d8\u05e2\u05d9 \u05e7\u05d5\u05d3 \u05d6\u05d3\u05d5\u05e0\u05d9, \u05d0\u05da \u05e2\u05d3\u05d9\u05d9\u05df \u05e7\u05d9\u05d9\u05dd \u05e1\u05d9\u05db\u05d5\u05df \u05db\u05d0\u05e9\u05e8 \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d1\u05e7\u05d1\u05e6\u05d9\u05dd \u05de\u05e1\u05d5\u05d2 \u05d6\u05d4."],"Finder":["\u05e1\u05d9\u05d9\u05e8"],"Enable":["\u05dc\u05d0\u05e4\u05e9\u05e8"],"Cancel":["\u05d1\u05d9\u05d8\u05d5\u05dc"]}},"comment":{"reference":"assets\/js\/common.js"}} );
+</script>
+<script id="elementor-common-js-before">
+var elementorCommonConfig = {"version":"3.28.4","isRTL":true,"isDebug":true,"isElementorDebug":false,"activeModules":["ajax","finder","connect","event-tracker"],"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_local_google_fonts":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"editor_v2":true,"e_element_cache":true,"home_screen":true,"launchpad-checklist":true},"urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/","rest":"https:\/\/lilac.local\/wp-json\/"},"filesUpload":{"unfilteredFiles":true},"library_connect":{"is_connected":true,"subscription_plans":{"free":{"label":null,"promotion_url":null,"color":null},"essential":{"label":"Pro","promotion_url":"https:\/\/my.elementor.com\/upgrade-subscription\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"essential-oct2023":{"label":"Advanced","promotion_url":"https:\/\/my.elementor.com\/upgrade-subscription\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"advanced":{"label":"Advanced","promotion_url":"https:\/\/my.elementor.com\/upgrade-subscription\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"expert":{"label":"Expert","promotion_url":"https:\/\/my.elementor.com\/upgrade-subscription\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"agency":{"label":"Agency","promotion_url":"https:\/\/my.elementor.com\/upgrade-subscription\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"}},"base_access_level":0,"base_access_tier":"free","current_access_level":20,"current_access_tier":"agency"},"ajax":{"url":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"b69fd8001a"},"finder":{"data":{"edit":{"title":"\u05e2\u05e8\u05d9\u05db\u05d4","dynamic":true,"name":"edit"},"general":{"title":"\u05db\u05dc\u05dc\u05d9","dynamic":false,"items":{"saved-templates":{"title":"\u05d8\u05de\u05e4\u05dc\u05d8\u05d9\u05dd \u05e9\u05de\u05d5\u05e8\u05d9\u05dd","icon":"library-save","url":"https:\/\/lilac.local\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=library","keywords":["template","section","page","library"]},"system-info":{"title":"\u05de\u05e6\u05d1 \u05de\u05e2\u05e8\u05db\u05ea","icon":"info-circle-o","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-system-info","keywords":["system","info","environment","elementor"]},"role-manager":{"title":"\u05e0\u05d9\u05d4\u05d5\u05dc \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd","icon":"person","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-role-manager","keywords":["role","manager","user","elementor"]},"knowledge-base":{"title":"\u05d1\u05e1\u05d9\u05e1 \u05d9\u05d3\u05e2","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=go_knowledge_base_site","keywords":["help","knowledge","docs","elementor"]},"theme-builder":{"title":"\u05d1\u05d5\u05e0\u05d4 \u05ea\u05d1\u05e0\u05d9\u05ea","icon":"library-save","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-app&ver=3.28.4#\/site-editor","keywords":["template","header","footer","single","archive","search","404","library"]},"kit-library":{"title":"\u05e1\u05e4\u05e8\u05d9\u05d9\u05ea \u05d4\u05e7\u05d9\u05d8\u05d9\u05dd","icon":"kit-parts","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-app&ver=3.28.4#\/kit-library","keywords":["kit library","kit","library","site parts","parts","assets","templates"]},"popups":{"title":"\u05e4\u05d5\u05e4\u05d0\u05e4\u05d9\u05dd","icon":"library-save","url":"https:\/\/lilac.local\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=popup&elementor_library_type=popup","keywords":["template","popup","library"]}},"name":"general"},"create":{"title":"\u05e6\u05d5\u05e8","dynamic":false,"items":{"page":{"title":"\u05d4\u05d5\u05e1\u05e3 \u05ea\u05d1\u05e0\u05d9\u05ea \u05e2\u05de\u05d5\u05d3 \u05d7\u05d3\u05e9\u05d4","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=page&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e3 \u05ea\u05d1\u05e0\u05d9\u05ea \u05e2\u05de\u05d5\u05d3 \u05d7\u05d3\u05e9\u05d4","post","page","template","new","create"]},"section":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05d6\u05d5\u05e8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=section","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05d6\u05d5\u05e8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"container":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e7\u05d5\u05e0\u05d8\u05d9\u05d9\u05e0\u05e8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=container&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e7\u05d5\u05e0\u05d8\u05d9\u05d9\u05e0\u05e8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"wp-post":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e1\u05d8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=post&template_type=wp-post&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e1\u05d8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"wp-page":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e2\u05de\u05d5\u05d3 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=page&template_type=wp-page&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e2\u05de\u05d5\u05d3 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"floating-buttons":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05dc\u05de\u05e0\u05d8 \u05e6\u05e3 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=floating-buttons","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05dc\u05de\u05e0\u05d8 \u05e6\u05e3 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"popup":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e4\u05d0\u05e4 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=popup","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e4\u05d0\u05e4 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"header":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d4\u05d3\u05e8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=header","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05d4\u05d3\u05e8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"footer":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05d8\u05e8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=footer","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05d8\u05e8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"single":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=single","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"single-post":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e1\u05d8 \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=single-post","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e1\u05d8 \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"single-page":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e2\u05de\u05d5\u05d3 \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=single-page&_elementor_template_sub_type=page","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e2\u05de\u05d5\u05d3 \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"archive":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05e8\u05db\u05d9\u05d5\u05df \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=archive","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05e8\u05db\u05d9\u05d5\u05df \u05d7\u05d3\u05e9","post","page","template","new","create"]},"search-results":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05d7\u05d9\u05e4\u05d5\u05e9 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=search-results&_elementor_template_sub_type=search","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05d7\u05d9\u05e4\u05d5\u05e9 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"error-404":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e9\u05d2\u05d9\u05d0\u05ea 404 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=error-404&_elementor_template_sub_type=not_found404","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e9\u05d2\u05d9\u05d0\u05ea 404 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"code_snippet":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e0\u05d9\u05d4\u05d5\u05dc \u05e7\u05d5\u05d3\u05d9\u05dd \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/post-new.php?post_type=elementor_snippet","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e0\u05d9\u05d4\u05d5\u05dc \u05e7\u05d5\u05d3\u05d9\u05dd \u05d7\u05d3\u05e9","post","page","template","new","create"]},"product-post":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e1\u05d8 \u05de\u05d5\u05e6\u05e8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=product&template_type=wp-post&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05d5\u05e1\u05d8 \u05de\u05d5\u05e6\u05e8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"product":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05de\u05d5\u05e6\u05e8 \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=product","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05de\u05d5\u05e6\u05e8 \u05d9\u05d7\u05d9\u05d3 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"product-archive":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05e8\u05db\u05d9\u05d5\u05df \u05de\u05d5\u05e6\u05e8\u05d9\u05dd \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=product-archive","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05d0\u05e8\u05db\u05d9\u05d5\u05df \u05de\u05d5\u05e6\u05e8\u05d9\u05dd \u05d7\u05d3\u05e9","post","page","template","new","create"]},"loop-item":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05e8\u05d9\u05d8 \u05dc\u05d5\u05dc\u05d0\u05d4 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&_wpnonce=9dababb417&template_type=loop-item","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e4\u05e8\u05d9\u05d8 \u05dc\u05d5\u05dc\u05d0\u05d4 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"sfwd-courses":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e7\u05d5\u05e8\u05e1 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=sfwd-courses&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e7\u05d5\u05e8\u05e1 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"sfwd-lessons":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e9\u05d9\u05e2\u05d5\u05e8 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=sfwd-lessons&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e9\u05d9\u05e2\u05d5\u05e8 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"sfwd-topic":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05e0\u05d5\u05e9\u05d0 \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=sfwd-topic&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05e0\u05d5\u05e9\u05d0 \u05d7\u05d3\u05e9","post","page","template","new","create"]},"sfwd-quiz":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05de\u05d1\u05d7\u05df \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=sfwd-quiz&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea \u05de\u05d1\u05d7\u05df \u05d7\u05d3\u05e9","post","page","template","new","create"]},"ld-exam":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea Challenge Exam \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?action=elementor_new_post&post_type=ld-exam&_wpnonce=9dababb417","keywords":["\u05d4\u05d5\u05e1\u05e4\u05ea Challenge Exam \u05d7\u05d3\u05e9","post","page","template","new","create"]},"theme-template":{"title":"\u05d4\u05d5\u05e1\u05e4\u05ea \u05d8\u05de\u05e4\u05dc\u05d8 \u05ea\u05d1\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-app&ver=3.28.4#\/site-editor\/add-new","keywords":["template","theme","new","create"]},"loop-template":{"title":"\u05d4\u05d5\u05e1\u05d9\u05e3 \u05ea\u05d1\u05e0\u05d9\u05ea \u05dc\u05d5\u05dc\u05d0\u05d4 \u05d7\u05d3\u05e9\u05d4","icon":"plus-circle-o","url":"https:\/\/lilac.local\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=theme&elementor_library_type=loop-item#add_new","keywords":["template","theme","new","create","loop","dynamic","listing","archive","repeater"]}},"name":"create"},"site":{"title":"\u05d0\u05ea\u05e8","dynamic":false,"items":{"homepage":{"title":"\u05e2\u05de\u05d5\u05d3 \u05d4\u05d1\u05d9\u05ea","url":"https:\/\/lilac.local","icon":"home-heart","keywords":["home","page"]},"wordpress-dashboard":{"title":"\u05dc\u05d5\u05d7 \u05d1\u05e7\u05e8\u05d4","icon":"dashboard","url":"https:\/\/lilac.local\/wp-admin\/","keywords":["dashboard","wordpress"]},"wordpress-menus":{"title":"\u05ea\u05e4\u05e8\u05d9\u05d8\u05d9\u05dd","icon":"wordpress","url":"https:\/\/lilac.local\/wp-admin\/nav-menus.php","keywords":["menu","wordpress"]},"wordpress-themes":{"title":"\u05ea\u05d1\u05e0\u05d9\u05d5\u05ea \u05e2\u05d9\u05e6\u05d5\u05d1","icon":"wordpress","url":"https:\/\/lilac.local\/wp-admin\/themes.php","keywords":["themes","wordpress"]},"wordpress-customizer":{"title":"\u05d4\u05ea\u05d0\u05de\u05d4 \u05d0\u05d9\u05e9\u05d9\u05ea","icon":"wordpress","url":"https:\/\/lilac.local\/wp-admin\/customize.php","keywords":["customizer","wordpress"]},"wordpress-plugins":{"title":"\u05ea\u05d5\u05e1\u05e4\u05d9\u05dd","icon":"wordpress","url":"https:\/\/lilac.local\/wp-admin\/plugins.php","keywords":["plugins","wordpress"]},"wordpress-users":{"title":"\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd","icon":"wordpress","url":"https:\/\/lilac.local\/wp-admin\/users.php","keywords":["users","profile","wordpress"]},"apps":{"title":"\u05d4\u05e8\u05d7\u05d1\u05d5\u05ea","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-apps","icon":"apps","keywords":["apps","addon","plugin","extension","integration"]}},"name":"site"},"settings":{"title":"\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea","dynamic":false,"items":{"general-settings":{"title":"\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05db\u05dc\u05dc\u05d9\u05d5\u05ea","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-settings#tab-general","keywords":["general","settings","elementor"]},"integrations":{"title":"\u05d0\u05d9\u05e0\u05d8\u05d2\u05e8\u05e6\u05d9\u05d5\u05ea","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-settings#tab-integrations","keywords":["integrations","settings","elementor"]},"advanced":{"title":"\u05de\u05ea\u05e7\u05d3\u05dd","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-settings#tab-advanced","keywords":["advanced","settings","elementor"]},"performance":{"title":"\u05d1\u05d9\u05e6\u05d5\u05e2\u05d9\u05dd","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-settings#tab-performance","keywords":["performance","settings","elementor"]},"experiments":{"title":"\u05e0\u05d9\u05e1\u05d5\u05d9\u05d9\u05dd","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-settings#tab-experiments","keywords":["settings","elementor","experiments"]},"features":{"title":"\u05e4\u05d9\u05e6&#039;\u05e8\u05d9\u05dd","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-settings#tab-experiments","keywords":["settings","elementor","features"]},"element-manager":{"title":"\u05e0\u05d9\u05d4\u05d5\u05dc \u05d0\u05dc\u05de\u05e0\u05d8\u05d9\u05dd","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-element-manager","keywords":["settings","elements","widgets","manager"]},"custom-fonts":{"title":"\u05d2\u05d5\u05e4\u05e0\u05d9\u05dd \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd","icon":"typography","url":"https:\/\/lilac.local\/wp-admin\/edit.php?post_type=elementor_font","keywords":["custom","fonts","elementor"]},"custom-icons":{"title":"\u05d0\u05d9\u05d9\u05e7\u05d5\u05e0\u05d9\u05dd \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd","icon":"favorite","url":"https:\/\/lilac.local\/wp-admin\/edit.php?post_type=elementor_icons","keywords":["custom","icons","elementor"]}},"name":"settings"},"tools":{"title":"\u05db\u05dc\u05d9\u05dd","dynamic":false,"items":{"tools":{"title":"\u05db\u05dc\u05d9\u05dd","icon":"tools","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-tools","keywords":["tools","regenerate css","safe mode","debug bar","sync library","elementor"]},"replace-url":{"title":"\u05d4\u05d7\u05dc\u05e4\u05ea \u05db\u05ea\u05d5\u05d1\u05ea","icon":"tools","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-tools#tab-replace_url","keywords":["tools","replace url","domain","elementor"]},"maintenance-mode":{"title":"\u05de\u05e6\u05d1 \u05ea\u05d7\u05d6\u05d5\u05e7\u05d4","icon":"tools","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-tools#tab-maintenance_mode","keywords":["tools","maintenance","coming soon","elementor"]},"import-export":{"title":"\u05d9\u05d9\u05d1\u05d5\u05d0 \u05d9\u05d9\u05e6\u05d5\u05d0","icon":"import-export","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-tools#tab-import-export-kit","keywords":["tools","import export","import","export","kit"]},"version-control":{"title":"\u05e0\u05d9\u05d4\u05d5\u05dc \u05d2\u05e8\u05e1\u05d0\u05d5\u05ea","icon":"time-line","url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-tools#tab-versions","keywords":["tools","version","control","rollback","beta","elementor"]}},"name":"tools"}}},"connect":[],"event-tracker":{"isUserDataShared":true}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/common.js?ver=3.28.4" id="elementor-common-js"></script>
+<script id="elementor-app-loader-js-before">
+var elementorAppConfig = {"menu_url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-app&ver=3.28.4#\/site-editor","assets_url":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/","pages_url":"https:\/\/lilac.local\/wp-admin\/edit.php?post_type=page","return_url":"https:\/\/lilac.local\/wp-admin\/","hasPro":true,"admin_url":"https:\/\/lilac.local\/wp-admin\/","login_url":"https:\/\/lilac.local\/wp-login.php","base_url":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-app&ver=3.28.4","promotion":{"upgrade_url":"https:\/\/go.elementor.com\/go-pro-theme-builder\/"},"site-editor":[],"import-export":[],"kit-library":[],"onboarding":[]};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/app-loader.js?ver=3.28.4" id="elementor-app-loader-js"></script>
+<script src="https://lilac.local/wp-includes/js/jquery/ui/sortable.js?ver=1.13.3" id="jquery-ui-sortable-js"></script>
+<script id="wpProQuiz_front_javascript-js-extra">
+var WpProQuizGlobal = {"ajaxurl":"\/\/lilac.local\/wp-admin\/admin-ajax.php","loadData":"\u05d8\u05d5\u05e2\u05df","questionNotSolved":"\u05e2\u05dc\u05d9\u05da \u05dc\u05e2\u05e0\u05d5\u05ea \u05e2\u05dc \u05e9\u05d0\u05dc\u05d4 \u05d6\u05d5.","questionsNotSolved":"You must answer all \u05e9\u05d0\u05dc\u05d5\u05ea before you can complete the \u05de\u05d1\u05d7\u05df.","fieldsNotFilled":"\u05d7\u05d5\u05d1\u05d4 \u05dc\u05de\u05dc\u05d0 \u05d0\u05ea \u05db\u05dc \u05d4\u05e9\u05d3\u05d5\u05ea."};
+</script>
+<script src="https://lilac.local/wp-content/plugins/sfwd-lms/includes/lib/wp-pro-quiz/js/wpProQuiz_front.js?ver=4.20.2.1-1746605052" id="wpProQuiz_front_javascript-js"></script>
+<script src="https://lilac.local/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.js?ver=1.4.1-wc.9.8.2" id="jquery-cookie-js" defer="" data-wp-strategy="defer"></script>
+<script src="https://lilac.local/wp-content/plugins/sfwd-lms/includes/lib/wp-pro-quiz/js/jquery.ui.touch-punch.min.js?ver=0.2.2" id="jquery-ui-touch-punch-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.js?ver=3.28.3" id="elementor-pro-webpack-runtime-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/webpack.runtime.js?ver=3.28.4" id="elementor-webpack-runtime-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/frontend-modules.js?ver=3.28.4" id="elementor-frontend-modules-js"></script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"48cde11dd4","urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/lilac.local\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"woocommerce":{"menu_cart":{"cart_page_url":"https:\/\/lilac.local\/cart\/","checkout_page_url":"https:\/\/lilac.local\/checkout\/","fragments_nonce":"a365abe463"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/lilac.local\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/frontend.js?ver=3.28.3" id="elementor-pro-frontend-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":true},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8","a11yCarouselPrevSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea","a11yCarouselNextSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4","a11yCarouselFirstSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4","a11yCarouselLastSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d4","a11yCarouselPaginationBulletMessage":"\u05dc\u05e2\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.28.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_local_google_fonts":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"editor_v2":true,"e_element_cache":true,"home_screen":true,"launchpad-checklist":true},"urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/lilac.local\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"fcbd130b81"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","woocommerce_notices_elements":[],"hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":1367,"title":"TEST%20with%20hint%202%20%E2%80%93%20lilac","excerpt":"","featuredImage":false},"user":{"roles":["administrator"]}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/frontend.js?ver=3.28.4" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/elements-handlers.js?ver=3.28.3" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
+<script id="elementor-admin-bar-js-before">
+var elementorAdminBarConfig = {"elementor_edit_page":{"id":"elementor_edit_page","title":"\u05e2\u05e8\u05d9\u05db\u05d4 \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05d0\u05dc\u05de\u05e0\u05d8\u05d5\u05e8","href":null,"children":{"891":{"id":"elementor_edit_doc_891","title":"\u05d0\u05dc\u05de\u05e0\u05d8\u05d5\u05e8 Header #891","sub_title":"\u05d4\u05d3\u05e8","href":"https:\/\/lilac.local\/wp-admin\/post.php?post=891&action=elementor"},"1287":{"id":"elementor_edit_doc_1287","title":"\u05d0\u05dc\u05de\u05e0\u05d8\u05d5\u05e8 \u05e4\u05d5\u05d8\u05e8 #1287","sub_title":"\u05e4\u05d5\u05d8\u05e8","href":"https:\/\/lilac.local\/wp-admin\/post.php?post=1287&action=elementor"},"1288":{"id":"elementor_site_settings","title":"\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05d0\u05ea\u05e8","sub_title":"\u05d0\u05ea\u05e8","href":"https:\/\/lilac.local\/wp-admin\/post.php?post=1219&action=elementor&active-document=11","class":"elementor-site-settings","parent_class":"elementor-second-section"},"1289":{"id":"elementor_app_site_editor","title":"\u05d1\u05d5\u05e0\u05d4 \u05ea\u05d1\u05e0\u05d9\u05ea","sub_title":"\u05d0\u05ea\u05e8","href":"https:\/\/lilac.local\/wp-admin\/admin.php?page=elementor-app&ver=3.28.4#\/site-editor","class":"elementor-app-link","parent_class":"elementor-second-section"},"1290":{"id":"elementor_site_clear_cache","title":"\u05e0\u05e7\u05d4 \u05e7\u05d1\u05e6\u05d9\u05dd \u05d5\u05e0\u05ea\u05d5\u05e0\u05d9\u05dd","sub_title":"\u05d0\u05ea\u05e8","href":"https:\/\/lilac.local\/wp-admin\/admin-post.php?action=elementor_site_clear_cache&_wpnonce=0fb7cffbff"}}}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/elementor-admin-bar.js?ver=3.28.4" id="elementor-admin-bar-js"></script>
+<script src="https://lilac.local/wp-includes/js/hoverintent-js.min.js?ver=2.2.1" id="hoverintent-js-js"></script>
+<script src="https://lilac.local/wp-includes/js/admin-bar.js?ver=6.8" id="admin-bar-js"></script>
+ <script type="text/javascript">
+		function load_wpProQuizFront9() {
+			jQuery('#wpProQuiz_9').wpProQuizFront({
+				course_id: 0,
+				lesson_id: 0,
+				topic_id: 0,
+				quiz: 1367,
+				quizId: 9,
+				mode: 2,
+				globalPoints: 0,
+				timelimit: 0,
+				timelimitcookie: 0,
+				resultsGrade: [0],
+				bo: 7552,
+				passingpercentage: 80,
+				user_id: 1,
+				qpp: 0,
+				catPoints: [0],
+				formPos: 0,
+				essayUploading: 'מעלה',
+				essaySuccess: 'הצלחה',
+				lbn: "\u05e1\u05d9\u05d9\u05dd \u05de\u05d1\u05d7\u05df",
+				json: {"41":{"type":"single","id":41,"question_post_id":1369,"catId":0},"42":{"type":"single","id":42,"question_post_id":1370,"catId":0},"43":{"type":"single","id":43,"question_post_id":1371,"catId":0},"44":{"type":"single","id":44,"question_post_id":1372,"catId":0},"45":{"type":"single","id":45,"question_post_id":1373,"catId":0},"46":{"type":"single","id":46,"question_post_id":1374,"catId":0},"47":{"type":"single","id":47,"question_post_id":1375,"catId":0},"48":{"type":"single","id":48,"question_post_id":1376,"catId":0}},
+				ld_script_debug: 0,
+				quiz_nonce: 'dcd8e59a75',
+				scrollSensitivity: '10',
+				scrollSpeed: '10',
+				quiz_resume_enabled:  '0',
+				quiz_resume_id: '0',
+				quiz_resume_quiz_started: '0',
+				quiz_resume_data: '[]',
+				quiz_resume_cookie_expiration: '604800',
+				quiz_resume_cookie_send_timer: '5',
+			});
+		}
+		var loaded_wpProQuizFront9 = 0;
+		jQuery( function($) {
+			load_wpProQuizFront9();
+			loaded_wpProQuizFront9 = 1;
+		});
+		jQuery(window).on('load',function($) {
+			if(loaded_wpProQuizFront9 == 0)
+			load_wpProQuizFront9();
+		});
+		</script> 
+
+
+<div id="acf-hint-test" style="position: fixed; z-index: 9999; bottom: 10px; left: 10px; background: #3498db; color: white; padding: 10px; font-size: 14px; font-weight: bold; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);" bis_skin_checked="1">ACF Hint Test Active<div bis_skin_checked="1">Hint Buttons: 0</div><div bis_skin_checked="1">Mark Hint Buttons: 1</div><div id="hint-map-container" style="margin-top:10px;" bis_skin_checked="1"><strong>Question → Hint Map:</strong><table id="hint-map-table" style="width:100%;border-collapse:collapse;margin-top:5px;"><thead><tr><th style="border:1px solid #ccc;padding:4px;">QID</th><th style="border:1px solid #ccc;padding:4px;">Post ID</th><th style="border:1px solid #ccc;padding:4px;">Hint Preview</th></tr></thead><tbody><tr><td style="border:1px solid #ccc;padding:4px;">41</td><td style="border:1px solid #ccc;padding:4px;">1369</td><td style="border:1px solid #ccc;padding:4px;"><em>no hint</em></td></tr><tr><td style="border:1px solid #ccc;padding:4px;">42</td><td style="border:1px solid #ccc;padding:4px;">1370</td><td style="border:1px solid #ccc;padding:4px;"><strong>זה השדה שאני מח</strong>
+
+**999***<br>field_67b1c991e4d16</td></tr><tr><td style="border:1px solid #ccc;padding:4px;">43</td><td style="border:1px solid #ccc;padding:4px;">1371</td><td style="border:1px solid #ccc;padding:4px;">לגמרי<br>field_67b1c991e4d16</td></tr><tr><td style="border:1px solid #ccc;padding:4px;">44</td><td style="border:1px solid #ccc;padding:4px;">1372</td><td style="border:1px solid #ccc;padding:4px;"><em>no hint</em></td></tr><tr><td style="border:1px solid #ccc;padding:4px;">45</td><td style="border:1px solid #ccc;padding:4px;">1373</td><td style="border:1px solid #ccc;padding:4px;"><em>no hint</em></td></tr><tr><td style="border:1px solid #ccc;padding:4px;">46</td><td style="border:1px solid #ccc;padding:4px;">1374</td><td style="border:1px solid #ccc;padding:4px;"><em>no hint</em></td></tr><tr><td style="border:1px solid #ccc;padding:4px;">47</td><td style="border:1px solid #ccc;padding:4px;">1375</td><td style="border:1px solid #ccc;padding:4px;"><em>no hint</em></td></tr><tr><td style="border:1px solid #ccc;padding:4px;">48</td><td style="border:1px solid #ccc;padding:4px;">1376</td><td style="border:1px solid #ccc;padding:4px;"><em>no hint</em></td></tr></tbody></table></div><div class="timer-info" bis_skin_checked="1">Timer: 0:00</div><div class="timer-test-buttons" bis_skin_checked="1"><div bis_skin_checked="1"><strong>Timer Tests:</strong></div><button style="margin: 2px; padding: 3px 5px; font-size: 11px; background: rgb(0, 115, 170); color: white; border: none; border-radius: 3px; cursor: pointer;">60s Warning</button><button style="margin: 2px; padding: 3px 5px; font-size: 11px; background: rgb(0, 115, 170); color: white; border: none; border-radius: 3px; cursor: pointer;">30s Warning</button><button style="margin: 2px; padding: 3px 5px; font-size: 11px; background: rgb(0, 115, 170); color: white; border: none; border-radius: 3px; cursor: pointer;">10s Warning</button><button style="margin: 2px; padding: 3px 5px; font-size: 11px; background: rgb(0, 115, 170); color: white; border: none; border-radius: 3px; cursor: pointer;">Timer End</button><button style="margin: 2px; padding: 3px 5px; font-size: 11px; background: rgb(0, 115, 170); color: white; border: none; border-radius: 3px; cursor: pointer;">Inactive</button><div bis_skin_checked="1"><label><input type="checkbox" id="lilac-demo-mode"> Demo Mode</label></div></div><div class="acf-hint-status" bis_skin_checked="1">ACF Hint Integration: Active</div><div bis_skin_checked="1">Hints Loaded: <span class="acf-hint-count">0</span></div><div bis_skin_checked="1">LearnDash Quiz Integration: <span style="color:green">✓</span></div><div bis_skin_checked="1"><button id="check-acf-hint-status" style="margin-top:5px;background:#0073aa;color:white;border:none;padding:5px 10px;border-radius:3px;cursor:pointer;">Check Hint Status</button><button id="db-search-acf-hints" style="margin-top:5px;margin-left:5px;background:#e74c3c;color:white;border:none;padding:5px 10px;border-radius:3px;cursor:pointer;">Search DB for Hints</button></div></div><div class="widget_shopping_cart_live_region screen-reader-text" role="status" bis_skin_checked="1"></div><div class="glasp-ui-wrapper" id="glasp-ui-wrapper" style="height: 0px; width: 0px; padding: 0px;" bis_skin_checked="1"><iframe name="glasp-tooltip-iframe" id="glasp-tooltip-iframe" style="display: none;"></iframe><iframe name="glasp-sidebar-iframe" id="glasp-sidebar-iframe" style="display: none !important;width: 0px !important; min-width: 0px !important; max-width: 320px; height: 100%; background: transparent; margin: auto; position: fixed; top: 0px; right: 0px; left: auto; z-index: 9000000000000000000;border: none !important;"></iframe></div><div id="yt_article_summary_widget_wrapper" class="yt_article_summary_widget_wrapper" style="display: none; margin: auto; width: fit-content; padding: 0px; border-radius: 100%;" bis_skin_checked="1">
+        <div id="yt_article_summary_widget" class="yt_article_summary_widget" bis_skin_checked="1"><svg style="filter: brightness(0.8);" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="path-1-outside-1_3606_3145" maskUnits="userSpaceOnUse" x="1" y="1" width="22" height="22" fill="black">
+                  <rect fill="white" x="1" y="1" width="22" height="22"></rect>
+                  <path d="M20.6816 10.1843C20.9588 9.34066 21.0063 8.4399 20.8192 7.57245C20.6321 6.70499 20.217 5.90134 19.6157 5.24216C19.0143 4.58298 18.2478 4.09146 17.393 3.81692C16.5382 3.54238 15.6253 3.49449 14.7459 3.67805C14.1453 3.01747 13.379 2.52468 12.524 2.24931C11.669 1.97394 10.7555 1.92571 9.87559 2.10947C8.99568 2.29324 8.18039 2.70252 7.51181 3.29608C6.84323 3.88965 6.34499 4.64654 6.06725 5.49055C5.18642 5.67292 4.3699 6.08122 3.70003 6.67426C3.03017 7.26731 2.53064 8.02413 2.25182 8.86842C1.97299 9.71271 1.92474 10.6146 2.11192 11.4832C2.2991 12.3517 2.71509 13.1562 3.31795 13.8155C3.09309 14.4899 3.01633 15.2037 3.09278 15.9095C3.16924 16.6154 3.39716 17.2971 3.76139 17.9093C4.30169 18.8351 5.12567 19.568 6.11483 20.0027C7.104 20.4373 8.20738 20.5512 9.26631 20.328C9.74353 20.8568 10.3291 21.2796 10.9844 21.5684C11.6396 21.8571 12.3495 22.0053 13.0672 22.003C14.1516 22.003 15.2081 21.6635 16.0847 21.0334C16.9612 20.4034 17.6125 19.5152 17.9449 18.4968C18.649 18.3539 19.3141 18.0649 19.8962 17.6489C20.4784 17.233 20.9642 16.6997 21.3214 16.0843C21.8585 15.1598 22.0858 14.0915 21.9709 13.032C21.856 11.9724 21.4048 10.9758 20.6816 10.1843ZM13.0798 20.6968C12.191 20.6968 11.3302 20.3894 10.6473 19.828L10.7677 19.7593L14.8029 17.4593C14.9069 17.4047 14.9935 17.3225 15.0528 17.2221C15.1121 17.1216 15.1418 17.0068 15.1386 16.8905V11.2655L16.8427 12.2405C16.8517 12.2441 16.8594 12.2501 16.865 12.2579C16.8706 12.2656 16.8739 12.2748 16.8744 12.2843V16.9343C16.876 17.4289 16.7785 17.9189 16.5875 18.3761C16.3964 18.8333 16.1156 19.2488 15.7611 19.5985C15.4067 19.9482 14.9856 20.2253 14.5222 20.4138C14.0588 20.6023 13.5621 20.6984 13.0608 20.6968H13.0798ZM4.90165 17.2593C4.46164 16.5029 4.3026 15.6189 4.45188 14.7593L4.57224 14.828L8.60749 17.128C8.70379 17.1829 8.81303 17.2118 8.92423 17.2118C9.03543 17.2118 9.14467 17.1829 9.24097 17.128L14.1758 14.3218V16.253C14.1797 16.2608 14.1817 16.2694 14.1817 16.278C14.1817 16.2867 14.1797 16.2953 14.1758 16.303L10.0962 18.628C9.66403 18.8748 9.18685 19.0352 8.69188 19.0999C8.19692 19.1647 7.69387 19.1326 7.21148 19.0055C6.72909 18.8784 6.27681 18.6587 5.88048 18.3591C5.48415 18.0595 5.15154 17.6858 4.90165 17.2593ZM3.83741 8.5843C4.28764 7.82089 4.99655 7.23878 5.83919 6.94055V11.6718C5.83595 11.7857 5.86434 11.8983 5.92128 11.9975C5.97823 12.0966 6.06156 12.1785 6.16227 12.2343L11.0717 15.028L9.36766 16.003C9.34918 16.0092 9.32914 16.0092 9.31065 16.003L5.23106 13.678C4.36041 13.1812 3.72487 12.3642 3.46364 11.4059C3.20242 10.4476 3.33682 9.42624 3.83741 8.56555V8.5843ZM17.8563 11.7968L12.9278 8.9718L14.6319 8.00305C14.6403 7.99741 14.6502 7.99439 14.6604 7.99439C14.6705 7.99439 14.6805 7.99741 14.6889 8.00305L18.7685 10.328C19.3915 10.684 19.8992 11.2072 20.2325 11.8368C20.5659 12.4664 20.7111 13.1764 20.6514 13.8843C20.5916 14.5921 20.3294 15.2687 19.8951 15.8352C19.4608 16.4017 18.8724 16.8349 18.1983 17.0843V12.353C18.1946 12.2391 18.1612 12.1281 18.1013 12.0306C18.0414 11.9332 17.957 11.8527 17.8563 11.7968ZM19.554 9.2968L19.4336 9.2218L15.4047 6.9093C15.3047 6.84846 15.1896 6.81624 15.0721 6.81624C14.9547 6.81624 14.8395 6.84846 14.7396 6.9093L9.8111 9.71555V7.75305C9.8061 7.7445 9.80346 7.7348 9.80346 7.72492C9.80346 7.71505 9.8061 7.70535 9.8111 7.6968L13.897 5.37805C14.5222 5.02257 15.2371 4.85003 15.958 4.88059C16.6789 4.91115 17.3762 5.14356 17.9682 5.55064C18.5601 5.95772 19.0225 6.52265 19.301 7.17939C19.5796 7.83614 19.663 8.55755 19.5413 9.2593L19.554 9.2968ZM8.87989 12.7218L7.1695 11.753C7.15339 11.7405 7.1422 11.7228 7.13782 11.703V7.06555C7.13785 6.35289 7.34371 5.65499 7.73128 5.0536C8.11885 4.45222 8.67209 3.97224 9.32619 3.6699C9.98029 3.36756 10.7082 3.25537 11.4246 3.34647C12.141 3.43757 12.8162 3.7282 13.3712 4.1843L13.2636 4.25305L9.21563 6.55305C9.11158 6.60765 9.02504 6.68981 8.96573 6.79029C8.90642 6.89076 8.87669 7.00557 8.87989 7.1218V12.7218ZM9.80476 10.753L11.9966 9.50305L14.1948 10.753V13.253L11.9966 14.503L9.79843 13.253L9.80476 10.753Z"></path>
+                  </mask>
+                  <path d="M20.6816 10.1843C20.9588 9.34066 21.0063 8.4399 20.8192 7.57245C20.6321 6.70499 20.217 5.90134 19.6157 5.24216C19.0143 4.58298 18.2478 4.09146 17.393 3.81692C16.5382 3.54238 15.6253 3.49449 14.7459 3.67805C14.1453 3.01747 13.379 2.52468 12.524 2.24931C11.669 1.97394 10.7555 1.92571 9.87559 2.10947C8.99568 2.29324 8.18039 2.70252 7.51181 3.29608C6.84323 3.88965 6.34499 4.64654 6.06725 5.49055C5.18642 5.67292 4.3699 6.08122 3.70003 6.67426C3.03017 7.26731 2.53064 8.02413 2.25182 8.86842C1.97299 9.71271 1.92474 10.6146 2.11192 11.4832C2.2991 12.3517 2.71509 13.1562 3.31795 13.8155C3.09309 14.4899 3.01633 15.2037 3.09278 15.9095C3.16924 16.6154 3.39716 17.2971 3.76139 17.9093C4.30169 18.8351 5.12567 19.568 6.11483 20.0027C7.104 20.4373 8.20738 20.5512 9.26631 20.328C9.74353 20.8568 10.3291 21.2796 10.9844 21.5684C11.6396 21.8571 12.3495 22.0053 13.0672 22.003C14.1516 22.003 15.2081 21.6635 16.0847 21.0334C16.9612 20.4034 17.6125 19.5152 17.9449 18.4968C18.649 18.3539 19.3141 18.0649 19.8962 17.6489C20.4784 17.233 20.9642 16.6997 21.3214 16.0843C21.8585 15.1598 22.0858 14.0915 21.9709 13.032C21.856 11.9724 21.4048 10.9758 20.6816 10.1843ZM13.0798 20.6968C12.191 20.6968 11.3302 20.3894 10.6473 19.828L10.7677 19.7593L14.8029 17.4593C14.9069 17.4047 14.9935 17.3225 15.0528 17.2221C15.1121 17.1216 15.1418 17.0068 15.1386 16.8905V11.2655L16.8427 12.2405C16.8517 12.2441 16.8594 12.2501 16.865 12.2579C16.8706 12.2656 16.8739 12.2748 16.8744 12.2843V16.9343C16.876 17.4289 16.7785 17.9189 16.5875 18.3761C16.3964 18.8333 16.1156 19.2488 15.7611 19.5985C15.4067 19.9482 14.9856 20.2253 14.5222 20.4138C14.0588 20.6023 13.5621 20.6984 13.0608 20.6968H13.0798ZM4.90165 17.2593C4.46164 16.5029 4.3026 15.6189 4.45188 14.7593L4.57224 14.828L8.60749 17.128C8.70379 17.1829 8.81303 17.2118 8.92423 17.2118C9.03543 17.2118 9.14467 17.1829 9.24097 17.128L14.1758 14.3218V16.253C14.1797 16.2608 14.1817 16.2694 14.1817 16.278C14.1817 16.2867 14.1797 16.2953 14.1758 16.303L10.0962 18.628C9.66403 18.8748 9.18685 19.0352 8.69188 19.0999C8.19692 19.1647 7.69387 19.1326 7.21148 19.0055C6.72909 18.8784 6.27681 18.6587 5.88048 18.3591C5.48415 18.0595 5.15154 17.6858 4.90165 17.2593ZM3.83741 8.5843C4.28764 7.82089 4.99655 7.23878 5.83919 6.94055V11.6718C5.83595 11.7857 5.86434 11.8983 5.92128 11.9975C5.97823 12.0966 6.06156 12.1785 6.16227 12.2343L11.0717 15.028L9.36766 16.003C9.34918 16.0092 9.32914 16.0092 9.31065 16.003L5.23106 13.678C4.36041 13.1812 3.72487 12.3642 3.46364 11.4059C3.20242 10.4476 3.33682 9.42624 3.83741 8.56555V8.5843ZM17.8563 11.7968L12.9278 8.9718L14.6319 8.00305C14.6403 7.99741 14.6502 7.99439 14.6604 7.99439C14.6705 7.99439 14.6805 7.99741 14.6889 8.00305L18.7685 10.328C19.3915 10.684 19.8992 11.2072 20.2325 11.8368C20.5659 12.4664 20.7111 13.1764 20.6514 13.8843C20.5916 14.5921 20.3294 15.2687 19.8951 15.8352C19.4608 16.4017 18.8724 16.8349 18.1983 17.0843V12.353C18.1946 12.2391 18.1612 12.1281 18.1013 12.0306C18.0414 11.9332 17.957 11.8527 17.8563 11.7968ZM19.554 9.2968L19.4336 9.2218L15.4047 6.9093C15.3047 6.84846 15.1896 6.81624 15.0721 6.81624C14.9547 6.81624 14.8395 6.84846 14.7396 6.9093L9.8111 9.71555V7.75305C9.8061 7.7445 9.80346 7.7348 9.80346 7.72492C9.80346 7.71505 9.8061 7.70535 9.8111 7.6968L13.897 5.37805C14.5222 5.02257 15.2371 4.85003 15.958 4.88059C16.6789 4.91115 17.3762 5.14356 17.9682 5.55064C18.5601 5.95772 19.0225 6.52265 19.301 7.17939C19.5796 7.83614 19.663 8.55755 19.5413 9.2593L19.554 9.2968ZM8.87989 12.7218L7.1695 11.753C7.15339 11.7405 7.1422 11.7228 7.13782 11.703V7.06555C7.13785 6.35289 7.34371 5.65499 7.73128 5.0536C8.11885 4.45222 8.67209 3.97224 9.32619 3.6699C9.98029 3.36756 10.7082 3.25537 11.4246 3.34647C12.141 3.43757 12.8162 3.7282 13.3712 4.1843L13.2636 4.25305L9.21563 6.55305C9.11158 6.60765 9.02504 6.68981 8.96573 6.79029C8.90642 6.89076 8.87669 7.00557 8.87989 7.1218V12.7218ZM9.80476 10.753L11.9966 9.50305L14.1948 10.753V13.253L11.9966 14.503L9.79843 13.253L9.80476 10.753Z" fill="#828282"></path>
+                  <path d="M20.6816 10.1843C20.9588 9.34066 21.0063 8.4399 20.8192 7.57245C20.6321 6.70499 20.217 5.90134 19.6157 5.24216C19.0143 4.58298 18.2478 4.09146 17.393 3.81692C16.5382 3.54238 15.6253 3.49449 14.7459 3.67805C14.1453 3.01747 13.379 2.52468 12.524 2.24931C11.669 1.97394 10.7555 1.92571 9.87559 2.10947C8.99568 2.29324 8.18039 2.70252 7.51181 3.29608C6.84323 3.88965 6.34499 4.64654 6.06725 5.49055C5.18642 5.67292 4.3699 6.08122 3.70003 6.67426C3.03017 7.26731 2.53064 8.02413 2.25182 8.86842C1.97299 9.71271 1.92474 10.6146 2.11192 11.4832C2.2991 12.3517 2.71509 13.1562 3.31795 13.8155C3.09309 14.4899 3.01633 15.2037 3.09278 15.9095C3.16924 16.6154 3.39716 17.2971 3.76139 17.9093C4.30169 18.8351 5.12567 19.568 6.11483 20.0027C7.104 20.4373 8.20738 20.5512 9.26631 20.328C9.74353 20.8568 10.3291 21.2796 10.9844 21.5684C11.6396 21.8571 12.3495 22.0053 13.0672 22.003C14.1516 22.003 15.2081 21.6635 16.0847 21.0334C16.9612 20.4034 17.6125 19.5152 17.9449 18.4968C18.649 18.3539 19.3141 18.0649 19.8962 17.6489C20.4784 17.233 20.9642 16.6997 21.3214 16.0843C21.8585 15.1598 22.0858 14.0915 21.9709 13.032C21.856 11.9724 21.4048 10.9758 20.6816 10.1843ZM13.0798 20.6968C12.191 20.6968 11.3302 20.3894 10.6473 19.828L10.7677 19.7593L14.8029 17.4593C14.9069 17.4047 14.9935 17.3225 15.0528 17.2221C15.1121 17.1216 15.1418 17.0068 15.1386 16.8905V11.2655L16.8427 12.2405C16.8517 12.2441 16.8594 12.2501 16.865 12.2579C16.8706 12.2656 16.8739 12.2748 16.8744 12.2843V16.9343C16.876 17.4289 16.7785 17.9189 16.5875 18.3761C16.3964 18.8333 16.1156 19.2488 15.7611 19.5985C15.4067 19.9482 14.9856 20.2253 14.5222 20.4138C14.0588 20.6023 13.5621 20.6984 13.0608 20.6968H13.0798ZM4.90165 17.2593C4.46164 16.5029 4.3026 15.6189 4.45188 14.7593L4.57224 14.828L8.60749 17.128C8.70379 17.1829 8.81303 17.2118 8.92423 17.2118C9.03543 17.2118 9.14467 17.1829 9.24097 17.128L14.1758 14.3218V16.253C14.1797 16.2608 14.1817 16.2694 14.1817 16.278C14.1817 16.2867 14.1797 16.2953 14.1758 16.303L10.0962 18.628C9.66403 18.8748 9.18685 19.0352 8.69188 19.0999C8.19692 19.1647 7.69387 19.1326 7.21148 19.0055C6.72909 18.8784 6.27681 18.6587 5.88048 18.3591C5.48415 18.0595 5.15154 17.6858 4.90165 17.2593ZM3.83741 8.5843C4.28764 7.82089 4.99655 7.23878 5.83919 6.94055V11.6718C5.83595 11.7857 5.86434 11.8983 5.92128 11.9975C5.97823 12.0966 6.06156 12.1785 6.16227 12.2343L11.0717 15.028L9.36766 16.003C9.34918 16.0092 9.32914 16.0092 9.31065 16.003L5.23106 13.678C4.36041 13.1812 3.72487 12.3642 3.46364 11.4059C3.20242 10.4476 3.33682 9.42624 3.83741 8.56555V8.5843ZM17.8563 11.7968L12.9278 8.9718L14.6319 8.00305C14.6403 7.99741 14.6502 7.99439 14.6604 7.99439C14.6705 7.99439 14.6805 7.99741 14.6889 8.00305L18.7685 10.328C19.3915 10.684 19.8992 11.2072 20.2325 11.8368C20.5659 12.4664 20.7111 13.1764 20.6514 13.8843C20.5916 14.5921 20.3294 15.2687 19.8951 15.8352C19.4608 16.4017 18.8724 16.8349 18.1983 17.0843V12.353C18.1946 12.2391 18.1612 12.1281 18.1013 12.0306C18.0414 11.9332 17.957 11.8527 17.8563 11.7968ZM19.554 9.2968L19.4336 9.2218L15.4047 6.9093C15.3047 6.84846 15.1896 6.81624 15.0721 6.81624C14.9547 6.81624 14.8395 6.84846 14.7396 6.9093L9.8111 9.71555V7.75305C9.8061 7.7445 9.80346 7.7348 9.80346 7.72492C9.80346 7.71505 9.8061 7.70535 9.8111 7.6968L13.897 5.37805C14.5222 5.02257 15.2371 4.85003 15.958 4.88059C16.6789 4.91115 17.3762 5.14356 17.9682 5.55064C18.5601 5.95772 19.0225 6.52265 19.301 7.17939C19.5796 7.83614 19.663 8.55755 19.5413 9.2593L19.554 9.2968ZM8.87989 12.7218L7.1695 11.753C7.15339 11.7405 7.1422 11.7228 7.13782 11.703V7.06555C7.13785 6.35289 7.34371 5.65499 7.73128 5.0536C8.11885 4.45222 8.67209 3.97224 9.32619 3.6699C9.98029 3.36756 10.7082 3.25537 11.4246 3.34647C12.141 3.43757 12.8162 3.7282 13.3712 4.1843L13.2636 4.25305L9.21563 6.55305C9.11158 6.60765 9.02504 6.68981 8.96573 6.79029C8.90642 6.89076 8.87669 7.00557 8.87989 7.1218V12.7218ZM9.80476 10.753L11.9966 9.50305L14.1948 10.753V13.253L11.9966 14.503L9.79843 13.253L9.80476 10.753Z" stroke="#828282" stroke-width="0.2" mask="url(#path-1-outside-1_3606_3145)"></path>
+              </svg></div>
+        <div id="yt_article_summary_close_button" class="yt_article_summary_close_button" bis_skin_checked="1">×</div>
+    </div><div id="glasp-extension-toast-container" style="position: fixed; top: 32px; right: 16px; z-index: 2147483647; display: none; flex-direction: column; align-items: flex-end; height: 0px; width: auto; margin: 0px; padding: 0px;" bis_skin_checked="1"></div><iframe class="elementor-app-iframe" src="https://lilac.local/wp-admin/admin.php?page=elementor-app&amp;ver=3.28.4#/site-editor" style="display: none; width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 99999; background-color: rgba(0, 0, 0, 0.8);" bis_size="{&quot;x&quot;:0,&quot;y&quot;:0,&quot;w&quot;:0,&quot;h&quot;:0,&quot;abs_x&quot;:0,&quot;abs_y&quot;:0}" bis_id="fr_vvf5mqkpr98fzwdrc8lnqa" bis_depth="0" bis_chainid="1"></iframe></body>
+
+     JQMIGRATE: Migrate is installed with logging active, version 3.4.1
+acf-hint-test.js?ver=1746605052:4 ACF HINT TEST SCRIPT LOADED...
+ ACF Hint Debug Panel: Visible only to administrators and teachers
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ Lilac Quiz Timer Notifications loaded on: TEST with hint 2
+acf-hint-test.js?ver=1746605052:50 Sending search_acf_hints_db request... Object
+ Lilac Toast System Initialized
+ Session Count: 380
+timer-observer.js?ver=1746456080:20 Timer Observer initializing...
+timer-observer.js?ver=1746456080:34 Timer element found: 0
+timer-observer.js?ver=1746456080:38 Initial time in seconds: 0
+timer-ui.js?ver=1746456123:13 Timer UI initializing...
+acf-quiz-hints.js?ver=1746506234:10 ACF Quiz Hints: Initializing...
+ Lilac Course Progress System Initialized
+ Course Views: Object
+ Course Progress: Array(0)
+acf-hint-test.js?ver=1746605052:60 Got search_acf_hints_db response: Object
+acf-hint-test.js?ver=1746605052:62 Found 4 hint results
+w.js:1 
+            
+            
+           Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
+ JQMIGRATE: Migrate is installed with logging active, version 3.4.1
+ Warning: Layout: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Page: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Header: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Header (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2065:18)
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Grid: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at Header (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2065:18)
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: HeaderButtons: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at HeaderButtons (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2016:13)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at Header (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2065:18)
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Icon: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Icon (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3366:41)
+    at div
+    at Button (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1959:34)
+    at div
+    at HeaderButtons (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2016:13)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at Header (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2065:18)
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Content: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: CssGrid: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: SiteTemplate: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Failed prop type: Invalid prop `variant` of value `text-sm` supplied to `Heading`, expected one of ["display-1","display-2","display-3","display-4","h1","h2","h3","h4","h5","h6"].
+    at Heading (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3324:22)
+    at SiteTemplateHeader (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2914:24)
+    at article
+    at https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3777:41
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react.js:199
+ Warning: CardHeader: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at CardHeader (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3620:37)
+    at SiteTemplateHeader (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2914:24)
+    at article
+    at https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3777:41
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: Heading: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at Heading (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3324:22)
+    at header
+    at CardHeader (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3620:37)
+    at SiteTemplateHeader (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2914:24)
+    at article
+    at https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3777:41
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: CardBody: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at CardBody (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3498:37)
+    at SiteTemplateBody (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2824:81)
+    at article
+    at https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3777:41
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: CardImage: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at CardImage (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3698:16)
+    at SiteTemplateThumbnail (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2980:16)
+    at main
+    at CardBody (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3498:37)
+    at SiteTemplateBody (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2824:81)
+    at article
+    at https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3777:41
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ Warning: CardOverlay: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
+    at CardOverlay (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3738:56)
+    at figure
+    at CardImage (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3698:16)
+    at SiteTemplateThumbnail (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2980:16)
+    at main
+    at CardBody (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3498:37)
+    at SiteTemplateBody (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2824:81)
+    at article
+    at https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3777:41
+    at SiteTemplate (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3027:26)
+    at div
+    at CssGrid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:3199:33)
+    at section
+    at SiteTemplates (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:3096:22)
+    at section
+    at Templates
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:447:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:418:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:325:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:158:23)
+    at Router
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:178:5)
+    at TemplatesProvider (https://lilac.local/wp-content/plugins/elementor-pro/assets/js/app.js?ver=3.28.3:2409:5)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at div
+    at Grid (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:4127:42)
+    at main
+    at Content (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:1892:49)
+    at div
+    at div
+    at div
+    at Page (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2137:50)
+    at TemplateTypesContext (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5223:34)
+    at Layout (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:5891:56)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app-packages.js?ver=3.28.4:2678:34)
+    at SiteEditor
+    at div
+    at FocusHandlerImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:767:5)
+    at FocusHandler (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:738:19)
+    at RouterImpl (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:645:5)
+    at Location (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:478:23)
+    at Router
+    at Suspense
+    at ot (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:13839:20343)
+    at LocationProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:498:5)
+    at ErrorBoundary (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:3112:34)
+    at App (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1744:42)
+    at AppProvider (https://lilac.local/wp-content/plugins/elementor/assets/js/app.js?ver=3.28.4:1693:37)
+printWarning @ react-dom.js:73
+ JQMIGRATE: Migrate is installed with logging active, version 3.4.1
+ ACF HINT TEST SCRIPT LOADED...
+ ACF Hint Debug Panel: Visible only to administrators and teachers
+ jQuery.Deferred exception: ajaxurl is not defined ReferenceError: ajaxurl is not defined
+    at HTMLDocument.<anonymous> (https://lilac.local/wp-content/themes/hello-theme-child-master/js/acf-hint-test.js?ver=1746605064:48:110)
+    at mightThrow (https://lilac.local/wp-includes/js/jquery/jquery.js?ver=3.7.1:3489:29)
+    at process (https://lilac.local/wp-includes/js/jquery/jquery.js?ver=3.7.1:3557:12) undefined
+jQuery.Deferred.exceptionHook @ jquery.js:3783
+ Lilac Toast System Initialized
+ Session Count: 386
+ Lilac Course Progress System Initialized
+ Course Views: [object Object]
+ Course Progress: 
+jquery.js:3793 Uncaught ReferenceError: ajaxurl is not defined

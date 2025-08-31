@@ -1,0 +1,138 @@
+/**
+ * Subscription Styles
+ * Styles for the subscription shortcodes and related elements
+ */
+
+/* Main wrapper */
+.lilac-subscriptions-wrapper {
+    margin: 2em 0;
+    font-family: inherit;
+}
+
+/* Title */
+.lilac-subscriptions-title {
+    color: #333;
+    margin-bottom: 1.5em;
+    font-size: 1.8em;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Alerts and messages */
+.lilac-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.lilac-alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+/* Subscription table styles */
+.woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid #e5e5e5;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions th,
+.woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e5e5e5;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Status indicators */
+.woocommerce-account .lilac-subscriptions-wrapper .subscription-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .status-active {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .status-pending {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .status-cancelled {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* Buttons */
+.woocommerce-account .lilac-subscriptions-wrapper .button {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px 5px 0;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .button:hover {
+    background: #45a049;
+    color: white;
+    text-decoration: none;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .button.view {
+    background: #337ab7;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .button.view:hover {
+    background: #286090;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .button.cancel {
+    background: #d9534f;
+}
+
+.woocommerce-account .lilac-subscriptions-wrapper .button.cancel:hover {
+    background: #c9302c;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions th,
+    .woocommerce-account .lilac-subscriptions-wrapper table.my_account_subscriptions td {
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,94 @@
+/**
+ * Toast Extensions Styles
+ * Additional styles for toast extensions like session management and test timers
+ */
+
+/* Session Warning Toast */
+.lilac-toast.session-warning {
+    max-width: 350px;
+}
+
+.lilac-toast.session-warning .toast-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.lilac-toast.session-warning .button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.lilac-toast.session-warning .button-primary {
+    background-color: #2185d0;
+    color: white;
+    border: 1px solid #1678c2;
+}
+
+.lilac-toast.session-warning .button-primary:hover {
+    background-color: #1678c2;
+}
+
+.lilac-toast.session-warning .button-link {
+    background: none;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.lilac-toast.session-warning .button-link:hover {
+    background-color: #f5f5f5;
+}
+
+/* Test Timer Toast */
+.lilac-toast.test-timer-toast {
+    min-width: 200px;
+}
+
+.test-timer {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.test-timer .time-left {
+    color: #2185d0;
+    margin: 0 5px;
+    min-width: 50px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Critical time warning */
+.lilac-toast.critical .test-timer .time-left {
+    color: #db2828;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .lilac-toast.session-warning {
+        width: 90%;
+        max-width: none;
+        margin: 10px auto;
+    }
+    
+    .lilac-toast.session-warning .toast-buttons {
+        flex-direction: column;
+    }
+    
+    .lilac-toast.session-warning .button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

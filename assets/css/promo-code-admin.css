@@ -1,0 +1,87 @@
+/* Promo Code Admin Styles */
+.post-type-ld_promo_code .wp-list-table .column-title {
+    width: 15%;
+}
+
+.post-type-ld_promo_code .wp-list-table .column-code {
+    width: 15%;
+}
+
+.post-type-ld_promo_code .wp-list-table .column-usage {
+    width: 15%;
+    text-align: center;
+}
+
+.post-type-ld_promo_code .wp-list-table .column-expiry {
+    width: 15%;
+}
+
+.post-type-ld_promo_code .wp-list-table .column-courses,
+.post-type-ld_promo_code .wp-list-table .column-groups {
+    width: 20%;
+}
+
+/* Meta box styles */
+.promo-code-fields .form-field {
+    margin-bottom: 1.5em;
+}
+
+.promo-code-fields label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.promo-code-fields .description {
+    color: #646970;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.promo-code-fields .usage-count {
+    margin-left: 10px;
+    color: #2271b1;
+    font-weight: 600;
+}
+
+.ld-course-selection,
+.ld-group-selection {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+}
+
+.selectit {
+    display: block;
+    margin: 5px 0;
+}
+
+/* RTL Support */
+.rtl .promo-code-fields .usage-count {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .post-type-ld_promo_code .wp-list-table .column-title,
+    .post-type-ld_promo_code .wp-list-table .column-code,
+    .post-type-ld_promo_code .wp-list-table .column-usage,
+    .post-type-ld_promo_code .wp-list-table .column-expiry,
+    .post-type-ld_promo_code .wp-list-table .column-courses,
+    .post-type-ld_promo_code .wp-list-table .column-groups {
+        width: auto;
+        display: block;
+    }
+    
+    .promo-code-fields .form-field {
+        margin-bottom: 1em;
+    }
+    
+    .ld-course-selection,
+    .ld-group-selection {
+        max-height: 150px;
+    }
+}

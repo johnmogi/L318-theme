@@ -1,0 +1,4 @@
+phone,email,first_name,last_name,courses
+"050-1234567",teacher1@school.edu,David,Cohen,"Math-101,Science-202"
+"0529876543",teacher2@school.edu,Sarah,Levi,"English-103"
+"054-555-6677",,Rachel,Meir,"History-104"

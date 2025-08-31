@@ -1,0 +1,97 @@
+/* Main Admin Styles */
+.registration-codes .card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Tab Navigation */
+.nav-tab-wrapper {
+    border-bottom: 1px solid #ccd0d4;
+    margin: 20px 0 0;
+    padding-bottom: 0;
+}
+
+.nav-tab {
+    background: #f1f1f1;
+    border: 1px solid #ccd0d4;
+    border-bottom: none;
+    margin-left: 0.5em;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.71428571;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #2271b1;
+    text-decoration: none;
+    margin-bottom: -1px;
+}
+
+.nav-tab-active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    color: #1d2327;
+}
+
+/* Import/Export Tabs */
+.import-export-tabs {
+    margin: 20px 0;
+}
+
+.import-export-tab-buttons {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccd0d4;
+    padding-bottom: 10px;
+}
+
+.import-export-tab-btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    top: 1px;
+}
+
+.import-export-tab-btn.active {
+    background: #f0f0f1;
+    border-color: #2271b1;
+    color: #2271b1;
+}
+
+.import-export-tab-pane {
+    display: none;
+}
+
+.import-export-tab-pane.active {
+    display: block;
+}
+
+/* Form Styles */
+.form-table th {
+    width: 200px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .form-table th {
+        width: 100%;
+        display: block;
+        padding-bottom: 0;
+    }
+    
+    .form-table td {
+        display: block;
+        padding-top: 0;
+    }
+}
+
+/* Fix for duplicate notices */
+.notice.generated-codes-notice:not(:first-of-type) {
+    display: none !important;
+}
+
+/* Make sure the tab content is properly spaced */
+.registration-codes-content {
+    margin-top: 20px;
+}

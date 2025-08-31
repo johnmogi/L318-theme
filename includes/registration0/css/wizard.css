@@ -1,0 +1,287 @@
+/* Wizard Container */
+.registration-wizard {
+    max-width: 800px;
+    margin: 20px auto;
+    direction: rtl;
+    text-align: right;
+}
+
+.registration-wizard h1 {
+    color: #23282d;
+    margin-bottom: 30px;
+}
+
+/* Wizard Steps */
+.wizard-step {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+}
+
+.wizard-step h2 {
+    margin-top: 0;
+    color: #23282d;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.wizard-content {
+    margin: 20px 0;
+    min-height: 100px;
+}
+
+.wizard-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+.wizard-actions .button {
+    margin-left: 8px;
+}
+
+/* Make sure the first step is visible by default */
+.wizard-step[data-step="1"] {
+    display: block;
+}
+
+.wizard-step .step-title {
+    font-size: 13px;
+    color: #646970;
+    text-align: center;
+}
+
+.wizard-step.active .step-number {
+    background-color: #2271b1;
+    color: white;
+    border-color: #2271b1;
+}
+
+.wizard-step.completed .step-number {
+    background-color: #00a32a;
+    color: white;
+    border-color: #00a32a;
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    height: 4px;
+    background-color: #2271b1;
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+/* Wizard Panes */
+.wizard-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.wizard-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.form-col {
+    flex: 1;
+    padding: 0 10px;
+    min-width: 200px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select,
+.regular-text,
+.small-text {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #2c3338;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.small-text {
+    width: 80px;
+    text-align: center;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    margin-left: 5px;
+}
+
+/* Wizard Actions */
+.wizard-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #dcdcde;
+}
+
+/* Excel Upload */
+.excel-upload {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px dashed #8c8f94;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.upload-area {
+    padding: 2rem;
+    margin: 1rem 0;
+    border: 2px dashed #c3c4c7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover,
+.upload-area.highlight {
+    background-color: #f0f6fc;
+    border-color: #2271b1;
+}
+
+.upload-area p {
+    margin: 0 0 5px;
+}
+
+.upload-area .description {
+    color: #646970;
+    font-size: 13px;
+}
+
+/* Results */
+#wizard-results {
+    margin-top: 2rem;
+    display: none;
+}
+
+.codes-list {
+    max-height: 300px;
+    overflow-y: auto;
+    background: #f6f7f7;
+    padding: 10px;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    margin: 1rem 0;
+    direction: ltr;
+    text-align: left;
+    font-family: monospace;
+    white-space: pre;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 782px) {
+    .form-col {
+        flex: 0 0 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .wizard-steps {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .wizard-step {
+        flex-direction: row;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: right;
+    }
+    
+    .wizard-step .step-number {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .wizard-steps::before {
+        display: none;
+    }
+    
+    .wizard-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .wizard-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* RTL Adjustments */
+.rtl .wizard-step .step-number {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+/* Print Styles */
+@media print {
+    .wizard-actions,
+    .excel-upload,
+    .upload-area,
+    .description {
+        display: none !important;
+    }
+    
+    .codes-list {
+        max-height: none;
+        height: auto;
+        border: none;
+        padding: 0;
+        background: none;
+    }
+}

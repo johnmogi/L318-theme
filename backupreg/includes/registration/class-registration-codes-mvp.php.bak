@@ -1,0 +1,515 @@
+<?php
+/**
+ * Registration Codes Handler - Minimum Viable Version
+ * 
+ * @deprecated Use class-registration-codes.php instead
+ * This file is kept for backward compatibility only
+ */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+// Prevent loading if the main class is already loaded
+if (class_exists('Registration_Codes')) {
+    return;
+}
+
+class Registration_Codes {
+    private static $instance = null;
+    private $table_name;
+    private $version = '1.2.0';
+
+    public function __construct() {
+        global $wpdb;
+        $this->table_name = $wpdb->prefix . 'registration_codes';
+        
+        add_action('plugins_loaded', array($this, 'create_tables'));
+        add_action('admin_menu', array($this, 'add_admin_menu'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
+        
+        // AJAX handlers
+        add_action('wp_ajax_generate_codes', array($this, 'ajax_generate_codes'));
+        add_action('wp_ajax_validate_code', array($this, 'ajax_validate_code'));
+        add_action('wp_ajax_import_codes', array($this, 'ajax_import_codes'));
+        add_action('wp_ajax_export_codes', array($this, 'ajax_export_codes'));
+        
+        // User registration
+        add_action('user_register', array($this, 'process_registration_code'));
+        
+        // Handle form submissions
+        add_action('admin_init', array($this, 'handle_form_submissions'));
+    }
+
+    public static function get_instance() {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    /**
+     * Create database tables
+     */
+    public function create_tables() {
+        global $wpdb;
+        $charset_collate = $wpdb->get_charset_collate();
+        $current_version = get_option('registration_codes_db_version', '0');
+
+        $sql = "CREATE TABLE IF NOT EXISTS {$this->table_name} (
+            id mediumint(9) NOT NULL AUTO_INCREMENT,
+            code varchar(50) NOT NULL,
+            role varchar(50) NOT NULL DEFAULT 'subscriber',
+            group_name varchar(100) DEFAULT '',
+            course_id bigint(20) DEFAULT NULL,
+            max_uses int(11) DEFAULT 1,
+            used_count int(11) DEFAULT 0,
+            expiry_date datetime DEFAULT NULL,
+            is_used tinyint(1) DEFAULT 0,
+            used_by bigint(20) DEFAULT NULL,
+            used_at datetime DEFAULT NULL,
+            created_at datetime DEFAULT CURRENT_TIMESTAMP,
+            created_by bigint(20) NOT NULL,
+            PRIMARY KEY  (id),
+            UNIQUE KEY code (code),
+            KEY group_name (group_name),
+            KEY course_id (course_id),
+            KEY expiry_date (expiry_date),
+            KEY is_used (is_used)
+        ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+
+        if (version_compare($current_version, '1.2.0', '<')) {
+            update_option('registration_codes_db_version', $this->version);
+        }
+    }
+
+    /**
+     * Add admin menu
+     */
+    public function add_admin_menu() {
+        add_menu_page(
+            'Registration Codes',
+            'Registration Codes',
+            'manage_options',
+            'registration-codes',
+            array($this, 'render_admin_page'),
+            'dashicons-tickets',
+            30
+        );
+    }
+
+    /**
+     * Enqueue admin scripts
+     */
+    public function enqueue_admin_scripts($hook) {
+        // Debug log to see what hook is being passed
+        error_log('Registration_Codes: enqueue_admin_scripts called with hook: ' . $hook);
+        
+        // Only load on our admin page - check both toplevel_page_ prefix (main menu) and specific tab pages
+        if ($hook !== 'toplevel_page_registration-codes' && strpos($hook, 'registration-codes') === false) {
+            error_log('Registration_Codes: Hook does not match our admin page patterns, scripts not loaded');
+            return;
+        }
+        
+        error_log('Registration_Codes: Loading admin scripts and styles');
+        
+        // Add jQuery UI styles for datepicker
+        wp_enqueue_style(
+            'jquery-ui-style',
+            '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
+            array(),
+            '1.12.1'
+        );
+        
+        // Add built-in datepicker
+        wp_enqueue_script('jquery-ui-datepicker');
+        
+        // Register and enqueue our custom CSS
+        wp_enqueue_style(
+            'registration-codes-admin-style',
+            get_stylesheet_directory_uri() . '/includes/registration/css/admin.css',
+            array(),
+            $this->version
+        );
+        
+        // Register and enqueue our custom script
+        wp_enqueue_script(
+            'registration-codes-admin',
+            get_stylesheet_directory_uri() . '/includes/registration/js/admin.js',
+            array('jquery', 'jquery-ui-datepicker'),
+            $this->version,
+            true
+        );
+
+        // Pass data to the script
+        wp_localize_script(
+            'registration-codes-admin',
+            'registrationCodes',
+            array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('registration_codes_nonce'),
+                'dateFormat' => get_option('date_format'),
+                'i18n' => array(
+                    'error' => __('Error', 'registration-codes'),
+                    'success' => __('Success', 'registration-codes'),
+                    'confirm_delete' => __('Are you sure you want to delete this code?', 'registration-codes'),
+                    'confirm_delete_group' => __('Are you sure you want to delete all codes in this group?', 'registration-codes'),
+                    'no_codes_selected' => __('Please select at least one code.', 'registration-codes'),
+                    'generating_codes' => __('Generating codes...', 'registration-codes'),
+                    'copy_success' => __('Copied!', 'registration-codes'),
+                    'copy_error' => __('Failed to copy', 'registration-codes'),
+                )
+            )
+        );
+    }
+
+    /**
+     * Generate registration codes
+     *
+     * @param int $count Number of codes to generate
+     * @param string $role User role
+     * @param int $user_id User ID of the creator
+     * @param int $course_id LearnDash course ID
+     * @param int $max_uses Maximum number of uses
+     * @param string $expiry_date Expiry date (Y-m-d H:i:s)
+     * @return array Array of generated codes
+     */
+    public function generate_codes($count = 1, $role = 'subscriber', $user_id = 0, $course_id = null, $max_uses = 1, $expiry_date = null) {
+        global $wpdb;
+        
+        $codes = array();
+        for ($i = 0; $i < $count; $i++) {
+            $code = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 8));
+            
+            if ($this->add_code($code, $role, '', $course_id, $max_uses, $expiry_date, $user_id)) {
+                $codes[] = $code;
+            }
+        }
+        
+        return $codes;
+    }
+
+    /**
+     * Add a registration code
+     *
+     * @param string $code Code to add
+     * @param string $role User role
+     * @param string $group_name Group name
+     * @param int $course_id LearnDash course ID
+     * @param int $max_uses Maximum number of uses
+     * @param string $expiry_date Expiry date (Y-m-d H:i:s)
+     * @param int $user_id User ID of the creator
+     * @return bool Success/failure
+     */
+    public function add_code($code, $role = 'subscriber', $group_name = '', $course_id = null, $max_uses = 1, $expiry_date = null, $user_id = 0) {
+        global $wpdb;
+        
+        if (empty($code)) {
+            return false;
+        }
+        
+        if (empty($user_id)) {
+            $user_id = get_current_user_id();
+        }
+        
+        $data = array(
+            'code' => $code,
+            'role' => $role,
+            'group_name' => $group_name,
+            'course_id' => $course_id,
+            'max_uses' => max(1, absint($max_uses)),
+            'used_count' => 0,
+            'expiry_date' => $expiry_date,
+            'is_used' => 0,
+            'created_by' => $user_id,
+            'created_at' => current_time('mysql')
+        );
+        
+        $format = array(
+            '%s', // code
+            '%s', // role
+            '%s', // group_name
+            '%d', // course_id
+            '%d', // max_uses
+            '%d', // used_count
+            '%s', // expiry_date
+            '%d', // is_used
+            '%d', // created_by
+            '%s'  // created_at
+        );
+        
+        $result = $wpdb->insert($this->table_name, $data, $format);
+        
+        return ($result !== false);
+    }
+
+    /**
+     * Check if a code exists
+     *
+     * @param string $code Code to check
+     * @return bool True if exists
+     */
+    public function code_exists($code) {
+        global $wpdb;
+        
+        $query = $wpdb->prepare(
+            "SELECT COUNT(*) FROM {$this->table_name} WHERE code = %s",
+            $code
+        );
+        
+        return (int) $wpdb->get_var($query) > 0;
+    }
+
+    /**
+     * Check if a code is valid
+     *
+     * @param string $code Code to check
+     * @param int $course_id Course ID to validate against
+     * @return array Code data if valid, false otherwise
+     */
+    public function validate_code($code, $course_id = null) {
+        global $wpdb;
+        
+        if (empty($code)) {
+            return false;
+        }
+        
+        $query = $wpdb->prepare(
+            "SELECT * FROM {$this->table_name} WHERE code = %s",
+            $code
+        );
+        
+        $code_data = $wpdb->get_row($query, ARRAY_A);
+        
+        if (!$code_data) {
+            return false;
+        }
+        
+        // Check if code is already used (legacy check)
+        if ($code_data['is_used']) {
+            return false;
+        }
+        
+        // Check if code has reached max uses
+        if (!empty($code_data['max_uses']) && $code_data['used_count'] >= $code_data['max_uses']) {
+            return false;
+        }
+        
+        // Check expiry date
+        if (!empty($code_data['expiry_date'])) {
+            $now = new DateTime();
+            $expiry = new DateTime($code_data['expiry_date']);
+            
+            if ($now > $expiry) {
+                return false;
+            }
+        }
+        
+        // Check course_id if specified
+        if (!empty($course_id) && !empty($code_data['course_id']) && $code_data['course_id'] != $course_id) {
+            return false;
+        }
+        
+        return $code_data;
+    }
+    
+    /**
+     * Mark a code as used
+     *
+     * @param string $code Code to mark
+     * @param int $user_id User ID that used the code
+     * @return bool Success/failure
+     */
+    public function use_code($code, $user_id) {
+        global $wpdb;
+        
+        if (empty($code)) {
+            return false;
+        }
+        
+        $code_data = $this->validate_code($code);
+        if (!$code_data) {
+            return false;
+        }
+        
+        // Increment the used_count
+        $used_count = $code_data['used_count'] + 1;
+        
+        // Check if we've reached max uses
+        $is_used = ($used_count >= $code_data['max_uses']) ? 1 : 0;
+        
+        $result = $wpdb->update(
+            $this->table_name,
+            array(
+                'is_used' => $is_used,
+                'used_count' => $used_count,
+                'used_by' => $user_id,
+                'used_at' => current_time('mysql')
+            ),
+            array('code' => $code),
+            array('%d', '%d', '%d', '%s'),
+            array('%s')
+        );
+        
+        return ($result !== false);
+    }
+
+    /**
+     * AJAX handler for generating codes
+     */
+    public function ajax_generate_codes() {
+        check_ajax_referer('registration_codes_nonce', 'nonce');
+        
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(array('message' => __('Insufficient permissions', 'registration-codes')));
+        }
+        
+        // Get all form data - convert underscores to match form field names
+        $count = isset($_POST['code_count']) ? intval($_POST['code_count']) : 1;
+        $role = isset($_POST['code_role']) ? sanitize_text_field($_POST['code_role']) : 'subscriber';
+        $group = isset($_POST['code_group']) ? sanitize_text_field($_POST['code_group']) : '';
+        $prefix = isset($_POST['code_prefix']) ? sanitize_text_field($_POST['code_prefix']) : '';
+        $length = isset($_POST['code_length']) ? intval($_POST['code_length']) : 8;
+        $format = isset($_POST['code_format']) ? sanitize_text_field($_POST['code_format']) : 'alphanumeric';
+        
+        // Get course_id, max_uses and expiry_date from form
+        $course_id = isset($_POST['code_course']) ? intval($_POST['code_course']) : null;
+        $max_uses = isset($_POST['code_max_uses']) ? intval($_POST['code_max_uses']) : 1;
+        $expiry_date = isset($_POST['code_expiry']) && !empty($_POST['code_expiry']) ? sanitize_text_field($_POST['code_expiry']) : null;
+        
+        // Format expiry date for database
+        if ($expiry_date) {
+            $expiry_date = date('Y-m-d H:i:s', strtotime($expiry_date . ' 23:59:59'));
+        }
+        
+        // Generate codes with additional parameters
+        $codes = $this->generate_codes($count, $role, get_current_user_id(), $course_id, $max_uses, $expiry_date);
+        
+        // Update group name if provided
+        if (!empty($group) && !empty($codes)) {
+            global $wpdb;
+            $placeholder_list = implode(',', array_fill(0, count($codes), '%s'));
+            $query = $wpdb->prepare(
+                "UPDATE {$this->table_name} SET group_name = %s WHERE code IN ($placeholder_list)",
+                array_merge(array($group), $codes)
+            );
+            $wpdb->query($query);
+        }
+        
+        // Log success and return codes
+        custom_log('Generated ' . count($codes) . ' codes with course ID: ' . $course_id . ', max uses: ' . $max_uses . ', expiry: ' . ($expiry_date ? $expiry_date : 'none'));
+        
+        // Return success response
+        wp_send_json_success(array(
+            'message' => sprintf(
+                _n('%d code generated successfully', '%d codes generated successfully', count($codes), 'registration-codes'),
+                count($codes)
+            ),
+            'codes' => $codes
+        ));
+    }
+
+    /**
+     * AJAX handler for validating codes
+     */
+    public function ajax_validate_code() {
+        check_ajax_referer('registration_codes_nonce', 'nonce');
+        
+        $code = isset($_POST['code']) ? sanitize_text_field($_POST['code']) : '';
+        $course_id = isset($_POST['course_id']) ? intval($_POST['course_id']) : null;
+        
+        if (empty($code)) {
+            wp_send_json_error(array('message' => __('Please enter a code', 'registration-codes')));
+        }
+        
+        $code_data = $this->validate_code($code, $course_id);
+        
+        if (!$code_data) {
+            wp_send_json_error(array('message' => __('Invalid code', 'registration-codes')));
+        }
+        
+        wp_send_json_success(array(
+            'message' => __('Code is valid', 'registration-codes'),
+            'code' => $code_data
+        ));
+    }
+
+    /**
+     * Process registration code on user registration
+     */
+    public function process_registration_code($user_id) {
+        // Simplified implementation for MVP
+        return true;
+    }
+
+    /**
+     * Handle form submissions
+     */
+    public function handle_form_submissions() {
+        // Simplified implementation for MVP
+        return true;
+    }
+    
+    /**
+     * Render admin page
+     */
+    public function render_admin_page() {
+        // Debug logging
+        error_log('Registration_Codes: render_admin_page called');
+        
+        // Include the admin page template
+        $template_path = get_stylesheet_directory() . '/includes/registration/templates/admin-page.php';
+        
+        if (file_exists($template_path)) {
+            error_log('Registration_Codes: Loading admin page template from: ' . $template_path);
+            
+            // Get current tab
+            $current_tab = isset($_GET['tab']) ? sanitize_key($_GET['tab']) : 'generate';
+            error_log('Registration_Codes: Current tab is: ' . $current_tab);
+            
+            include $template_path;
+        } else {
+            error_log('Registration_Codes: Admin page template not found at: ' . $template_path . ', falling back to generate-codes.php');
+            // Fallback to generating codes template directly
+            include get_stylesheet_directory() . '/includes/registration/templates/generate-codes.php';
+        }
+    }
+
+    /**
+     * Get registration codes with filters
+     */
+    public function get_codes($group_filter = '', $status_filter = '', $per_page = 20, $offset = 0) {
+        global $wpdb;
+        
+        $where = array('1=1');
+        $where_args = array();
+        
+        if (!empty($group_filter)) {
+            $where[] = 'group_name = %s';
+            $where_args[] = $group_filter;
+        }
+        
+        if ($status_filter === 'used') {
+            $where[] = 'is_used = 1';
+        } elseif ($status_filter === 'active') {
+            $where[] = 'is_used = 0';
+        }
+        
+        $where_clause = implode(' AND ', $where);
+        $query = "SELECT * FROM {$this->table_name} WHERE {$where_clause} ORDER BY id DESC LIMIT %d OFFSET %d";
+        
+        $query_args = array_merge($where_args, array($per_page, $offset));
+        
+        $prepared_query = $wpdb->prepare($query, $query_args);
+        return $wpdb->get_results($prepared_query, ARRAY_A);
+    }
+}
+
+// Initialize the registration codes system
+function registration_codes_init() {
+    return Registration_Codes::get_instance();
+}
+add_action('plugins_loaded', 'registration_codes_init');

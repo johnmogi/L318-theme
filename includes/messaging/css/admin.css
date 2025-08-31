@@ -1,0 +1,115 @@
+/* 
+ * Messaging System Admin Styles
+ */
+
+.messaging-admin-wrap {
+    margin: 20px 0;
+}
+
+.messaging-admin-tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.messaging-admin-tabs .tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background: #f5f5f5;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.messaging-admin-tabs .tab.active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    font-weight: bold;
+}
+
+.messaging-admin-content .tab-content {
+    display: none;
+}
+
+.messaging-admin-content .tab-content.active {
+    display: block;
+}
+
+.messaging-settings-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.messaging-settings-section h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.messaging-form-row {
+    margin-bottom: 15px;
+}
+
+.messaging-form-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.messaging-form-row input[type="text"], 
+.messaging-form-row input[type="number"],
+.messaging-form-row select,
+.messaging-form-row textarea {
+    width: 100%;
+    max-width: 400px;
+}
+
+.messaging-form-row .description {
+    font-style: italic;
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.messages-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.messages-list-table th,
+.messages-list-table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+}
+
+.messages-list-table th {
+    background: #f5f5f5;
+}
+
+.messages-list-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.message-preview-box {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+}
+
+.color-preview {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-right: 5px;
+}

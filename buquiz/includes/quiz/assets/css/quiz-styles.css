@@ -1,0 +1,211 @@
+/**
+ * Lilac Quiz Styles
+ * Custom styles for the quiz interface
+ */
+
+/* General Quiz Container */
+.lilac-quiz-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Quiz Header */
+.wpProQuiz_header {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid #0073aa;
+}
+
+/* Question Styling */
+.wpProQuiz_listItem {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.wpProQuiz_listItem:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Question Text */
+.wpProQuiz_question_text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Answer Options */
+.wpProQuiz_questionList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.wpProQuiz_questionListItem {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.wpProQuiz_questionListItem:hover {
+    background: #e9ecef;
+}
+
+.wpProQuiz_questionInput[type="radio"],
+.wpProQuiz_questionInput[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Response Messages */
+.wpProQuiz_response {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+.wpProQuiz_correct {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.wpProQuiz_incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* Buttons */
+.wpProQuiz_button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.wpProQuiz_button[name="check"] {
+    color: #fff;
+    background-color: #0073aa;
+    border-color: #006291;
+}
+
+.wpProQuiz_button[name="check"]:hover {
+    background-color: #005177;
+    border-color: #003d5a;
+}
+
+.wpProQuiz_button[name="next"] {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #23923d;
+}
+
+.wpProQuiz_button[name="next"]:hover {
+    background-color: #1e7e34;
+    border-color: #186429;
+}
+
+/* Hint Button */
+.wpProQuiz_TipButton {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-left: 10px;
+    background-color: #ffc107;
+    color: #212529;
+    border: 1px solid #d39e00;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wpProQuiz_TipButton:hover,
+.wpProQuiz_TipButton.lilac-highlight-hint {
+    background-color: #e0a800;
+    border-color: #b38700;
+    box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}
+
+/* Hint Content */
+.wpProQuiz_questionHint {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid #ffc107;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Quiz Progress */
+.wpProQuiz_progress {
+    margin-bottom: 20px;
+}
+
+.wpProQuiz_progress_bar {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wpProQuiz_progress_bar div {
+    height: 100%;
+    background-color: #0073aa;
+    transition: width 0.3s ease;
+}
+
+/* Quiz Results */
+.wpProQuiz_results {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .lilac-quiz-container {
+        padding: 10px;
+    }
+    
+    .wpProQuiz_listItem {
+        padding: 15px;
+    }
+    
+    .wpProQuiz_button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Debug Styles (only shown when WP_DEBUG is true) */
+body.wp-debug .lilac-quiz-debug {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f0f0;
+    border: 1px dashed #dc3545;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #721c24;
+}

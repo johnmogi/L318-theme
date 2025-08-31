@@ -1,0 +1,164 @@
+/* LearnDash LD30 Theme Overrides - Mint Green Design System */
+
+
+
+/* Main container background */
+.learndash-wrapper {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Topic list container */
+.ld-lesson-topic-list {
+    background-color: #66f2c2;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Table list header */
+.ld-table-list-header {
+    background-color: #66f2c2;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.ld-table-list-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ld-item-icon {
+    color: #000000;
+}
+
+.ld-text {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Progress indicators */
+.ld-lesson-list-progress,
+.ld-lesson-list-steps {
+    color: #666666;
+    font-size: 0.9em;
+}
+
+/* Topic items */
+.ld-table-list-item {
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.ld-table-list-item:hover {
+    transform: translateY(-1px);
+}
+
+/* Topic titles */
+.ld-topic-title {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    display: block;
+    padding: 8px 0;
+}
+
+/* Quiz items */
+.ld-table-list-item-quiz {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ld-item-title {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Status icons */
+.ld-status-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Buttons */
+.ld-button,
+.learndash_mark_complete_button {
+    background-color: #66f2c2;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ld-button:hover,
+.learndash_mark_complete_button:hover {
+    background-color: #4ad0a5;
+    transform: translateY(-1px);
+}
+
+/* Back to course button */
+.ld-course-step-back {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #66f2c2;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.ld-course-step-back:hover {
+    background-color: #f8fff8;
+    transform: translateY(-1px);
+}
+
+/* Next topic button */
+.ld-content-action:last-child .ld-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.ld-icon-arrow-left {
+    transform: rotate(180deg);
+}
+
+/* Remove default LearnDash colors */
+.ld-primary-color,
+.ld-primary-color-hover {
+    color: #000000 !important;
+    background-color: #66f2c2 !important;
+}
+
+/* Remove red/pink colors */
+.ld-incomplete {
+    color: #000000 !important;
+    background-color: transparent !important;
+}
+
+/* Remove blue borders */
+.ld-primary-background {
+    background-color: #66f2c2 !important;
+    border: none !important;
+}

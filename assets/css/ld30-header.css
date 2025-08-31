@@ -1,0 +1,35 @@
+/* Override Elementor styles for LearnDash header */
+.elementor-922 .elementor-element.elementor-element-c2f99d0 .learndash-wrapper .ld-table-list.ld-topic-list .ld-table-list-header.ld-primary-background {
+    background-color: #66f2c2 !important;
+}
+
+/* Additional header styles */
+.ld-table-list-header {
+    background-color: #66f2c2;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ld-table-list-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ld-item-icon {
+    color: #000000;
+}
+
+.ld-text {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Progress indicators */
+.ld-lesson-list-progress,
+.ld-lesson-list-steps {
+    color: #666666;
+    font-size: 0.9em;
+}

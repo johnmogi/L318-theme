@@ -1,0 +1,6 @@
+teacher_id_number,first_name,last_name,email,phone,bio,subjects_taught,status
+T001,John,Doe,john.doe@example.com,555-123-4567,"John is an experienced educator with over 10 years of teaching experience.","Mathematics, Physics",active
+T002,Jane,Smith,jane.smith@example.com,555-987-6543,"Jane specializes in literature and creative writing.","English Literature, Creative Writing",active
+T003,Robert,Johnson,robert.johnson@example.com,555-234-5678,"Robert has a PhD in Chemistry and has been teaching for 15 years.","Chemistry, Biology",active
+T004,Maria,Garcia,maria.garcia@example.com,555-345-6789,"Maria is fluent in three languages and teaches language courses.","Spanish, French",active
+T005,David,Wilson,david.wilson@example.com,555-456-7890,"David is a former software engineer who now teaches computer science.","Computer Science, Programming",active

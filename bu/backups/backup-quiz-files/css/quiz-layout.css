@@ -1,0 +1,114 @@
+/**
+ * Quiz Layout CSS
+ * Version 2.0 - Updated to use CSS variables
+ * Handles the responsive layout for quizzes with sidebar
+ * Note: _variables.css is loaded via WordPress enqueue
+ */
+
+/* Quiz with sidebar layout - 3/4 for quiz, 1/4 for sidebar */
+.quiz-with-sidebar-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.quiz-with-sidebar-container .quiz-main-content {
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.quiz-with-sidebar-container .quiz-sidebar-area {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    background-color: var(--color-gray-bg, #f8f8f8);
+    border-radius: 5px;
+    box-shadow: 0 1px 3px var(--color-shadow, rgba(0,0,0,0.1));
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
+    .quiz-with-sidebar-container .quiz-main-content,
+    .quiz-with-sidebar-container .quiz-sidebar-area {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .quiz-with-sidebar-container {
+        flex-direction: column;
+    }
+}
+
+/* Rich sidebar styling */
+.rich-sidebar-enabled .quiz-sidebar-area {
+    display: block !important;
+    visibility: visible !important;
+    border-right: 3px solid var(--color-blue-primary, #3498db);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Hide top bar in quizzes with that option enabled */
+body.learndash-disable-topbar .ld-quiz-navigation {
+    display: none !important;
+}
+
+body.learndash-disable-topbar .wpProQuiz_toplistTable {
+    display: none !important;
+}
+
+/* Force hint mode styling */
+body.learndash-force-hint .wpProQuiz_button[name="next"],
+body.learndash-force-hint .wpProQuiz_QuestionButton[name="next"] {
+    display: none !important;
+}
+
+/* Make quiz question elements more visible */
+.wpProQuiz_question {
+    padding: 15px;
+    background-color: var(--color-white, #fff);
+    border-radius: 5px;
+    box-shadow: 0 1px 3px var(--color-shadow-light, rgba(0,0,0,0.05));
+    margin-bottom: 15px;
+}
+
+/* Improve question list styling */
+.wpProQuiz_questionList {
+    background-color: var(--color-gray-bg-light, #f9f9f9) !important;
+    border-color: var(--color-border, #eee) !important;
+}
+
+/* Sidebar item styling */
+.quiz-sidebar-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid var(--color-border, #ddd);
+    transition: background-color var(--transition-base, 0.3s ease);
+}
+
+.quiz-sidebar-item.active {
+    background-color: var(--quiz-active-bg, #e7f4ff);
+    color: var(--quiz-active-text, inherit);
+    border-radius: 4px;
+    border-right: 3px solid var(--color-blue-primary, #2196F3);
+}
+
+/* Media items in sidebar */
+.media-item-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.media-item-hint {
+    background-color: #fffde7;
+    padding: 10px;
+    border-radius: 4px;
+    border-right: 3px solid #ffc107;
+    margin-top: 10px;
+}

@@ -1,0 +1,175 @@
+/**
+ * WooCommerce Checkout Form Styling
+ * Fixes invisible input fields and improves checkout UX
+ */
+
+/* Fix invisible input fields on checkout page */
+.woocommerce-checkout .woocommerce-billing-fields .input-text,
+.woocommerce-checkout .woocommerce-shipping-fields .input-text,
+.woocommerce-checkout .woocommerce-additional-fields .input-text,
+.woocommerce-checkout .form-row .input-text,
+.woocommerce-checkout input[type="text"],
+.woocommerce-checkout input[type="email"],
+.woocommerce-checkout input[type="tel"],
+.woocommerce-checkout input[type="password"],
+.woocommerce-checkout select,
+.woocommerce-checkout textarea {
+    border: 2px solid #ddd !important;
+    border-radius: 4px !important;
+    padding: 12px 15px !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    background-color: #fff !important;
+    color: #333 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.3s ease !important;
+}
+
+/* Focus states for better UX */
+.woocommerce-checkout .input-text:focus,
+.woocommerce-checkout input[type="text"]:focus,
+.woocommerce-checkout input[type="email"]:focus,
+.woocommerce-checkout input[type="tel"]:focus,
+.woocommerce-checkout input[type="password"]:focus,
+.woocommerce-checkout select:focus,
+.woocommerce-checkout textarea:focus {
+    border-color: #2271b1 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.2) !important;
+}
+
+/* Error states */
+.woocommerce-checkout .input-text.woocommerce-invalid,
+.woocommerce-checkout input.woocommerce-invalid {
+    border-color: #dc3232 !important;
+    box-shadow: 0 0 0 2px rgba(220, 50, 50, 0.2) !important;
+}
+
+/* Required field indicators */
+.woocommerce-checkout .form-row.validate-required label abbr {
+    color: #dc3232 !important;
+    font-weight: bold !important;
+}
+
+/* Form row spacing */
+.woocommerce-checkout .form-row {
+    margin-bottom: 20px !important;
+}
+
+/* Labels styling */
+.woocommerce-checkout .form-row label {
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    color: #333 !important;
+}
+
+/* Placeholder text */
+.woocommerce-checkout .input-text::placeholder,
+.woocommerce-checkout input::placeholder,
+.woocommerce-checkout textarea::placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+}
+
+/* Select dropdowns */
+.woocommerce-checkout select {
+    appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 12px !important;
+    padding-right: 40px !important;
+}
+
+/* Checkboxes and radio buttons */
+.woocommerce-checkout input[type="checkbox"],
+.woocommerce-checkout input[type="radio"] {
+    width: auto !important;
+    margin-right: 8px !important;
+    transform: scale(1.2) !important;
+}
+
+/* Order review section */
+.woocommerce-checkout-review-order {
+    background: #f9f9f9 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-top: 30px !important;
+}
+
+/* Place order button */
+.woocommerce-checkout #place_order {
+    background-color: #2271b1 !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.woocommerce-checkout #place_order:hover {
+    background-color: #1e5a8a !important;
+}
+
+.woocommerce-checkout #place_order:disabled {
+    background-color: #ccc !important;
+    cursor: not-allowed !important;
+}
+
+/* Error messages */
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-info {
+    border-radius: 4px !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+/* RTL support for Hebrew */
+.rtl .woocommerce-checkout .form-row {
+    text-align: right !important;
+}
+
+.rtl .woocommerce-checkout select {
+    background-position: left 12px center !important;
+    padding-left: 40px !important;
+    padding-right: 15px !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .woocommerce-checkout .input-text,
+    .woocommerce-checkout input,
+    .woocommerce-checkout select,
+    .woocommerce-checkout textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+    
+    .woocommerce-checkout .form-row {
+        margin-bottom: 15px !important;
+    }
+}
+
+/* Specific field styling improvements */
+#billing_phone,
+#id_number,
+#billing_last_name,
+#billing_first_name {
+    font-family: inherit !important;
+    letter-spacing: normal !important;
+}
+
+/* Make sure all form elements are visible */
+.woocommerce-checkout .form-row .input-text,
+.woocommerce-checkout .form-row input,
+.woocommerce-checkout .form-row select {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

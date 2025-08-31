@@ -1,0 +1,17 @@
+/* Highlight active hint */
+.highlight-hint.active {
+    background-color: yellow;
+}
+
+/* Disable auto correct highlight until hint is requested */
+.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerCorrectIncomplete label,
+.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerCorrect label {
+    border-color: transparent !important;
+    background: none !important;
+}
+
+/* Style incorrect answers red */
+.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem.wpProQuiz_answerIncorrect label {
+    border-color: #dc3545 !important;
+    background: rgba(220,53,69,0.1) !important;
+}

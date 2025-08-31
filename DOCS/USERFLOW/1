@@ -1,0 +1,1142 @@
+<body class="rtl wp-singular sfwd-courses-template-default single single-sfwd-courses postid-898 logged-in wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master theme-hello-elementor woocommerce-js hello-elementor-default elementor-default elementor-kit-11 elementor-page-919 course-id-898 learndash-cpt learndash-cpt-sfwd-courses learndash-template-ld30 learndash-embed-responsive e--ua-blink e--ua-chrome e--ua-webkit" data-elementor-device-mode="desktop">
+
+
+<a class="skip-link screen-reader-text" href="#content">דלג לתוכן</a>
+
+		<div data-elementor-type="header" data-elementor-id="891" class="elementor elementor-891 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-78a78cf e-con-full e-flex e-con e-parent elementor-sticky elementor-sticky--effects e-lazyloaded elementor-sticky--active elementor-section--handles-inside" data-id="78a78cf" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="position: fixed; width: 2116.67px; margin-top: 0px; margin-bottom: 0px; top: 0px; inset-inline-start: 0.33px;">
+		<div class="elementor-element elementor-element-3dbab97 e-con-full e-flex e-con e-child" data-id="3dbab97" data-element_type="container">
+				<div class="elementor-element elementor-element-02132e7 elementor-widget-tablet__width-initial elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="02132e7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://lilac.local">
+							<img fetchpriority="high" width="978" height="283" src="https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2.png" class="attachment-full size-full wp-image-2749" alt="" srcset="https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2.png 978w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2-300x87.png 300w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2-768x222.png 768w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2-600x174.png 600w" sizes="(max-width: 978px) 100vw, 978px">								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-fa7b427 e-con-full e-flex e-con e-child" data-id="fa7b427" data-element_type="container">
+				<div class="elementor-element elementor-element-58a9124 elementor-nav-menu--dropdown-mobile elementor-nav-menu--stretch elementor-nav-menu__align-center elementor-widget__width-inherit elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="58a9124" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-58a9124" class="elementor-nav-menu" data-smartmenus-id="17501416445218904"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1259"><a href="https://lilac.local/" class="elementor-item">דף בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4187"><a href="https://lilac.local/about/" class="elementor-item">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3037"><a href="https://lilac.local/%d7%9c%d7%9e%d7%94-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%90%d7%a6%d7%9c%d7%99%d7%a0%d7%95/" class="elementor-item">למה ללמוד אצלנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3033"><a href="https://lilac.local/faq/" class="elementor-item">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3039"><a href="https://lilac.local/theory-test-tips/" class="elementor-item">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/" class="elementor-item has-submenu" id="sm-17501416445218904-1" aria-haspopup="true" aria-controls="sm-17501416445218904-2" aria-expanded="false">לומדים תאוריה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445218904-2" role="group" aria-hidden="true" aria-labelledby="sm-17501416445218904-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3893"><a href="https://lilac.local/private-vehicles/" class="elementor-sub-item">רכב פרטי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3913"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%90%d7%95%d7%a4%d7%a0%d7%99%d7%99%d7%9d-%d7%95%d7%a7%d7%95%d7%a8%d7%a7%d7%99%d7%a0%d7%98-%d7%97%d7%a9%d7%9e%d7%9c%d7%99%d7%99%d7%9d/" class="elementor-sub-item">קורסים אופניים/קורקינט חשמליים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3914"><a href="https://lilac.local/%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%a2%d7%93-12-%d7%98%d7%95%d7%9f/" class="elementor-sub-item">משאית עד 12 טון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3038"><a href="https://lilac.local/testimonials/" class="elementor-item">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3041"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item has-submenu" id="sm-17501416445218904-3" aria-haspopup="true" aria-controls="sm-17501416445218904-4" aria-expanded="false">ספרי ההוצאה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445218904-4" role="group" aria-hidden="true" aria-labelledby="sm-17501416445218904-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3145"><a href="https://lilac.local/-kate/%d7%99%d7%9c%d7%93%d7%99%d7%9d/" class="elementor-sub-item">ילדים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3147"><a href="https://lilac.local/-kate/%d7%a0%d7%95%d7%a2%d7%a8/" class="elementor-sub-item">נוער</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3146"><a href="https://lilac.local/-kate/%d7%9c%d7%99%d7%9e%d7%95%d7%93/" class="elementor-sub-item">לימוד</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-3052"><a href="https://lilac.local/product/%d7%a2%d7%a8%d7%9b%d7%94-%d7%9c%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94/" class="elementor-sub-item">ערכה ללימוד תיאוריה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3055"><a href="https://lilac.local/road-safety/" class="elementor-sub-item">זהירות בדרכים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3144"><a href="https://lilac.local/-kate/%d7%94%d7%93%d7%a8%d7%9b%d7%94-%d7%95%d7%a2%d7%99%d7%95%d7%9f/" class="elementor-sub-item">הדרכה ועיון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1192"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1184"><a href="https://lilac.local/contact/" class="elementor-item">יצירת קשר</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false" style="">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true" style="top: 43.9583px; --menu-height: 0; width: 2116px; right: -1949.33px;">
+				<ul id="menu-2-58a9124" class="elementor-nav-menu" data-smartmenus-id="17501416445221467"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1259"><a href="https://lilac.local/" class="elementor-item" tabindex="-1">דף בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4187"><a href="https://lilac.local/about/" class="elementor-item" tabindex="-1">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3037"><a href="https://lilac.local/%d7%9c%d7%9e%d7%94-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%90%d7%a6%d7%9c%d7%99%d7%a0%d7%95/" class="elementor-item" tabindex="-1">למה ללמוד אצלנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3033"><a href="https://lilac.local/faq/" class="elementor-item" tabindex="-1">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3039"><a href="https://lilac.local/theory-test-tips/" class="elementor-item" tabindex="-1">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/" class="elementor-item has-submenu" tabindex="-1" id="sm-17501416445221467-1" aria-haspopup="true" aria-controls="sm-17501416445221467-2" aria-expanded="false">לומדים תאוריה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445221467-2" role="group" aria-hidden="true" aria-labelledby="sm-17501416445221467-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3893"><a href="https://lilac.local/private-vehicles/" class="elementor-sub-item" tabindex="-1">רכב פרטי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3913"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%90%d7%95%d7%a4%d7%a0%d7%99%d7%99%d7%9d-%d7%95%d7%a7%d7%95%d7%a8%d7%a7%d7%99%d7%a0%d7%98-%d7%97%d7%a9%d7%9e%d7%9c%d7%99%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">קורסים אופניים/קורקינט חשמליים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3914"><a href="https://lilac.local/%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%a2%d7%93-12-%d7%98%d7%95%d7%9f/" class="elementor-sub-item" tabindex="-1">משאית עד 12 טון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3038"><a href="https://lilac.local/testimonials/" class="elementor-item" tabindex="-1">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3041"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item has-submenu" tabindex="-1" id="sm-17501416445221467-3" aria-haspopup="true" aria-controls="sm-17501416445221467-4" aria-expanded="false">ספרי ההוצאה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445221467-4" role="group" aria-hidden="true" aria-labelledby="sm-17501416445221467-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3145"><a href="https://lilac.local/-kate/%d7%99%d7%9c%d7%93%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">ילדים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3147"><a href="https://lilac.local/-kate/%d7%a0%d7%95%d7%a2%d7%a8/" class="elementor-sub-item" tabindex="-1">נוער</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3146"><a href="https://lilac.local/-kate/%d7%9c%d7%99%d7%9e%d7%95%d7%93/" class="elementor-sub-item" tabindex="-1">לימוד</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-3052"><a href="https://lilac.local/product/%d7%a2%d7%a8%d7%9b%d7%94-%d7%9c%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94/" class="elementor-sub-item" tabindex="-1">ערכה ללימוד תיאוריה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3055"><a href="https://lilac.local/road-safety/" class="elementor-sub-item" tabindex="-1">זהירות בדרכים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3144"><a href="https://lilac.local/-kate/%d7%94%d7%93%d7%a8%d7%9b%d7%94-%d7%95%d7%a2%d7%99%d7%95%d7%9f/" class="elementor-sub-item" tabindex="-1">הדרכה ועיון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1192"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item" tabindex="-1">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1184"><a href="https://lilac.local/contact/" class="elementor-item" tabindex="-1">יצירת קשר</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+				</div><div class="elementor-element elementor-element-78a78cf e-con-full e-flex e-con e-parent elementor-sticky elementor-sticky--effects e-lazyloaded elementor-sticky__spacer" data-id="78a78cf" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="visibility: hidden; transition: none; animation: auto ease 0s 1 normal none running none;">
+		<div class="elementor-element elementor-element-3dbab97 e-con-full e-flex e-con e-child" data-id="3dbab97" data-element_type="container">
+				<div class="elementor-element elementor-element-02132e7 elementor-widget-tablet__width-initial elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="02132e7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://lilac.local">
+							<img fetchpriority="high" width="978" height="283" src="https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2.png" class="attachment-full size-full wp-image-2749" alt="" srcset="https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2.png 978w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2-300x87.png 300w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2-768x222.png 768w, https://lilac.local/wp-content/uploads/2025/02/לוגו-עם-טקסט2-600x174.png 600w" sizes="(max-width: 978px) 100vw, 978px">								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-fa7b427 e-con-full e-flex e-con e-child" data-id="fa7b427" data-element_type="container">
+				<div class="elementor-element elementor-element-58a9124 elementor-nav-menu--dropdown-mobile elementor-nav-menu--stretch elementor-nav-menu__align-center elementor-widget__width-inherit elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="58a9124" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-58a9124" class="elementor-nav-menu" data-smartmenus-id="17501416445218904"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1259"><a href="https://lilac.local/" class="elementor-item">דף בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4187"><a href="https://lilac.local/about/" class="elementor-item">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3037"><a href="https://lilac.local/%d7%9c%d7%9e%d7%94-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%90%d7%a6%d7%9c%d7%99%d7%a0%d7%95/" class="elementor-item">למה ללמוד אצלנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3033"><a href="https://lilac.local/faq/" class="elementor-item">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3039"><a href="https://lilac.local/theory-test-tips/" class="elementor-item">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/" class="elementor-item has-submenu" id="sm-17501416445218904-1" aria-haspopup="true" aria-controls="sm-17501416445218904-2" aria-expanded="false">לומדים תאוריה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445218904-2" role="group" aria-hidden="true" aria-labelledby="sm-17501416445218904-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3893"><a href="https://lilac.local/private-vehicles/" class="elementor-sub-item">רכב פרטי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3913"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%90%d7%95%d7%a4%d7%a0%d7%99%d7%99%d7%9d-%d7%95%d7%a7%d7%95%d7%a8%d7%a7%d7%99%d7%a0%d7%98-%d7%97%d7%a9%d7%9e%d7%9c%d7%99%d7%99%d7%9d/" class="elementor-sub-item">קורסים אופניים/קורקינט חשמליים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3914"><a href="https://lilac.local/%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%a2%d7%93-12-%d7%98%d7%95%d7%9f/" class="elementor-sub-item">משאית עד 12 טון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3038"><a href="https://lilac.local/testimonials/" class="elementor-item">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3041"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item has-submenu" id="sm-17501416445218904-3" aria-haspopup="true" aria-controls="sm-17501416445218904-4" aria-expanded="false">ספרי ההוצאה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445218904-4" role="group" aria-hidden="true" aria-labelledby="sm-17501416445218904-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3145"><a href="https://lilac.local/-kate/%d7%99%d7%9c%d7%93%d7%99%d7%9d/" class="elementor-sub-item">ילדים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3147"><a href="https://lilac.local/-kate/%d7%a0%d7%95%d7%a2%d7%a8/" class="elementor-sub-item">נוער</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3146"><a href="https://lilac.local/-kate/%d7%9c%d7%99%d7%9e%d7%95%d7%93/" class="elementor-sub-item">לימוד</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-3052"><a href="https://lilac.local/product/%d7%a2%d7%a8%d7%9b%d7%94-%d7%9c%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94/" class="elementor-sub-item">ערכה ללימוד תיאוריה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3055"><a href="https://lilac.local/road-safety/" class="elementor-sub-item">זהירות בדרכים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3144"><a href="https://lilac.local/-kate/%d7%94%d7%93%d7%a8%d7%9b%d7%94-%d7%95%d7%a2%d7%99%d7%95%d7%9f/" class="elementor-sub-item">הדרכה ועיון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1192"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1184"><a href="https://lilac.local/contact/" class="elementor-item">יצירת קשר</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false" style="">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true" style="width: 2116px; right: -1949.33px; top: 43.9583px; --menu-height: 0;">
+				<ul id="menu-2-58a9124" class="elementor-nav-menu" data-smartmenus-id="17501416445221467"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1259"><a href="https://lilac.local/" class="elementor-item" tabindex="-1">דף בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4187"><a href="https://lilac.local/about/" class="elementor-item" tabindex="-1">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3037"><a href="https://lilac.local/%d7%9c%d7%9e%d7%94-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%90%d7%a6%d7%9c%d7%99%d7%a0%d7%95/" class="elementor-item" tabindex="-1">למה ללמוד אצלנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3033"><a href="https://lilac.local/faq/" class="elementor-item" tabindex="-1">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3039"><a href="https://lilac.local/theory-test-tips/" class="elementor-item" tabindex="-1">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3040"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/" class="elementor-item has-submenu" tabindex="-1" id="sm-17501416445221467-1" aria-haspopup="true" aria-controls="sm-17501416445221467-2" aria-expanded="false">לומדים תאוריה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445221467-2" role="group" aria-hidden="true" aria-labelledby="sm-17501416445221467-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3893"><a href="https://lilac.local/private-vehicles/" class="elementor-sub-item" tabindex="-1">רכב פרטי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3913"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d-%d7%90%d7%95%d7%a4%d7%a0%d7%99%d7%99%d7%9d-%d7%95%d7%a7%d7%95%d7%a8%d7%a7%d7%99%d7%a0%d7%98-%d7%97%d7%a9%d7%9e%d7%9c%d7%99%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">קורסים אופניים/קורקינט חשמליים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3914"><a href="https://lilac.local/%d7%9e%d7%a9%d7%90%d7%99%d7%aa-%d7%a2%d7%93-12-%d7%98%d7%95%d7%9f/" class="elementor-sub-item" tabindex="-1">משאית עד 12 טון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3038"><a href="https://lilac.local/testimonials/" class="elementor-item" tabindex="-1">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3041"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item has-submenu" tabindex="-1" id="sm-17501416445221467-3" aria-haspopup="true" aria-controls="sm-17501416445221467-4" aria-expanded="false">ספרי ההוצאה<span class="sub-arrow"><svg class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17501416445221467-4" role="group" aria-hidden="true" aria-labelledby="sm-17501416445221467-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3145"><a href="https://lilac.local/-kate/%d7%99%d7%9c%d7%93%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">ילדים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3147"><a href="https://lilac.local/-kate/%d7%a0%d7%95%d7%a2%d7%a8/" class="elementor-sub-item" tabindex="-1">נוער</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3146"><a href="https://lilac.local/-kate/%d7%9c%d7%99%d7%9e%d7%95%d7%93/" class="elementor-sub-item" tabindex="-1">לימוד</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-3052"><a href="https://lilac.local/product/%d7%a2%d7%a8%d7%9b%d7%94-%d7%9c%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%aa%d7%99%d7%90%d7%95%d7%a8%d7%99%d7%94/" class="elementor-sub-item" tabindex="-1">ערכה ללימוד תיאוריה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3055"><a href="https://lilac.local/road-safety/" class="elementor-sub-item" tabindex="-1">זהירות בדרכים</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object--kate menu-item-3144"><a href="https://lilac.local/-kate/%d7%94%d7%93%d7%a8%d7%9b%d7%94-%d7%95%d7%a2%d7%99%d7%95%d7%9f/" class="elementor-sub-item" tabindex="-1">הדרכה ועיון</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1192"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item" tabindex="-1">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1184"><a href="https://lilac.local/contact/" class="elementor-item" tabindex="-1">יצירת קשר</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-69b3314 e-con-full e-flex e-con e-parent e-lazyloaded" data-id="69b3314" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-a9ee904 e-con-full e-flex e-con e-child" data-id="a9ee904" data-element_type="container">
+		<div class="elementor-element elementor-element-8b95cd5 e-con-full e-flex e-con e-child" data-id="8b95cd5" data-element_type="container">
+				<div class="elementor-element elementor-element-fbeab91 elementor-widget elementor-widget-shortcode" data-id="fbeab91" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode">        <div class="elementor-element elementor-position-right elementor-mobile-position-right elementor-vertical-align-bottom elementor-widget-mobile__width-initial elementor-view-default elementor-widget elementor-widget-icon-box">
+            <div class="elementor-widget-container">
+                <div class="custom-class">
+                    <div class="elementor-icon-box-icon">
+                        <a href="/p" class="elementor-icon" tabindex="-1" aria-label="פרופיל">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+                                <path d="M0.999993 20.7828C1.59374 9.11652 19.1563 9.11652 19.75 20.7828M6.625 4.53276C6.625 5.52732 7.02009 6.48115 7.72336 7.18442C8.42662 7.88768 9.38045 8.28277 10.375 8.28277C11.3696 8.28277 12.3234 7.88768 13.0267 7.18442C13.7299 6.48115 14.125 5.52732 14.125 4.53276C14.125 3.5382 13.7299 2.58437 13.0267 1.8811C12.3234 1.17784 11.3696 0.782752 10.375 0.782752C9.38045 0.782752 8.42662 1.17784 7.72336 1.8811C7.02009 2.58437 6.625 3.5382 6.625 4.53276Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="elementor-icon-box-content">
+                        <h3 class="elementor-icon-box-title">
+                            <a href="/p">
+                                היי 12 12                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-96a536f elementor-vertical-align-bottom elementor-widget elementor-widget-icon-box" data-id="96a536f" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<a href="/teachers-login">
+							כניסת מורים						</a>
+					</h3>
+				
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-68c9339 e-con-full e-flex e-con e-child" data-id="68c9339" data-element_type="container">
+				<div class="elementor-element elementor-element-696c66e elementor-mobile-align-justify elementor-widget-mobile__width-inherit elementor-widget elementor-widget-button" data-id="696c66e" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://lilac.local/school/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-far-user" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>			</span>
+									<span class="elementor-button-text">תלמיד כיתה י - חינוך תעבורתי</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-fe6c971 elementor-mobile-align-justify elementor-widget-mobile__width-inherit elementor-widget elementor-widget-button" data-id="fe6c971" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://test-li.ussl.co.il/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-user" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>			</span>
+									<span class="elementor-button-text">תלמיד פרטי - לא לכיתה י</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				<div data-elementor-type="sfwd-courses" data-elementor-id="919" class="elementor elementor-919 elementor-location-single post-898 sfwd-courses type-sfwd-courses status-publish hentry ld_course_category-27" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-119b191 e-con-full e-flex e-con e-parent e-lazyloaded" data-id="119b191" data-element_type="container">
+		<div class="elementor-element elementor-element-cfadf4e e-con-full e-flex e-con e-child" data-id="cfadf4e" data-element_type="container">
+		<div class="elementor-element elementor-element-7d78e56 e-con-full e-flex e-con e-child" data-id="7d78e56" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-36d2aff elementor-widget elementor-widget-ld-profile" data-id="36d2aff" data-element_type="widget" data-widget_type="ld-profile.default">
+				<div class="elementor-widget-container">
+								<style>
+			.wpProQuiz_blueBox {
+				padding: 20px;
+				background-color: rgb(223, 238, 255);
+				border: 1px dotted;
+				margin-top: 10px;
+			}
+			.categoryTr th {
+				background-color: #F1F1F1;
+			}
+			.wpProQuiz_modal_backdrop {
+				background: #000;
+				opacity: 0.7;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				position: fixed;
+				z-index: 159900;
+			}
+			.wpProQuiz_modal_window {
+				position: fixed;
+				background: #FFF;
+				top: 40px;
+				bottom: 40px;
+				left: 40px;
+				right: 40px;
+				z-index: 160000;
+			}
+			.wpProQuiz_actions {
+				display: none;
+				padding: 2px 0 0;
+			}
+
+			.mobile .wpProQuiz_actions {
+				display: block;
+			}
+
+			tr:hover .wpProQuiz_actions {
+				display: block;
+			}
+			</style>
+			<div id="wpProQuiz_user_overlay" style="display: none;">
+				<div class="wpProQuiz_modal_window" style="padding: 20px; overflow: scroll;">
+					<input type="button" value="סגור" class="button-primary" style=" position: fixed; top: 48px; right: 59px; z-index: 160001;" id="wpProQuiz_overlay_close">
+
+					<div id="wpProQuiz_user_content" style="margin-top: 20px;"></div>
+
+					<div id="wpProQuiz_loadUserData" class="wpProQuiz_blueBox" style="background-color: #F8F5A8; display: none; margin: 50px;">
+						<img alt="load" src="https://lilac.local/wp-admin/images/wpspin_light.gif">
+						טוען					</div>
+				</div>
+				<div class="wpProQuiz_modal_backdrop"></div>
+			</div>
+			
+<div class="learndash-wrapper learndash-wrapper--course learndash-wrapper--modern">
+		<div id="ld-profile" data-shortcode_instance="{&quot;alert_role&quot;:&quot;status&quot;,&quot;user_id&quot;:28,&quot;per_page&quot;:20,&quot;order&quot;:&quot;DESC&quot;,&quot;orderby&quot;:&quot;ID&quot;,&quot;course_points_user&quot;:&quot;yes&quot;,&quot;expand_all&quot;:true,&quot;profile_link&quot;:true,&quot;show_header&quot;:&quot;yes&quot;,&quot;show_quizzes&quot;:true,&quot;show_search&quot;:&quot;yes&quot;,&quot;quiz_num&quot;:20,&quot;post_status&quot;:&quot;publish&quot;,&quot;paged&quot;:1,&quot;s&quot;:&quot;&quot;}">
+					<div class="ld-profile-summary">
+				<div class="ld-profile-card">
+					<div class="ld-profile-avatar">
+						<img alt="" src="https://secure.gravatar.com/avatar/84df88d04897a45db56dac795123806f82eab1b8ca0f16605990d21be9651230?s=150&amp;d=mm&amp;r=g" class="avatar avatar-150 photo" height="150" width="150">					</div> <!--/.ld-profile-avatar-->
+											<h2 class="ld-profile-heading">
+							12 12						</h2>
+					
+											<a class="ld-profile-edit-link" href="https://lilac.local/wp-admin/profile.php">עריכת הפרופיל</a>
+									</div> <!--/.ld-profile-card-->
+				<div class="ld-profile-stats">
+					<h3 class="sr-only">
+						Your Stats					</h3>
+
+												<div class="ld-profile-stat ld-profile-stat-courses">
+								<strong>1</strong>
+								<span>קורסים</span>
+							</div> <!--/.ld-profile-stat-->
+														<div class="ld-profile-stat ld-profile-stat-completed">
+								<strong>0</strong>
+								<span>הושלם</span>
+							</div> <!--/.ld-profile-stat-->
+														<div class="ld-profile-stat ld-profile-stat-certificates">
+								<strong>0</strong>
+								<span>תעודות</span>
+							</div> <!--/.ld-profile-stat-->
+														<div class="ld-profile-stat ld-profile-stat-points">
+								<strong>0</strong>
+								<span>נקודות</span>
+							</div> <!--/.ld-profile-stat-->
+											</div> <!--/.ld-profile-stats-->
+			</div>
+		
+		<div class="ld-item-list ld-course-list">
+
+			<div class="ld-section-heading">
+				<h3>
+					הקורסים שלך				</h3>
+				<div class="ld-item-list-actions">
+										<button aria-controls="ld-course-search" aria-expanded="false" aria-label="הצג חיפוש קורסים" class="ld-search-prompt ld-icon-search ld-icon" data-ld-expands="ld-course-search">
+					</button> <!--/.ld-search-prompt-->
+					
+					
+					<button aria-controls="ld-course-list-item-898-container" aria-expanded="true" class="ld-expand-button ld-expanded" data-ld-collapse-text="סגור הכל" data-ld-expand-text="הרחב הכל" data-ld-expands="ld-course-list-item-898-container">
+						<span class="ld-icon-arrow-down ld-icon"></span>
+						<span class="ld-text">סגור הכל</span>
+
+						<span class="screen-reader-text">
+							קורסים						</span>
+					</button> <!--/.ld-expand-button-->
+				</div> <!--/.ld-course-list-actions-->
+			</div> <!--/.ld-section-heading-->
+			<div class="ld-item-search ld-expandable" id="ld-course-search" data-ld-expand-id="ld-course-search" data-height="50" style="max-height: 0px;" hidden="hidden">
+<div class="ld-item-search-wrapper">
+
+	<button aria-controls="ld-course-search" aria-expanded="false" class="ld-closer">
+		סגור	</button>
+
+	<h4 class="ld-item-search-heading">
+	חפש את הקורסים שלך	</h4>
+
+	<form method="get" action="" class="ld-item-search-fields" data-nonce="eda5edf5ae">
+
+		<div class="ld-item-search-name">
+			<label for="course_name_field">
+			קורס שם			</label>
+			<input type="text" id="course_name_field" value="" class="ld-course-nav-field" name="ld-profile-search">
+						<input type="hidden" name="ld-profile-page" value="1">
+		</div> <!--/.ld-course-search-name-->
+		
+		<div class="ld-item-search-submit">
+			<input type="submit" class="ld-button" value="חיפוש" name="submit">
+		</div> <!--/.ld-course-search-submit-->
+		<input type="hidden" id="learndash_profile_course_search_nonce_field_28" name="learndash_profile_course_search_nonce_field_28" value="eda5edf5ae"><input type="hidden" name="_wp_http_referer" value="/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/">	</form> <!--/.ld-course-search-fields-->
+</div> <!--/.ld-course-search-wrapper-->
+</div> <!--/.ld-course-search-->
+
+			<div class="ld-item-list-items" id="ld-main-course-list" data-ld-expand-list="true" data-ld-expand-id="ld-main-course-list">
+
+				
+<div class="ld-item-list-item ld-item-list-item-course ld-expandable learndash-incomplete" id="ld-course-list-item-898">
+	<div class="ld-item-list-item-preview">
+
+		<a href="https://lilac.local/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/" class="ld-item-name">
+			<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>			<span aria-level="4" class="ld-course-title" role="heading">
+				חינוך תעבורתי			</span>
+		</a> <!--/.ld-course-name-->
+
+		
+		
+		<div class="ld-item-details">
+
+			
+			
+			<button aria-controls="ld-course-list-item-898-container" aria-expanded="true" class="ld-expand-button ld-primary-background ld-compact ld-not-mobile ld-expanded" data-ld-expands="ld-course-list-item-898-container" data-ld-expand-text="הרחב" data-ld-collapse-text="צמצם">
+				<span class="ld-icon-arrow-down ld-icon"></span>
+				<span class="ld-text screen-reader-text">צמצם</span>
+
+				<span class="screen-reader-text">
+					חינוך תעבורתי				</span>
+			</button> <!--/.ld-expand-button-->
+
+			<button aria-controls="ld-course-list-item-898-container" aria-expanded="true" class="ld-expand-button ld-button-alternate ld-mobile-only ld-expanded" data-ld-expands="ld-course-list-item-898-container" data-ld-expand-text="הרחב" data-ld-collapse-text="צמצם">
+				<span class="ld-icon-arrow-down ld-icon"></span>
+				<span class="ld-text ld-primary-color">צמצם</span>
+
+				<span class="screen-reader-text">
+					חינוך תעבורתי				</span>
+			</button> <!--/.ld-expand-button-->
+
+		</div> <!--/.ld-course-details-->
+
+	</div> <!--/.ld-course-preview-->
+	<div class="ld-item-list-item-expanded ld-expanded" data-ld-expand-id="ld-course-list-item-898" id="ld-course-list-item-898-container" data-height="50" style="max-height: 50px;">
+
+		<div class="ld-progress">
+	<div class="ld-progress-heading">
+		<div class="ld-progress-label">קורס תהליך 		</div>
+		<div class="ld-progress-stats">
+			<div class="ld-progress-percentage ld-secondary-color">0% הושלמו 			</div> <!--/.ld-course-progress-percentage-->
+			<div class="ld-progress-steps"> 0/2 שלבים 			</div>
+		</div> <!--/.ld-course-progress-stats-->
+	</div> <!--/.ld-course-progress-heading-->
+
+	<div class="ld-progress-bar">
+		<div class="ld-progress-bar-percentage ld-secondary-background" style="width: 0%;"></div>
+	</div> <!--/.ld-course-progress-bar-->
+</div> <!--/.ld-course-progress-->
+
+	</div> <!--/.ld-course-list-item-expanded-->
+
+</div> <!--/.ld-course-list-item-->
+
+			</div> <!--/.ld-course-list-items-->
+
+		</div> <!--/ld-course-list-->
+
+		
+	</div> <!--/#ld-profile-->
+
+</div> <!--/.ld-course-wrapper-->
+	<script>
+		jQuery( function() {
+			setTimeout(function() {
+				jQuery(".ld-item-list-actions .ld-expand-button").trigger('click');
+			}, 1000 );
+		});
+	</script>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-1ae9eca elementor-widget elementor-widget-shortcode" data-id="1ae9eca" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode"><div class="llm-early-topics"><ul class="llm-topics-list"><li><a href="https://lilac.local/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a8%d7%a7-01-%d7%aa%d7%95%d7%a8%d7%aa-%d7%94%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%94%d7%aa%d7%a2%d7%91%d7%a8%d7%95%d7%aa%d7%99-%d7%a4%d7%a8%d7%a7-%d7%9e%d7%91%d7%95%d7%90/topics/%d7%94%d7%9e%d7%a8%d7%97%d7%91-%d7%94%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%94%d7%92%d7%93%d7%a8%d7%94-%d7%95%d7%9e%d7%90%d7%a4%d7%99%d7%99%d7%a0%d7%99%d7%9d/">המרחב התעבורתי - הגדרה ומאפיינים</a></li></ul></div></div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3ce9aff e-con-full e-flex e-con e-child" data-id="3ce9aff" data-element_type="container">
+				<div class="elementor-element elementor-element-98d11eb elementor-widget elementor-widget-shortcode" data-id="98d11eb" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode">        <div class="user-dashboard-container">
+            <div class="dashboard-content">
+                <!-- Left Column - User Panel -->
+                <div class="dashboard-column user-panel">
+                    <div class="user-greeting">
+                        <h2>שלום, 12 12!</h2>
+                        <div class="user-meta">
+                            <div class="meta-item date">
+                                <span class="meta-icon">📅</span>
+                                <span class="meta-text">17/06/2025</span>
+                            </div>
+                            <div class="meta-item track">
+                                <span class="meta-icon">🎯</span>
+                                <span class="meta-text">חינוך תעבורתי</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-actions">
+                        <a href="#" class="user-action-link edit-account">
+                            <span class="link-icon">✏️</span>
+                            <span class="link-text">ערוך חשבון (שינוי נושא לימוד)</span>
+                        </a>
+                        <a href="#" class="user-action-link stats">
+                            <span class="link-icon">📊</span>
+                            <span class="link-text">סטטיסטיקות לימוד</span>
+                        </a>
+                        <a href="https://lilac.local/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Flilac.local&amp;_wpnonce=a4159743a2" class="user-action-link logout">
+                            <span class="link-icon">🚪</span>
+                            <span class="link-text">התנתק</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Middle Column - Practice Tests -->
+                <div class="dashboard-column test-column">
+                    <div class="column-header">
+                        <h3>מבחנים כדוגמת מבחן התיאוריה</h3>
+                    </div>
+                    <div class="button-group">
+                        <a href="#" class="dashboard-button practice-button">
+                            <span class="button-text">מבחני תרגול</span>
+                            <span class="button-icon">📝</span>
+                        </a>
+                        <a href="#" class="dashboard-button real-test-button">
+                            <span class="button-text">מבחני אמת – כמו בתיאוריה</span>
+                            <span class="button-icon">📋</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column - Questions by Topic -->
+                <div class="dashboard-column questions-column">
+                    <div class="column-header">
+                        <h3>שאלות מהמאגר לפי נושאים</h3>
+                    </div>
+                    <div class="button-group">
+                        <a href="#" class="dashboard-button study-materials-button">
+                            <span class="button-text">חומר לימוד לפי נושאים</span>
+                            <span class="button-icon">📚</span>
+                        </a>
+                        <a href="#" class="dashboard-button topic-tests-button">
+                            <span class="button-text">מבחנים לפי נושאים</span>
+                            <span class="button-icon">📝</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="dashboard-footer">
+                <p>בהצלחה בלימוד ובתרגול!</p>
+            </div>
+        </div>
+        
+
+
+בדיקת מנוי ליום 
+
+    <div class="lilac-manual-access-container" style="margin: 20px 0; padding: 15px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 4px;">
+        <h3>Course Access</h3>
+        
+                    <div class="access-inactive" style="margin-bottom: 15px;">
+                <p>Click the button below to activate your course access.</p>
+                <button type="button" id="lilac-activate-access" class="button" data-course="898" data-product="0" data-duration="30">
+                    Activate 30-Day Access                </button>
+                <div id="lilac-access-message" style="margin-top: 10px; display: none;"></div>
+            </div>
+            
+            <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('#lilac-activate-access').on('click', function(e) {
+                    e.preventDefault();
+                    
+                    var $button = $(this);
+                    var $message = $('#lilac-access-message');
+                    var courseId = $button.data('course');
+                    var productId = $button.data('product');
+                    var durationDays = $button.data('duration');
+                    
+                    if (!courseId) {
+                        return;
+                    }
+                    
+                    $button.prop('disabled', true).text('Activating...');
+                    $message.hide().removeClass('success error').empty();
+                    
+                    $.ajax({
+                        url: ajaxurl,
+                        type: 'POST',
+                        data: {
+                            action: 'lilac_activate_course_access',
+                            course_id: courseId,
+                            product_id: productId,
+                            duration_days: durationDays,
+                            nonce: lilac_vars.nonce
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                $message.html(response.data.message).addClass('success').show();
+                                $button.closest('.access-inactive').html(
+                                    '<div class="access-active" style="color: #0a7c31; margin: 10px 0;">' +
+                                    '<p>Access active until ' + response.data.expiry_date + '</p>' +
+                                    '<p>Duration: ' + response.data.duration_days + ' days</p>' +
+                                    '</div>'
+                                );
+                            } else {
+                                $message.html(response.data).addClass('error').show();
+                                $button.prop('disabled', false).text($button.data('original-text') || 'Activate Access');
+                                $message.html(response.data.message).addClass('error').fadeIn();
+                                $button.prop('disabled', false).text('Try Again');
+                            }
+                        },
+                        error: function() {
+                            $message.html('An error occurred. Please try again.')
+                                   .addClass('error')
+                                   .fadeIn();
+                            $button.prop('disabled', false).text('Activate Course Access');
+                        }
+                    });
+                });
+            });
+            </script>
+            
+            <style>
+            .lilac-manual-access-container .button {
+                background: #2271b1;
+                color: #fff;
+                border-color: #2271b1;
+                padding: 8px 16px;
+                height: auto;
+                line-height: 1.5;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .lilac-manual-access-container .button:hover {
+                background: #135e96;
+                border-color: #135e96;
+                color: #fff;
+            }
+            .access-active {
+                color: #0a7c31;
+                font-weight: 600;
+                padding: 10px;
+                background: #edfaef;
+                border-radius: 3px;
+                border-left: 4px solid #0a7c31;
+            }
+            #lilac-access-message {
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 3px;
+            }
+            #lilac-access-message.success {
+                background: #edfaef;
+                border-left: 4px solid #0a7c31;
+                color: #0a7c31;
+            }
+            #lilac-access-message.error {
+                background: #fcf0f1;
+                border-left: 4px solid #d63638;
+                color: #d63638;
+            }
+            </style>
+            </div>
+    
+
+גישה לשבועיים
+
+</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-5b10972 elementor-widget elementor-widget-ld-course-content" data-id="5b10972" data-element_type="widget" data-widget_type="ld-course-content.default">
+				<div class="elementor-widget-container">
+					<div class="learndash-wrapper learndash-wrapper--course learndash-wrapper--modern">
+			<div class="ld-item-list ld-lesson-list">
+			<div class="ld-section-heading">
+
+							<h2>
+			תוכן הקורס				</h2>
+
+				
+				<div class="ld-item-list-actions" data-ld-expand-list="true">
+
+				
+										<button aria-controls="ld-expand-900-container" aria-expanded="true" class="ld-expand-button ld-primary-background ld-expanded" id="ld-expand-button-898" data-ld-expands="ld-expand-900-container" data-ld-expand-text="Expand All" data-ld-collapse-text="Collapse All">
+							<span class="ld-icon-arrow-down ld-icon"></span>
+							<span class="ld-text">Collapse All</span>
+							<span class="screen-reader-text">
+								שיעורים							</span>
+						</button> <!--/.ld-expand-button-->
+
+						
+				</div> <!--/.ld-item-list-actions-->
+			</div> <!--/.ld-section-heading-->
+
+			
+	<div class="ld-item-list-items  ld-item-list-898" id="ld-item-list-898" data-ld-expand-id="ld-item-list-898" data-ld-expand-list="true">
+		
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-900 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-900" data-ld-expand-id="ld-expand-900">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://lilac.local/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a8%d7%a7-01-%d7%aa%d7%95%d7%a8%d7%aa-%d7%94%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%94%d7%aa%d7%a2%d7%91%d7%a8%d7%95%d7%aa%d7%99-%d7%a4%d7%a8%d7%a7-%d7%9e%d7%91%d7%95%d7%90/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					פרק 01 – תורת החינוך התעברותי ( פרק מבוא )
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								1 נושא								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								1 מבחן								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-900-container" aria-expanded="true" class="ld-expand-button ld-button-alternate ld-expanded" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-900-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">צמצם</span>
+
+					<span class="screen-reader-text">
+						פרק 01 – תורת החינוך התעברותי ( פרק מבוא )					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded ld-expanded" id="ld-expand-900-container" data-height="351.719" style="max-height: 351.719px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-900" id="ld-expand-900">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/1 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-900" id="ld-topic-list-900" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-904 " id="ld-table-list-item-904">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://lilac.local/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a8%d7%a7-01-%d7%aa%d7%95%d7%a8%d7%aa-%d7%94%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%94%d7%aa%d7%a2%d7%91%d7%a8%d7%95%d7%aa%d7%99-%d7%a4%d7%a8%d7%a7-%d7%9e%d7%91%d7%95%d7%90/topics/%d7%94%d7%9e%d7%a8%d7%97%d7%91-%d7%94%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99-%d7%94%d7%92%d7%93%d7%a8%d7%94-%d7%95%d7%9e%d7%90%d7%a4%d7%99%d7%99%d7%a0%d7%99%d7%9d/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">המרחב התעבורתי – הגדרה ומאפיינים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-947" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-947">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://lilac.local/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a8%d7%a7-01-%d7%aa%d7%95%d7%a8%d7%aa-%d7%94%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%94%d7%aa%d7%a2%d7%91%d7%a8%d7%95%d7%aa%d7%99-%d7%a4%d7%a8%d7%a7-%d7%9e%d7%91%d7%95%d7%90/quizzes/%d7%9e%d7%91%d7%97%d7%9f-%d7%90%d7%9e%d7%aa-%d7%9b%d7%9e%d7%95-%d7%91%d7%aa%d7%90%d7%95%d7%a8%d7%99%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מבחן אמת כמו בתאוריה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+		</div> <!--/.ld-item-list-items-->
+
+		</div> <!--/.ld-item-list-->
+
+			</div>
+					</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				<div data-elementor-type="footer" data-elementor-id="1695" class="elementor elementor-1695 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-104bfc5e e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="104bfc5e" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-455e3922 e-con-full e-flex e-con e-child" data-id="455e3922" data-element_type="container">
+		<div class="elementor-element elementor-element-74ad586d e-con-full e-flex e-con e-child" data-id="74ad586d" data-element_type="container">
+				<div class="elementor-element elementor-element-186aea5 elementor-widget elementor-widget-heading" data-id="186aea5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">מפת אתר</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-b410da1 elementor-nav-menu--dropdown-none elementor-nav-menu__align-start elementor-widget-mobile__width-initial elementor-widget elementor-widget-nav-menu" data-id="b410da1" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i class=\&quot;\&quot;><\/i>&quot;,&quot;library&quot;:&quot;&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-b410da1" class="elementor-nav-menu sm-vertical" data-smartmenus-id="17501416445258804"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4898"><a href="https://lilac.local/" class="elementor-item">דף בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4899"><a href="https://lilac.local/about/" class="elementor-item">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4900"><a href="https://lilac.local/%d7%9c%d7%9e%d7%94-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%90%d7%a6%d7%9c%d7%99%d7%a0%d7%95/" class="elementor-item">למה ללמוד אצלנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4901"><a href="https://lilac.local/faq/" class="elementor-item">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4902"><a href="https://lilac.local/theory-test-tips/" class="elementor-item">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4903"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/" class="elementor-item">לומדים תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4907"><a href="https://lilac.local/testimonials/" class="elementor-item">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4908"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item">ספרי ההוצאה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4915"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4916"><a href="https://lilac.local/contact/" class="elementor-item">יצירת קשר</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true" style="--menu-height: 0;">
+				<ul id="menu-2-b410da1" class="elementor-nav-menu sm-vertical" data-smartmenus-id="1750141644525953"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4898"><a href="https://lilac.local/" class="elementor-item" tabindex="-1">דף בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4899"><a href="https://lilac.local/about/" class="elementor-item" tabindex="-1">מי אנחנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4900"><a href="https://lilac.local/%d7%9c%d7%9e%d7%94-%d7%9c%d7%9c%d7%9e%d7%95%d7%93-%d7%90%d7%a6%d7%9c%d7%99%d7%a0%d7%95/" class="elementor-item" tabindex="-1">למה ללמוד אצלנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4901"><a href="https://lilac.local/faq/" class="elementor-item" tabindex="-1">שאלות ותשובות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4902"><a href="https://lilac.local/theory-test-tips/" class="elementor-item" tabindex="-1">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4903"><a href="https://lilac.local/%d7%a7%d7%95%d7%a8%d7%a1%d7%99%d7%9d/" class="elementor-item" tabindex="-1">לומדים תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4907"><a href="https://lilac.local/testimonials/" class="elementor-item" tabindex="-1">תנו מילה טובה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4908"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item" tabindex="-1">ספרי ההוצאה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4915"><a href="https://lilac.local/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f/" class="elementor-item" tabindex="-1">תקנון</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4916"><a href="https://lilac.local/contact/" class="elementor-item" tabindex="-1">יצירת קשר</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-a84b77f e-con-full e-flex e-con e-child" data-id="a84b77f" data-element_type="container">
+				<div class="elementor-element elementor-element-8e05101 elementor-widget elementor-widget-heading" data-id="8e05101" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">חומר לימוד</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-137a726 elementor-nav-menu--dropdown-none elementor-nav-menu__align-start elementor-widget-mobile__width-initial elementor-widget elementor-widget-nav-menu" data-id="137a726" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="תפריט" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-137a726" class="elementor-nav-menu sm-vertical" data-smartmenus-id="17501416445254539"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1260"><a href="https://lilac.local/road-safety/" class="elementor-item">זהירות בדרכים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1261"><a href="https://lilac.local/%d7%97%d7%95%d7%9e%d7%a8-%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%9c%d7%a4%d7%99-%d7%a0%d7%95%d7%a9%d7%90%d7%99%d7%9d/" class="elementor-item">חומר לימוד לפי נושאים</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3004"><a href="https://lilac.local/quizzes/%D7%94%D7%9E%D7%A8%D7%97%D7%91-%D7%94%D7%AA%D7%A2%D7%91%D7%95%D7%A8%D7%AA%D7%99-%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%95%D7%9E%D7%90%D7%A4%D7%99%D7%99%D7%A0%D7%99%D7%9D/" class="elementor-item">מבחני תרגול</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1264"><a href="https://lilac.local/%d7%9e%d7%91%d7%97%d7%a0%d7%99%d7%9d-%d7%9c%d7%a4%d7%99-%d7%a0%d7%95%d7%a9%d7%90%d7%99%d7%9d/" class="elementor-item">מבחנים לפי נושאים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2524"><a href="https://lilac.local/theory-test-tips/" class="elementor-item">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1265"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item">ספרי ההוצאה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2746"><a href="https://lilac.local/testimonials/" class="elementor-item">תנו מילה טובה</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true" style="--menu-height: 0;">
+				<ul id="menu-2-137a726" class="elementor-nav-menu sm-vertical" data-smartmenus-id="17501416445255344"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1260"><a href="https://lilac.local/road-safety/" class="elementor-item" tabindex="-1">זהירות בדרכים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1261"><a href="https://lilac.local/%d7%97%d7%95%d7%9e%d7%a8-%d7%9c%d7%99%d7%9e%d7%95%d7%93-%d7%9c%d7%a4%d7%99-%d7%a0%d7%95%d7%a9%d7%90%d7%99%d7%9d/" class="elementor-item" tabindex="-1">חומר לימוד לפי נושאים</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3004"><a href="https://lilac.local/quizzes/%D7%94%D7%9E%D7%A8%D7%97%D7%91-%D7%94%D7%AA%D7%A2%D7%91%D7%95%D7%A8%D7%AA%D7%99-%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%95%D7%9E%D7%90%D7%A4%D7%99%D7%99%D7%A0%D7%99%D7%9D/" class="elementor-item" tabindex="-1">מבחני תרגול</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1264"><a href="https://lilac.local/%d7%9e%d7%91%d7%97%d7%a0%d7%99%d7%9d-%d7%9c%d7%a4%d7%99-%d7%a0%d7%95%d7%a9%d7%90%d7%99%d7%9d/" class="elementor-item" tabindex="-1">מבחנים לפי נושאים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2524"><a href="https://lilac.local/theory-test-tips/" class="elementor-item" tabindex="-1">טיפים למבחני תאוריה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1265"><a href="https://lilac.local/%d7%a1%d7%a4%d7%a8%d7%99-%d7%94%d7%94%d7%95%d7%a6%d7%90%d7%94/" class="elementor-item" tabindex="-1">ספרי ההוצאה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2746"><a href="https://lilac.local/testimonials/" class="elementor-item" tabindex="-1">תנו מילה טובה</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-dd2c891 e-con-full e-flex e-con e-child" data-id="dd2c891" data-element_type="container">
+				<div class="elementor-element elementor-element-2b7c116 elementor-widget elementor-widget-heading" data-id="2b7c116" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">מותאם במיוחד לליקויי קשב וריכוז
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-ade2fa0 elementor-widget__width-inherit elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="ade2fa0" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">כתובת: השילוח 4 בניין B פתח תקווה</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">טלפון: 03-9344057</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">פקס: 03-9043817</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-dab12b9 e-grid-align-right elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="dab12b9" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-bc0e141" href="https://www.facebook.com/LilachBooks/" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<svg class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-d2185d6" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<svg class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-3bdccea" href="https://www.youtube.com/channel/UCQJ0kpO_w9cWiiUP4EIJSmQ" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ef021aa elementor-widget elementor-widget-heading" data-id="ef021aa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">תשלום מאובטח</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7039b0a elementor-widget elementor-widget-image" data-id="7039b0a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="283" height="34" src="https://lilac.local/wp-content/uploads/2025/05/60Imgfile.png" class="attachment-large size-large wp-image-1724" alt="">															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-75da3820 e-con-full e-flex e-con e-child" data-id="75da3820" data-element_type="container">
+				<div class="elementor-element elementor-element-2ec6f3d elementor-widget elementor-widget-heading" data-id="2ec6f3d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">רוצים לומר לנו משהו?<br>
+
+נשמח לשמוע אתכם!
+
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-16a1b76 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="16a1b76" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;\u05d4\u05d1\u05d0&quot;,&quot;step_previous_label&quot;:&quot;\u05d4\u05e7\u05d5\u05d3\u05dd&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="טופס חדש">
+			<input type="hidden" name="post_id" value="1695">
+			<input type="hidden" name="form_id" value="16a1b76">
+			<input type="hidden" name="referer_title" value="העמוד לא נמצא">
+
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50">
+													<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="שם">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
+													<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="אימייל" required="required">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+					<textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[message]" id="form-field-message" rows="4" placeholder="כיתבו לנו"></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-md" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">שליחה</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+    <script type="text/javascript">
+    /* Toast System Debug Code */
+    console.log('Toast Debug Script Loaded');
+    
+    // Create global test function
+    window.TestToast = function() {
+        console.log('Testing Toast System...');
+        
+        if (typeof window.LilacToast !== 'undefined') {
+            console.log('LilacToast API found!');
+            window.LilacToast.success('Toast API is working!', 'Success');
+            return 'Test successful';
+        } else {
+            console.log('LilacToast API not found');
+            alert('This is a native alert - LilacToast not loaded');
+            return 'Test failed';
+        }
+    };
+    
+    // Test alert integration
+    window.TestAlert = function(message) {
+        console.log('Testing Alert Integration...');
+        alert(message || 'This is a test alert');
+        return 'Alert test completed';
+    };
+    
+    // Log toast system status on page load
+    jQuery(document).ready(function($) {
+        console.log('Toast System Status:', {
+            'jQuery Loaded': typeof $ === 'function',
+            'LilacToast Available': typeof window.LilacToast === 'function',
+            'LilacShowToast Available': typeof window.LilacShowToast === 'function',
+            'Alert Overridden': window.alert !== window.originalAlert
+        });
+    });
+    </script>
+    			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+				<script>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel="stylesheet" id="wc-blocks-style-rtl-css" href="https://lilac.local/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks-rtl.css" media="all">
+<style id="core-block-supports-inline-css">
+/**
+ * Core styles: block-supports
+ */
+
+</style>
+<script id="llm-subscription-js-js-extra">
+var llm_subscription = {"ajax_url":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"9abab6ce60"};
+</script>
+<script src="https://lilac.local/wp-content/plugins/lilac-learning-manager/assets/js/subscription-activation.js" id="llm-subscription-js-js"></script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_pager.js" id="learndash_pager_js-js"></script>
+<script id="learndash_template_script_js-js-extra">
+var sfwd_data = {"json":"{\"ajaxurl\":\"https:\\\/\\\/lilac.local\\\/wp-admin\\\/admin-ajax.php\"}"};
+</script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_template_script.js" id="learndash_template_script_js-js"></script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/assets/js/jquery.dropdown.min.js" id="jquery-dropdown-js-js"></script>
+<script src="https://lilac.local/wp-content/themes/hello-elementor/assets/js/hello-frontend.js" id="hello-theme-frontend-js"></script>
+<script id="toast-message-system-js-extra">
+var toastSettings = {"defaultDuration":"5000","position":"top-right","enableAlertIntegration":"1","debugMode":"1"};
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/includes/messaging/js/toast-system.js" id="toast-message-system-js"></script>
+<script id="toast-message-system-js-after">
+jQuery(document).ready(function($) {
+            // Force the container to use the correct position
+            if ($("#lilac-toast-container").length) {
+                $("#lilac-toast-container").attr("class", "top-right");
+                console.log("Toast container position set to top-right");
+            }
+        });
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/includes/messaging/js/session-toast.js" id="toast-session-js"></script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/includes/messaging/js/test-timer-toast.js" id="toast-test-timer-js"></script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/includes/messaging/js/alert-helpers.js" id="alert-helpers-js"></script>
+<script id="learndash-front-js-extra">
+var ldVars = {"postID":"898","videoReqMsg":"\u05d0\u05ea\u05d4 \u05d7\u05d9\u05d9\u05d1 \u05dc\u05e6\u05e4\u05d5\u05ea \u05d1\u05e1\u05e8\u05d8\u05d5\u05df \u05db\u05d3\u05d9 \u05dc\u05d2\u05e9\u05ea \u05dc\u05ea\u05d5\u05db\u05df \u05d4\u05d6\u05d4","ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php"};
+</script>
+<script src="//lilac.local/wp-content/plugins/sfwd-lms/themes/ld30/assets/js/learndash.js" id="learndash-front-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/webpack.runtime.js" id="elementor-webpack-runtime-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/frontend-modules.js" id="elementor-frontend-modules-js"></script>
+<script src="https://lilac.local/wp-includes/js/jquery/ui/core.js" id="jquery-ui-core-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":true},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8","a11yCarouselPrevSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea","a11yCarouselNextSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4","a11yCarouselFirstSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4","a11yCarouselLastSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d4","a11yCarouselPaginationBulletMessage":"\u05dc\u05e2\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.29.2","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"editor_v2":true,"e_element_cache":true,"home_screen":true,"launchpad-checklist":true,"cloud-library":true,"e_opt_in_v4_page":true},"urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/lilac.local\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"3755961476"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","woocommerce_notices_elements":[],"hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":898,"title":"%D7%97%D7%99%D7%A0%D7%95%D7%9A%20%D7%AA%D7%A2%D7%91%D7%95%D7%A8%D7%AA%D7%99%20%E2%80%93%20%D7%9C%D7%99%D7%9C%D7%9A%20%D7%AA%D7%99%D7%90%D7%95%D7%A8%D7%99%D7%94%20%7C%20%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%20%D7%AA%D7%99%D7%90%D7%95%D7%A8%D7%99%D7%94%20%D7%91%D7%93%D7%A8%D7%9A%20%D7%99%D7%99%D7%97%D7%95%D7%93%D7%99%D7%AA","excerpt":"","featuredImage":false},"user":{"roles":["customer"]}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor/assets/js/frontend.js" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.js" id="smartmenus-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.js" id="e-sticky-js"></script>
+<script src="https://lilac.local/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.js" id="sourcebuster-js-js"></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.js" id="wc-order-attribution-js"></script>
+<script id="hello-elementor-child-script-js-extra">
+var ajax_object = {"ajax_url":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php"};
+</script>
+<script src="https://lilac.local/wp-content/themes/hello-theme-child-master/js/scripts.js" id="hello-elementor-child-script-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.js" id="elementor-pro-webpack-runtime-js"></script>
+<script src="https://lilac.local/wp-includes/js/dist/hooks.js" id="wp-hooks-js"></script>
+<script src="https://lilac.local/wp-includes/js/dist/i18n.js" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/lilac.local\/wp-admin\/admin-ajax.php","nonce":"b1615817a7","urls":{"assets":"https:\/\/lilac.local\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/lilac.local\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"woocommerce":{"menu_cart":{"cart_page_url":"https:\/\/lilac.local\/cart\/","checkout_page_url":"https:\/\/lilac.local\/checkout\/","fragments_nonce":"c50d059098"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/lilac.local\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/frontend.js" id="elementor-pro-frontend-js"></script>
+<script src="https://lilac.local/wp-content/plugins/elementor-pro/assets/js/elements-handlers.js" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        // 1. Intercept all add to cart forms
+        $('body').on('submit', 'form.cart', function(e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $button = $form.find('.single_add_to_cart_button');
+            
+            // Disable button to prevent multiple clicks
+            $button.prop('disabled', true).addClass('loading');
+            
+            // Submit the form via AJAX
+            $.ajax({
+                type: 'POST',
+                url: wc_add_to_cart_params.ajax_url,
+                data: $form.serialize() + '&action=woocommerce_add_to_cart',
+                success: function(response) {
+                    // Redirect to checkout on success
+                    window.location.href = 'https://lilac.local/checkout/?nocache=1750141644';
+                },
+                error: function() {
+                    // If AJAX fails, submit the form normally
+                    $form.off('submit').submit();
+                }
+            });
+            
+            return false;
+        });
+        
+        // 2. Handle simple add to cart links
+        $('body').on('click', '.add_to_cart_button:not(.product_type_variable, .product_type_grouped, .product_type_external)', function(e) {
+            e.preventDefault();
+            var $button = $(this);
+            
+            // Skip if already processing
+            if ($button.hasClass('loading')) return false;
+            
+            // Get the product ID and URL
+            var product_id = $button.data('product_id');
+            var product_url = $button.attr('href');
+            
+            // Disable button
+            $button.addClass('loading');
+            
+            // Add to cart via AJAX
+            $.ajax({
+                type: 'POST',
+                url: wc_add_to_cart_params.ajax_url,
+                data: 'add-to-cart=' + product_id + '&action=woocommerce_add_to_cart',
+                success: function() {
+                    // Redirect to checkout
+                    window.location.href = 'https://lilac.local/checkout/?nocache=1750141644';
+                },
+                error: function() {
+                    // If AJAX fails, redirect to the product URL
+                    window.location.href = product_url;
+                }
+            });
+            
+            return false;
+        });
+        
+        // 3. Handle AJAX add to cart events
+        $(document.body).on('added_to_cart', function() {
+            // Small delay to ensure cart is updated
+            setTimeout(function() {
+                window.location.href = 'https://lilac.local/checkout/?nocache=1750141644';
+            }, 100);
+        });
+    });
+    </script>
+    
+
+
+<div id="lilac-toast-container" class="top-right"></div><div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div></body>

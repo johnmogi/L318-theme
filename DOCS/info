@@ -1,0 +1,606 @@
+Admin Menu Debug
+Main Menu Items:
+לוח בקרה | Slug: index.php | Capability: read
+מדיה | Slug: upload.php | Capability: upload_files
+תגובות <span class="awaiting-mod count-0"><span class="pending-count" aria-hidden="true">0</span><span class="comments-in-moderation-text screen-reader-text">0 תגובות בהמתנה</span></span> | Slug: edit-comments.php | Capability: edit_posts
+פוסטים | Slug: edit.php | Capability: edit_posts
+עמודים | Slug: edit.php?post_type=page | Capability: edit_pages
+הוצאה לאור | Slug: edit.php?post_type=ota | Capability: edit_posts
+טיפים א | Slug: edit.php?post_type=tips | Capability: edit_posts
+המלצות | Slug: edit.php?post_type=hamla | Capability: edit_posts
+עיצוב | Slug: themes.php | Capability: switch_themes
+תוספים <span class="update-plugins count-3"><span class="plugin-count">3</span></span> | Slug: plugins.php | Capability: activate_plugins
+משתמשים | Slug: users.php | Capability: list_users
+כלים | Slug: tools.php | Capability: edit_posts
+הגדרות | Slug: options-general.php | Capability: manage_options
+מערכת ניהול קורסים | Slug: learndash-lms | Capability: read
+YITH | Slug: yith_plugin_panel | Capability: manage_options
+שיווק | Slug: woocommerce-marketing | Capability: manage_woocommerce
+ווקומרס | Slug: woocommerce | Capability: edit_others_shop_orders
+מוצרים | Slug: edit.php?post_type=product | Capability: edit_products
+ACF | Slug: edit.php?post_type=acf-field-group | Capability: manage_options
+תשלומים | Slug: admin.php?page=wc-settings&tab=checkout&from=PAYMENTS_MENU_ITEM | Capability: manage_woocommerce
+Lilac Learning | Slug: lilac-learning-manager | Capability: manage_options
+Quiz Tools | Slug: quiz-tools | Capability: manage_options
+הלו | Slug: hello-elementor | Capability: manage_options
+קודי הרשמה | Slug: registration-codes | Capability: manage_options
+Messaging | Slug: lilac-messaging | Capability: manage_options
+נתונים אנליטיים | Slug: wc-admin&path=/analytics/overview | Capability: view_woocommerce_reports
+אלמנטור | Slug: elementor | Capability: manage_options
+טמפלטים | Slug: edit.php?post_type=elementor_library | Capability: edit_posts
+Crocoblock | Slug: jet-dashboard | Capability: manage_options
+JetEngine | Slug: jet-engine | Capability: manage_options
+Submenu Items:
+Parent: index.php
+ראשי | Slug: index.php | Capability: read
+שדרוגים <span class="update-plugins count-3"><span class="update-count">3</span></span> | Slug: update-core.php | Capability: update_core
+Parent: upload.php
+ספריה | Slug: upload.php | Capability: upload_files
+Add Media File | Slug: media-new.php | Capability: upload_files
+Parent: edit.php
+כל הפוסטים | Slug: edit.php | Capability: edit_posts
+Add Post | Slug: post-new.php | Capability: edit_posts
+קטגוריות | Slug: edit-tags.php?taxonomy=category | Capability: manage_categories
+תגיות | Slug: edit-tags.php?taxonomy=post_tag | Capability: manage_post_tags
+Parent: edit.php?post_type=page
+כל העמודים | Slug: edit.php?post_type=page | Capability: edit_pages
+Add Page | Slug: post-new.php?post_type=page | Capability: edit_pages
+Parent: edit.php?post_type=elementor_library
+טמפלטים שמורים | Slug: edit.php?post_type=elementor_library&tabs_group=library | Capability: edit_posts
+Popups | Slug: edit.php?post_type=elementor_library&tabs_group=popup&elementor_library_type=popup | Capability: publish_posts
+Theme Builder | Slug: https://d266lilac.local/wp-admin/admin.php?page=elementor-app&ver=3.29.2#/site-editor | Capability: publish_posts
+Floating Elements | Slug: e-floating-buttons | Capability: manage_options
+ספריית הקיטים | Slug: https://d266lilac.local/wp-admin/admin.php?page=elementor-app&ver=3.29.2#/kit-library | Capability: manage_options
+הוספת חדש | Slug: https://d266lilac.local/wp-admin/edit.php?post_type=elementor_library#add_new | Capability: edit_posts
+קטגוריות | Slug: edit-tags.php?taxonomy=elementor_library_category&post_type=elementor_library | Capability: manage_categories
+Parent: edit.php?post_type=product
+כל המוצרים | Slug: edit.php?post_type=product | Capability: edit_products
+הוספת מוצר חדש | Slug: post-new.php?post_type=product | Capability: edit_products
+מותגים | Slug: edit-tags.php?taxonomy=product_brand&post_type=product | Capability: manage_product_terms
+קטגוריות | Slug: edit-tags.php?taxonomy=product_cat&post_type=product | Capability: manage_product_terms
+תגיות | Slug: edit-tags.php?taxonomy=product_tag&post_type=product | Capability: manage_product_terms
+תכונות | Slug: product_attributes | Capability: manage_product_terms
+חוות דעת | Slug: product-reviews | Capability: moderate_comments
+Parent: edit.php?post_type=sfwd-courses
+קורסים | Slug: edit.php?post_type=sfwd-courses | Capability: edit_courses
+הוסף קורס חדש | Slug: post-new.php?post_type=sfwd-courses | Capability: edit_courses
+קטגוריות | Slug: edit-tags.php?taxonomy=category&post_type=sfwd-courses | Capability: manage_categories
+Programs | Slug: edit-tags.php?taxonomy=llm_program&post_type=sfwd-courses | Capability: manage_categories
+קטגוריות קורס | Slug: edit-tags.php?taxonomy=ld_course_category&post_type=sfwd-courses | Capability: manage_categories
+תגיות קורס | Slug: edit-tags.php?taxonomy=ld_course_tag&post_type=sfwd-courses | Capability: manage_categories
+הגדרות | Slug: courses-options | Capability: manage_options
+שורטקוד | Slug: courses-shortcodes | Capability: manage_options
+Parent: edit.php?post_type=sfwd-lessons
+שיעורים | Slug: edit.php?post_type=sfwd-lessons | Capability: edit_courses
+הוסף שיעור חדש | Slug: post-new.php?post_type=sfwd-lessons | Capability: edit_courses
+קטגוריות שיעור | Slug: edit-tags.php?taxonomy=ld_lesson_category&post_type=sfwd-lessons | Capability: manage_categories
+תגיות שיעור | Slug: edit-tags.php?taxonomy=ld_lesson_tag&post_type=sfwd-lessons | Capability: manage_categories
+הגדרות | Slug: lessons-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-topic
+נושאים | Slug: edit.php?post_type=sfwd-topic | Capability: edit_courses
+הוסף נושא חדש | Slug: post-new.php?post_type=sfwd-topic | Capability: edit_courses
+קטגוריות נושא | Slug: edit-tags.php?taxonomy=ld_topic_category&post_type=sfwd-topic | Capability: manage_categories
+הגדרות | Slug: topics-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-quiz
+מבחנים | Slug: edit.php?post_type=sfwd-quiz | Capability: edit_courses
+הוסף מבחן חדש | Slug: post-new.php?post_type=sfwd-quiz | Capability: edit_courses
+קטגוריות מבחן | Slug: edit-tags.php?taxonomy=ld_quiz_category&post_type=sfwd-quiz | Capability: manage_categories
+מבחן מתקדם | Slug: ldAdvQuiz | Capability: wpProQuiz_show
+הגדרות | Slug: quizzes-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-question
+שאלות | Slug: edit.php?post_type=sfwd-question | Capability: edit_courses
+הוסף שאלה חדשה | Slug: post-new.php?post_type=sfwd-question | Capability: edit_courses
+הגדרות | Slug: questions-options | Capability: manage_options
+הגדרות שאלה של לארנדאש | Slug: sfwd-question-options | Capability: manage_options
+Parent: edit.php?post_type=ld-exam
+Challenge Exams | Slug: edit.php?post_type=ld-exam | Capability: edit_courses
+Add New Challenge Exam | Slug: post-new.php?post_type=ld-exam | Capability: edit_courses
+LearnDash Challenge Exam Settings | Slug: ld-exam-options | Capability: manage_options
+Parent: edit.php?post_type=ld-coupon
+Coupons | Slug: edit.php?post_type=ld-coupon | Capability: edit_coupons
+Add New Coupon | Slug: post-new.php?post_type=ld-coupon | Capability: edit_coupons
+LearnDash Coupon Settings | Slug: ld-coupon-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-certificates
+תעודות | Slug: edit.php?post_type=sfwd-certificates | Capability: edit_courses
+הוסף תעודה חדשה | Slug: post-new.php?post_type=sfwd-certificates | Capability: edit_courses
+הגדרות | Slug: certificate-options | Capability: manage_options
+שורטקוד | Slug: learndash-lms-certificate_shortcodes | Capability: manage_options
+אפשרויות תעודה של מערכת ניהול הקורסים | Slug: sfwd-certificates-options | Capability: manage_options
+Parent: edit.php?post_type=groups
+קבוצות | Slug: edit.php?post_type=groups | Capability: edit_groups
+הוסף קבוצה חדשה | Slug: post-new.php?post_type=groups | Capability: edit_groups
+קטגוריות | Slug: edit-tags.php?taxonomy=category&post_type=groups | Capability: manage_categories
+תגיות | Slug: edit-tags.php?taxonomy=post_tag&post_type=groups | Capability: manage_post_tags
+קטגוריות קבוצה | Slug: edit-tags.php?taxonomy=ld_group_category&post_type=groups | Capability: manage_terms_group_categories
+תגיות קבוצה | Slug: edit-tags.php?taxonomy=ld_group_tag&post_type=groups | Capability: manage_terms_group_categories
+הגדרות | Slug: groups-options | Capability: manage_options
+קבוצה אפשרויות | Slug: groups-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-transactions
+Orders | Slug: edit.php?post_type=sfwd-transactions | Capability: edit_posts
+הוסף Orders חדש | Slug: post-new.php?post_type=sfwd-transactions | Capability: edit_posts
+LearnDash Orders Settings | Slug: sfwd-transactions-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-assignment
+משימות | Slug: edit.php?post_type=sfwd-assignment | Capability: edit_assignments
+Add Post | Slug: post-new.php?post_type=sfwd-assignment | Capability: edit_assignments
+הגדרות | Slug: assignments-options | Capability: manage_options
+Parent: edit.php?post_type=ota
+הוצאה לאור | Slug: edit.php?post_type=ota | Capability: edit_posts
+Add Post | Slug: post-new.php?post_type=ota | Capability: edit_posts
+קטגוריות | Slug: edit-tags.php?taxonomy=-kate&post_type=ota | Capability: manage_categories
+Parent: edit.php?post_type=tips
+טיפים א | Slug: edit.php?post_type=tips | Capability: edit_posts
+Add Post | Slug: post-new.php?post_type=tips | Capability: edit_posts
+Parent: edit.php?post_type=hamla
+המלצות | Slug: edit.php?post_type=hamla | Capability: edit_posts
+הוסף המלצה חדשה | Slug: post-new.php?post_type=hamla | Capability: edit_posts
+Parent: themes.php
+<span class="update-plugins count-0"><span class="theme-count">0</span></span> תבניות | Slug: themes.php | Capability: switch_themes
+Design | Slug: site-editor.php | Capability: edit_theme_options
+התאמה אישית | Slug: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlilac-learning-manager | Capability: customize
+תפריטים | Slug: nav-menus.php | Capability: edit_theme_options
+עורך קבצי תבנית | Slug: theme-editor.php | Capability: edit_themes
+Parent: plugins.php
+תוספים מותקנים | Slug: plugins.php | Capability: activate_plugins
+Add Plugin | Slug: plugin-install.php | Capability: install_plugins
+עורך קבצי תוסף | Slug: plugin-editor.php | Capability: edit_plugins
+Parent: users.php
+כל המשתמשים | Slug: users.php | Capability: list_users
+Add User | Slug: user-new.php | Capability: create_users
+פרופיל אישי | Slug: profile.php | Capability: read
+Parent: tools.php
+כלים זמינים | Slug: tools.php | Capability: edit_posts
+יבוא | Slug: import.php | Capability: import
+יצוא | Slug: export.php | Capability: export
+Site Health <span class="menu-counter site-health-counter count-0"><span class="count">0</span></span> | Slug: site-health.php | Capability: view_site_health_checks
+יצוא מידע אישי | Slug: export-personal-data.php | Capability: export_others_personal_data
+מחיקת מידע אישי | Slug: erase-personal-data.php | Capability: erase_others_personal_data
+WP Migrate | Slug: wp-migrate-db | Capability: export
+פעולות מתוזמנות | Slug: action-scheduler | Capability: manage_options
+Parent: options-general.php
+כללי | Slug: options-general.php | Capability: manage_options
+כתיבה | Slug: options-writing.php | Capability: manage_options
+קריאה | Slug: options-reading.php | Capability: manage_options
+דיון | Slug: options-discussion.php | Capability: manage_options
+מדיה | Slug: options-media.php | Capability: manage_options
+מבנה קישורים | Slug: options-permalink.php | Capability: manage_options
+פרטיות | Slug: options-privacy.php | Capability: manage_privacy_options
+Parent: jet-dashboard
+Dashboard | Slug: jet-dashboard | Capability: manage_options
+JetPlugins Settings | Slug: jet-dashboard-settings-page | Capability: manage_options
+Update & Installation | Slug: jet-dashboard-license-page | Capability: manage_options
+Interactive Tutorials | Slug: crocoblock-workflows | Capability: manage_options
+License | Slug: https://d266lilac.local/wp-admin/admin.php?page=jet-dashboard-license-page&subpage=license-manager | Capability: manage_options
+Parent: learndash-lms
+Setup | Slug: admin.php?page=learndash-setup | Capability: manage_options
+קורסים | Slug: edit.php?post_type=sfwd-courses | Capability: edit_courses
+שיעורים | Slug: edit.php?post_type=sfwd-lessons | Capability: edit_courses
+נושאים | Slug: edit.php?post_type=sfwd-topic | Capability: edit_courses
+מבחנים | Slug: edit.php?post_type=sfwd-quiz | Capability: edit_courses
+שאלות | Slug: edit.php?post_type=sfwd-question | Capability: edit_courses
+תעודות | Slug: edit.php?post_type=sfwd-certificates | Capability: edit_courses
+קבוצות | Slug: edit.php?post_type=groups | Capability: edit_groups
+Challenge Exams | Slug: edit.php?post_type=ld-exam | Capability: edit_courses
+משימות | Slug: edit.php?post_type=sfwd-assignment | Capability: edit_assignments
+Orders | Slug: edit.php?post_type=sfwd-transactions | Capability: manage_options
+Reports | Slug: learndash-lms-reports | Capability: manage_options
+Coupons | Slug: edit.php?post_type=ld-coupon | Capability: manage_options
+WooCommerce | Slug: admin.php?page=learndash-woocommerce-settings | Capability: manage_options
+Elementor | Slug: admin.php?page=ld-elementor-settings | Capability: manage_options
+Help | Slug: admin.php?page=learndash-help | Capability: manage_options
+| Slug: learndash-ai-course-outline | Capability: manage_options
+הרחבות | Slug: learndash-hub | Capability: manage_options
+Thank You Page Settings | Slug: lilac-thank-you-settings | Capability: manage_options
+הגדרות | Slug: admin.php?page=learndash_lms_settings | Capability: manage_options
+Parent: woocommerce-marketing
+סקירה | Slug: admin.php?page=wc-admin&path=/marketing | Capability: view_woocommerce_reports
+קופונים | Slug: edit.php?post_type=shop_coupon | Capability: edit_shop_coupons
+Parent: edit.php?post_type=acf-field-group
+Field Groups | Slug: edit.php?post_type=acf-field-group | Capability: manage_options
+Post Types | Slug: edit.php?post_type=acf-post-type | Capability: manage_options
+Taxonomies | Slug: edit.php?post_type=acf-taxonomy | Capability: manage_options
+Options Pages | Slug: edit.php?post_type=acf-ui-options-page | Capability: manage_options
+Tools | Slug: acf-tools | Capability: manage_options
+עדכונים | Slug: acf-settings-updates | Capability: manage_options
+Parent: woocommerce
+ראשי | Slug: wc-admin | Capability: read
+הזמנות <span class="awaiting-mod update-plugins count-2"><span class="processing-count">2</span></span> | Slug: wc-orders | Capability: edit_shop_orders
+לקוחות | Slug: wc-admin&path=/customers | Capability: view_woocommerce_reports
+קופונים | Slug: coupons-moved | Capability: manage_options
+דוחות | Slug: wc-reports | Capability: view_woocommerce_reports
+הגדרות | Slug: wc-settings | Capability: manage_woocommerce
+מצב | Slug: wc-status | Capability: manage_woocommerce
+| Slug: wc-addons | Capability: manage_woocommerce
+הרחבות <span class="update-plugins count-0"><span class="update-count">0</span></span> | Slug: wc-admin&path=/extensions | Capability: view_woocommerce_reports
+YITH Status | Slug: yith-status-check | Capability: manage_options
+Parent: edit.php?post_type=elementor_library&tabs_group=library
+כל הFloating Elements | Slug: edit.php?post_type=e-floating-buttons | Capability: edit_posts
+Parent: lilac-learning-manager
+Dashboard | Slug: lilac-learning-manager | Capability: manage_options
+Menu Debug | Slug: lilac-menu-debug | Capability: manage_options
+Menu Debug | Slug: lilac-menu-debug | Capability: manage_options
+Parent:
+ProPanel Reporting | Slug: propanel-reporting | Capability: manage_options
+YITH Licence Activation | Slug: yith-licence-activation | Capability: activate_plugins
+אשף ההתקנה | Slug: wc-admin&path=/setup-wizard | Capability: view_woocommerce_reports
+App Password | Slug: e-site-planner-password-generator | Capability: manage_options
+Parent: hello-elementor
+דף הבית | Slug: hello-elementor | Capability: manage_options
+הגדרות | Slug: hello-elementor-settings | Capability: manage_options
+בונה תבנית | Slug: elementor-app&ver=3.29.2#site-editor | Capability: manage_options
+AI Site Planner | Slug: hello-elementor-ai-site-planner | Capability: manage_options
+Parent: lilac-messaging
+Welcome Messages | Slug: lilac-messaging | Capability: manage_options
+Contextual Messages | Slug: lilac-messaging-contextual | Capability: manage_options
+Progress Notifications | Slug: lilac-messaging-progress | Capability: manage_options
+Message Management | Slug: lilac-message-manager | Capability: manage_options
+Parent: registration-codes
+ניהול קודים | Slug: registration-codes | Capability: manage_options
+ייבוא משתמשים | Slug: import-users | Capability: manage_options
+לוח בקרת מורה | Slug: teacher-dashboard | Capability: manage_options
+אשף יצירת קודים | Slug: registration-wizard | Capability: manage_options
+Parent: admin.php?page=learndash-setup
+LearnDash Setup | Slug: learndash-setup | Capability: manage_options
+Parent: admin.php?page=learndash-help
+LearnDash Help | Slug: learndash-help | Capability: manage_options
+Parent: admin.php?page=learndash_lms_settings
+כללי | Slug: learndash_lms_settings | Capability: manage_options
+Registration/Login | Slug: learndash_lms_registration | Capability: manage_options
+Payments | Slug: learndash_lms_payments | Capability: manage_options
+Emails | Slug: learndash_lms_emails | Capability: manage_options
+תרגומים | Slug: learndash_lms_translations | Capability: manage_options
+תמיכה | Slug: learndash_support | Capability: manage_options
+Advanced | Slug: learndash_lms_advanced | Capability: manage_options
+Experiments | Slug: learndash_experiments | Capability: manage_options
+רשיון מערכת ניהול הקורסים | Slug: learndash_hub_licensing | Capability: manage_options
+Parent: admin.php?page=learndash_lms_addons
+הרחבות LearnDash | Slug: learndash_lms_addons | Capability: manage_options
+Parent: admin.php?page=learndash-woocommerce-settings
+LearnDash LMS - WooCommerce Settings | Slug: learndash-woocommerce-settings | Capability: manage_options
+Parent: admin.php?page=ld-elementor-settings
+LearnDash Elementor Settings | Slug: ld-elementor-settings | Capability: manage_options
+Parent: wc-admin&path=/analytics/overview
+סקירה | Slug: wc-admin&path=/analytics/overview | Capability: view_woocommerce_reports
+מוצרים | Slug: wc-admin&path=/analytics/products | Capability: view_woocommerce_reports
+הכנסה | Slug: wc-admin&path=/analytics/revenue | Capability: view_woocommerce_reports
+הזמנות | Slug: wc-admin&path=/analytics/orders | Capability: view_woocommerce_reports
+Subscriptions | Slug: wc-admin&path=&page=yith_woocommerce_subscription&tab=dashboard | Capability: view_woocommerce_reports
+וריאציות | Slug: wc-admin&path=/analytics/variations | Capability: view_woocommerce_reports
+קטגוריות | Slug: wc-admin&path=/analytics/categories | Capability: view_woocommerce_reports
+קופונים | Slug: wc-admin&path=/analytics/coupons | Capability: view_woocommerce_reports
+מיסים | Slug: wc-admin&path=/analytics/taxes | Capability: view_woocommerce_reports
+הורדות | Slug: wc-admin&path=/analytics/downloads | Capability: view_woocommerce_reports
+מלאי | Slug: wc-admin&path=/analytics/stock | Capability: view_woocommerce_reports
+הגדרות | Slug: wc-admin&path=/analytics/settings | Capability: view_woocommerce_reports
+Parent: learndash-hub
+הגדרות | Slug: learndash-hub-settings | Capability: manage_options
+Parent: yith_plugin_panel
+Subscription | Slug: yith_woocommerce_subscription | Capability: manage_woocommerce
+System Status | Slug: yith_system_info | Capability: manage_options
+License Panel <span data-count='1' id='yith-licence-to-activate-count' class='awaiting-mod count-1'><span class='expired-count'>1</span></span> | Slug: yith_plugins_activation | Capability: manage_options
+Parent: jet-engine
+JetEngine | Slug: jet-engine | Capability: manage_options
+Listings/Components | Slug: edit.php?post_type=jet-engine | Capability: manage_options
+Post Types | Slug: jet-engine-cpt | Capability: manage_options
+Meta Boxes | Slug: jet-engine-meta | Capability: manage_options
+Taxonomies | Slug: jet-engine-cpt-tax | Capability: manage_options
+Relations | Slug: jet-engine-relations | Capability: manage_options
+Options Pages | Slug: jet-engine-options-pages | Capability: manage_options
+Query Builder | Slug: jet-engine-query | Capability: manage_options
+<span><svg width="14" height="14" style="margin: 0 2px -1px 0" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 3.6L10 5L8.6 2.5L10 0L7.5 1.4L5 0L6.4 2.5L5 5L7.5 3.6ZM19.5 13.4L17 12L18.4 14.5L17 17L19.5 15.6L22 17L20.6 14.5L22 12L19.5 13.4ZM22 0L19.5 1.4L17 0L18.4 2.5L17 5L19.5 3.6L22 5L20.6 2.5L22 0ZM14.37 5.29C13.98 4.9 13.35 4.9 12.96 5.29L1.29 16.96C0.899998 17.35 0.899998 17.98 1.29 18.37L3.63 20.71C4.02 21.1 4.65 21.1 5.04 20.71L16.7 9.05C17.09 8.66 17.09 8.03 16.7 7.64L14.37 5.29ZM13.34 10.78L11.22 8.66L13.66 6.22L15.78 8.34L13.34 10.78Z" fill="currentColor"></path></svg> Website Builder</span> | Slug: website-builder | Capability: manage_options
+Parent: elementor
+ראשי | Slug: elementor | Capability: manage_options
+הגדרות | Slug: elementor-settings | Capability: manage_options
+Submissions | Slug: e-form-submissions | Capability: manage_options
+Custom Fonts | Slug: e-custom-fonts | Capability: manage_options
+Custom Icons | Slug: e-custom-icons | Capability: manage_options
+Custom Code | Slug: e-custom-code | Capability: manage_options
+ניהול תפקידים | Slug: elementor-role-manager | Capability: manage_options
+ניהול אלמנטים | Slug: elementor-element-manager | Capability: manage_options
+כלים | Slug: elementor-tools | Capability: manage_options
+מצב מערכת | Slug: elementor-system-info | Capability: manage_options
+קבל עזרה | Slug: go_knowledge_base_site | Capability: manage_options
+הרחבות | Slug: elementor-apps | Capability: manage_options
+License | Slug: elementor-license | Capability: manage_options
+Admin Menu Debug
+Main Menu Items:
+לוח בקרה | Slug: index.php | Capability: read
+מדיה | Slug: upload.php | Capability: upload_files
+תגובות <span class="awaiting-mod count-0"><span class="pending-count" aria-hidden="true">0</span><span class="comments-in-moderation-text screen-reader-text">0 תגובות בהמתנה</span></span> | Slug: edit-comments.php | Capability: edit_posts
+פוסטים | Slug: edit.php | Capability: edit_posts
+עמודים | Slug: edit.php?post_type=page | Capability: edit_pages
+הוצאה לאור | Slug: edit.php?post_type=ota | Capability: edit_posts
+טיפים א | Slug: edit.php?post_type=tips | Capability: edit_posts
+המלצות | Slug: edit.php?post_type=hamla | Capability: edit_posts
+עיצוב | Slug: themes.php | Capability: switch_themes
+תוספים <span class="update-plugins count-3"><span class="plugin-count">3</span></span> | Slug: plugins.php | Capability: activate_plugins
+משתמשים | Slug: users.php | Capability: list_users
+כלים | Slug: tools.php | Capability: edit_posts
+הגדרות | Slug: options-general.php | Capability: manage_options
+מערכת ניהול קורסים | Slug: learndash-lms | Capability: read
+YITH | Slug: yith_plugin_panel | Capability: manage_options
+שיווק | Slug: woocommerce-marketing | Capability: manage_woocommerce
+ווקומרס | Slug: woocommerce | Capability: edit_others_shop_orders
+מוצרים | Slug: edit.php?post_type=product | Capability: edit_products
+ACF | Slug: edit.php?post_type=acf-field-group | Capability: manage_options
+תשלומים | Slug: admin.php?page=wc-settings&tab=checkout&from=PAYMENTS_MENU_ITEM | Capability: manage_woocommerce
+Lilac Learning | Slug: lilac-learning-manager | Capability: manage_options
+Quiz Tools | Slug: quiz-tools | Capability: manage_options
+הלו | Slug: hello-elementor | Capability: manage_options
+קודי הרשמה | Slug: registration-codes | Capability: manage_options
+Messaging | Slug: lilac-messaging | Capability: manage_options
+נתונים אנליטיים | Slug: wc-admin&path=/analytics/overview | Capability: view_woocommerce_reports
+אלמנטור | Slug: elementor | Capability: manage_options
+טמפלטים | Slug: edit.php?post_type=elementor_library | Capability: edit_posts
+Crocoblock | Slug: jet-dashboard | Capability: manage_options
+JetEngine | Slug: jet-engine | Capability: manage_options
+Submenu Items:
+Parent: index.php
+ראשי | Slug: index.php | Capability: read
+שדרוגים <span class="update-plugins count-3"><span class="update-count">3</span></span> | Slug: update-core.php | Capability: update_core
+Parent: upload.php
+ספריה | Slug: upload.php | Capability: upload_files
+Add Media File | Slug: media-new.php | Capability: upload_files
+Parent: edit.php
+כל הפוסטים | Slug: edit.php | Capability: edit_posts
+Add Post | Slug: post-new.php | Capability: edit_posts
+קטגוריות | Slug: edit-tags.php?taxonomy=category | Capability: manage_categories
+תגיות | Slug: edit-tags.php?taxonomy=post_tag | Capability: manage_post_tags
+Parent: edit.php?post_type=page
+כל העמודים | Slug: edit.php?post_type=page | Capability: edit_pages
+Add Page | Slug: post-new.php?post_type=page | Capability: edit_pages
+Parent: edit.php?post_type=elementor_library
+טמפלטים שמורים | Slug: edit.php?post_type=elementor_library&tabs_group=library | Capability: edit_posts
+Popups | Slug: edit.php?post_type=elementor_library&tabs_group=popup&elementor_library_type=popup | Capability: publish_posts
+Theme Builder | Slug: https://d266lilac.local/wp-admin/admin.php?page=elementor-app&ver=3.29.2#/site-editor | Capability: publish_posts
+Floating Elements | Slug: e-floating-buttons | Capability: manage_options
+ספריית הקיטים | Slug: https://d266lilac.local/wp-admin/admin.php?page=elementor-app&ver=3.29.2#/kit-library | Capability: manage_options
+הוספת חדש | Slug: https://d266lilac.local/wp-admin/edit.php?post_type=elementor_library#add_new | Capability: edit_posts
+קטגוריות | Slug: edit-tags.php?taxonomy=elementor_library_category&post_type=elementor_library | Capability: manage_categories
+Parent: edit.php?post_type=product
+כל המוצרים | Slug: edit.php?post_type=product | Capability: edit_products
+הוספת מוצר חדש | Slug: post-new.php?post_type=product | Capability: edit_products
+מותגים | Slug: edit-tags.php?taxonomy=product_brand&post_type=product | Capability: manage_product_terms
+קטגוריות | Slug: edit-tags.php?taxonomy=product_cat&post_type=product | Capability: manage_product_terms
+תגיות | Slug: edit-tags.php?taxonomy=product_tag&post_type=product | Capability: manage_product_terms
+תכונות | Slug: product_attributes | Capability: manage_product_terms
+חוות דעת | Slug: product-reviews | Capability: moderate_comments
+Parent: edit.php?post_type=sfwd-courses
+קורסים | Slug: edit.php?post_type=sfwd-courses | Capability: edit_courses
+הוסף קורס חדש | Slug: post-new.php?post_type=sfwd-courses | Capability: edit_courses
+קטגוריות | Slug: edit-tags.php?taxonomy=category&post_type=sfwd-courses | Capability: manage_categories
+Programs | Slug: edit-tags.php?taxonomy=llm_program&post_type=sfwd-courses | Capability: manage_categories
+קטגוריות קורס | Slug: edit-tags.php?taxonomy=ld_course_category&post_type=sfwd-courses | Capability: manage_categories
+תגיות קורס | Slug: edit-tags.php?taxonomy=ld_course_tag&post_type=sfwd-courses | Capability: manage_categories
+הגדרות | Slug: courses-options | Capability: manage_options
+שורטקוד | Slug: courses-shortcodes | Capability: manage_options
+Parent: edit.php?post_type=sfwd-lessons
+שיעורים | Slug: edit.php?post_type=sfwd-lessons | Capability: edit_courses
+הוסף שיעור חדש | Slug: post-new.php?post_type=sfwd-lessons | Capability: edit_courses
+קטגוריות שיעור | Slug: edit-tags.php?taxonomy=ld_lesson_category&post_type=sfwd-lessons | Capability: manage_categories
+תגיות שיעור | Slug: edit-tags.php?taxonomy=ld_lesson_tag&post_type=sfwd-lessons | Capability: manage_categories
+הגדרות | Slug: lessons-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-topic
+נושאים | Slug: edit.php?post_type=sfwd-topic | Capability: edit_courses
+הוסף נושא חדש | Slug: post-new.php?post_type=sfwd-topic | Capability: edit_courses
+קטגוריות נושא | Slug: edit-tags.php?taxonomy=ld_topic_category&post_type=sfwd-topic | Capability: manage_categories
+הגדרות | Slug: topics-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-quiz
+מבחנים | Slug: edit.php?post_type=sfwd-quiz | Capability: edit_courses
+הוסף מבחן חדש | Slug: post-new.php?post_type=sfwd-quiz | Capability: edit_courses
+קטגוריות מבחן | Slug: edit-tags.php?taxonomy=ld_quiz_category&post_type=sfwd-quiz | Capability: manage_categories
+מבחן מתקדם | Slug: ldAdvQuiz | Capability: wpProQuiz_show
+הגדרות | Slug: quizzes-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-question
+שאלות | Slug: edit.php?post_type=sfwd-question | Capability: edit_courses
+הוסף שאלה חדשה | Slug: post-new.php?post_type=sfwd-question | Capability: edit_courses
+הגדרות | Slug: questions-options | Capability: manage_options
+הגדרות שאלה של לארנדאש | Slug: sfwd-question-options | Capability: manage_options
+Parent: edit.php?post_type=ld-exam
+Challenge Exams | Slug: edit.php?post_type=ld-exam | Capability: edit_courses
+Add New Challenge Exam | Slug: post-new.php?post_type=ld-exam | Capability: edit_courses
+LearnDash Challenge Exam Settings | Slug: ld-exam-options | Capability: manage_options
+Parent: edit.php?post_type=ld-coupon
+Coupons | Slug: edit.php?post_type=ld-coupon | Capability: edit_coupons
+Add New Coupon | Slug: post-new.php?post_type=ld-coupon | Capability: edit_coupons
+LearnDash Coupon Settings | Slug: ld-coupon-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-certificates
+תעודות | Slug: edit.php?post_type=sfwd-certificates | Capability: edit_courses
+הוסף תעודה חדשה | Slug: post-new.php?post_type=sfwd-certificates | Capability: edit_courses
+הגדרות | Slug: certificate-options | Capability: manage_options
+שורטקוד | Slug: learndash-lms-certificate_shortcodes | Capability: manage_options
+אפשרויות תעודה של מערכת ניהול הקורסים | Slug: sfwd-certificates-options | Capability: manage_options
+Parent: edit.php?post_type=groups
+קבוצות | Slug: edit.php?post_type=groups | Capability: edit_groups
+הוסף קבוצה חדשה | Slug: post-new.php?post_type=groups | Capability: edit_groups
+קטגוריות | Slug: edit-tags.php?taxonomy=category&post_type=groups | Capability: manage_categories
+תגיות | Slug: edit-tags.php?taxonomy=post_tag&post_type=groups | Capability: manage_post_tags
+קטגוריות קבוצה | Slug: edit-tags.php?taxonomy=ld_group_category&post_type=groups | Capability: manage_terms_group_categories
+תגיות קבוצה | Slug: edit-tags.php?taxonomy=ld_group_tag&post_type=groups | Capability: manage_terms_group_categories
+הגדרות | Slug: groups-options | Capability: manage_options
+קבוצה אפשרויות | Slug: groups-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-transactions
+Orders | Slug: edit.php?post_type=sfwd-transactions | Capability: edit_posts
+הוסף Orders חדש | Slug: post-new.php?post_type=sfwd-transactions | Capability: edit_posts
+LearnDash Orders Settings | Slug: sfwd-transactions-options | Capability: manage_options
+Parent: edit.php?post_type=sfwd-assignment
+משימות | Slug: edit.php?post_type=sfwd-assignment | Capability: edit_assignments
+Add Post | Slug: post-new.php?post_type=sfwd-assignment | Capability: edit_assignments
+הגדרות | Slug: assignments-options | Capability: manage_options
+Parent: edit.php?post_type=ota
+הוצאה לאור | Slug: edit.php?post_type=ota | Capability: edit_posts
+Add Post | Slug: post-new.php?post_type=ota | Capability: edit_posts
+קטגוריות | Slug: edit-tags.php?taxonomy=-kate&post_type=ota | Capability: manage_categories
+Parent: edit.php?post_type=tips
+טיפים א | Slug: edit.php?post_type=tips | Capability: edit_posts
+Add Post | Slug: post-new.php?post_type=tips | Capability: edit_posts
+Parent: edit.php?post_type=hamla
+המלצות | Slug: edit.php?post_type=hamla | Capability: edit_posts
+הוסף המלצה חדשה | Slug: post-new.php?post_type=hamla | Capability: edit_posts
+Parent: themes.php
+<span class="update-plugins count-0"><span class="theme-count">0</span></span> תבניות | Slug: themes.php | Capability: switch_themes
+Design | Slug: site-editor.php | Capability: edit_theme_options
+התאמה אישית | Slug: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlilac-learning-manager | Capability: customize
+תפריטים | Slug: nav-menus.php | Capability: edit_theme_options
+עורך קבצי תבנית | Slug: theme-editor.php | Capability: edit_themes
+Parent: plugins.php
+תוספים מותקנים | Slug: plugins.php | Capability: activate_plugins
+Add Plugin | Slug: plugin-install.php | Capability: install_plugins
+עורך קבצי תוסף | Slug: plugin-editor.php | Capability: edit_plugins
+Parent: users.php
+כל המשתמשים | Slug: users.php | Capability: list_users
+Add User | Slug: user-new.php | Capability: create_users
+פרופיל אישי | Slug: profile.php | Capability: read
+Parent: tools.php
+כלים זמינים | Slug: tools.php | Capability: edit_posts
+יבוא | Slug: import.php | Capability: import
+יצוא | Slug: export.php | Capability: export
+Site Health <span class="menu-counter site-health-counter count-0"><span class="count">0</span></span> | Slug: site-health.php | Capability: view_site_health_checks
+יצוא מידע אישי | Slug: export-personal-data.php | Capability: export_others_personal_data
+מחיקת מידע אישי | Slug: erase-personal-data.php | Capability: erase_others_personal_data
+WP Migrate | Slug: wp-migrate-db | Capability: export
+פעולות מתוזמנות | Slug: action-scheduler | Capability: manage_options
+Parent: options-general.php
+כללי | Slug: options-general.php | Capability: manage_options
+כתיבה | Slug: options-writing.php | Capability: manage_options
+קריאה | Slug: options-reading.php | Capability: manage_options
+דיון | Slug: options-discussion.php | Capability: manage_options
+מדיה | Slug: options-media.php | Capability: manage_options
+מבנה קישורים | Slug: options-permalink.php | Capability: manage_options
+פרטיות | Slug: options-privacy.php | Capability: manage_privacy_options
+Parent: jet-dashboard
+Dashboard | Slug: jet-dashboard | Capability: manage_options
+JetPlugins Settings | Slug: jet-dashboard-settings-page | Capability: manage_options
+Update & Installation | Slug: jet-dashboard-license-page | Capability: manage_options
+Interactive Tutorials | Slug: crocoblock-workflows | Capability: manage_options
+License | Slug: https://d266lilac.local/wp-admin/admin.php?page=jet-dashboard-license-page&subpage=license-manager | Capability: manage_options
+Parent: learndash-lms
+Setup | Slug: admin.php?page=learndash-setup | Capability: manage_options
+קורסים | Slug: edit.php?post_type=sfwd-courses | Capability: edit_courses
+שיעורים | Slug: edit.php?post_type=sfwd-lessons | Capability: edit_courses
+נושאים | Slug: edit.php?post_type=sfwd-topic | Capability: edit_courses
+מבחנים | Slug: edit.php?post_type=sfwd-quiz | Capability: edit_courses
+שאלות | Slug: edit.php?post_type=sfwd-question | Capability: edit_courses
+תעודות | Slug: edit.php?post_type=sfwd-certificates | Capability: edit_courses
+קבוצות | Slug: edit.php?post_type=groups | Capability: edit_groups
+Challenge Exams | Slug: edit.php?post_type=ld-exam | Capability: edit_courses
+משימות | Slug: edit.php?post_type=sfwd-assignment | Capability: edit_assignments
+Orders | Slug: edit.php?post_type=sfwd-transactions | Capability: manage_options
+Reports | Slug: learndash-lms-reports | Capability: manage_options
+Coupons | Slug: edit.php?post_type=ld-coupon | Capability: manage_options
+WooCommerce | Slug: admin.php?page=learndash-woocommerce-settings | Capability: manage_options
+Elementor | Slug: admin.php?page=ld-elementor-settings | Capability: manage_options
+Help | Slug: admin.php?page=learndash-help | Capability: manage_options
+| Slug: learndash-ai-course-outline | Capability: manage_options
+הרחבות | Slug: learndash-hub | Capability: manage_options
+Thank You Page Settings | Slug: lilac-thank-you-settings | Capability: manage_options
+הגדרות | Slug: admin.php?page=learndash_lms_settings | Capability: manage_options
+Parent: woocommerce-marketing
+סקירה | Slug: admin.php?page=wc-admin&path=/marketing | Capability: view_woocommerce_reports
+קופונים | Slug: edit.php?post_type=shop_coupon | Capability: edit_shop_coupons
+Parent: edit.php?post_type=acf-field-group
+Field Groups | Slug: edit.php?post_type=acf-field-group | Capability: manage_options
+Post Types | Slug: edit.php?post_type=acf-post-type | Capability: manage_options
+Taxonomies | Slug: edit.php?post_type=acf-taxonomy | Capability: manage_options
+Options Pages | Slug: edit.php?post_type=acf-ui-options-page | Capability: manage_options
+Tools | Slug: acf-tools | Capability: manage_options
+עדכונים | Slug: acf-settings-updates | Capability: manage_options
+Parent: woocommerce
+ראשי | Slug: wc-admin | Capability: read
+הזמנות <span class="awaiting-mod update-plugins count-2"><span class="processing-count">2</span></span> | Slug: wc-orders | Capability: edit_shop_orders
+לקוחות | Slug: wc-admin&path=/customers | Capability: view_woocommerce_reports
+קופונים | Slug: coupons-moved | Capability: manage_options
+דוחות | Slug: wc-reports | Capability: view_woocommerce_reports
+הגדרות | Slug: wc-settings | Capability: manage_woocommerce
+מצב | Slug: wc-status | Capability: manage_woocommerce
+| Slug: wc-addons | Capability: manage_woocommerce
+הרחבות <span class="update-plugins count-0"><span class="update-count">0</span></span> | Slug: wc-admin&path=/extensions | Capability: view_woocommerce_reports
+YITH Status | Slug: yith-status-check | Capability: manage_options
+Parent: edit.php?post_type=elementor_library&tabs_group=library
+כל הFloating Elements | Slug: edit.php?post_type=e-floating-buttons | Capability: edit_posts
+Parent: lilac-learning-manager
+Dashboard | Slug: lilac-learning-manager | Capability: manage_options
+Menu Debug | Slug: lilac-menu-debug | Capability: manage_options
+Menu Debug | Slug: lilac-menu-debug | Capability: manage_options
+Parent:
+ProPanel Reporting | Slug: propanel-reporting | Capability: manage_options
+YITH Licence Activation | Slug: yith-licence-activation | Capability: activate_plugins
+אשף ההתקנה | Slug: wc-admin&path=/setup-wizard | Capability: view_woocommerce_reports
+App Password | Slug: e-site-planner-password-generator | Capability: manage_options
+Parent: hello-elementor
+דף הבית | Slug: hello-elementor | Capability: manage_options
+הגדרות | Slug: hello-elementor-settings | Capability: manage_options
+בונה תבנית | Slug: elementor-app&ver=3.29.2#site-editor | Capability: manage_options
+AI Site Planner | Slug: hello-elementor-ai-site-planner | Capability: manage_options
+Parent: lilac-messaging
+Welcome Messages | Slug: lilac-messaging | Capability: manage_options
+Contextual Messages | Slug: lilac-messaging-contextual | Capability: manage_options
+Progress Notifications | Slug: lilac-messaging-progress | Capability: manage_options
+Message Management | Slug: lilac-message-manager | Capability: manage_options
+Parent: registration-codes
+ניהול קודים | Slug: registration-codes | Capability: manage_options
+ייבוא משתמשים | Slug: import-users | Capability: manage_options
+לוח בקרת מורה | Slug: teacher-dashboard | Capability: manage_options
+אשף יצירת קודים | Slug: registration-wizard | Capability: manage_options
+Parent: admin.php?page=learndash-setup
+LearnDash Setup | Slug: learndash-setup | Capability: manage_options
+Parent: admin.php?page=learndash-help
+LearnDash Help | Slug: learndash-help | Capability: manage_options
+Parent: admin.php?page=learndash_lms_settings
+כללי | Slug: learndash_lms_settings | Capability: manage_options
+Registration/Login | Slug: learndash_lms_registration | Capability: manage_options
+Payments | Slug: learndash_lms_payments | Capability: manage_options
+Emails | Slug: learndash_lms_emails | Capability: manage_options
+תרגומים | Slug: learndash_lms_translations | Capability: manage_options
+תמיכה | Slug: learndash_support | Capability: manage_options
+Advanced | Slug: learndash_lms_advanced | Capability: manage_options
+Experiments | Slug: learndash_experiments | Capability: manage_options
+רשיון מערכת ניהול הקורסים | Slug: learndash_hub_licensing | Capability: manage_options
+Parent: admin.php?page=learndash_lms_addons
+הרחבות LearnDash | Slug: learndash_lms_addons | Capability: manage_options
+Parent: admin.php?page=learndash-woocommerce-settings
+LearnDash LMS - WooCommerce Settings | Slug: learndash-woocommerce-settings | Capability: manage_options
+Parent: admin.php?page=ld-elementor-settings
+LearnDash Elementor Settings | Slug: ld-elementor-settings | Capability: manage_options
+Parent: wc-admin&path=/analytics/overview
+סקירה | Slug: wc-admin&path=/analytics/overview | Capability: view_woocommerce_reports
+מוצרים | Slug: wc-admin&path=/analytics/products | Capability: view_woocommerce_reports
+הכנסה | Slug: wc-admin&path=/analytics/revenue | Capability: view_woocommerce_reports
+הזמנות | Slug: wc-admin&path=/analytics/orders | Capability: view_woocommerce_reports
+Subscriptions | Slug: wc-admin&path=&page=yith_woocommerce_subscription&tab=dashboard | Capability: view_woocommerce_reports
+וריאציות | Slug: wc-admin&path=/analytics/variations | Capability: view_woocommerce_reports
+קטגוריות | Slug: wc-admin&path=/analytics/categories | Capability: view_woocommerce_reports
+קופונים | Slug: wc-admin&path=/analytics/coupons | Capability: view_woocommerce_reports
+מיסים | Slug: wc-admin&path=/analytics/taxes | Capability: view_woocommerce_reports
+הורדות | Slug: wc-admin&path=/analytics/downloads | Capability: view_woocommerce_reports
+מלאי | Slug: wc-admin&path=/analytics/stock | Capability: view_woocommerce_reports
+הגדרות | Slug: wc-admin&path=/analytics/settings | Capability: view_woocommerce_reports
+Parent: learndash-hub
+הגדרות | Slug: learndash-hub-settings | Capability: manage_options
+Parent: yith_plugin_panel
+Subscription | Slug: yith_woocommerce_subscription | Capability: manage_woocommerce
+System Status | Slug: yith_system_info | Capability: manage_options
+License Panel <span data-count='1' id='yith-licence-to-activate-count' class='awaiting-mod count-1'><span class='expired-count'>1</span></span> | Slug: yith_plugins_activation | Capability: manage_options
+Parent: jet-engine
+JetEngine | Slug: jet-engine | Capability: manage_options
+Listings/Components | Slug: edit.php?post_type=jet-engine | Capability: manage_options
+Post Types | Slug: jet-engine-cpt | Capability: manage_options
+Meta Boxes | Slug: jet-engine-meta | Capability: manage_options
+Taxonomies | Slug: jet-engine-cpt-tax | Capability: manage_options
+Relations | Slug: jet-engine-relations | Capability: manage_options
+Options Pages | Slug: jet-engine-options-pages | Capability: manage_options
+Query Builder | Slug: jet-engine-query | Capability: manage_options
+<span><svg width="14" height="14" style="margin: 0 2px -1px 0" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 3.6L10 5L8.6 2.5L10 0L7.5 1.4L5 0L6.4 2.5L5 5L7.5 3.6ZM19.5 13.4L17 12L18.4 14.5L17 17L19.5 15.6L22 17L20.6 14.5L22 12L19.5 13.4ZM22 0L19.5 1.4L17 0L18.4 2.5L17 5L19.5 3.6L22 5L20.6 2.5L22 0ZM14.37 5.29C13.98 4.9 13.35 4.9 12.96 5.29L1.29 16.96C0.899998 17.35 0.899998 17.98 1.29 18.37L3.63 20.71C4.02 21.1 4.65 21.1 5.04 20.71L16.7 9.05C17.09 8.66 17.09 8.03 16.7 7.64L14.37 5.29ZM13.34 10.78L11.22 8.66L13.66 6.22L15.78 8.34L13.34 10.78Z" fill="currentColor"></path></svg> Website Builder</span> | Slug: website-builder | Capability: manage_options
+Parent: elementor
+ראשי | Slug: elementor | Capability: manage_options
+הגדרות | Slug: elementor-settings | Capability: manage_options
+Submissions | Slug: e-form-submissions | Capability: manage_options
+Custom Fonts | Slug: e-custom-fonts | Capability: manage_options
+Custom Icons | Slug: e-custom-icons | Capability: manage_options
+Custom Code | Slug: e-custom-code | Capability: manage_options
+ניהול תפקידים | Slug: elementor-role-manager | Capability: manage_options
+ניהול אלמנטים | Slug: elementor-element-manager | Capability: manage_options
+כלים | Slug: elementor-tools | Capability: manage_options
+מצב מערכת | Slug: elementor-system-info | Capability: manage_options
+קבל עזרה | Slug: go_knowledge_base_site | Capability: manage_options
+הרחבות | Slug: elementor-apps | Capability: manage_options
+License | Slug: elementor-license | Capability: manage_options

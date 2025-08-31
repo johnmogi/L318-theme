@@ -1,0 +1,219 @@
+/**
+ * Toast Messaging System Styles
+ * 
+ * Modern, clean toast notification styling with RTL support
+ */
+
+/* Toast Container Positions */
+.lilac-toast-container {
+    position: fixed;
+    z-index: 9999;
+    max-width: 350px;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    pointer-events: none; /* Allow clicking through the container */
+}
+
+.lilac-toast-container[data-position="top-right"] {
+    top: 15px;
+    right: 15px;
+}
+
+.lilac-toast-container[data-position="top-left"] {
+    top: 15px;
+    left: 15px;
+}
+
+.lilac-toast-container[data-position="bottom-right"] {
+    bottom: 15px;
+    right: 15px;
+}
+
+.lilac-toast-container[data-position="bottom-left"] {
+    bottom: 15px;
+    left: 15px;
+}
+
+.lilac-toast-container[data-position="top-center"] {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lilac-toast-container[data-position="bottom-center"] {
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Toast Message Styling */
+.lilac-toast {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: auto; /* Make the toast clickable */
+    direction: rtl; /* RTL support */
+    overflow: hidden;
+}
+
+.lilac-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lilac-toast::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+}
+
+/* Toast Header */
+.lilac-toast-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Toast Close Button */
+.lilac-toast-close {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* RTL positioning */
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.lilac-toast-close:hover {
+    color: #333;
+}
+
+/* Toast Types */
+.lilac-toast-info::before {
+    background-color: #3498db;
+}
+
+.lilac-toast-success::before {
+    background-color: #2ecc71;
+}
+
+.lilac-toast-warning::before {
+    background-color: #f39c12;
+}
+
+.lilac-toast-error::before {
+    background-color: #e74c3c;
+}
+
+/* Toast Types Background */
+.lilac-toast-info {
+    background-color: #ebf7fd;
+}
+
+.lilac-toast-success {
+    background-color: #edfcf0;
+}
+
+.lilac-toast-warning {
+    background-color: #fef8eb;
+}
+
+.lilac-toast-error {
+    background-color: #feebeb;
+}
+
+/* Session Counter Styling */
+.lilac-session-counter {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin: 5px 0;
+    font-size: 14px;
+    direction: rtl;
+}
+
+.lilac-session-counter-label {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.lilac-session-counter-value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+/* Animation for toast appearance */
+@keyframes lilac-toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lilac-toast-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .lilac-toast-container {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .lilac-toast-container[data-position^="top"] {
+        top: 0;
+    }
+    
+    .lilac-toast-container[data-position^="bottom"] {
+        bottom: 0;
+    }
+    
+    .lilac-toast-container[data-position$="center"],
+    .lilac-toast-container[data-position$="left"],
+    .lilac-toast-container[data-position$="right"] {
+        transform: none;
+        left: 0;
+    }
+}

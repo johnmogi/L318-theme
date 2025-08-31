@@ -1,0 +1,102 @@
+/*
+ * RTL (Right-to-Left) styles for Registration Codes admin interface
+ */
+
+.rtl .registration-codes-filters {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .registration-codes-filters .filter-group {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.rtl .registration-codes-filters label {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.rtl .registration-codes-filters select,
+.rtl .registration-codes-filters input[type="text"],
+.rtl .registration-codes-filters input[type="number"] {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.rtl .tablenav .actions {
+    float: left;
+}
+
+.rtl .tablenav .tablenav-pages {
+    float: right;
+}
+
+.rtl .tablenav-pages a, 
+.rtl .tablenav-pages span {
+    float: right;
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+.rtl .tablenav .tablenav-pages .pagination-links .paging-input {
+    float: right;
+}
+
+.rtl .registration-codes-modal-content {
+    text-align: right;
+}
+
+.rtl .registration-codes-modal-buttons {
+    text-align: left;
+}
+
+.rtl .registration-codes-modal-buttons button {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+/* Form field alignment */
+.rtl .form-table th {
+    text-align: right;
+    padding: 20px 0 20px 10px;
+}
+
+.rtl .form-table td {
+    text-align: right;
+}
+
+/* Checkbox and radio button alignment */
+.rtl input[type="checkbox"],
+.rtl input[type="radio"] {
+    margin: 0 0 0 8px;
+}
+
+/* Button alignment */
+.rtl .button-primary,
+.rtl .button-secondary,
+.rtl .button {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+/* Tab navigation */
+.rtl .nav-tab-wrapper .nav-tab {
+    float: right;
+    margin-left: 0.5em;
+    margin-right: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .rtl .registration-codes-filters .filter-group {
+        margin-left: 0;
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+    }
+    
+    .rtl .registration-codes-filters .filter-group:last-child {
+        margin-bottom: 0;
+    }
+}

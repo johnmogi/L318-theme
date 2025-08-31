@@ -1,0 +1,2057 @@
+<?php
+/**
+ * Registration Admin
+ * Handles the admin interface for registration code management
+ */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
+/**
+ * Class Registration_Admin
+ * 
+ * Manages admin interface for registration code generator and management
+ */
+class Registration_Admin {
+    /**
+     * @var Registration_Admin Singleton instance
+     */
+    private static $instance = null;
+    
+    /**
+     * @var Registration_Service Service instance
+     */
+    private $service;
+    
+    /**
+     * @var string Current version
+     */
+    private $version = '1.0.0';
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return Registration_Admin Instance
+     */
+    public static function get_instance() {
+        if (is_null(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->service = new Registration_Service();
+        
+        // Register admin menu
+        add_action('admin_menu', array($this, 'register_menu'));
+        
+        // Register admin scripts and styles
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
+        
+        // Register AJAX handlers
+        add_action('wp_ajax_generate_registration_codes', array($this, 'ajax_generate_codes'));
+    }
+    
+    /**
+     * Register admin menu
+     */
+    public function register_menu() {
+        add_menu_page(
+            __('Registration Codes', 'registration-codes'),
+            __('Registration Codes', 'registration-codes'),
+            'manage_options',
+            'registration-codes',
+            array($this, 'render_admin_page'),
+            'dashicons-tickets',
+            30
+        );
+    }
+    
+    /**
+     * Enqueue admin scripts and styles
+     * 
+     * @param string $hook Current admin page
+     */
+    public function enqueue_scripts($hook) {
+        if ('toplevel_page_registration-codes' !== $hook) {
+            return;
+        }
+        
+        wp_enqueue_style('registration-admin', get_stylesheet_directory_uri() . '/includes/registration/assets/css/registration-admin.css', array(), $this->version);
+        wp_enqueue_script('registration-admin', get_stylesheet_directory_uri() . '/includes/registration/assets/js/registration-admin.js', array('jquery'), $this->version, true);
+        
+        wp_localize_script('registration-admin', 'registrationAdmin', array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('registration_admin_nonce'),
+            'i18n' => array(
+                'generating' => __('Generating...', 'registration-codes'),
+                'confirmDelete' => __('Are you sure you want to delete this code?', 'registration-codes'),
+                'error' => __('An error occurred.', 'registration-codes')
+            )
+        ));
+    }
+    
+    /**
+     * Private constructor for singleton pattern
+     */
+    private function __construct() {
+        // Initialize the service
+        require_once(dirname(__FILE__) . '/class-registration-db-manager.php');
+        require_once(dirname(__FILE__) . '/class-registration-code.php');
+        require_once(dirname(__FILE__) . '/class-registration-service.php');
+        
+        $this->service = Registration_Service::get_instance();
+        
+        // Add admin menu
+        add_action('admin_menu', array($this, 'add_admin_menu'));
+        
+        // Enqueue admin scripts
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
+        
+        // AJAX handlers
+        add_action('wp_ajax_registration_generate_codes', array($this, 'ajax_generate_codes'));
+    }
+    
+    /**
+     * Add admin menu
+     */
+    public function add_admin_menu() {
+        // Only proceed if we're in the admin and the user has the right capabilities
+        if (!is_admin() || !current_user_can('manage_options')) {
+            return;
+        }
+        
+        $menu_slug = 'registration-admin';
+        
+        // Add main menu item
+        $hook = add_menu_page(
+            'ניהול קודי הרשמה', // Page title
+            'קודי הרשמה',       // Menu title
+            'manage_options',    // Capability
+            $menu_slug,          // Menu slug
+            array($this, 'render_admin_page'), // Callback
+            'dashicons-tickets', // Icon
+            27                   // Position
+        );
+        
+        // Add submenu items
+        add_submenu_page(
+            $menu_slug,
+            'ניהול קודים',
+            'ניהול קודים',
+            'manage_options',
+            $menu_slug,
+            array($this, 'render_admin_page')
+        );
+        
+        // Add action to enqueue scripts only on our admin page
+        if ($hook) {
+            add_action('load-' . $hook, array($this, 'enqueue_admin_scripts'));
+        }
+    }
+    
+    /**
+     * Enqueue admin scripts
+     */
+    public function enqueue_admin_scripts($hook) {
+        // Only load on our plugin pages
+        if (strpos($hook, 'registration-admin') === false && $hook !== 'toplevel_page_registration-admin') {
+            return;
+        }
+        
+        // Enqueue jQuery UI components
+        wp_enqueue_script('jquery-ui-core');
+        wp_enqueue_script('jquery-ui-datepicker');
+        wp_enqueue_script('jquery-ui-tabs');
+        
+        // Enqueue main admin script
+        wp_enqueue_script(
+            'registration-admin-js',
+            get_stylesheet_directory_uri() . '/includes/registration/js/registration-admin.js',
+            array('jquery', 'jquery-ui-tabs', 'jquery-ui-datepicker'),
+            $this->version,
+            true
+        );
+        
+        // Localize script with data
+        $localize_data = array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce'    => wp_create_nonce('registration_admin_nonce'),
+            'i18n' => array(
+                'generating_codes' => __('Generating codes...', 'registration-codes'),
+                'error_occurred' => __('An error occurred. Please try again.', 'registration-codes'),
+                'codes_generated' => __('Codes generated successfully.', 'registration-codes'),
+            )
+        );
+        
+        wp_localize_script('registration-admin-js', 'registrationAdmin', $localize_data);
+        
+        // Enqueue styles
+        wp_enqueue_style('jquery-ui-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+        
+        // Custom admin styles
+        wp_enqueue_style(
+            'registration-admin-css',
+            get_stylesheet_directory_uri() . '/includes/registration/css/admin.css',
+            array(),
+            $this->version
+        );
+        
+        // Add RTL stylesheet if needed
+        if (is_rtl()) {
+            wp_add_inline_style('registration-admin-css', '
+                .registration-admin-wrap { direction: rtl; text-align: right; }
+                .registration-admin-wrap .form-table th { padding-right: 0; padding-left: 10px; }
+            ');
+        }
+    }
+    
+    // Removed duplicate render_admin_page() method
+    
+    // Removed duplicate render_generate_tab() method
+    
+    /**
+     * Get all unique group names
+     * 
+     * @return array Group names
+     */
+    public function get_all_groups() {
+        global $wpdb;
+        
+        $table_name = Registration_DB_Manager::get_table_name('codes');
+        $results = $wpdb->get_col("SELECT DISTINCT user_group FROM {$table_name} WHERE user_group != '' ORDER BY user_group ASC");
+        
+        return is_array($results) ? $results : array();
+    }
+    /**
+     * Render test tab for testing registration code generator functionality
+     */
+    public function render_test_tab() {
+        // Run tests when form is submitted
+        $test_results = isset($_POST['run_tests']) ? $this->run_registration_tests() : array();
+        
+        ?>
+        <div class="test-tab">
+            <h2><?php _e('Test Registration Code Generator', 'registration-codes'); ?></h2>
+            
+            <form method="post">
+                <?php wp_nonce_field('registration_test', 'registration_test_nonce'); ?>
+                <input type="hidden" name="run_tests" value="1">
+                
+                <p>
+                    <button type="submit" class="button button-primary">
+                        <?php _e('Run Tests', 'registration-codes'); ?>
+                    </button>
+                </p>
+            </form>
+            
+            <?php if (!empty($test_results)) : ?>
+                <div class="test-results">
+                    <h3><?php _e('Test Results:', 'registration-codes'); ?></h3>
+                    
+                    <ul class="test-list">
+                        <?php foreach ($test_results as $test) : ?>
+                            <li class="<?php echo $test['pass'] ? 'test-pass' : 'test-fail'; ?>">
+                                <?php echo esc_html($test['name']); ?>: 
+                                <strong><?php echo $test['pass'] ? __('PASS', 'registration-codes') : __('FAIL', 'registration-codes'); ?></strong>
+                                <?php if (!empty($test['message'])) : ?>
+                                    <p class="test-message"><?php echo esc_html($test['message']); ?></p>
+                                <?php endif; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+        </div>
+        <?php
+    }
+    /**
+     * Helper function to test database connection
+     * 
+     * @param array &$results Test results array
+     */
+    private function test_db_connection(&$results) {
+        global $wpdb;
+        
+        $test = array(
+            'name' => 'Database Connection',
+            'pass' => false,
+            'message' => ''
+        );
+        
+        try {
+            $wpdb->get_results("SELECT 1");
+            $test['pass'] = true;
+        } catch (Exception $e) {
+            $test['message'] = $e->getMessage();
+        }
+        
+        $results[] = $test;
+    }
+    /**
+     * Helper function to test if tables exist
+     * 
+     * @param array &$results Test results array
+     */
+    private function test_table_exists(&$results) {
+        $test = array(
+            'name' => 'Registration Table Exists',
+            'pass' => false,
+            'message' => ''
+        );
+        
+        $table_name = Registration_DB_Manager::get_table_name('codes');
+        if (Registration_DB_Manager::table_exists($table_name)) {
+            $test['pass'] = true;
+        } else {
+            $test['message'] = 'Registration codes table does not exist';
+        }
+        
+        $results[] = $test;
+    }
+    /**
+     * Helper function to test generating a single code
+     * 
+     * @param array &$results Test results array
+     * @return string|null Generated test code
+     */
+    private function test_generate_single_code(&$results) {
+        $test = array(
+            'name' => 'Generate Single Code',
+            'pass' => false,
+            'message' => ''
+        );
+        
+        $service = new Registration_Service();
+        $code = $service->generate_code('subscriber', '', '', 1);
+        
+        if (!empty($code)) {
+            $test['pass'] = true;
+            $test['message'] = 'Generated code: ' . $code;
+        } else {
+            $test['message'] = 'Failed to generate code';
+        }
+        
+        $results[] = $test;
+        return $code;
+    }
+    /**
+     * Helper function to test generating multiple codes
+     * 
+     * @param array &$results Test results array
+     * @return array Generated test codes
+     */
+    private function test_generate_multiple_codes(&$results) {
+        $test = array(
+            'name' => 'Generate Multiple Codes',
+            'pass' => false,
+            'message' => ''
+        );
+        
+        $service = new Registration_Service();
+        $codes = $service->generate_codes(3, 'subscriber', '', '', 1);
+        
+        if (is_array($codes) && count($codes) === 3) {
+            $test['pass'] = true;
+            $test['message'] = 'Generated 3 codes successfully';
+        } else {
+            $test['message'] = 'Failed to generate multiple codes';
+        }
+        
+        $results[] = $test;
+        return $codes;
+    }
+    /**
+     * Helper function to test code validation
+     * 
+     * @param array &$results Test results array
+     * @param string $test_code Code to validate
+     */
+    private function test_code_validation(&$results, $test_code) {
+        $test = array(
+            'name' => 'Code Validation',
+            'pass' => false,
+            'message' => ''
+        );
+        
+        if (empty($test_code)) {
+            $test['message'] = 'No code to validate';
+            $results[] = $test;
+            return;
+        }
+        
+        $service = new Registration_Service();
+        $validation = $service->validate_code($test_code);
+        
+        if ($validation['is_valid']) {
+            $test['pass'] = true;
+            $test['message'] = 'Code validated successfully';
+        } else {
+            $test['message'] = 'Code validation failed: ' . $validation['message'];
+        }
+        
+        $results[] = $test;
+    }
+    /**
+     * Helper function to test code usage
+     * 
+     * @param array &$results Test results array
+     * @param array $test_codes Codes to test
+     */
+    private function test_code_usage(&$results, $test_codes) {
+        $test = array(
+            'name' => 'Code Usage',
+            'pass' => false,
+            'message' => ''
+        );
+        
+        if (empty($test_codes) || !is_array($test_codes)) {
+            $test['message'] = 'No codes to test usage';
+            $results[] = $test;
+            return;
+        }
+        
+        $service = new Registration_Service();
+        $test_code = reset($test_codes);
+        $user_id = get_current_user_id();
+        
+        try {
+            $service->mark_code_used($test_code, $user_id);
+            $test['pass'] = true;
+            $test['message'] = 'Code marked as used successfully';
+        } catch (Exception $e) {
+            $test['message'] = 'Failed to mark code as used: ' . $e->getMessage();
+        }
+        
+        $results[] = $test;
+    }
+    
+    // Duplicate get_all_groups() method removed to fix redeclaration error
+    
+    /**
+     * Render test tab for testing registration code generator functionality
+     */
+    private function render_test_tab() {
+        // Check if we should run tests
+        $run_tests = isset($_GET['run_tests']) && $_GET['run_tests'] === '1';
+        
+        // Get test results if we're running tests
+        $test_results = array();
+        $total_tests = 0;
+        $passed_tests = 0;
+        
+        if ($run_tests) {
+            $test_results = $this->run_registration_tests();
+            $total_tests = count($test_results);
+            
+            foreach ($test_results as $result) {
+                if ($result['success']) {
+                    $passed_tests++;
+                }
+            }
+        }
+        
+        ?>
+        <div id="test-codes-tab" class="tab-pane">
+            <h2><?php _e('Test Registration Code Generator', 'registration-codes'); ?></h2>
+            
+            <p><?php _e('This page allows you to test the registration code generator functionality.', 'registration-codes'); ?></p>
+            
+            <?php if (!$run_tests) : ?>
+                <a href="?page=registration-admin&tab=test&run_tests=1" class="button button-primary">
+                    <?php _e('Run Tests', 'registration-codes'); ?>
+                </a>
+            <?php else : ?>
+                <div class="notice notice-info">
+                    <p>
+                        <?php printf(
+                            __('Test completed: %d of %d tests passed.', 'registration-codes'),
+                            $passed_tests,
+                            $total_tests
+                        ); ?>
+                    </p>
+                </div>
+                
+                <h3><?php _e('Test Results', 'registration-codes'); ?></h3>
+                
+                <table class="wp-list-table widefat fixed striped">
+                    <thead>
+                        <tr>
+                            <th><?php _e('Test', 'registration-codes'); ?></th>
+                            <th><?php _e('Result', 'registration-codes'); ?></th>
+                            <th><?php _e('Message', 'registration-codes'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($test_results as $result) : ?>
+                            <tr>
+                                <td><?php echo esc_html($result['name']); ?></td>
+                                <td>
+                                    <?php if ($result['success']) : ?>
+                                        <span style="color: green; font-weight: bold;"><?php _e('Pass', 'registration-codes'); ?></span>
+                                    <?php else : ?>
+                                        <span style="color: red; font-weight: bold;"><?php _e('Fail', 'registration-codes'); ?></span>
+                                    <?php endif; ?>
+                                </td>
+                                <td><?php echo wp_kses_post($result['message']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                
+                <p>
+                    <a href="?page=registration-admin&tab=test" class="button">
+                        <?php _e('Back', 'registration-codes'); ?>
+                    </a>
+                    <a href="?page=registration-admin&tab=test&run_tests=1" class="button button-primary">
+                        <?php _e('Run Tests Again', 'registration-codes'); ?>
+                    </a>
+                </p>
+            <?php endif; ?>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Run registration system tests and return results
+     * 
+     * @return array Test results
+     */
+    private function run_registration_tests() {
+        $results = array();
+        
+        // Test database connection
+        $this->test_db_connection($results);
+        
+        // Test if registration codes table exists
+        $this->test_table_exists($results);
+        
+        // Test generating a single code
+        $single_code = $this->test_generate_single_code($results);
+        
+        // Test generating multiple codes
+        $multiple_codes = $this->test_generate_multiple_codes($results);
+        
+        // Test code validation
+        $this->test_code_validation($results, $single_code);
+        
+        // Test code usage
+        $this->test_code_usage($results, $multiple_codes);
+        
+        return $results;
+    }
+    
+    /**
+     * Test database connection
+     * 
+     * @param array &$results Results array to update
+     */
+    private function test_db_connection(&$results) {
+        global $wpdb;
+        
+        try {
+            // Test a simple query
+            $test_result = $wpdb->get_var("SELECT 1");
+            $success = $test_result === '1';
+            $message = $success ? 'Connected to database successfully' : 'Failed to connect to database';
+            
+            $results[] = array(
+                'name' => 'Database Connection',
+                'success' => $success,
+                'message' => $message
+            );
+        } catch (Exception $e) {
+            $results[] = array(
+                'name' => 'Database Connection',
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage()
+            );
+        }
+    }
+    
+    /**
+     * Test if registration codes table exists
+     * 
+     * @param array &$results Results array to update
+     */
+    private function test_table_exists(&$results) {
+        global $wpdb;
+        
+        try {
+            $db_manager = Registration_DB_Manager::get_instance();
+            $table_name = $db_manager->get_table_name();
+            $table_exists = $wpdb->get_var("SHOW TABLES LIKE '{$table_name}'") === $table_name;
+            
+            if (!$table_exists) {
+                // Try to create the table
+                $db_manager->create_tables();
+                $table_exists = $wpdb->get_var("SHOW TABLES LIKE '{$table_name}'") === $table_name;
+            }
+            
+            $results[] = array(
+                'name' => 'Registration Table',
+                'success' => $table_exists,
+                'message' => 'Table ' . ($table_exists ? 'exists' : 'could not be created')
+            );
+        } catch (Exception $e) {
+            $results[] = array(
+                'name' => 'Registration Table',
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage()
+            );
+        }
+    }
+    
+    /**
+     * Test generating a single code
+     * 
+     * @param array &$results Results array to update
+     * @return Registration_Code|null Generated code or null
+     */
+    private function test_generate_single_code(&$results) {
+        try {
+            // Generate a single code
+            $service = Registration_Service::get_instance();
+            $codes = $service->generate_codes(array(
+                'count' => 1,
+                'role' => 'subscriber',
+                'group_name' => 'test_group',
+                'course_id' => null,
+                'max_uses' => 1,
+                'expiry_date' => null
+            ));
+            
+            $success = !empty($codes) && is_array($codes) && count($codes) === 1;
+            $message = $success ? 'Generated code: ' . $codes[0]->get_code() : 'Failed to generate code';
+            
+            $results[] = array(
+                'name' => 'Generate Single Code',
+                'success' => $success,
+                'message' => $message
+            );
+            
+            // Return the code for further testing
+            return $success ? $codes[0] : null;
+        } catch (Exception $e) {
+            $results[] = array(
+                'name' => 'Generate Single Code',
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage()
+            );
+            return null;
+        }
+    }
+    
+    /**
+     * Test generating multiple codes
+     * 
+     * @param array &$results Results array to update
+     * @return array|null Generated codes or null
+     */
+    private function test_generate_multiple_codes(&$results) {
+        try {
+            // Generate 5 codes
+            $service = Registration_Service::get_instance();
+            $codes = $service->generate_codes(array(
+                'count' => 5,
+                'role' => 'subscriber',
+                'group_name' => 'test_multiple',
+                'course_id' => null,
+                'max_uses' => 1,
+                'expiry_date' => date('Y-m-d', strtotime('+30 days'))
+            ));
+            
+            $success = !empty($codes) && is_array($codes) && count($codes) === 5;
+            $message = $success ? 'Generated 5 codes successfully' : 'Failed to generate multiple codes';
+            
+            if ($success) {
+                $message .= '<br>Codes: ';
+                foreach ($codes as $code) {
+                    $message .= $code->get_code() . ', ';
+                }
+                $message = rtrim($message, ', ');
+            }
+            
+            $results[] = array(
+                'name' => 'Generate Multiple Codes',
+                'success' => $success,
+                'message' => $message
+            );
+            
+            // Return the codes for further testing
+            return $success ? $codes : null;
+        } catch (Exception $e) {
+            $results[] = array(
+                'name' => 'Generate Multiple Codes',
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage()
+            );
+            return null;
+        }
+    }
+    
+    /**
+     * Test code validation
+     * 
+     * @param array &$results Results array to update
+     * @param Registration_Code|null $test_code Test code to validate
+     */
+    private function test_code_validation(&$results, $test_code) {
+        try {
+            $service = Registration_Service::get_instance();
+            
+            // If we don't have a test code, generate one
+            if (!$test_code) {
+                $test_code = $this->test_generate_single_code($results);
+            }
+            
+            if (!$test_code) {
+                $results[] = array(
+                    'name' => 'Code Validation',
+                    'success' => false,
+                    'message' => 'Could not generate a code for validation testing'
+                );
+                return;
+            }
+            
+            // Test validating the code
+            $code_value = $test_code->get_code();
+            $validation = $service->validate_code($code_value);
+            
+            $success = isset($validation['is_valid']) && $validation['is_valid'];
+            $message = $success ? 'Code validated successfully' : 'Code validation failed: ' . (isset($validation['message']) ? $validation['message'] : 'Unknown error');
+            
+            $results[] = array(
+                'name' => 'Code Validation',
+                'success' => $success,
+                'message' => $message
+            );
+            
+            // Test validating a non-existent code
+            $fake_code = 'XXXXXXXX';
+            $fake_validation = $service->validate_code($fake_code);
+            
+            $fake_success = isset($fake_validation['is_valid']) && !$fake_validation['is_valid'];
+            $fake_message = $fake_success ? 'Successfully rejected invalid code' : 'Failed to reject invalid code';
+            
+            $results[] = array(
+                'name' => 'Invalid Code Rejection',
+                'success' => $fake_success,
+                'message' => $fake_message
+            );
+        } catch (Exception $e) {
+            $results[] = array(
+                'name' => 'Code Validation',
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage()
+            );
+        }
+    }
+    
+    /**
+     * Test code usage
+     * 
+     * @param array &$results Results array to update
+     * @param array|null $test_codes Array of test codes
+     */
+    private function test_code_usage(&$results, $test_codes) {
+        try {
+            $service = Registration_Service::get_instance();
+            
+            // If we don't have test codes, generate one
+            if (empty($test_codes) || !is_array($test_codes)) {
+                $test_code = $this->test_generate_single_code($results);
+                $test_codes = $test_code ? array($test_code) : array();
+            }
+            
+            if (empty($test_codes)) {
+                $results[] = array(
+                    'name' => 'Code Usage',
+                    'success' => false,
+                    'message' => 'Could not generate codes for usage testing'
+                );
+                return;
+            }
+            
+            // Get the first code for testing
+            $test_code = reset($test_codes);
+            
+            // Test marking the code as used
+            $code_value = $test_code->get_code();
+            $user_id = get_current_user_id();
+            
+            $usage_result = $service->mark_code_used($code_value, $user_id);
+            
+            $success = $usage_result;
+            $message = $success ? 'Code marked as used successfully' : 'Failed to mark code as used';
+            
+            $results[] = array(
+                'name' => 'Code Usage',
+                'success' => $success,
+                'message' => $message
+            );
+            
+            // Test validating the used code (should fail)
+            $validation = $service->validate_code($code_value);
+            
+            $reuse_success = isset($validation['is_valid']) && !$validation['is_valid'];
+            $reuse_message = $reuse_success ? 'Successfully rejected used code' : 'Failed to reject used code';
+            
+            $results[] = array(
+                'name' => 'Used Code Rejection',
+                'success' => $reuse_success,
+                'message' => $reuse_message
+            );
+        } catch (Exception $e) {
+            $results[] = array(
+                'name' => 'Code Usage',
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage()
+            );
+        }
+    }
+    
+    /**
+     * Render test flow tab for testing complete registration flow
+     */
+    private function render_testflow_tab() {
+        // Check for test execution
+        $run_tests = isset($_GET['run_flow_tests']) && $_GET['run_flow_tests'] === '1';
+        $results = array();
+        
+        // Include the registration flow tester class
+        require_once(dirname(__FILE__) . '/test-registration-flow.php');
+        
+        if ($run_tests) {
+            // Create instance of Registration_Flow_Tester and run tests
+            $tester = new Registration_Flow_Tester();
+            $results = $tester->run_all_tests();
+        }
+        
+        ?>
+        <div class="registration-test-tab">
+            <h2><?php _e('Registration Flow Tests', 'registration-codes'); ?></h2>
+            <p><?php _e('This page allows you to test the complete user registration flow, including code validation, usage tracking, role assignment, group and course enrollment, and integration with WordPress hooks.', 'registration-codes'); ?></p>
+            
+            <?php if (!$run_tests): ?>
+                <div class="notice notice-warning">
+                    <p>
+                        <strong><?php _e('Important:', 'registration-codes'); ?></strong>
+                        <?php _e('These tests will create temporary test users and registration codes in your database. All test data will be cleaned up after the tests complete.', 'registration-codes'); ?>
+                    </p>
+                </div>
+                
+                <p>
+                    <a href="?page=registration-admin&tab=testflow&run_flow_tests=1" class="button button-primary">
+                        <?php _e('Run Registration Flow Tests', 'registration-codes'); ?>
+                    </a>
+                </p>
+            <?php else: ?>
+                <div class="registration-test-results">
+                    <h3><?php _e('Test Results', 'registration-codes'); ?></h3>
+                    
+                    <?php if (empty($results)): ?>
+                        <div class="notice notice-error">
+                            <p><?php _e('No test results were returned. There may be an error in the test script.', 'registration-codes'); ?></p>
+                        </div>
+                    <?php else: ?>
+                        <table class="wp-list-table widefat fixed striped">
+                            <thead>
+                                <tr>
+                                    <th><?php _e('Test', 'registration-codes'); ?></th>
+                                    <th><?php _e('Result', 'registration-codes'); ?></th>
+                                    <th><?php _e('Message', 'registration-codes'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($results as $test): ?>
+                                    <tr>
+                                        <td><?php echo esc_html($test['name']); ?></td>
+                                        <td>
+                                            <?php if ($test['success']): ?>
+                                                <span class="dashicons dashicons-yes" style="color:green;"></span>
+                                            <?php else: ?>
+                                                <span class="dashicons dashicons-no" style="color:red;"></span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><?php echo esc_html($test['message']); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        
+                        <p>
+                            <a href="?page=registration-admin&tab=testflow" class="button button-secondary">
+                                <?php _e('Back to Test Flow', 'registration-codes'); ?>
+                            </a>
+                        </p>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Render import/export tab for teachers and students
+     */
+    private function render_importexport_tab() {
+        // Check for form submissions
+        $message = '';
+        $message_type = '';
+        
+        // Handle teacher import
+        if (isset($_POST['teacher_import_submit']) && isset($_FILES['teacher_import_file'])) {
+            check_admin_referer('teacher_import_nonce');
+            $message = $this->process_teacher_import($_FILES['teacher_import_file']);
+            $message_type = (strpos($message, 'Error') !== false) ? 'error' : 'success';
+        }
+        
+        // Handle student import
+        if (isset($_POST['student_import_submit']) && isset($_FILES['student_import_file'])) {
+            check_admin_referer('student_import_nonce');
+            $message = $this->process_student_import($_FILES['student_import_file']);
+            $message_type = (strpos($message, 'Error') !== false) ? 'error' : 'success';
+        }
+        
+        // Handle teacher export
+        if (isset($_POST['teacher_export_submit'])) {
+            check_admin_referer('teacher_export_nonce');
+            $this->export_teachers_as_csv();
+            // This will exit after download
+        }
+        
+        // Handle student export
+        if (isset($_POST['student_export_submit'])) {
+            check_admin_referer('student_export_nonce');
+            $this->export_students_as_csv();
+            // This will exit after download
+        }
+        
+        // Display message if any
+        if (!empty($message)) {
+            ?>
+            <div class="notice notice-<?php echo $message_type; ?> is-dismissible">
+                <p><?php echo esc_html($message); ?></p>
+            </div>
+            <?php
+        }
+        
+        ?>
+        <div id="importexport-tab" class="tab-pane">
+            <h2><?php _e('Import/Export Data', 'registration-codes'); ?></h2>
+            <p><?php _e('Import or export teacher and student data using CSV files.', 'registration-codes'); ?></p>
+            
+            <!-- Teacher Import/Export -->
+            <div class="importexport-section">
+                <h3><?php _e('Teacher Data', 'registration-codes'); ?></h3>
+                
+                <!-- Teacher Import Form -->
+                <div class="import-form-container">
+                    <h4><?php _e('Import Teachers', 'registration-codes'); ?></h4>
+                    <p><?php _e('Upload a CSV file with teacher data. The CSV should have the following columns:', 'registration-codes'); ?></p>
+                    <pre>teacher_id_number,first_name,last_name,email,phone,bio,subjects_taught,status</pre>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        <?php wp_nonce_field('teacher_import_nonce'); ?>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="teacher-import-file"><?php _e('CSV File', 'registration-codes'); ?></label>
+                                </th>
+                                <td>
+                                    <input type="file" id="teacher-import-file" name="teacher_import_file" accept=".csv" required>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <p class="submit">
+                            <input type="submit" name="teacher_import_submit" class="button button-primary" value="<?php _e('Import Teachers', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Teacher Export Form -->
+                <div class="export-form-container">
+                    <h4><?php _e('Export Teachers', 'registration-codes'); ?></h4>
+                    <p><?php _e('Download all teacher data as a CSV file.', 'registration-codes'); ?></p>
+                    
+                    <form method="post">
+                        <?php wp_nonce_field('teacher_export_nonce'); ?>
+                        <p class="submit">
+                            <input type="submit" name="teacher_export_submit" class="button button-secondary" value="<?php _e('Export Teachers', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- Student Import/Export -->
+            <div class="importexport-section">
+                <h3><?php _e('Student Data', 'registration-codes'); ?></h3>
+                
+                <!-- Student Import Form -->
+                <div class="import-form-container">
+                    <h4><?php _e('Import Students', 'registration-codes'); ?></h4>
+                    <p><?php _e('Upload a CSV file with student data. The CSV should have the following columns:', 'registration-codes'); ?></p>
+                    <pre>student_id_number,first_name,last_name,email,phone,address,city,state,postal_code,country,date_of_birth,status</pre>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        <?php wp_nonce_field('student_import_nonce'); ?>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="student-import-file"><?php _e('CSV File', 'registration-codes'); ?></label>
+                                </th>
+                                <td>
+                                    <input type="file" id="student-import-file" name="student_import_file" accept=".csv" required>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <p class="submit">
+                            <input type="submit" name="student_import_submit" class="button button-primary" value="<?php _e('Import Students', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Student Export Form -->
+                <div class="export-form-container">
+                    <h4><?php _e('Export Students', 'registration-codes'); ?></h4>
+                    <p><?php _e('Download all student data as a CSV file.', 'registration-codes'); ?></p>
+                    
+                    <form method="post">
+                        <?php wp_nonce_field('student_export_nonce'); ?>
+                        <p class="submit">
+                            <input type="submit" name="student_export_submit" class="button button-secondary" value="<?php _e('Export Students', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    
+    // Method removed during cleanup to resolve duplicate method definition
+    
+    /**
+     * Register admin menu
+     */
+    public function register_menu() {
+        add_menu_page(
+            __('Registration Codes', 'registration-codes'),
+            __('Registration Codes', 'registration-codes'),
+            'manage_options',
+            'registration-codes',
+            array($this, 'render_admin_page'),
+            'dashicons-tickets',
+            30
+        );
+    }
+    
+    /**
+     * Enqueue admin scripts and styles
+     */
+    public function enqueue_scripts($hook) {
+        if ('toplevel_page_registration-codes' !== $hook) {
+            return;
+        }
+        
+        wp_enqueue_style('registration-admin', get_stylesheet_directory_uri() . '/assets/css/registration-admin.css', array(), $this->version);
+        wp_enqueue_script('registration-admin', get_stylesheet_directory_uri() . '/assets/js/registration-admin.js', array('jquery'), $this->version, true);
+        
+        wp_localize_script('registration-admin', 'registration_admin', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('registration_admin_nonce'),
+            'i18n' => array(
+                'generating' => __('Generating codes...', 'registration-codes'),
+                'error' => __('Error generating codes.', 'registration-codes'),
+                'confirm_delete' => __('Are you sure you want to delete this code?', 'registration-codes')
+            )
+        ));
+    }
+    
+    /**
+     * Process form submissions
+     */
+    public function process_forms() {
+        if (!isset($_POST['_wpnonce'])) {
+            return;
+        }
+        
+        // Process teacher import
+        if (isset($_POST['teacher_import_submit']) && check_admin_referer('teacher_import_nonce')) {
+            if (!isset($_FILES['teacher_import_file']) || $_FILES['teacher_import_file']['error'] !== UPLOAD_ERR_OK) {
+                add_settings_error(
+                    'registration_import',
+                    'import_error',
+                    $this->get_file_upload_error($_FILES['teacher_import_file']['error']),
+                    'error'
+                );
+                return;
+            }
+            
+            $result = $this->process_teacher_import($_FILES['teacher_import_file']);
+            
+            if (is_wp_error($result)) {
+                add_settings_error(
+                    'registration_import',
+                    'import_error',
+                    $result->get_error_message(),
+                    'error'
+                );
+            } else {
+                add_settings_error(
+                    'registration_import',
+                    'import_success',
+                    $result,
+                    'success'
+                );
+            }
+        }
+        
+        // Process student import
+        if (isset($_POST['student_import_submit']) && check_admin_referer('student_import_nonce')) {
+            if (!isset($_FILES['student_import_file']) || $_FILES['student_import_file']['error'] !== UPLOAD_ERR_OK) {
+                add_settings_error(
+                    'registration_import',
+                    'import_error',
+                    $this->get_file_upload_error($_FILES['student_import_file']['error']),
+                    'error'
+                );
+                return;
+            }
+            
+            $result = $this->process_student_import($_FILES['student_import_file']);
+            
+            if (is_wp_error($result)) {
+                add_settings_error(
+                    'registration_import',
+                    'import_error',
+                    $result->get_error_message(),
+                    'error'
+                );
+            } else {
+                add_settings_error(
+                    'registration_import',
+                    'import_success',
+                    $result,
+                    'success'
+                );
+            }
+        }
+        
+        // Process teacher export
+        if (isset($_POST['teacher_export_submit']) && check_admin_referer('teacher_export_nonce')) {
+            $this->export_teachers_as_csv();
+        }
+        
+        // Process student export
+        if (isset($_POST['student_export_submit']) && check_admin_referer('student_export_nonce')) {
+            $this->export_students_as_csv();
+        }
+    }
+    
+    /**
+     * Render admin page
+     */
+    public function render_admin_page() {
+        $tab = isset($_GET['tab']) ? sanitize_key($_GET['tab']) : 'generate';
+        
+        ?>
+        <div class="wrap">
+            <h1><?php _e('Registration Codes', 'registration-codes'); ?></h1>
+            
+            <?php settings_errors('registration_import'); ?>
+            
+            <nav class="nav-tab-wrapper">
+                <a href="<?php echo admin_url('admin.php?page=registration-codes&tab=generate'); ?>" class="nav-tab <?php echo $tab === 'generate' ? 'nav-tab-active' : ''; ?>"><?php _e('Generate', 'registration-codes'); ?></a>
+                <a href="<?php echo admin_url('admin.php?page=registration-codes&tab=manage'); ?>" class="nav-tab <?php echo $tab === 'manage' ? 'nav-tab-active' : ''; ?>"><?php _e('Manage', 'registration-codes'); ?></a>
+                <a href="<?php echo admin_url('admin.php?page=registration-codes&tab=test'); ?>" class="nav-tab <?php echo $tab === 'test' ? 'nav-tab-active' : ''; ?>"><?php _e('Test', 'registration-codes'); ?></a>
+                <a href="<?php echo admin_url('admin.php?page=registration-codes&tab=testflow'); ?>" class="nav-tab <?php echo $tab === 'testflow' ? 'nav-tab-active' : ''; ?>"><?php _e('Test Flow', 'registration-codes'); ?></a>
+                <a href="<?php echo admin_url('admin.php?page=registration-codes&tab=importexport'); ?>" class="nav-tab <?php echo $tab === 'importexport' ? 'nav-tab-active' : ''; ?>"><?php _e('Import/Export', 'registration-codes'); ?></a>
+            </nav>
+            
+            <div class="tab-content">
+                <?php
+                switch ($tab) {
+                    case 'generate':
+                        $this->render_generate_tab();
+                        break;
+                    case 'manage':
+                        $this->render_manage_tab();
+                        break;
+                    case 'test':
+                        $this->render_test_tab();
+                        break;
+                    case 'testflow':
+                        $this->render_testflow_tab();
+                        break;
+                    case 'importexport':
+                        $this->render_importexport_tab();
+                        break;
+                }
+                ?>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Render generate tab
+     */
+    public function render_generate_tab() {
+        ?>
+        <div class="generate-tab">
+            <h2><?php _e('Generate Registration Codes', 'registration-codes'); ?></h2>
+            
+            <form id="registration-generator-form" class="registration-generator-form">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row">
+                            <label for="role"><?php _e('Role', 'registration-codes'); ?></label>
+                        </th>
+                        <td>
+                            <select id="role" name="role">
+                                <option value="student"><?php _e('Student', 'registration-codes'); ?></option>
+                                <option value="teacher"><?php _e('Teacher', 'registration-codes'); ?></option>
+                                <option value="admin"><?php _e('Administrator', 'registration-codes'); ?></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="count"><?php _e('Number of Codes', 'registration-codes'); ?></label>
+                        </th>
+                        <td>
+                            <input type="number" id="count" name="count" min="1" max="100" value="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="group_id"><?php _e('Group ID', 'registration-codes'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="group_id" name="group_id" placeholder="Optional">
+                            <p class="description"><?php _e('Optional. Group identifier for batch of codes.', 'registration-codes'); ?></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="course_id"><?php _e('Course ID', 'registration-codes'); ?></label>
+                        </th>
+                        <td>
+                            <input type="number" id="course_id" name="course_id" placeholder="Optional">
+                            <p class="description"><?php _e('Optional. LearnDash course to enroll users in.', 'registration-codes'); ?></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="expiry_days"><?php _e('Expiry (Days)', 'registration-codes'); ?></label>
+                        </th>
+                        <td>
+                            <input type="number" id="expiry_days" name="expiry_days" min="0" value="30">
+                            <p class="description"><?php _e('Number of days until code expires. Use 0 for no expiry.', 'registration-codes'); ?></p>
+                        </td>
+                    </tr>
+                </table>
+                
+                <p class="submit">
+                    <button type="submit" id="generate-codes" class="button button-primary"><?php _e('Generate Codes', 'registration-codes'); ?></button>
+                </p>
+            </form>
+            
+            <div id="codes-result" class="codes-result" style="display:none;">
+                <h3><?php _e('Generated Codes', 'registration-codes'); ?></h3>
+                <div id="codes-list" class="codes-list"></div>
+                <p>
+                    <button id="copy-codes" class="button"><?php _e('Copy to Clipboard', 'registration-codes'); ?></button>
+                    <button id="download-codes" class="button"><?php _e('Download CSV', 'registration-codes'); ?></button>
+                </p>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Render manage tab
+     */
+    public function render_manage_tab() {
+        global $wpdb;
+        
+        // Get filter values
+        $role_filter = isset($_GET['role']) ? sanitize_text_field($_GET['role']) : '';
+        $status_filter = isset($_GET['status']) ? sanitize_text_field($_GET['status']) : '';
+        
+        // Build query
+        $sql = "SELECT * FROM {$wpdb->prefix}edc_school_registration_codes WHERE 1=1";
+        
+        if ($role_filter) {
+            $sql .= $wpdb->prepare(" AND role = %s", $role_filter);
+        }
+        
+        if ($status_filter) {
+            if ($status_filter === 'unused') {
+                $sql .= " AND used_by = 0";
+            } else if ($status_filter === 'used') {
+                $sql .= " AND used_by > 0";
+            } else if ($status_filter === 'expired') {
+                $sql .= " AND expiry_date < NOW()";
+            }
+        }
+        
+        // Pagination
+        $per_page = 20;
+        $current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
+        $offset = ($current_page - 1) * $per_page;
+        
+        // Get total count for pagination
+        $total_count = $wpdb->get_var("SELECT COUNT(*) FROM ({$sql}) AS t");
+        $total_pages = ceil($total_count / $per_page);
+        
+        // Get codes for current page
+        $codes = $wpdb->get_results($sql . " ORDER BY created_date DESC LIMIT {$offset}, {$per_page}", ARRAY_A);
+        
+        ?>
+        <div class="manage-tab">
+            <h2><?php _e('Manage Registration Codes', 'registration-codes'); ?></h2>
+            
+            <form method="get">
+                <input type="hidden" name="page" value="registration-codes">
+                <input type="hidden" name="tab" value="manage">
+                
+                <div class="tablenav top">
+                    <div class="alignleft actions">
+                        <select name="role">
+                            <option value=""><?php _e('All Roles', 'registration-codes'); ?></option>
+                            <option value="student" <?php selected($role_filter, 'student'); ?>><?php _e('Student', 'registration-codes'); ?></option>
+                            <option value="teacher" <?php selected($role_filter, 'teacher'); ?>><?php _e('Teacher', 'registration-codes'); ?></option>
+                            <option value="admin" <?php selected($role_filter, 'admin'); ?>><?php _e('Administrator', 'registration-codes'); ?></option>
+                        </select>
+                        
+                        <select name="status">
+                            <option value=""><?php _e('All Statuses', 'registration-codes'); ?></option>
+                            <option value="unused" <?php selected($status_filter, 'unused'); ?>><?php _e('Unused', 'registration-codes'); ?></option>
+                            <option value="used" <?php selected($status_filter, 'used'); ?>><?php _e('Used', 'registration-codes'); ?></option>
+                            <option value="expired" <?php selected($status_filter, 'expired'); ?>><?php _e('Expired', 'registration-codes'); ?></option>
+                        </select>
+                            <tr>
+                                <td><?php echo esc_html($code['code']); ?></td>
+                                <td><?php echo esc_html(ucfirst($code['role'])); ?></td>
+                                <td><?php echo esc_html($code['group_id'] ?: '-'); ?></td>
+                                <td><?php echo esc_html($code['course_id'] ?: '-'); ?></td>
+                                <td><?php echo esc_html(date_i18n(get_option('date_format'), strtotime($code['created_date']))); ?></td>
+                                <td>
+                                    <?php
+                                    if (empty($code['expiry_date']) || $code['expiry_date'] === '0000-00-00 00:00:00') {
+                                        echo '—';
+                                    } else {
+                                        echo esc_html(date_i18n(get_option('date_format'), strtotime($code['expiry_date'])));
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if (!empty($code['used_by'])) {
+                                        $user = get_user_by('ID', $code['used_by']);
+                                        if ($user) {
+                                            echo '<a href="' . esc_url(get_edit_user_link($user->ID)) . '">' . esc_html($user->display_name) . '</a>';
+    /**
+     * Render the manage tab content
+     */
+    public function render_manage_tab() {
+        // Logic for manage tab rendering goes here
+        // This function should display a table of existing registration codes
+        // with filtering, pagination, and action controls
+        
+        $registration_service = new Registration_Service();
+        $current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
+        $per_page = 20;
+        $offset = ($current_page - 1) * $per_page;
+        
+        // Get filter values
+        $role_filter = isset($_GET['role']) ? sanitize_text_field($_GET['role']) : '';
+        $group_filter = isset($_GET['group']) ? sanitize_text_field($_GET['group']) : '';
+        $status_filter = isset($_GET['status']) ? sanitize_text_field($_GET['status']) : '';
+        
+        // Get codes with filters and pagination
+        $codes = $registration_service->get_codes($offset, $per_page, $role_filter, $group_filter, $status_filter);
+        $total_codes = $registration_service->count_codes($role_filter, $group_filter, $status_filter);
+        $total_pages = ceil($total_codes / $per_page);
+        
+        // Get all available roles for filter
+        $roles = Registration_Service::get_all_roles();
+        $groups = $this->get_all_groups();
+        
+        // Render the tab content
+        include_once(dirname(__FILE__) . '/templates/manage-tab.php');
+    }
+    
+    /**
+     * Render test tab
+     */
+    public function render_test_tab() {
+        // Include test runner
+        include_once(dirname(__FILE__) . '/test-registration.php');
+        
+        ?>
+        <div class="test-tab">
+            <h2><?php _e('Test Registration Code Generator', 'registration-codes'); ?></h2>
+            <div id="test-results" class="test-results">
+                <?php run_registration_tests(); ?>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Render test flow tab
+     */
+    public function render_testflow_tab() {
+        // Include test runner
+        include_once(dirname(__FILE__) . '/test-registration-flow.php');
+        
+        ?>
+        <div class="test-tab">
+            <h2><?php _e('Test Registration Flow', 'registration-codes'); ?></h2>
+            <div id="test-results" class="test-results">
+                <?php run_registration_flow_tests(); ?>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Render import/export tab
+     */
+    public function render_importexport_tab() {
+        ?>
+        <div class="importexport-tab">
+            <h2><?php _e('Import/Export Data', 'registration-codes'); ?></h2>
+            
+            <!-- Teacher Import/Export -->
+            <div class="importexport-section">
+                <h3><?php _e('Teacher Data', 'registration-codes'); ?></h3>
+                
+                <!-- Teacher Import Form -->
+                <div class="import-form-container">
+                    <h4><?php _e('Import Teachers', 'registration-codes'); ?></h4>
+                    <p><?php _e('Upload a CSV file with teacher data. The CSV should have the following columns:', 'registration-codes'); ?></p>
+                    <pre>teacher_id_number,first_name,last_name,email,phone,bio,subjects_taught,status</pre>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        <?php wp_nonce_field('teacher_import_nonce'); ?>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="teacher-import-file"><?php _e('CSV File', 'registration-codes'); ?></label>
+                                </th>
+                                <td>
+                                    <input type="file" id="teacher-import-file" name="teacher_import_file" accept=".csv" required>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <p class="submit">
+                            <input type="submit" name="teacher_import_submit" class="button button-primary" value="<?php _e('Import Teachers', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Teacher Export Form -->
+                <div class="export-form-container">
+                    <h4><?php _e('Export Teachers', 'registration-codes'); ?></h4>
+                    <p><?php _e('Download all teacher data as a CSV file.', 'registration-codes'); ?></p>
+                    
+                    <form method="post">
+                        <?php wp_nonce_field('teacher_export_nonce'); ?>
+                        <p class="submit">
+                            <input type="submit" name="teacher_export_submit" class="button button-secondary" value="<?php _e('Export Teachers', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- Student Import/Export -->
+            <div class="importexport-section">
+                <h3><?php _e('Student Data', 'registration-codes'); ?></h3>
+                
+                <!-- Student Import Form -->
+                <div class="import-form-container">
+                    <h4><?php _e('Import Students', 'registration-codes'); ?></h4>
+                    <p><?php _e('Upload a CSV file with student data. The CSV should have the following columns:', 'registration-codes'); ?></p>
+                    <pre>student_id_number,first_name,last_name,email,phone,address,city,state,postal_code,country,date_of_birth,status</pre>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        <?php wp_nonce_field('student_import_nonce'); ?>
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="student-import-file"><?php _e('CSV File', 'registration-codes'); ?></label>
+                                </th>
+                                <td>
+                                    <input type="file" id="student-import-file" name="student_import_file" accept=".csv" required>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <p class="submit">
+                            <input type="submit" name="student_import_submit" class="button button-primary" value="<?php _e('Import Students', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Student Export Form -->
+                <div class="export-form-container">
+                    <h4><?php _e('Export Students', 'registration-codes'); ?></h4>
+                    <p><?php _e('Download all student data as a CSV file.', 'registration-codes'); ?></p>
+                    
+                    <form method="post">
+                        <?php wp_nonce_field('student_export_nonce'); ?>
+                        <p class="submit">
+                            <input type="submit" name="student_export_submit" class="button button-secondary" value="<?php _e('Export Students', 'registration-codes'); ?>">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Process teacher CSV import
+     *
+        global $wpdb;
+        
+        // Check file upload errors
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            return 'Error: ' . $this->get_file_upload_error($file['error']);
+        }
+        
+        // Check if it's a CSV file
+        if (pathinfo($file['name'], PATHINFO_EXTENSION) !== 'csv') {
+            return 'Error: The uploaded file is not a CSV file.';
+        }
+        
+        // Open the file
+        $handle = fopen($file['tmp_name'], 'r');
+        if (!$handle) {
+            return 'Error: Unable to open the file.';
+        }
+        
+        // Read the header row
+        $header = fgetcsv($handle);
+        if (!$header) {
+            fclose($handle);
+            return 'Error: Unable to read the CSV header.';
+        }
+        
+        // Define expected columns
+        $expected_columns = ['teacher_id_number', 'first_name', 'last_name', 'email', 'phone', 'bio', 'subjects_taught', 'status'];
+        
+        // Check if all required columns are present
+        $missing_columns = array_diff($expected_columns, $header);
+        if (!empty($missing_columns)) {
+            fclose($handle);
+            return 'Error: Missing required columns: ' . implode(', ', $missing_columns);
+        }
+        
+        // Get column indexes
+        $column_indexes = [];
+        foreach ($expected_columns as $column) {
+            $column_indexes[$column] = array_search($column, $header);
+        }
+        
+        // Start transaction
+        $wpdb->query('START TRANSACTION');
+        
+        $teachers_imported = 0;
+        $teachers_updated = 0;
+        $row_number = 1; // Header is row 1
+        
+        // Process each row
+        while (($data = fgetcsv($handle)) !== false) {
+            $row_number++;
+            
+            // Skip empty rows
+            if (empty($data[0])) {
+                continue;
+            }
+            
+            // Extract data
+            $teacher_data = [];
+            foreach ($expected_columns as $column) {
+                $index = $column_indexes[$column];
+                $teacher_data[$column] = isset($data[$index]) ? sanitize_text_field($data[$index]) : '';
+            }
+            
+            // Validate required fields
+            if (empty($teacher_data['teacher_id_number']) || empty($teacher_data['first_name']) || 
+                empty($teacher_data['last_name']) || empty($teacher_data['email'])) {
+                fclose($handle);
+                $wpdb->query('ROLLBACK');
+                return 'Error: Missing required fields in row ' . $row_number . '. Required fields: teacher_id_number, first_name, last_name, email.';
+            }
+            
+            // Validate email
+            if (!is_email($teacher_data['email'])) {
+                fclose($handle);
+                $wpdb->query('ROLLBACK');
+                return 'Error: Invalid email address in row ' . $row_number . ': ' . $teacher_data['email'];
+            }
+            
+            // Check if teacher with this ID already exists
+            $existing_teacher = $wpdb->get_row($wpdb->prepare(
+                "SELECT id FROM wp_edc_school_teachers WHERE teacher_id_number = %s",
+                $teacher_data['teacher_id_number']
+            ));
+            
+            if ($existing_teacher) {
+                // Update existing teacher
+                $wpdb->update(
+                    'wp_edc_school_teachers',
+                    [
+                        'first_name' => $teacher_data['first_name'],
+                        'last_name' => $teacher_data['last_name'],
+                        'email' => $teacher_data['email'],
+                        'phone' => $teacher_data['phone'],
+                        'bio' => $teacher_data['bio'],
+                        'subjects_taught' => $teacher_data['subjects_taught'],
+                        'status' => $teacher_data['status'],
+                        'updated_at' => current_time('mysql')
+                    ],
+                    ['id' => $existing_teacher->id],
+                    ['%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'],
+                    ['%d']
+                );
+                $teachers_updated++;
+            } else {
+                // Create WordPress user if needed
+                $user_login = sanitize_user(strtolower($teacher_data['first_name'] . '.' . $teacher_data['last_name']));
+                $user_id = username_exists($user_login);
+                
+                if (!$user_id) {
+                    $password = wp_generate_password(12, false);
+                    $user_id = wp_create_user($user_login, $password, $teacher_data['email']);
+                    
+                    if (is_wp_error($user_id)) {
+                        fclose($handle);
+                        $wpdb->query('ROLLBACK');
+                        return 'Error: Failed to create WordPress user in row ' . $row_number . ': ' . $user_id->get_error_message();
+                    }
+                    
+                    // Set role to teacher
+                    $user = new WP_User($user_id);
+                    $user->set_role('teacher');
+                    
+                    // Add user meta
+                    update_user_meta($user_id, 'first_name', $teacher_data['first_name']);
+                    update_user_meta($user_id, 'last_name', $teacher_data['last_name']);
+                }
+                
+                // Insert new teacher
+                $wpdb->insert(
+                    'wp_edc_school_teachers',
+                    [
+                        'wp_user_id' => $user_id,
+                        'teacher_id_number' => $teacher_data['teacher_id_number'],
+                        'first_name' => $teacher_data['first_name'],
+                        'last_name' => $teacher_data['last_name'],
+                        'email' => $teacher_data['email'],
+                        'phone' => $teacher_data['phone'],
+                        'bio' => $teacher_data['bio'],
+                        'subjects_taught' => $teacher_data['subjects_taught'],
+                        'status' => $teacher_data['status'],
+                        'created_at' => current_time('mysql'),
+                        'updated_at' => current_time('mysql')
+                    ],
+                    ['%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
+                );
+                $teachers_imported++;
+            }
+        }
+        
+        fclose($handle);
+        $wpdb->query('COMMIT');
+        
+        return sprintf(
+            'Success: %d teachers imported and %d teachers updated.',
+            $teachers_imported,
+            $teachers_updated
+        );
+    }
+    
+    /**
+     * Process student CSV import
+     *
+     * @param array $file The uploaded file data
+     * @return string Success or error message
+     */
+    private function process_student_import($file) {
+        global $wpdb;
+        
+        // Check file upload errors
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            return 'Error: ' . $this->get_file_upload_error($file['error']);
+        }
+        
+        // Check if it's a CSV file
+        if (pathinfo($file['name'], PATHINFO_EXTENSION) !== 'csv') {
+            return 'Error: The uploaded file is not a CSV file.';
+        }
+        
+        // Open the file
+        $handle = fopen($file['tmp_name'], 'r');
+        if (!$handle) {
+            return 'Error: Unable to open the file.';
+        }
+        
+        // Read the header row
+        $header = fgetcsv($handle);
+        if (!$header) {
+            fclose($handle);
+            return 'Error: Unable to read the CSV header.';
+        }
+        
+        // Define expected columns
+        $expected_columns = [
+            'student_id_number', 'first_name', 'last_name', 'email', 'phone', 
+            'address', 'city', 'state', 'postal_code', 'country', 'date_of_birth', 'status'
+        ];
+        
+        // Check if all required columns are present
+        $missing_columns = array_diff($expected_columns, $header);
+        if (!empty($missing_columns)) {
+            fclose($handle);
+            return 'Error: Missing required columns: ' . implode(', ', $missing_columns);
+        }
+        
+        // Get column indexes
+        $column_indexes = [];
+        foreach ($expected_columns as $column) {
+            $column_indexes[$column] = array_search($column, $header);
+        }
+        
+        // Start transaction
+        $wpdb->query('START TRANSACTION');
+        
+        $students_imported = 0;
+        $students_updated = 0;
+        $row_number = 1; // Header is row 1
+        
+        // Process each row
+        while (($data = fgetcsv($handle)) !== false) {
+            $row_number++;
+            
+            // Skip empty rows
+            if (empty($data[0])) {
+                continue;
+            }
+            
+            // Extract data
+            $student_data = [];
+            foreach ($expected_columns as $column) {
+                $index = $column_indexes[$column];
+                $student_data[$column] = isset($data[$index]) ? sanitize_text_field($data[$index]) : '';
+            }
+            
+            // Validate required fields
+            if (empty($student_data['student_id_number']) || empty($student_data['first_name']) || 
+                empty($student_data['last_name']) || empty($student_data['email'])) {
+                fclose($handle);
+                $wpdb->query('ROLLBACK');
+                return 'Error: Missing required fields in row ' . $row_number . '. Required fields: student_id_number, first_name, last_name, email.';
+            }
+            
+            // Validate email
+            if (!is_email($student_data['email'])) {
+                fclose($handle);
+                $wpdb->query('ROLLBACK');
+                return 'Error: Invalid email address in row ' . $row_number . ': ' . $student_data['email'];
+            }
+            
+            // Check if student with this ID already exists
+            $existing_student = $wpdb->get_row($wpdb->prepare(
+                "SELECT id FROM wp_edc_school_students WHERE student_id_number = %s",
+                $student_data['student_id_number']
+            ));
+            
+            if ($existing_student) {
+                // Update existing student
+                $wpdb->update(
+                    'wp_edc_school_students',
+                    [
+                        'first_name' => $student_data['first_name'],
+                        'last_name' => $student_data['last_name'],
+                        'email' => $student_data['email'],
+                        'phone' => $student_data['phone'],
+                        'address' => $student_data['address'],
+                        'city' => $student_data['city'],
+                        'state' => $student_data['state'],
+                        'postal_code' => $student_data['postal_code'],
+                        'country' => $student_data['country'],
+                        'date_of_birth' => $student_data['date_of_birth'],
+                        'status' => $student_data['status'],
+                        'updated_at' => current_time('mysql')
+                    ],
+                    ['id' => $existing_student->id],
+                    ['%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'],
+                    ['%d']
+                );
+                $students_updated++;
+            } else {
+                // Create WordPress user if needed
+                $user_login = sanitize_user(strtolower($student_data['first_name'] . '.' . $student_data['last_name']));
+                $user_id = username_exists($user_login);
+                
+                if (!$user_id) {
+                    $password = wp_generate_password(12, false);
+                    $user_id = wp_create_user($user_login, $password, $student_data['email']);
+                    
+                    if (is_wp_error($user_id)) {
+                        fclose($handle);
+                        $wpdb->query('ROLLBACK');
+                        return 'Error: Failed to create WordPress user in row ' . $row_number . ': ' . $user_id->get_error_message();
+                    }
+                    
+                    // Set role to student
+                    $user = new WP_User($user_id);
+                    $user->set_role('student');
+                    
+                    // Add user meta
+                    update_user_meta($user_id, 'first_name', $student_data['first_name']);
+                    update_user_meta($user_id, 'last_name', $student_data['last_name']);
+                }
+                
+                // Insert new student
+                $wpdb->insert(
+                    'wp_edc_school_students',
+                    [
+                        'wp_user_id' => $user_id,
+                        'student_id_number' => $student_data['student_id_number'],
+                        'first_name' => $student_data['first_name'],
+                        'last_name' => $student_data['last_name'],
+                        'email' => $student_data['email'],
+                        'phone' => $student_data['phone'],
+                        'address' => $student_data['address'],
+                        'city' => $student_data['city'],
+                        'state' => $student_data['state'],
+                        'postal_code' => $student_data['postal_code'],
+                        'country' => $student_data['country'],
+                        'date_of_birth' => $student_data['date_of_birth'],
+                        'status' => $student_data['status'],
+                        'created_at' => current_time('mysql'),
+                        'updated_at' => current_time('mysql')
+                    ],
+                    ['%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
+                );
+                $students_imported++;
+            }
+        }
+        
+        fclose($handle);
+        $wpdb->query('COMMIT');
+        
+        return sprintf(
+            'Success: %d students imported and %d students updated.',
+            $students_imported,
+            $students_updated
+        );
+    }
+    
+    /**
+     * Export teachers data as CSV
+     */
+    private function export_teachers_as_csv() {
+        global $wpdb;
+        
+        // Get all teachers
+        $teachers = $wpdb->get_results(
+            "SELECT * FROM wp_edc_school_teachers ORDER BY id ASC",
+            ARRAY_A
+        );
+        
+        // Set headers for CSV download
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=teachers-export-' . date('Y-m-d') . '.csv');
+        
+        // Create output stream
+        $output = fopen('php://output', 'w');
+        
+        // Add UTF-8 BOM
+        fputs($output, "\xEF\xBB\xBF");
+        
+        // Add CSV header row
+        fputcsv($output, [
+            'teacher_id_number',
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+            'bio',
+            'subjects_taught',
+            'status'
+        ]);
+        
+        // Add teacher data rows
+        foreach ($teachers as $teacher) {
+            fputcsv($output, [
+                $teacher['teacher_id_number'],
+                $teacher['first_name'],
+                $teacher['last_name'],
+                $teacher['email'],
+                $teacher['phone'],
+                $teacher['bio'],
+                $teacher['subjects_taught'],
+                $teacher['status']
+            ]);
+        }
+        
+        fclose($output);
+        exit;
+    }
+    
+    /**
+     * Export students data as CSV
+     */
+    private function export_students_as_csv() {
+        global $wpdb;
+        
+        // Get all students
+        $students = $wpdb->get_results(
+            "SELECT * FROM wp_edc_school_students ORDER BY id ASC",
+            ARRAY_A
+        );
+        
+        // Set headers for CSV download
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=students-export-' . date('Y-m-d') . '.csv');
+        
+        // Create output stream
+        $output = fopen('php://output', 'w');
+        
+        // Add UTF-8 BOM
+        fputs($output, "\xEF\xBB\xBF");
+        
+        // Add CSV header row
+        fputcsv($output, [
+            'student_id_number',
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+            'address',
+            'city',
+            'state',
+            'postal_code',
+            'country',
+            'date_of_birth',
+            'status'
+        ]);
+        
+        // Add student data rows
+        foreach ($students as $student) {
+            fputcsv($output, [
+                $student['student_id_number'],
+                $student['first_name'],
+                $student['last_name'],
+                $student['email'],
+                $student['phone'],
+                $student['address'],
+                $student['city'],
+                $student['state'],
+                $student['postal_code'],
+                $student['country'],
+                $student['date_of_birth'],
+                $student['status']
+            ]);
+        }
+        
+        fclose($output);
+        exit;
+    }
+    
+    /**
+     * Get file upload error message
+     * 
+     * @param int $error_code PHP file upload error code
+     * @return string Human-readable error message
+     */
+    private function get_file_upload_error($error_code) {
+        switch ($error_code) {
+            case UPLOAD_ERR_INI_SIZE:
+                return 'The uploaded file exceeds the upload_max_filesize directive in php.ini.';
+            case UPLOAD_ERR_FORM_SIZE:
+                return 'The uploaded file exceeds the MAX_FILE_SIZE directive in the HTML form.';
+            case UPLOAD_ERR_PARTIAL:
+                return 'The uploaded file was only partially uploaded.';
+            case UPLOAD_ERR_NO_FILE:
+                return 'No file was uploaded.';
+            case UPLOAD_ERR_NO_TMP_DIR:
+                return 'Missing a temporary folder.';
+            case UPLOAD_ERR_CANT_WRITE:
+                return 'Failed to write file to disk.';
+            case UPLOAD_ERR_EXTENSION:
+                return 'A PHP extension stopped the file upload.';
+            default:
+                return 'Unknown upload error.';
+        }
+    }
+    
+    /**
+     * AJAX handler for generating registration codes
+     */
+    public function ajax_generate_codes() {
+        // Check nonce
+        check_ajax_referer('registration_admin_nonce', 'nonce');
+        
+        // Check permissions
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('Unauthorized', 'registration-codes')]);
+        }
+        
+        // Get and validate parameters
+        
+        $num_codes = isset($_POST['num_codes']) ? intval($_POST['num_codes']) : 1;
+        $role = isset($_POST['role']) ? sanitize_text_field($_POST['role']) : 'subscriber';
+        $group_name = isset($_POST['group_name']) ? sanitize_text_field($_POST['group_name']) : '';
+        $course_id = isset($_POST['course_id']) ? intval($_POST['course_id']) : 0;
+        $max_uses = isset($_POST['max_uses']) ? intval($_POST['max_uses']) : 1;
+        $expiry_date = isset($_POST['expiry_date']) ? sanitize_text_field($_POST['expiry_date']) : '';
+        
+        // Generate codes
+        $codes = $this->service->generate_codes($num_codes, $role, $group_name, $course_id, $max_uses, $expiry_date);
+        
+        // Prepare response
+        $response = [];
+        foreach ($codes as $code) {
+            $response[] = [
+                'code' => $code->get_code(),
+                'role' => $code->get_role(),
+                'group_name' => $code->get_group_name(),
+                'course_id' => $code->get_course_id(),
+                'max_uses' => $code->get_max_uses(),
+                'expiry_date' => $code->get_expiry_date(),
+            ];
+        }
+        
+        wp_send_json_success([
+            'codes' => $response,
+            'message' => sprintf(_n('%d code generated successfully.', '%d codes generated successfully.', count($codes), 'registration-codes'), count($codes))
+        ]);
+    }
+}
+
+// Initialize the admin
+function registration_admin_init() {
+    Registration_Admin::get_instance();
+}
+add_action('plugins_loaded', 'registration_admin_init');

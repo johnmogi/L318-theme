@@ -1,0 +1,61 @@
+/**
+ * Timer Notification Styles
+ */
+
+.lilac-timer-controls {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    direction: rtl;
+}
+
+.lilac-timer-controls h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.timer-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.lilac-test-btn {
+    padding: 8px 12px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.lilac-test-btn:hover {
+    background: #005177;
+}
+
+.timer-status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+#lilac-time-display {
+    font-family: monospace;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Hide for non-admins */
+body:not(.administrator) .lilac-timer-controls {
+    display: none;
+}

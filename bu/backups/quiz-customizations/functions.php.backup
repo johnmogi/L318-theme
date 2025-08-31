@@ -1,0 +1,1703 @@
+<?php
+/**
+ * Theme functions and definitions
+ *
+ * @package HelloElementorChild
+ */
+
+/**
+ * Load child theme css and optional scripts
+ *
+ * @return void
+ */
+function hello_elementor_child_enqueue_scripts() {
+  
+    $style_path = __DIR__ . '/style.css';
+
+  
+    $style_version = file_exists($style_path) ? filemtime($style_path) : time();
+
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        ['hello-elementor-theme-style'], 
+        $style_version 
+    );
+}
+add_action('wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20);
+
+/**
+ * Enqueue custom scripts and styles
+ */
+function enqueue_custom_scripts() {
+    // Enqueue parent theme's style
+    wp_enqueue_style(
+        'hello-elementor-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        [
+            'hello-elementor-theme-style',
+        ],
+        wp_get_theme()->get('Version')
+    );
+
+    // Enqueue user account widget style
+    wp_enqueue_style(
+        'user-widget-style',
+        get_stylesheet_directory_uri() . '/css/user-widget.css',
+        [],
+        wp_get_theme()->get('Version')
+    );
+    
+    // Add custom JS for registration form if needed
+    if (is_page('registration') || is_page('student-registration') || is_page('register')) {
+        wp_enqueue_script(
+            'registration-js',
+            get_stylesheet_directory_uri() . '/js/registration.js',
+            ['jquery'],
+            '1.0.0',
+            true
+        );
+    }
+    
+    // Enqueue Ultimate Member integration styles and scripts if UM is active
+    if (class_exists('UM')) {
+        wp_enqueue_style(
+            'ccr-um-integration',
+            get_stylesheet_directory_uri() . '/includes/integrations/css/um-integration.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/includes/integrations/css/um-integration.css')
+        );
+        
+        wp_enqueue_script(
+            'ccr-um-integration',
+            get_stylesheet_directory_uri() . '/includes/integrations/js/um-integration.js',
+            array('jquery'),
+            filemtime(get_stylesheet_directory() . '/includes/integrations/js/um-integration.js'),
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+/**
+ * Enqueue quiz scripts with proper control
+ * This function decides whether to load the new quiz system or the legacy system
+ */
+function lilac_enqueue_quiz_scripts() {
+    // Only run on quiz pages
+    if (!is_singular('sfwd-quiz')) {
+        return;
+    }
+    
+    // Check if we should use the new system
+    $use_new_system = true; // Set to true to always use new system
+    
+    // Allow developers to disable the new system with a filter
+    $use_new_system = apply_filters('lilac_use_new_quiz_system', $use_new_system);
+    
+    if ($use_new_system) {
+        // Load the new system scripts
+        wp_enqueue_script(
+            'lilac-quiz-controller', 
+            get_stylesheet_directory_uri() . '/includes/quiz-new/quiz-controller.js', 
+            array('jquery'), 
+            '1.0', 
+            true
+        );
+        
+        // Additional styles for the new system
+        wp_enqueue_style(
+            'lilac-quiz-styles', 
+            get_stylesheet_directory_uri() . '/includes/quiz-new/quiz-styles.css',
+            array(), 
+            '1.0'
+        );
+        
+        // Log that we're using the new system
+        error_log('Lilac Quiz: Using new quiz system on ' . get_the_title());
+    } else {
+        // If we're not using the new system, load the legacy scripts
+        
+        // Error handler first
+        wp_enqueue_script('quiz-error-handler', get_stylesheet_directory_uri() . '/includes/quiz/quiz-error-handler.js', array('jquery'), '1.1', true);
+        
+        // Log that we're using the legacy system
+        error_log('Lilac Quiz: Using legacy quiz system on ' . get_the_title());
+    }
+}
+
+// Add with high priority to ensure it runs before other script enqueues
+add_action('wp_enqueue_scripts', 'lilac_enqueue_quiz_scripts', 5);
+
+/**
+ * Include admin functionality for registration codes
+ */
+require_once __DIR__ . '/includes/admin/class-registration-codes.php';
+
+/**
+ * Include Ultimate Member integration if UM is active
+ */
+function ccr_load_um_integration() {
+    if (class_exists('UM')) {
+        require_once __DIR__ . '/includes/integrations/class-ultimate-member-integration.php';
+        
+        // Make sure stylesheet is loaded after UM stylesheet
+        function ccr_um_integration_style_fix() {
+            // Deregister and re-register with proper dependencies
+            wp_deregister_style('ccr-um-integration');
+            wp_register_style(
+                'ccr-um-integration',
+                get_stylesheet_directory_uri() . '/includes/integrations/css/um-integration.css',
+                array('um_styles'),
+                filemtime(get_stylesheet_directory() . '/includes/integrations/css/um-integration.css')
+            );
+            wp_enqueue_style('ccr-um-integration');
+        }
+        add_action('wp_enqueue_scripts', 'ccr_um_integration_style_fix', 101);
+    }
+}
+// Load as early as possible
+add_action('after_setup_theme', 'ccr_load_um_integration', 5);
+
+/**
+ * Load Toast Messaging System and Course Progress Tracking System
+ */
+function ccr_load_messaging_system() {
+    require_once __DIR__ . '/src/Messaging/Toast.php';
+    require_once __DIR__ . '/src/Messaging/CourseProgress.php';
+    require_once __DIR__ . '/src/Messaging/SiteMessage.php';
+    if (is_admin()) {
+        require_once __DIR__ . '/src/Messaging/Admin/MessagingAdmin.php';
+        require_once __DIR__ . '/src/Messaging/Admin/MessageManager.php';
+        require_once __DIR__ . '/src/Messaging/Admin/TeacherImport.php';
+        
+        // Initialize admin classes with proper namespace
+        \Lilac\Messaging\Admin\MessagingAdmin::get_instance();
+        \Lilac\Messaging\Admin\MessageManager::get_instance();
+        \Lilac\Messaging\Admin\TeacherImport::get_instance();
+    }
+    
+    // Initialize frontend classes
+    \Lilac\Messaging\Toast::get_instance();
+    \Lilac\Messaging\CourseProgress::get_instance();
+    \Lilac\Messaging\SiteMessage::get_instance();
+}
+add_action('after_setup_theme', 'ccr_load_messaging_system', 10);
+
+/**
+ * Load Custom Login System
+ */
+function ccr_load_login_system() {
+    // Start session for login errors and messages
+    if (!session_id()) {
+        session_start();
+    }
+    
+    // Load the LoginManager class
+    require_once __DIR__ . '/src/Login/LoginManager.php';
+    
+    // Load captcha system (if files exist)
+    $captcha_file = __DIR__ . '/src/Login/Captcha.php';
+    $captcha_validator_file = __DIR__ . '/src/Login/CaptchaValidator.php';
+    
+    if (file_exists($captcha_file)) {
+        require_once $captcha_file;
+    }
+    
+    if (file_exists($captcha_validator_file)) {
+        require_once $captcha_validator_file;
+    }
+    
+    // Load User Account Widget
+    require_once __DIR__ . '/src/Login/UserAccountWidget.php';
+    
+    // Load Student Expiration System (for school_student time limit June 30, 2025)
+    $student_expiration_file = __DIR__ . '/src/Login/StudentExpiration.php';
+    if (file_exists($student_expiration_file)) {
+        require_once $student_expiration_file;
+    }
+    
+    // Close session to free file lock and prevent blocking REST API/loopback requests
+    if (session_id()) {
+        session_write_close();
+    }
+}
+add_action('after_setup_theme', 'ccr_load_login_system', 10);
+
+/**
+ * Load LearnDash Access Control for Students and Teachers
+ */
+function ccr_load_learndash_access_control() {
+    require_once __DIR__ . '/src/LearnDash/AccessControl.php';
+    \Lilac\LearnDash\AccessControl::get_instance();
+}
+add_action('after_setup_theme', 'ccr_load_learndash_access_control', 10);
+
+/**
+ * Activation hook for creating the registration codes table
+ */
+function ccr_theme_activation() {
+    global $ccr_registration_codes;
+    if (isset($ccr_registration_codes)) {
+        $ccr_registration_codes->create_table();
+    }
+}
+add_action('after_switch_theme', 'ccr_theme_activation');
+
+/**
+ * Validate registration code in the frontend
+ * 
+ * @param string $code The registration code to validate
+ * @return array Status and message
+ */
+function ccr_validate_code($code) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'registration_codes';
+    
+    // Check if table exists
+    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+        return [
+            'valid' => false,
+            'message' => 'Registration system not initialized',
+            'code' => null
+        ];
+    }
+    
+    // Check if code exists and is active
+    $code_data = $wpdb->get_row($wpdb->prepare(
+        "SELECT * FROM $table_name WHERE code = %s LIMIT 1",
+        $code
+    ));
+    
+    if (!$code_data) {
+        return [
+            'valid' => false,
+            'message' => 'קוד לא קיים / טעות הקלדה',
+            'code' => null
+        ];
+    }
+    
+    if ($code_data->status !== 'active') {
+        // Get user who used the code
+        $used_by = !empty($code_data->used_by) ? get_userdata($code_data->used_by) : null;
+        $used_by_name = $used_by ? $used_by->display_name : 'משתמש אחר';
+        
+        return [
+            'valid' => false,
+            'message' => 'קוד כבר בשימוש ע"י ' . $used_by_name,
+            'code' => $code_data
+        ];
+    }
+    
+    return [
+        'valid' => true,
+        'message' => 'קוד תקין',
+        'code' => $code_data
+    ];
+}
+
+/**
+ * Mark a registration code as used
+ * 
+ * @param string $code The code to mark as used
+ * @param int $user_id The user ID who used the code
+ * @return bool Success status
+ */
+function ccr_mark_code_used($code, $user_id) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'registration_codes';
+    
+    $result = $wpdb->update(
+        $table_name,
+        [
+            'status' => 'used',
+            'used_by' => $user_id,
+            'used_at' => current_time('mysql')
+        ],
+        ['code' => $code],
+        ['%s', '%d', '%s'],
+        ['%s']
+    );
+    
+    return $result !== false;
+}
+
+// --- Custom registration via access code shortcode ---
+/**
+ * Handles a two-step registration flow requiring an access code.
+ */
+function ccr_render_shortcode($atts) {
+    $atts = shortcode_atts(array('courses' => ''), $atts, 'code_registration');
+    ob_start();
+    if ("POST" === $_SERVER['REQUEST_METHOD'] && ! empty($_POST['access_code_action'])) {
+        $code = sanitize_text_field($_POST['access_code']);
+        
+        // Validate the code using our database system
+        $validation = ccr_validate_code($code);
+        
+        if ($validation['valid']) {
+            // Code is valid, show registration form
+            ccr_show_registration_form($code, $validation['code'], $atts['courses']);
+        } else {
+            // Code is invalid, show error message
+            echo '<p class="error">' . esc_html($validation['message']) . '</p>';
+            ccr_show_code_form();
+        }
+    } else {
+        ccr_show_code_form();
+    }
+    return ob_get_clean();
+}
+add_shortcode('code_registration', 'ccr_render_shortcode');
+
+/** Display the access code input form */
+function ccr_show_code_form() {
+    echo '<form method="post"><p><label>הקלד את קוד הגישה:</label><br>';
+    echo '<input type="text" name="access_code" required></p>';
+    echo '<input type="hidden" name="access_code_action" value="1">';
+    echo '<p><button type="submit">שלח</button></p></form>';
+}
+
+/**
+ * Process the registration form submission and create a new user
+ */
+function ccr_process_registration() {
+    // Only run on POST with our expected registration data
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['registration_code'])) {
+        return;
+    }
+    
+    // Basic validation
+    $errors = array();
+    
+    // Required fields
+    $required_fields = array(
+        'first_name' => 'שם פרטי',
+        'last_name' => 'שם משפחה',
+        'phone' => 'טלפון נייד',
+        'phone_confirm' => 'אימות טלפון',
+        'password' => 'סיסמה',
+        'password_confirm' => 'אימות סיסמה'
+    );
+    
+    foreach ($required_fields as $field => $label) {
+        if (empty($_POST[$field])) {
+            $errors[] = sprintf('השדה %s הוא שדה חובה', $label);
+        }
+    }
+    
+    // Phone validation
+    if (isset($_POST['phone']) && isset($_POST['phone_confirm'])) {
+        if ($_POST['phone'] !== $_POST['phone_confirm']) {
+            $errors[] = 'מספרי הטלפון אינם תואמים';
+        }
+    }
+    
+    // Password validation
+    if (isset($_POST['password']) && isset($_POST['password_confirm'])) {
+        if ($_POST['password'] !== $_POST['password_confirm']) {
+            $errors[] = 'הסיסמאות אינן תואמות';
+        }
+    }
+    
+    // Email validation (if provided)
+    if (!empty($_POST['email'])) {
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'כתובת האימייל אינה תקינה';
+        }
+    }
+    
+    // If we have errors, output them and return
+    if (!empty($errors)) {
+        echo '<div class="ccr-errors">';
+        echo '<p>יש לתקן את השגיאות הבאות:</p>';
+        echo '<ul>';
+        foreach ($errors as $error) {
+            echo '<li>' . esc_html($error) . '</li>';
+        }
+        echo '</ul></div>';
+        
+        // Show the form again, populating with submitted values
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Format phone number (remove dashes, spaces, etc.)
+    $phone = preg_replace('/[^0-9]/', '', $_POST['phone']);
+    
+    // Check if phone is already in use as username
+    if (username_exists($phone)) {
+        echo '<div class="ccr-errors">';
+        echo '<p>מספר הטלפון כבר רשום במערכת. נסה להתחבר או לשחזר סיסמה.</p>';
+        echo '</div>';
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Check if email is already in use
+    if (!empty($_POST['email']) && email_exists($_POST['email'])) {
+        echo '<div class="ccr-errors">';
+        echo '<p>כתובת האימייל כבר רשומה במערכת.</p>';
+        echo '</div>';
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Determine user role based on registration code
+    // Default to student_private if no specific code type is detected
+    $role = 'student_private';
+    
+    // Check if this is a school student code
+    if (isset($_POST['registration_group']) && !empty($_POST['registration_group'])) {
+        $group = $_POST['registration_group'];
+        // If it's a school group code, assign school_student role
+        $role = 'school_student';
+        
+        // Unless they explicitly selected teacher role (for school registrations)
+        if (isset($_POST['role']) && $_POST['role'] === 'teacher') {
+            $role = 'school_teacher';
+        }
+    }
+    
+    // Prepare user data
+    $userdata = array(
+        'user_login'    => $phone,
+        'user_pass'     => $_POST['password'],
+        'display_name'  => sanitize_text_field($_POST['first_name'] . ' ' . $_POST['last_name']),
+        'first_name'    => sanitize_text_field($_POST['first_name']),
+        'last_name'     => sanitize_text_field($_POST['last_name']),
+        'user_email'    => !empty($_POST['email']) ? sanitize_email($_POST['email']) : '',
+        'role'          => $role, // Use dynamic role based on registration code
+    );
+    
+    // Create the user
+    $user_id = wp_insert_user($userdata);
+    
+    // Handle errors
+    if (is_wp_error($user_id)) {
+        echo '<div class="ccr-errors">';
+        echo '<p>אירעה שגיאה בתהליך ההרשמה: ' . esc_html($user_id->get_error_message()) . '</p>';
+        echo '</div>';
+        ccr_show_registration_form($_POST['registration_code']);
+        return;
+    }
+    
+    // Enforce correct role after creation
+    $user = new WP_User($user_id);
+    $user->set_role($role);
+    // Retain default Subscriber role
+    $user->add_role('subscriber');
+    
+    // Ensure capabilities meta is stored and cache cleared
+    if (function_exists('clean_user_cache')) {
+        clean_user_cache($user_id);
+    }
+    global $wpdb;
+    update_user_meta(
+        $user_id,
+        $wpdb->prefix . 'capabilities',
+        array(
+            $role => true,
+            'subscriber' => true,
+        )
+    );
+    
+    // Save additional user meta
+    update_user_meta($user_id, 'phone', $phone);
+    
+    // Save school information for grade10 users
+    if ($role === 'school_student') {
+        if (!empty($_POST['school_code'])) {
+            update_user_meta($user_id, 'school_code', sanitize_text_field($_POST['school_code']));
+        }
+        if (!empty($_POST['school_name'])) {
+            update_user_meta($user_id, 'school_name', sanitize_text_field($_POST['school_name']));
+        }
+        if (!empty($_POST['school_city'])) {
+            update_user_meta($user_id, 'school_city', sanitize_text_field($_POST['school_city']));
+        }
+        if (!empty($_POST['class_name'])) {
+            update_user_meta($user_id, 'class_name', sanitize_text_field($_POST['class_name']));
+        }
+        update_user_meta($user_id, 'group_name', sanitize_text_field($_POST['registration_group']));
+    }
+    
+    // Mark the registration code as used
+    $code = sanitize_text_field($_POST['registration_code']);
+    ccr_mark_code_used($code, $user_id);
+    
+    // Automatically log the user in
+    wp_set_current_user($user_id);
+    wp_set_auth_cookie($user_id);
+    
+    // Force LearnDash enrollment if missing
+    if (function_exists('ld_update_course_access')) {
+        // Determine courses to grant: allow override via shortcode attribute
+        if (!empty($_POST['registration_courses'])) {
+            $raw = sanitize_text_field($_POST['registration_courses']);
+            $course_ids = array_map('intval', explode(',', $raw));
+        } else {
+            $course_ids = array(898, 1292);
+        }
+        foreach ($course_ids as $course_id) {
+            ld_update_course_access($user_id, $course_id, false);
+        }
+        // Debug: log granted courses
+        lilac_debug_log(sprintf("CCR DEBUG REG: user_id=%d, role=%s, courses_granted=%s", $user_id, $role, implode(',', $course_ids)));
+    }
+    
+    // Fallback: ensure course access meta exists
+    $fallback_ids = array(898, 1292);
+    foreach ($fallback_ids as $cid) {
+        $meta_key = '_sfwd-course_access-' . $cid;
+        $current = get_user_meta($user_id, $meta_key, true);
+        if (empty($current)) {
+            $ts = time();
+            update_user_meta($user_id, $meta_key, $ts);
+        }
+    }
+    
+    // Assign user to LearnDash group 1294 (group-based enrollment)
+    if (function_exists('ld_update_group_access')) {
+        ld_update_group_access($user_id, 1294, false);
+        // Debug: log granted group
+        lilac_debug_log(sprintf("CCR DEBUG REG: user_id=%d, group_granted=%d", $user_id, 1294));
+    }
+    
+    // Display success message
+    echo '<div class="ccr-success">';
+    echo '<h3>ההרשמה הושלמה בהצלחה!</h3>';
+    echo '<p>ברוך הבא, ' . esc_html($_POST['first_name']) . '!</p>';
+    
+    // Redirect to appropriate page
+    $redirect = '';
+    if ($role === 'school_student') {
+        $redirect = get_permalink(get_option('lilac_school_student_dashboard_page', 0));
+    } else if ($role === 'student_private') {
+        $redirect = get_permalink(get_option('lilac_private_student_dashboard_page', 0));
+    } else if ($role === 'school_teacher') {
+        $redirect = get_permalink(get_option('lilac_teacher_dashboard_page', 0));
+    }
+    
+    if (!$redirect) {
+        $redirect = home_url();
+    }
+    
+    // Increase redirect time to 7 seconds to ensure sync completes
+    echo '<p>מועבר לדף הבית בעוד 7 שניות...</p>';
+    echo '<script>
+        setTimeout(function() {
+            window.location.href = "' . esc_url($redirect) . '";
+        }, 7000);
+    </script>';
+    echo '<p>אם אינך מועבר באופן אוטומטי, <a href="' . esc_url($redirect) . '">לחץ כאן</a></p>';
+    echo '</div>';
+}
+add_action('init', 'ccr_process_registration');
+
+/**
+ * Update the registration form to include email field but remove unnecessary fields
+ * Simplified version - automatically assigns role based on registration code
+ */
+function ccr_show_registration_form($code, $code_data = null, $courses_att = '') {
+    // Get group name from code data if available
+    $group_name = $code_data ? $code_data->group_name : '';
+    
+    echo '<form method="post">';
+    // Show the validated registration code
+    echo '<p><label>קוד גישה:</label><br><input type="text" value="' . esc_attr($code) . '" readonly></p>';
+    // Show the associated group name if available
+    if ( $group_name ) {
+        echo '<p><label>מסלול:</label><br>' . esc_html( $group_name ) . '</p>';
+    }
+    echo '<input type="hidden" name="registration_code" value="' . esc_attr($code) . '">';
+    echo '<input type="hidden" name="registration_group" value="' . esc_attr($group_name) . '">';
+    
+    // Basic user information - only what's necessary
+    echo '<p><label>שם פרטי:</label><br><input type="text" name="first_name" required value="' . esc_attr($_POST['first_name'] ?? '') . '"></p>';
+    echo '<p><label>שם משפחה:</label><br><input type="text" name="last_name" required value="' . esc_attr($_POST['last_name'] ?? '') . '"></p>';
+    echo '<p><label>טלפון נייד:</label><br><input type="text" name="phone" required value="' . esc_attr($_POST['phone'] ?? '') . '"></p>';
+    echo '<p><label>אימות טלפון:</label><br><input type="text" name="phone_confirm" required value="' . esc_attr($_POST['phone_confirm'] ?? '') . '"></p>';
+    
+    // Add email field
+    echo '<p><label>כתובת אימייל (לא חובה, לשחזור סיסמה):</label><br><input type="email" name="email" value="' . esc_attr($_POST['email'] ?? '') . '"></p>';
+    
+    echo '<p><label>סיסמה:</label><br><input type="password" name="password" required></p>';
+    echo '<p><label>אימות סיסמה:</label><br><input type="password" name="password_confirm" required></p>';
+    
+    // Program selection and school fields are now hidden and automatically determined by the registration code
+    echo '<input type="hidden" name="program" value="default">'; 
+    
+    $reg_courses = $_POST['registration_courses'] ?? $courses_att;
+    echo '<input type="hidden" name="registration_courses" value="' . esc_attr($reg_courses) . '">';
+    
+    echo '<p><button type="submit">רשום</button></p></form>';
+}
+
+/**
+ * Load debug logging functionality
+ */
+require_once __DIR__ . '/debug-log.php';
+
+/**
+ * Handle fixing users with missing roles or memberships
+ */
+function lilac_fix_user_role_membership() {
+    if (!isset($_POST['fix_role_membership']) || !isset($_POST['fix_user_id']) || !isset($_POST['role_fix'])) {
+        return;
+    }
+    
+    $user_id = intval($_POST['fix_user_id']);
+    $role = sanitize_text_field($_POST['role_fix']);
+    
+    // Verify valid role
+    $valid_roles = array('student_private', 'school_student', 'school_teacher');
+    if (!in_array($role, $valid_roles)) {
+        return;
+    }
+    
+    // Fix user role
+    $user = new WP_User($user_id);
+    // Remove all existing roles first
+    $user_roles = $user->roles;
+    foreach ($user_roles as $old_role) {
+        $user->remove_role($old_role);
+    }
+    
+    // Explicitly set the new role
+    $user->add_role($role);
+    
+    // EXTREMELY aggressive approach - direct DB update for user role
+    global $wpdb;
+    $serialized_roles = serialize(array($role => true));
+    
+    $wpdb->update(
+        $wpdb->usermeta,
+        array('meta_value' => $serialized_roles),
+        array(
+            'user_id' => $user_id,
+            'meta_key' => $wpdb->prefix . 'capabilities'
+        )
+    );
+    
+    // Force user data refresh
+    clean_user_cache($user_id);
+    
+    // Assign user to LearnDash group 1294 on login
+    if (function_exists('ld_update_group_access')) {
+        ld_update_group_access($user_id, 1294, false);
+    }
+    
+    // Add success message as a cookie (since we'll be redirecting)
+    setcookie('lilac_fix_success', '1', time() + 60, '/');
+    
+    // Redirect to refresh the page and show updated status
+    wp_redirect($_SERVER['REQUEST_URI']);
+    exit;
+}
+add_action('admin_init', 'lilac_fix_user_role_membership');
+
+/**
+ * Show success message after role fix if cookie is set
+ */
+function lilac_show_fix_success_message() {
+    if (isset($_COOKIE['lilac_fix_success'])) {
+        echo '<div style="margin: 10px; padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724;">';
+        echo '<strong>Success!</strong> User role and membership have been fixed. The page has been refreshed to show the updated status.';
+        echo '</div>';
+        
+        // Clear the cookie
+        setcookie('lilac_fix_success', '', time() - 3600, '/');
+    }
+}
+add_action('wp_footer', 'lilac_show_fix_success_message');
+
+// Add to footer for easier debugging
+add_action('wp_footer', function() {
+    if (current_user_can('administrator') || isset($_GET['show_membership_debug'])) {
+        // Removed lilac_dump_user_membership function call
+    }
+});
+
+// Admin debug: inspect LearnDash access meta via ?check_ld_meta=1
+add_action('wp_footer', function() {
+    if (current_user_can('administrator') && isset($_GET['check_ld_meta'])) {
+        $param = sanitize_text_field($_GET['check_ld_meta']);
+        $uid = absint($param) > 0 ? absint($param) : get_current_user_id();
+        echo '<p>Inspecting LearnDash access meta for user ID ' . esc_html($uid) . '</p>';
+        $all_meta = get_user_meta($uid);
+        echo '<pre style="background:#f9f9f9;padding:10px;max-height:300px;overflow:auto;">'
+            . var_export($all_meta, true)
+            . '</pre>';
+        // Debug: show group membership
+        if (function_exists('learndash_get_users_group_ids')) {
+            $groups = learndash_get_users_group_ids($uid);
+            echo '<p>Group IDs: ' . esc_html(implode(', ', (array) $groups)) . '</p>';
+        }
+    }
+});
+
+// Auto-enroll new users into group 1294 and courses 898 & 1292
+add_action('user_register','lilac_auto_enroll',10,1);
+function lilac_auto_enroll($user_id) {
+    $user = new WP_User($user_id);
+    $roles = (array) $user->roles;
+    if (in_array('student_private',$roles,true) || in_array('student_school',$roles,true)) {
+        ld_update_group_access($user_id,1294);
+        ld_update_course_access($user_id,898,false);
+        ld_update_course_access($user_id,1292,false);
+    }
+}
+
+// Load modular registration handlers
+foreach ( glob( get_stylesheet_directory() . '/includes/registration/*.php' ) as $file ) {
+    require_once $file;
+}
+
+// Load shortcodes
+require_once get_stylesheet_directory() . '/inc/shortcodes/loader.php';
+
+// Load LearnDash Hints Module
+require_once get_stylesheet_directory() . '/learndash-hints/learndash-hints.php';
+
+// allow old [course-purchase] tags to use the new handler
+add_shortcode('course-purchase', 'course_purchase_render');
+
+add_filter('use_block_editor_for_post', '__return_false');
+
+// Enqueue hint assets (JS and CSS)
+function lilac_enqueue_hint_assets() {
+    // DISABLED: Original hint script - replaced by enhanced ACF quiz hint script
+    /*
+    // Enqueue the main ACF hint script
+    wp_enqueue_script(
+        'quiz-hint',
+        get_stylesheet_directory_uri() . '/dev/1_js_handlers.js',
+        ['jquery'],
+        filemtime( get_stylesheet_directory() . '/dev/1_js_handlers.js' ),
+        true
+    );
+    wp_localize_script(
+        'quiz-hint',
+        'quizHint',
+        [
+            'ajaxUrl'          => admin_url('admin-ajax.php'),
+            'getAnswerAction'  => 'get_correct_answer',
+            'nonce'            => wp_create_nonce('ld_debug_nonce'),
+        ]
+    );
+    */
+    wp_enqueue_style(
+        'quiz-hint-css',
+        get_stylesheet_directory_uri() . '/dev/2_css_overrides.css',
+        [],
+        filemtime( get_stylesheet_directory() . '/dev/2_css_overrides.css' )
+    );
+}
+add_action('wp_enqueue_scripts', 'lilac_enqueue_hint_assets');
+
+// AJAX endpoint: return correct answer for a question
+add_action('wp_ajax_get_correct_answer', 'ld_debug_get_correct_answer');
+add_action('wp_ajax_nopriv_get_correct_answer', 'ld_debug_get_correct_answer');
+function ld_debug_get_correct_answer() {
+    check_ajax_referer('ld_debug_nonce','nonce');
+    $qId = intval($_REQUEST['question_id']);
+    global $wpdb;
+    // WP Pro Quiz 'answer' table uses prefix + 'pro_quiz_answer'
+    $table = $wpdb->prefix . 'pro_quiz_answer';
+    error_log("LD_HINTS_DEBUG: DB prefix: {$wpdb->prefix}");
+    error_log("LD_HINTS_DEBUG: Query table name: {$table}");
+    // Debug: verify table exists
+    $tables = $wpdb->get_col("SHOW TABLES LIKE '{$table}'");
+    error_log("LD_HINTS_DEBUG: SHOW TABLES result: " . var_export($tables, true));
+    // Debug: list all answer rows for this question
+    $allRows = $wpdb->get_results(
+        $wpdb->prepare(
+            "SELECT * FROM {$table} WHERE question_id = %d",
+            $qId
+        ), ARRAY_A
+    );
+    error_log("LD_HINTS_DEBUG: All rows for question_id {$qId}: " . var_export($allRows, true));
+    $answer = $wpdb->get_var(
+        $wpdb->prepare(
+            "SELECT answer FROM {$table} WHERE question_id = %d AND correct = 1",
+            $qId
+        )
+    );
+    error_log("LD_HINTS_DEBUG: DB result for question_id {$qId}: " . var_export($answer, true));
+    error_log("LD_HINTS_DEBUG: SQL error: " . $wpdb->last_error);
+    wp_send_json_success([
+        'question_id' => $qId,
+        'correct'     => $answer,
+        'prefix'      => $wpdb->prefix,
+        'tables'      => $tables,
+        'all_rows'    => $allRows,
+    ]);
+}
+
+// Debug: log on user login
+add_action('wp_login', 'ccr_debug_login', 10, 2);
+function ccr_debug_login($user_login, $user) {
+    $uid = $user->ID;
+    $courses = function_exists('learndash_user_get_enrolled_courses') ? learndash_user_get_enrolled_courses($uid) : [];
+    $all_courses = [898,1292,1367];
+    $disallowed = array_diff($all_courses, $courses);
+    $groups = function_exists('learndash_get_users_group_ids') ? learndash_get_users_group_ids($uid) : [];
+    error_log(sprintf(
+        "CCR DEBUG LOGIN: user_id=%d, login=%s, courses=%s, disallowed=%s, groups=%s",
+        $uid,
+        $user_login,
+        implode(",", $courses),
+        implode(",", $disallowed),
+        implode(",", $groups)
+    ));
+}
+
+// Suppress translation notices and other minor warnings in debug.log
+if (defined('WP_DEBUG') && WP_DEBUG) {
+    set_error_handler(function($errno, $errstr, $errfile, $errline) {
+        // Suppress translation loading notices from WP 6.7+
+        if (strpos($errstr, '_load_textdomain_just_in_time was called') !== false) {
+            return true;
+        }
+        // List of suppressed translation domains
+        $suppressed_domains = [
+            '_load_textdomain_just_in_time',
+            'woocommerce',
+            'learndash-woocommerce',
+            'learndash'
+        ];
+        
+        // Check if error is related to text domain loading
+        if ($errno === E_NOTICE) {
+            foreach ($suppressed_domains as $domain) {
+                if (strpos($errstr, $domain) !== false) {
+                    return true; // Suppress this notice
+                }
+            }
+        }
+        
+        // Use default error handler for everything else
+        return false;
+    }, E_NOTICE);
+}
+
+// Fix teacher access to Registration Codes page
+add_filter('user_has_cap', function($allcaps, $caps, $args, $user) {
+    // Only modify capabilities for teachers
+    if (isset($user->roles) && is_array($user->roles) && in_array('school_teacher', $user->roles)) {
+        // Add specific capabilities teachers need
+        $teacher_caps = [
+            'manage_registration_codes' => true,
+            'view_teacher_dashboard' => true,
+            'edit_posts' => true,
+            'read' => true
+        ];
+        
+        // Check for specific admin page access
+        if (is_admin() && isset($_GET['page']) && $_GET['page'] === 'registration-codes') {
+            // Log access attempt for debugging
+            error_log('Teacher accessing registration codes: User ID ' . $user->ID);
+            
+            // Force capability for registration codes specifically
+            foreach ($caps as $cap) {
+                $allcaps[$cap] = true;
+            }
+        }
+        
+        $allcaps = array_merge($allcaps, $teacher_caps);
+    }
+    
+    return $allcaps;
+}, 99, 4);
+
+// Also add an explicit capability filter for CC Registration Codes page
+add_filter('ccr_user_can_access_registration_codes', function($can_access, $user_id) {
+    $user = get_userdata($user_id);
+    if ($user && in_array('school_teacher', $user->roles)) {
+        return true;
+    }
+    return $can_access;
+}, 10, 2);
+
+// Teacher role capabilities and login redirection
+add_action('init', function() {
+    // Ensure teacher role exists with proper capabilities
+    $role = get_role('school_teacher');
+    if ($role) {
+        // Add required capabilities for registration codes
+        $role->add_cap('manage_registration_codes', true);
+        $role->add_cap('view_teacher_dashboard', true);
+    }
+});
+
+// Redirect teachers to teacher dashboard after login
+add_filter('login_redirect', function($redirect_to, $requested_redirect_to, $user) {
+    // If there's already a specific redirect, respect it
+    if (!empty($requested_redirect_to)) {
+        return $requested_redirect_to;
+    }
+    
+    // Check if user is a teacher
+    if (isset($user->roles) && is_array($user->roles) && in_array('school_teacher', $user->roles)) {
+        return admin_url('admin.php?page=teacher-dashboard');
+    }
+    
+    return $redirect_to;
+}, 10, 3);
+
+// Handle teacher redirection from frontend to admin
+add_action('template_redirect', function() {
+    if (is_user_logged_in() && current_user_can('school_teacher') && is_page('teacher-dashboard')) {
+        wp_redirect(admin_url('admin.php?page=teacher-dashboard'));
+        exit;
+    }
+});
+
+/**
+ * Add teacher role field to user profile
+ */
+function add_teacher_role_field($user) {
+    // Only show to admins
+    if (!current_user_can('manage_options')) return;
+    
+    $is_teacher = in_array('school_teacher', $user->roles);
+    ?>
+    <h3>Teacher Role Assignment</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="school_teacher_role">Assign as Teacher</label></th>
+            <td>
+                <input type="checkbox" name="school_teacher_role" id="school_teacher_role" <?php checked($is_teacher); ?> />
+                <span class="description">Check to assign this user as a teacher</span>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+// Save teacher role assignment
+add_action('personal_options_update', 'save_teacher_role_field');
+add_action('edit_user_profile_update', 'save_teacher_role_field');
+
+function save_teacher_role_field($user_id) {
+    if (!current_user_can('edit_user', $user_id)) return;
+    
+    $user = get_userdata($user_id);
+    $is_teacher = isset($_POST['school_teacher_role']);
+    
+    if ($is_teacher) {
+        // Add teacher role
+        $user->add_role('school_teacher');
+    } else {
+        // Remove teacher role
+        $user->remove_role('school_teacher');
+    }
+}
+
+// School Teacher Admin Menu Restrictions
+add_action('admin_init', function() {
+    if (current_user_can('school_teacher')) {
+        // Remove all menus except our two allowed ones
+        global $menu, $submenu;
+        
+        $allowed_menus = [
+            'registration-codes',
+            'learndash-lms'
+        ];
+        
+        foreach ((array) $menu as $key => $item) {
+            if (!in_array($item[2], $allowed_menus)) {
+                remove_menu_page($item[2]);
+            }
+        }
+        
+        // Set view-only access for LearnDash (course management)
+        if (isset($submenu['learndash-lms'])) {
+            foreach ((array) $submenu['learndash-lms'] as $key => $item) {
+                // Only keep these submenu items (view-only)
+                $allowed_submenus = ['learndash-setup', 'edit.php?post_type=sfwd-courses'];
+                if (!in_array($item[2], $allowed_submenus)) {
+                    remove_submenu_page('learndash-lms', $item[2]);
+                }
+            }
+        }
+    }
+});
+
+// Add required capabilities for school_teacher role
+add_action('init', function() {
+    $role = get_role('school_teacher');
+    if ($role) {
+        // Minimum capabilities to view the allowed menus
+        $role->add_cap('read');
+        $role->add_cap('list_users');
+        $role->add_cap('edit_posts');
+        
+        // LearnDash view-only capabilities
+        $role->add_cap('view_courses');
+        $role->add_cap('view_lessons');
+        $role->add_cap('view_topics');
+        
+        // Registration codes capabilities
+        $role->add_cap('manage_registration_codes');
+    }
+});
+
+/**
+ * LearnDash Quiz Hint ACF Integration
+ * Adds support for displaying ACF content in quiz hints
+ */
+
+// Debug function specifically for ACF hints
+function lilac_acf_hint_debug($message, $data = null) {
+    $debug_file = get_stylesheet_directory() . '/logs/acf-hint-debug.log';
+    $debug_dir = dirname($debug_file);
+    
+    // Create log directory if it doesn't exist
+    if (!file_exists($debug_dir)) {
+        wp_mkdir_p($debug_dir);
+    }
+    
+    // Format the log message
+    $timestamp = date('Y-m-d H:i:s');
+    $log_message = "[{$timestamp}] {$message}";
+    
+    // Add data if provided
+    if ($data !== null) {
+        $log_message .= "\n" . print_r($data, true);
+    }
+    
+    // Append to log file
+    file_put_contents($debug_file, $log_message . "\n", FILE_APPEND);
+    
+    // Also log to error_log for accessibility
+    error_log("ACF HINT: {$message}");
+}
+
+// Optimized script loading with pre-loaded rich media data
+function lilac_enqueue_acf_hint_test_script() {
+    // DEPRECATED - Now handled by the new quiz system
+    return;
+}
+// Disabled - now handled by new quiz system
+// Original hook was: add_action('wp_enqueue_scripts', 'lilac_enqueue_acf_hint_test_script', 999);
+
+// AJAX handler for ACF hint content
+add_action('wp_ajax_get_acf_hint', 'lilac_get_acf_hint_callback');
+add_action('wp_ajax_nopriv_get_acf_hint', 'lilac_get_acf_hint_callback');
+
+function lilac_get_acf_hint_callback() {
+    // Verify the nonce
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'acf_hint_nonce')) {
+        lilac_acf_hint_debug('Nonce verification failed. Received nonce: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'none'));
+        wp_send_json_error(['message' => 'Security check failed.']);
+        die();
+    }
+
+    // Get question ID and find mapped post ID
+    $question_id = isset($_POST['question_id']) ? sanitize_text_field($_POST['question_id']) : '';
+    lilac_acf_hint_debug('Received request for question ID: ' . $question_id);
+    
+    // Map from LearnDash question IDs to WordPress post IDs
+    // This mapping needs to be expanded for all questions
+    $id_mapping = [
+        '22' => '1370',
+        // Add more mappings as needed
+    ];
+
+    // Unified hint lookup: only posts with matching question_pro_id and non-empty add_hint
+    $hint_content = '';
+    $hint_posts = get_posts([
+        'post_type'   => 'sfwd-question',
+        'fields'      => 'ids',
+        'meta_query'  => [
+            'relation' => 'AND',
+            [
+                'key'     => 'question_pro_id',
+                'value'   => $question_id,
+                'compare' => '=',
+            ],
+            [
+                'key'     => 'add_hint',
+                'value'   => '',
+                'compare' => '!=',
+            ],
+        ],
+    ]);
+    lilac_acf_hint_debug('Unified hint lookup posts: ' . implode(',', $hint_posts));
+    foreach ($hint_posts as $pid) {
+        lilac_acf_hint_debug('Trying unified post ID: ' . $pid);
+        $tmp = get_field('add_hint', $pid);
+        if ($tmp) {
+            $hint_content = $tmp;
+            $post_id = $pid;
+            lilac_acf_hint_debug('Found ACF hint via unified lookup on post ' . $pid);
+            break;
+        }
+    }
+    
+    // If no ACF field content, try to get the original answer as last resort
+    if (!$hint_content) {
+        global $wpdb;
+        $answer_query = $wpdb->prepare(
+            "SELECT answer_data FROM {$wpdb->prefix}learndash_pro_quiz_question 
+            WHERE id = %d",
+            $question_id
+        );
+        
+        $answer_data = $wpdb->get_var($answer_query);
+        
+        if ($answer_data) {
+            // Parse the answer data (usually serialized)
+            if (is_serialized($answer_data)) {
+                $answer = @unserialize($answer_data);
+                if ($answer && isset($answer['answer'])) {
+                    // Format the answer as a hint
+                    $hint_content = '<strong>התשובה הנכונה:</strong><br>' . $answer['answer'];
+                    lilac_acf_hint_debug("Using original answer as fallback for question ID {$question_id}");
+                    wp_send_json_success(['hint' => $hint_content]);
+                    return;
+                }
+            }
+        }
+        
+        lilac_acf_hint_debug('No hint content found for question ID ' . $question_id);
+        wp_send_json_error(['message' => 'No hint content found for this question']);
+    }
+    
+    // Send the response back
+    if ($hint_content) {
+        lilac_acf_hint_debug('Sending hint content to client: ' . substr($hint_content, 0, 50));
+        wp_send_json_success(['hint' => $hint_content]);
+    }
+}
+
+// Load New Quiz System - completely rebuilt version
+require_once get_stylesheet_directory() . '/includes/quiz-new/load.php';
+
+// Load Quiz Timer Notifications (this is still compatible with the new system)
+require_once get_stylesheet_directory() . '/includes/quiz/quiz-timer-integration.php';
+
+// Old quiz files are now disabled by the new system's loader when on quiz pages
+
+/**
+ * Enqueue the improved ACF Quiz Hint integration script
+ */
+function lilac_enqueue_enhanced_acf_hint_scripts() {
+    // DEPRECATED - Now handled by the new quiz system
+    // Check if we should use the new system
+    if (function_exists('lilac_is_new_quiz_page') && lilac_is_new_quiz_page()) {
+        return; // Skip if new system is active
+    }
+    
+    // Legacy code - only runs when new system is disabled
+    if (is_singular('sfwd-quiz')) {
+        // Legacy script loading code here
+        // This won't run when our new system is active
+    }
+}
+// Disabled - now handled by new quiz system
+// add_action('wp_enqueue_scripts', 'lilac_enqueue_enhanced_acf_hint_scripts');
+
+// ...
+/**
+ * Enqueue ACF Hint CSS for Quiz Content
+ */
+function lilac_enqueue_acf_hint_css() {
+    // Only add on quiz pages
+    if (is_singular(['sfwd-quiz']) || 
+        (is_singular() && has_shortcode(get_post()->post_content, 'learndash_quiz'))) {
+        
+        wp_add_inline_style('learndash-frontend-style', '
+            /* Initially hide the hint content until "mark hint" button is clicked */
+            .acf-hint-content {
+                display: none;
+            }
+            
+            /* When hint is marked/highlighted */
+            .acf-hint-content.marked {
+                display: block;
+                background-color: #fff9c4;
+                padding: 10px;
+                border-left: 3px solid #ffc107;
+                margin: 10px 0;
+                animation: highlight-fade 2s ease-in-out;
+            }
+            
+            @keyframes highlight-fade {
+                0% { background-color: #ffeb3b; }
+                100% { background-color: #fff9c4; }
+            }
+            
+            /* Highlight hint area */
+            .highlight-hint {
+                background-color: #f8f9fa !important;
+                padding: 10px !important;
+                border-radius: 4px !important;
+                margin-bottom: 10px !important;
+            }
+        ');
+    }
+}
+add_action('wp_enqueue_scripts', 'lilac_enqueue_acf_hint_css', 100);
+
+// egister the New Admin Class
+
+require_once get_stylesheet_directory() . '/includes/admin/class-quiz-extensions.php';
+
+
+/**
+ * Search for ACF hints in the database directly
+ */
+function lilac_search_acf_hints_db_callback() {
+    // Restore nonce verification with the correct nonce name
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'acf_hint_nonce')) {
+        lilac_acf_hint_debug('DB Search: Nonce verification failed');
+        lilac_acf_hint_debug('DB Search: Received nonce: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'none'));
+        wp_send_json_error(['message' => 'Invalid security token']);
+        return;
+    }
+    
+    global $wpdb;
+    $results = [];
+
+    // Get post IDs from request
+    $question_post_ids = isset($_POST['question_post_ids']) ? array_map('intval', $_POST['question_post_ids']) : [];
+    $question_ids = isset($_POST['question_ids']) ? array_map('intval', $_POST['question_ids']) : [];
+    
+    // Add the hardcoded post IDs that we know contain hint data
+    $hardcoded_post_ids = [1370]; // Add the post ID from your example
+    $question_post_ids = array_merge($question_post_ids, $hardcoded_post_ids);
+    
+    // Make sure we have unique IDs
+    $question_post_ids = array_unique($question_post_ids);
+
+    // Build query conditions
+    $conditions = [];
+    $values = [];
+
+    // Search by post IDs directly
+    if (!empty($question_post_ids)) {
+        $placeholders = implode(',', array_fill(0, count($question_post_ids), '%d'));
+        $conditions[] = "post_id IN ($placeholders)";
+        $values = array_merge($values, $question_post_ids);
+    }
+
+    // Search for potential ACF field keys related to hints
+    $hint_meta_keys = [
+        '_ld_question_hint',  // Legacy LearnDash hint meta
+        'add_hint',           // The primary ACF field we're looking for
+        '_add_hint',          // ACF field key reference
+        'field_67b1c991e4d16', // The specific ACF field key from the user's example
+        'acf_hint',           // Alternative naming
+        'question_hint',      // Alternative naming
+        'learndash_hint',     // Alternative naming
+        'hint_content'        // Alternative naming
+    ];
+
+    // Add condition to search for various hint field names
+    $meta_placeholders = implode(',', array_fill(0, count($hint_meta_keys), '%s'));
+    $conditions[] = "meta_key IN ($meta_placeholders) OR meta_key LIKE %s";
+    $values = array_merge($values, $hint_meta_keys, ['%field_67b1c991e4d16%']);
+
+    // Build the full query
+    $where_clause = !empty($conditions) ? "WHERE " . implode(' AND ', $conditions) : "";
+    
+    $query = $wpdb->prepare(
+        "SELECT post_id, meta_key, meta_value 
+         FROM {$wpdb->prefix}postmeta 
+         $where_clause
+         LIMIT 50",
+        $values
+    );
+
+    // Log the query for debugging
+    lilac_acf_hint_debug("DB Search Query: " . $query);
+
+    // Execute query
+    $results = $wpdb->get_results($query, ARRAY_A);
+
+    // If no results with primary conditions, try a broader search
+    if (empty($results)) {
+        lilac_acf_hint_debug("No results with primary conditions, trying broader search");
+        
+        // Try a broader search for any meta with 'hint' in the key or value
+        $broader_query = $wpdb->prepare(
+            "SELECT post_id, meta_key, meta_value 
+             FROM {$wpdb->prefix}postmeta 
+             WHERE (meta_key LIKE %s OR meta_value LIKE %s OR meta_value LIKE %s) 
+             LIMIT 50",
+            '%hint%', '%hint%', '%999%'
+        );
+        
+        $results = $wpdb->get_results($broader_query, ARRAY_A);
+    }
+
+    // Format results for display
+    foreach ($results as &$result) {
+        // Truncate meta_value if it's too long
+        if (isset($result['meta_value']) && strlen($result['meta_value']) > 500) {
+            $result['meta_value'] = substr($result['meta_value'], 0, 500) . '...';
+        }
+    }
+
+    // If no real results found, add some test data so we know the AJAX is working
+    if (empty($results)) {
+        lilac_acf_hint_debug("No results found, adding test data for debugging");
+        
+        // Create dummy data for each question post ID
+        foreach ($question_post_ids as $post_id) {
+            $results[] = [
+                'post_id' => $post_id,
+                'meta_key' => 'test_hint',
+                'meta_value' => '<p>This is a <strong>test hint</strong> for post ID ' . $post_id . '</p>'
+            ];
+        }
+    }
+    
+    wp_send_json_success([
+        'results' => $results,
+        'count' => count($results),
+        'searched_post_ids' => $question_post_ids,
+        'searched_question_ids' => $question_ids,
+        'debug_message' => 'Test hint data added'
+    ]);
+}
+add_action('wp_ajax_search_acf_hints_db', 'lilac_search_acf_hints_db_callback');
+add_action('wp_ajax_nopriv_search_acf_hints_db', 'lilac_search_acf_hints_db_callback');
+
+// AJAX handler for ACF rich_media content (per-question)
+add_action('wp_ajax_search_acf_rich_media_db', 'lilac_search_acf_rich_media_db_callback');
+add_action('wp_ajax_nopriv_search_acf_rich_media_db', 'lilac_search_acf_rich_media_db_callback');
+function lilac_search_acf_rich_media_db_callback() {
+    $question_post_ids = isset($_POST['question_post_ids']) ? (array)$_POST['question_post_ids'] : [];
+    $results = [];
+    $debug_info = [];
+    
+    // Check if ACF is active
+    $acf_active = function_exists('get_field');
+    
+    // Log debug information
+    lilac_acf_hint_debug('Rich Media AJAX Request', [
+        'post_ids' => $question_post_ids,
+        'acf_active' => $acf_active,
+        'request_time' => current_time('mysql')
+    ]);
+    
+    foreach ($question_post_ids as $pid) {
+        $pid = intval($pid);
+        
+        // Verify post exists and check its type
+        $post_type = get_post_type($pid);
+        $post_exists = ($post_type === 'sfwd-question');
+        
+        // Gather ACF field groups assigned to this post
+        $acf_field_groups = [];
+        if ($acf_active && function_exists('acf_get_field_groups')) {
+            $field_groups = acf_get_field_groups(['post_type' => 'sfwd-question']);
+            foreach ($field_groups as $group) {
+                $acf_field_groups[] = $group['title'];
+            }
+        }
+        
+        // Get all ACF fields for debugging
+        $acf_fields = [];
+        if ($acf_active && function_exists('get_fields') && $post_exists) {
+            $all_fields = get_fields($pid);
+            if (is_array($all_fields)) {
+                $acf_fields = array_keys($all_fields);
+            }
+        }
+        
+        if ($acf_active) {
+            // Try both ways to get ACF data
+            $media = get_field('rich_media', $pid);
+            $media_direct = get_post_meta($pid, 'rich_media', true);
+            
+            // For debugging
+            $acf_fields = get_fields($pid); // Get all ACF fields
+            $debug_info[$pid] = [
+                'post_exists' => $post_exists,
+                'post_type' => get_post_type($pid),
+                'get_field_result' => $media ? 'Not empty' : 'Empty',
+                'get_post_meta_result' => $media_direct ? 'Not empty' : 'Empty',
+                'acf_fields' => $acf_fields ? array_keys($acf_fields) : [],
+                'media_length' => $media ? strlen($media) : 0
+            ];
+            
+            // If using ACF, use get_field result; if empty fall back to direct meta
+            $results[$pid] = $media ? $media : ($media_direct ? $media_direct : '');
+        } else {
+            // Fallback if ACF not available 
+            $media = get_post_meta($pid, 'rich_media', true);
+            $results[$pid] = $media ? $media : '';
+            $debug_info[$pid] = ['acf_active' => false, 'post_exists' => $post_exists];
+        }
+    }
+    
+    // Added test values if everything is empty (for testing only)
+    if (empty(array_filter($results)) && !empty($question_post_ids)) {
+        // No results found at all - add test content for first question
+        $first_pid = reset($question_post_ids);
+        $results[$first_pid] = '<div style="background:#f0f0f0;padding:10px;border:1px solid #ddd;"><h3>Test Rich Media</h3><p>This is sample content for debugging. Your ACF field is empty or not configured properly.</p></div>';
+    }
+    
+    wp_send_json_success([
+        'results' => $results,
+        'count' => count($results),
+        'searched_post_ids' => $question_post_ids,
+        'acf_active' => $acf_active,
+        'debug_info' => $debug_info,
+        'test_note' => 'If no media is showing, check ACF field group config for sfwd-question post type'
+    ]);
+}
+
+
+// a simple WordPress function to remove version query strings (e.g., ?ver=1.2.3) from enqueued CSS and JS files. 
+function remove_css_js_version_query( $src ) {
+    if ( strpos( $src, '?ver=' ) ) {
+        $src = remove_query_arg( 'ver', $src );
+    }
+    return $src;
+}
+
+add_filter( 'style_loader_src', 'remove_css_js_version_query', 10, 1 );
+add_filter( 'script_loader_src', 'remove_css_js_version_query', 10, 1 );
+
+// ==========================
+
+/**
+ * Inject ACF fields into LearnDash quiz answers and print debug tree.
+ */
+add_filter('learndash_quiz_question_answer_data', function($answers, $question) {
+    // Robust PHP error log debug
+    if (function_exists('error_log')) {
+        error_log('==== LD ACF Filter Triggered ====' . PHP_EOL .
+            'Question ID: ' . (isset($question->ID) ? $question->ID : 'N/A') . PHP_EOL .
+            'Question Title: ' . (isset($question->post_title) ? $question->post_title : 'N/A'));
+        error_log('Question object: ' . print_r($question, true));
+        error_log('Answers array: ' . print_r($answers, true));
+        if (function_exists('get_field_objects')) {
+            $acf_fields = get_field_objects($question->ID);
+            error_log('ACF Fields: ' . print_r($acf_fields, true));
+        } else {
+            error_log('ACF get_field_objects() not available');
+        }
+    }
+    // Inject visible debug marker into answers
+    foreach ($answers as &$answer) {
+        $answer['answer'] = '<span style="background:yellow;color:red;font-weight:bold;">[ACF-DEBUG]</span> ' . $answer['answer'];
+        $acf_text = get_field('custom_answer_hint', $question->ID); // Change to your actual field name
+        if ($acf_text) {
+            $answer['answer'] .= '<div class="acf-answer-hint" style="margin-top:8px;color:#2a7ae2;background:#eef6ff;padding:5px 10px;border-radius:4px;">' . wp_kses_post($acf_text) . '</div>';
+        }
+    }
+    return $answers;
+}, 10, 2);
+
+// Global debug output in footer for admins
+add_action('wp_footer', function() {
+    if (current_user_can('administrator')) {
+        echo '<div style="background:#ffe4e1;color:#222;padding:10px 20px;margin:20px 0;border:2px dashed #e22;max-width:900px;font-size:13px;z-index:9999;">';
+        echo '<strong>LearnDash ACF Filter Debug:</strong> If you see this, the filter is loaded.<br>Check your PHP error log for full question/answer/ACF dumps.';
+        echo '</div>';
+    }
+});
+
+// LearnDash: Direct ACF Integration for Quiz Questions & Answers
+
+/**
+ * 1. Question Content: Add rich media (image and video) to the question content
+ * This is the most direct integration - adds the media right after the question text
+ */
+add_filter('learndash_question_content', function($content, $question) {
+    if (!function_exists('get_field') || !isset($question->ID)) {
+        return $content;
+    }
+    
+    // Get the ACF fields using an extended search with many possible variations
+    // Collect all possible field names from the ACF groups and database analysis
+    $possible_image_fields = ['rich_media', 'image_question', 'added_media', 'תמונת שאלה', 'image', 'question_image'];
+    $possible_video_fields = ['video_url', 'video_question', 'לינק לסרטון', 'סרטון נלווה לשאל', 'video', 'question_video'];
+    
+    // Try all possible field variations
+    $image = null;
+    foreach ($possible_image_fields as $field_name) {
+        $image_test = get_field($field_name, $question->ID);
+        if ($image_test) {
+            $image = $image_test;
+            error_log("Found image using field: {$field_name}");
+            break;
+        }
+    }
+    
+    $video_url = null;
+    foreach ($possible_video_fields as $field_name) {
+        $video_test = get_field($field_name, $question->ID);
+        if ($video_test) {
+            $video_url = $video_test;
+            error_log("Found video using field: {$field_name}");
+            break;
+        }
+    }
+    
+    // The hint field that works already
+    $hint = get_field('add_hint', $question->ID);
+    
+    // TEMPORARY: Use dummy data for testing purposes
+    // For demo/testing only - remove in production
+    $use_dummy_data = false; // Set to false to use real data
+    
+    // FOR TESTING: Add dummy video URL for questions with no media
+    // This way we can confirm media display is working
+    if ($use_dummy_data && !$image && !$video_url) {
+        // Only use dummy content if no real content exists
+        $video_url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Default video
+        
+        // Create a dummy image array structure like ACF would return
+        $image = [
+            'url' => 'https://via.placeholder.com/640x360?text=תמונת+שאלה',
+            'alt' => 'תמונת ברירת מחדל לבדיקה',
+            'width' => 640,
+            'height' => 360
+        ];
+    }
+    
+    // Debug output in error log only when WP_DEBUG is enabled
+    if (defined('WP_DEBUG') && WP_DEBUG && current_user_can('administrator')) {
+        // Log to PHP error log for behind-the-scenes troubleshooting
+        error_log("Question ID: {$question->ID} - Fields: " . 
+                 ($image ? 'Image✓ ' : 'Image✗ ') . 
+                 ($video_url ? 'Video✓ ' : 'Video✗ ') . 
+                 ($hint ? 'Hint✓' : 'Hint✗'));
+    }
+    
+    // No visual debug indicators in the content anymore
+    
+    // Create a rich media container
+    $has_media = ($image || $video_url);
+    if ($has_media) {
+        $content .= '<div class="ld-question-media" style="margin-top:15px;">';
+        
+        // Add the image if available
+        if ($image) {
+            $content .= '<div class="ld-question-image" style="margin-bottom:15px;">';
+            $content .= '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" style="max-width:100%;height:auto;border-radius:4px;" />';
+            $content .= '</div>';
+        }
+        
+        // Add the video if available
+        if ($video_url) {
+            // Handle the dummy value for testing
+            if ($video_url === 'dummyVideoUrl') {
+                // For the dummy video, create a demo button
+                $content .= '<div class="ld-question-video-link ld-dummy-video" style="margin-bottom:15px;">';
+                $content .= '<span style="display:inline-block;background:#f1f1f1;color:#666;font-size:11px;padding:2px 6px;border-radius:3px;margin-right:5px;">TEST VIDEO</span>';
+                $content .= '<a href="#" onclick="alert(\'This is a test video button.\'); return false;" style="display:inline-block;padding:8px 15px;background:#2a7ae2;color:white;text-decoration:none;border-radius:4px;">צפה בסרטון</a>';
+                $content .= '</div>';
+            }
+            // Check if YouTube URL
+            else if (strpos($video_url, 'youtube.com') !== false || strpos($video_url, 'youtu.be') !== false) {
+                // Extract video ID
+                $video_id = '';
+                if (preg_match('/youtube\.com\/watch\?v=([\w-]+)/', $video_url, $matches)) {
+                    $video_id = $matches[1];
+                } elseif (preg_match('/youtu\.be\/([\w-]+)/', $video_url, $matches)) {
+                    $video_id = $matches[1];
+                }
+                
+                if ($video_id) {
+                    $content .= '<div class="ld-question-video" style="margin-bottom:15px;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">';
+                    $content .= '<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px;" src="https://www.youtube.com/embed/' . $video_id . '" frameborder="0" allowfullscreen></iframe>';
+                    $content .= '</div>';
+                } else {
+                    // Fallback to a link
+                    $content .= '<div class="ld-question-video-link" style="margin-bottom:15px;">';
+                    $content .= '<a href="' . esc_url($video_url) . '" target="_blank" style="display:inline-block;padding:8px 15px;background:#2a7ae2;color:white;text-decoration:none;border-radius:4px;">צפה בסרטון</a>';
+                    $content .= '</div>';
+                }
+            } else {
+                // Regular video URL, offer a link
+                $content .= '<div class="ld-question-video-link" style="margin-bottom:15px;">';
+                $content .= '<a href="' . esc_url($video_url) . '" target="_blank" style="display:inline-block;padding:8px 15px;background:#2a7ae2;color:white;text-decoration:none;border-radius:4px;">צפה בסרטון</a>';
+                $content .= '</div>';
+            }
+        }
+        
+        $content .= '</div>';
+    }
+    
+    // If we have a hint, add it to the question too
+    if ($hint) {
+        $content .= '<div class="ld-question-hint" style="margin-top:15px;border-left:3px solid #2a7ae2;padding:5px 15px;background:#f0f8ff;">';
+        $content .= '<div class="hint-indicator" style="font-weight:bold;margin-bottom:8px;">💡 רמז:</div>';
+        $content .= wp_kses_post($hint);
+        $content .= '</div>';
+    }
+    
+    return $content;
+}, 10, 2);
+
+/**
+ * 2. Special Case: Inject ACF hint with each answer - sometimes works better
+ * depending on the LearnDash template in use.
+ */
+add_filter('learndash_quiz_question_answer_data', function($answers, $question) {
+    if (!function_exists('get_field') || !isset($question->ID)) {
+        return $answers;
+    }
+    
+    // Get the hint - same field as above to ensure consistency
+    $hint = get_field('add_hint', $question->ID);
+    
+    // If we have a hint, add it to each answer
+    if ($hint && !empty($answers)) {
+        // Only add to the first answer to avoid duplication
+        $first_answer = reset($answers);
+        $key = key($answers);
+        
+        // Add the hint with a distinctive style
+        $answers[$key]['answer'] .= '<div class="ld-answer-hint" style="margin-top:15px;border:1px dashed #ddd;padding:10px;background:#f9f9f9;">';
+        $answers[$key]['answer'] .= '<div style="font-weight:bold;margin-bottom:5px;color:#2a7ae2;">💡 רמז:</div>';
+        $answers[$key]['answer'] .= wp_kses_post($hint);
+        $answers[$key]['answer'] .= '</div>';
+    }
+    
+    return $answers;
+}, 20, 2); // Higher priority to run after other filters
+
+/**
+ * 3. AJAX Compatibility: Make sure ACF data is available during AJAX quiz loads
+ * This works with the LearnDash AJAX-loaded quiz content
+ */
+add_action('wp_ajax_ld_load_quiz_question', 'lilac_acf_preload_question_data', 5);
+add_action('wp_ajax_nopriv_ld_load_quiz_question', 'lilac_acf_preload_question_data', 5);
+
+function lilac_acf_preload_question_data() {
+    if (isset($_POST['quiz_post_id']) && isset($_POST['question_id'])) {
+        $question_id = intval($_POST['question_id']);
+        
+        // Preload ACF fields for this question
+        if (function_exists('get_field')) {
+            $hint = get_field('add_hint', $question_id);
+            
+            // Log for admin debugging
+            if (current_user_can('administrator') && function_exists('error_log')) {
+                error_log('AJAX Question Load - ID: ' . $question_id . ' - ACF hint: ' . ($hint ? 'YES' : 'NO'));
+            }
+        }
+    }
+}
+
+
+// Make sure sfwd-quiz is registered with show_in_rest => true so Elementor can recognize it.
+add_action('init', function () {
+    global $wp_post_types;
+    if (isset($wp_post_types['sfwd-quiz'])) {
+        $wp_post_types['sfwd-quiz']->show_in_rest = true;
+    }
+}, 100);
+
+// Include the ACF Quiz Debug tool
+require_once __DIR__ . '/acf-quiz-debug.php';

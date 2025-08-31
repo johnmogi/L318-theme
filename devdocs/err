@@ -1,0 +1,259 @@
+e
+
+
+[29-Jul-2025 09:53:28 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function add_settings_field(), 3 passed in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-content\themes\hello-theme-child-master\src\Messaging\Admin\MessagingAdmin.php on line 251 and at least 4 expected in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-admin\includes\template.php:1713
+Stack trace:
+#0 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-content\themes\hello-theme-child-master\src\Messaging\Admin\MessagingAdmin.php(251): add_settings_field('lilac_bonus_mes...', 'lilac_messaging...', Array)
+#1 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\class-wp-hook.php(324): Lilac\Messaging\Admin\MessagingAdmin->register_settings('')
+#2 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#3 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-admin\admin-ajax.php(45): do_action('admin_init')
+#5 {main}
+  thrown in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-admin\includes\template.php on line 1713
+[29-Jul-2025 09:53:28 UTC] Fatal error caught: Uncaught ArgumentCountError: Too few arguments to function add_settings_field(), 3 passed in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-content\themes\hello-theme-child-master\src\Messaging\Admin\MessagingAdmin.php on line 251 and at least 4 expected in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-admin\includes\template.php:1713
+Stack trace:
+#0 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-content\themes\hello-theme-child-master\src\Messaging\Admin\MessagingAdmin.php(251): add_settings_field('lilac_bonus_mes...', 'lilac_messaging...', Array)
+#1 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\class-wp-hook.php(324): Lilac\Messaging\Admin\MessagingAdmin->register_settings('')
+#2 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#3 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-admin\admin-ajax.php(45): do_action('admin_init')
+#5 {main}
+  thrown in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-admin\includes\template.php on line 1713
+[29-Jul-2025 09:53:33 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 12288 bytes) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-content\themes\hello-theme-child-master\includes\messaging\notifications.php on line 78
+[29-Jul-2025 09:54:08 UTC] Emergency Site Stabilizer: Active - Memory limit set to 512M, problematic hooks disabled
+[29-Jul-2025 09:54:08 UTC] Student Teacher Display: Shortcodes registered successfully
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-elementor</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] School Manager Lite: Import/Export class loaded
+[29-Jul-2025 09:54:08 UTC] School Manager Lite: Import/Export instance created: School_Manager_Lite_Import_Export
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>school-manager-lite</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] School Manager Lite: Class-based shortcodes registered successfully
+[29-Jul-2025 09:54:08 UTC] School Manager Lite: Plugin includes loaded
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-reports-pro</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>wdm_instructor_role</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-gradebook</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>elementor</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>elementor-pro</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:08 UTC] CUSTOM USER REDIRECTS LOADED - 2025-07-29 09:54:08
+[29-Jul-2025 09:54:08 UTC] Registration codes file exists: No
+[29-Jul-2025 09:54:08 UTC] Promo code file exists: Yes
+[29-Jul-2025 09:54:08 UTC] Promo code file loaded
+[29-Jul-2025 09:54:08 UTC] Shortcode promo_code is registered: No
+[29-Jul-2025 09:54:08 UTC] ERROR: Registration_Wizard class or get_instance method not found
+[29-Jul-2025 09:54:08 UTC] ERROR: Registration_Admin class or get_instance method not found
+[29-Jul-2025 09:54:08 UTC] Skipping login system load in admin
+[29-Jul-2025 09:54:08 UTC] TEACHER_WIZARD: Constructor called
+[29-Jul-2025 09:54:08 UTC] TEACHER_WIZARD_FIX: Constructor called
+[29-Jul-2025 09:54:08 UTC] Elementor LearnDash Video Integration: Initialized with layout fixes
+[29-Jul-2025 09:54:08 UTC] Enhanced Teacher Import: Using existing default group 10101
+[29-Jul-2025 09:54:08 UTC] LearnDash Video Integration: Initialized with LEARNDASH_LESSON_VIDEO = true
+[29-Jul-2025 09:54:09 UTC] School Manager Missing Parts Fix: Required tables missing, skipping connection fix
+[29-Jul-2025 09:54:09 UTC] Added teacher 400 as leader for group 10030 (class: 2)
+[29-Jul-2025 09:54:09 UTC] Added teacher 402 as leader for group 10029 (class: TEST)
+[29-Jul-2025 09:54:09 UTC] Added teacher 403 as leader for group 10027 (class: TEST)
+[29-Jul-2025 09:54:09 UTC] Added teacher 406 as leader for group 10064 (class: TA2)
+[29-Jul-2025 09:54:09 UTC] Added teacher 38 as leader for group 10028 (class: TA)
+[29-Jul-2025 09:54:09 UTC] Added teacher 1 as leader for group 10062 (class: lujhikh)
+[29-Jul-2025 09:54:09 UTC] Added teacher 1 as leader for group 10063 (class: 3434)
+[29-Jul-2025 09:54:09 UTC] Fixed 7 missing group leader assignments
+[29-Jul-2025 09:54:09 UTC] School Manager Missing Parts Fix: All missing parts addressed
+[29-Jul-2025 09:54:09 UTC] School Manager Lite: Class-based shortcodes registered successfully
+[29-Jul-2025 09:54:09 UTC] School Manager Lite: Advanced shortcodes registered
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: Enhanced capabilities set for role: school_teacher
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: SUCCESS - Role school_teacher now has edit_others capabilities
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: Enhanced capabilities set for role: group_leader
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: SUCCESS - Role group_leader now has edit_others capabilities
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: Role not found: instructor
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: Enhanced capabilities set for role: wdm_instructor
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: SUCCESS - Role wdm_instructor now has edit_others capabilities
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: Enhanced capabilities set for role: stm_lms_instructor
+[29-Jul-2025 09:54:09 UTC] Teacher LearnDash Access: SUCCESS - Role stm_lms_instructor now has edit_others capabilities
+[29-Jul-2025 09:54:09 UTC] Lilac Course Alert: Shortcode is registered
+[29-Jul-2025 09:54:09 UTC] TEACHER_WIZARD_FIX: apply_fixes called
+[29-Jul-2025 09:54:09 UTC] TEACHER_WIZARD_FIX: Teacher_Class_Wizard class exists
+[29-Jul-2025 09:54:09 UTC] TEACHER_WIZARD_FIX: Got wizard instance, adding hooks
+[29-Jul-2025 09:54:09 UTC] TEACHER_WIZARD_FIX: Hooks added successfully
+[29-Jul-2025 09:54:09 UTC] [LILAC] Demo subscription product already exists with ID: 6152
+[29-Jul-2025 09:54:09 UTC] Registered Shortcodes: Array
+(
+    [0] => wp_caption
+    [1] => caption
+    [2] => gallery
+    [3] => playlist
+    [4] => audio
+    [5] => video
+    [6] => embed
+    [7] => detailed_quiz_list
+    [8] => quiz_debug
+    [9] => student_teacher_info
+    [10] => my_teacher
+    [11] => acf
+    [12] => instructor_dashboard
+    [13] => school_promo_code_redemption
+    [14] => school_manager_redeem
+    [15] => school_freeze_access
+    [16] => school_student_quiz_status
+    [17] => teacher_create_promo_codes
+    [18] => course_content
+    [19] => usermeta
+    [20] => ld_course_certificate
+    [21] => ld_course_info
+    [22] => learndash_group_user_list
+    [23] => user_groups
+    [24] => learndash_payment_buttons
+    [25] => ld_user_course_points
+    [26] => ld_profile
+    [27] => ld_course_list
+    [28] => ld_lesson_list
+    [29] => ld_topic_list
+    [30] => ld_quiz_list
+    [31] => visitor
+    [32] => student
+    [33] => ld_group
+    [34] => course_complete
+    [35] => course_inprogress
+    [36] => course_notstarted
+    [37] => ld_course_expire_status
+    [38] => learndash_course_progress
+    [39] => ld_quiz
+    [40] => courseinfo
+    [41] => quizinfo
+    [42] => ld_certificate
+    [43] => ld_quiz_complete
+    [44] => ld_course_resume
+    [45] => ld_group_list
+    [46] => groupinfo
+    [47] => ld_registration
+    [48] => ld_infobar
+    [49] => ld_materials
+    [50] => learndash_user_status
+    [51] => ld_navigation
+    [52] => ld_reset_password
+    [53] => product_brand
+    [54] => product_brand_thumbnails
+    [55] => product_brand_thumbnails_description
+    [56] => product_brand_list
+    [57] => brand_products
+    [58] => ywsbs_my_account_subscriptions
+    [59] => ldrp_quiz_reports
+    [60] => wrld_dashboard_link
+    [61] => wrld_course_time
+    [62] => lilac_minimal_login
+    [63] => llm_manual_timed_access
+    [64] => lilac_user_subscriptions
+    [65] => llm_user_subscriptions
+    [66] => teacher_students
+    [67] => ld_quiz_stats
+    [68] => llm_early_topics
+    [69] => yith_subscription_controls
+    [70] => demo_subscription_button
+    [71] => code_registration
+    [72] => user_dashboard
+    [73] => learndash_dashboard
+    [74] => teacher_dashboard
+    [75] => lilac_course_subscription
+    [76] => lilac_message
+    [77] => lilac_session_counter
+    [78] => learndash_login
+    [79] => jet_engine
+    [80] => jet_engine_data
+    [81] => jet_engine_condition
+    [82] => elementor-element
+    [83] => elementor-template
+    [84] => sfwd-courses
+    [85] => sfwd-lessons
+    [86] => sfwd-topic
+    [87] => sfwd-quiz
+    [88] => sfwd-question
+    [89] => ld-coupon
+    [90] => sfwd-certificates
+    [91] => groups
+    [92] => sfwd-transactions
+    [93] => promo_code_registration
+    [94] => simple_teacher_dashboard
+    [95] => product
+    [96] => product_page
+    [97] => product_category
+    [98] => product_categories
+    [99] => add_to_cart
+    [100] => add_to_cart_url
+    [101] => products
+    [102] => recent_products
+    [103] => sale_products
+    [104] => best_selling_products
+    [105] => top_rated_products
+    [106] => featured_products
+    [107] => product_attribute
+    [108] => related_products
+    [109] => shop_messages
+    [110] => woocommerce_order_tracking
+    [111] => woocommerce_cart
+    [112] => woocommerce_checkout
+    [113] => woocommerce_my_account
+    [114] => woocommerce_messages
+    [115] => ld_report_card
+    [116] => ld_overall_grade
+    [117] => ld_gradebook
+    [118] => learndash_course_grid
+    [119] => learndash_course_grid_filter
+    [120] => promo_code
+    [121] => ld_propanel
+    [122] => all_instructors
+    [123] => lilac_login_page
+    [124] => lilac_course_alert
+)
+
+[29-Jul-2025 09:54:09 UTC] Emergency Site Stabilizer: Active - Memory limit set to 512M, problematic hooks disabled
+[29-Jul-2025 09:54:09 UTC] Student Teacher Display: Shortcodes registered successfully
+[29-Jul-2025 09:54:09 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-elementor</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:09 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:09 UTC] School Manager Lite: Import/Export class loaded
+[29-Jul-2025 09:54:09 UTC] School Manager Lite: Import/Export instance created: School_Manager_Lite_Import_Export
+[29-Jul-2025 09:54:09 UTC] School Manager Lite: Class-based shortcodes registered successfully
+[29-Jul-2025 09:54:09 UTC] School Manager Lite: Plugin includes loaded
+[29-Jul-2025 09:54:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-reports-pro</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>wdm_instructor_role</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>learndash-gradebook</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>elementor</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>elementor-pro</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in C:\Users\USUARIO\Documents\SITES\LILAC\207lilac\app\public\wp-includes\functions.php on line 6121
+[29-Jul-2025 09:54:10 UTC] CUSTOM USER REDIRECTS LOADED - 2025-07-29 09:54:10
+[29-Jul-2025 09:54:10 UTC] Registration codes file exists: No
+[29-Jul-2025 09:54:10 UTC] Promo code file exists: Yes
+[29-Jul-2025 09:54:10 UTC] Promo code file loaded
+[29-Jul-2025 09:54:10 UTC] Shortcode promo_code is registered: No
+[29-Jul-2025 09:54:10 UTC] ERROR: Registration_Wizard class or get_instance method not found
+[29-Jul-2025 09:54:10 UTC] ERROR: Registration_Admin class or get_instance method not found
+[29-Jul-2025 09:54:10 UTC] Loading LoginManager...
+[29-Jul-2025 09:54:10 UTC] LoginManager.php found, including file...
+[29-Jul-2025 09:54:10 UTC] LoginManager class exists, initializing...
+[29-Jul-2025 09:54:10 UTC] LoginManager initialized successfully
+
+Revert
+I can see there are several critical PHP errors occurring on your site. Let me analyze and fix these issues:
+
+Planned for 9s
+
+View Plan
+Here’s a summary of the plan update:
+
+Added notes about the errors found: missing argument in add_settings_field, memory exhaustion, and translation loading too early.
+Outlined a task list to address these issues, starting with fixing the add_settings_field usage.
+Set the current goal to fix the add_settings_field argument error.
+Now updating the plan file accordingly.
+
+I can see several critical PHP errors in your WordPress site. Let me examine and fix the most critical issues:
+
+Analyzed
+MessagingAdmin.php#L245-255
+I can see the issue clearly now. The add_settings_field() function is missing required parameters. Let me examine the specific problematic line and fix it:
+
+Analyzed
+MessagingAdmin.php#L248-260
+Now I can see the exact issue. The add_settings_field() function requires at least 4 parameters, but the call on line 251 is only passing 3. Let me examine the surrounding context to understand the pattern and fix this:
+
+Analyzed
+MessagingAdmin.php#L240-270
+Now I can see the issue clearly. The first add_settings_field() call is missing the required callback function parameter and page parameter. Let me fix this:
+

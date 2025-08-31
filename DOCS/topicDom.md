@@ -1,0 +1,2560 @@
+<div class="ld-item-list-items  ld-item-list-898" id="ld-item-list-898" data-ld-expand-id="ld-item-list-898" data-ld-expand-list="true">
+		
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-5038 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-5038" data-ld-expand-id="ld-expand-5038">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9e%d7%a0%d7%94%d7%92-%d7%9e%d7%a9%d7%90-%d7%a7%d7%9c/">
+				<div class="ld-status-icon ld-status-in-progress ld-secondary-in-progress-icon" role="img" aria-label="In progress"></div>				<div class="ld-item-title">
+					מה נדרש מנהג משא קל
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								1 מבחן								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-5038-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-5038-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						מה נדרש מנהג משא קל					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-5038-container" data-height="728.75" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-5038" id="ld-expand-5038">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					33% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					1/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-5038" id="ld-topic-list-5038" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-5040 " id="ld-table-list-item-5040">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-complete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9e%d7%a0%d7%94%d7%92-%d7%9e%d7%a9%d7%90-%d7%a7%d7%9c/topics/%d7%a9%d7%99%d7%a7%d7%95%d7%9c-%d7%93%d7%a2%d7%aa-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-complete ld-secondary-background" role="img" aria-label="הושלם"><span class="ld-icon-checkmark ld-icon" aria-hidden="true"></span></div>
+				<span class="ld-topic-title">שיקול דעת בזמן נהיגה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-4833" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-4833">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9e%d7%a0%d7%94%d7%92-%d7%9e%d7%a9%d7%90-%d7%a7%d7%9c/topics/%d7%a9%d7%99%d7%a7%d7%95%d7%9c-%d7%93%d7%a2%d7%aa-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-2/quizzes/%d7%9e%d7%91%d7%97%d7%9f-01-%d7%9c%d7%a4%d7%a0%d7%99-%d7%94%d7%9b%d7%9c-%d7%9c%d7%97%d7%a9%d7%95%d7%91-%d7%a0%d7%9b%d7%95%d7%9f/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מבחן 01 – לפני הכל לחשוב נכון…</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-5043 " id="ld-table-list-item-5043">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9e%d7%a0%d7%94%d7%92-%d7%9e%d7%a9%d7%90-%d7%a7%d7%9c/topics/%d7%9c%d7%90-%d7%9c%d7%a2%d7%99%d7%99%d7%a4%d7%95%d7%aa-%d7%9c%d7%90-%d7%9c%d7%a1%d7%9e%d7%99%d7%9d-%d7%95%d7%9c%d7%90-%d7%9c%d7%aa%d7%a8%d7%95%d7%a4%d7%95%d7%aa-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">לא לעייפות, לא לסמים ולא לתרופות בזמן נהיגה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div class="ld-table-list-item ld-table-list-item-5044 " id="ld-table-list-item-5044">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9e%d7%a0%d7%94%d7%92-%d7%9e%d7%a9%d7%90-%d7%a7%d7%9c/topics/%d7%9c%d7%90-%d7%9c%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">לא לאלכוהול בזמן נהיגה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-5052 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-5052" data-ld-expand-id="ld-expand-5052">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%9c%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					לא לאלכוהול בזמן נהיגה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								2 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								2 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-5052-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-5052-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						לא לאלכוהול בזמן נהיגה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-5052-container" data-height="846.736" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-5052" id="ld-expand-5052">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/2 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-5052" id="ld-topic-list-5052" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-5054 " id="ld-table-list-item-5054">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%9c%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%94%d7%a9%d7%a4%d7%a2%d7%95%d7%aa-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%a2%d7%9c-%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%94%d7%92%d7%95%d7%a3-%d7%95%d7%a2%d7%9c-%d7%94%d7%a0%d7%95%d7%94/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">השפעות אלכוהול על מערכות הגוף ועל הנוהג ברכב</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5081" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5081">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%9c%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%94%d7%a9%d7%a4%d7%a2%d7%95%d7%aa-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%a2%d7%9c-%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%94%d7%92%d7%95%d7%a3-%d7%95%d7%a2%d7%9c-%d7%94%d7%a0%d7%95%d7%94/quizzes/%d7%9e%d7%a9%d7%a7%d7%90%d7%95%d7%aa-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c%d7%99%d7%99%d7%9d-%d7%95%d7%a8%d7%99%d7%9b%d7%95%d7%96-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%93%d7%9d/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">משקאות אלכוהוליים וריכוז אלכוהול בדם</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-5055 " id="ld-table-list-item-5055">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%9c%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%9e%d7%a9%d7%a7%d7%90%d7%95%d7%aa-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c%d7%99%d7%99%d7%9d-%d7%95%d7%a8%d7%99%d7%9b%d7%95%d7%96-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%93%d7%9d/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">משקאות אלכוהוליים וריכוז אלכוהול בדם</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5075" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5075">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%9c%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%96%d7%9e%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%9e%d7%a9%d7%a7%d7%90%d7%95%d7%aa-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c%d7%99%d7%99%d7%9d-%d7%95%d7%a8%d7%99%d7%9b%d7%95%d7%96-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%91%d7%93%d7%9d/quizzes/%d7%94%d7%a9%d7%a4%d7%a2%d7%95%d7%aa-%d7%90%d7%9c%d7%9b%d7%95%d7%94%d7%95%d7%9c-%d7%a2%d7%9c-%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%94%d7%92%d7%95%d7%a3-%d7%95%d7%a2%d7%9c-%d7%94%d7%a0%d7%95%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">השפעות אלכוהול על מערכות הגוף ועל הנוהג ברכב</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-5121 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-5121" data-ld-expand-id="ld-expand-5121">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					הדרך לרכישת רישיון נהיגה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-5121-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-5121-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						הדרך לרכישת רישיון נהיגה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-5121-container" data-height="1011.719" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-5121" id="ld-expand-5121">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-5121" id="ld-topic-list-5121" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-5115 " id="ld-table-list-item-5115">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9b%d7%93%d7%99-%d7%9c%d7%94%d7%a4%d7%95%d7%9a-%d7%9c%d7%a0%d7%94%d7%92-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מה נדרש כדי להפוך לנהג</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5131" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5131">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9b%d7%93%d7%99-%d7%9c%d7%94%d7%a4%d7%95%d7%9a-%d7%9c%d7%a0%d7%94%d7%92-2/quizzes/%d7%9e%d7%94-%d7%a0%d7%93%d7%a8%d7%a9-%d7%9b%d7%93%d7%99-%d7%9c%d7%94%d7%a4%d7%95%d7%9a-%d7%9c%d7%a0%d7%94%d7%92/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מה נדרש כדי להפוך לנהג</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-5116 " id="ld-table-list-item-5116">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%a0%d7%94%d7%92-%d7%97%d7%93%d7%a9-%d7%95%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%9e%d7%93%d7%95%d7%a8%d7%92-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">נהג חדש ורישיון נהיגה מדורג</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5168" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5168">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip ld-tooltip--hidden">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%a0%d7%94%d7%92-%d7%97%d7%93%d7%a9-%d7%95%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%9e%d7%93%d7%95%d7%a8%d7%92-2/quizzes/%d7%a0%d7%94%d7%92-%d7%97%d7%93%d7%a9-%d7%95%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%9e%d7%93%d7%95%d7%a8%d7%92/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">נהג חדש ורישיון נהיגה מדורג</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-5117 " id="ld-table-list-item-5117">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%aa%d7%a7%d7%95%d7%a4%d7%aa-%d7%94%d7%97%d7%95%d7%a0%d7%9b%d7%95%d7%aa-%d7%9e%d7%9c%d7%95%d7%95%d7%94-%d7%95%d7%9e%d7%98%d7%a8%d7%95%d7%aa-%d7%94%d7%9c%d7%99%d7%95%d7%95%d7%99-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">תקופת החונכות (מלווה) ומטרות הליווי</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5190" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5190">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%a8%d7%9b%d7%99%d7%a9%d7%aa-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%9f-%d7%a0%d7%94%d7%99%d7%92%d7%94/topics/%d7%aa%d7%a7%d7%95%d7%a4%d7%aa-%d7%94%d7%97%d7%95%d7%a0%d7%9b%d7%95%d7%aa-%d7%9e%d7%9c%d7%95%d7%95%d7%94-%d7%95%d7%9e%d7%98%d7%a8%d7%95%d7%aa-%d7%94%d7%9c%d7%99%d7%95%d7%95%d7%99-2/quizzes/%d7%aa%d7%a7%d7%95%d7%a4%d7%aa-%d7%94%d7%97%d7%95%d7%a0%d7%9b%d7%95%d7%aa-%d7%9e%d7%9c%d7%95%d7%95%d7%94-%d7%95%d7%9e%d7%98%d7%a8%d7%95%d7%aa-%d7%94%d7%9c%d7%99%d7%95%d7%95%d7%99/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">תקופת החונכות (מלווה) ומטרות הליווי</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-5210 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-5210" data-ld-expand-id="ld-expand-5210">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					לא נוסעים בלי…
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-5210-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-5210-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						לא נוסעים בלי…					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-5210-container" data-height="1119.7" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-5210" id="ld-expand-5210">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-5210" id="ld-topic-list-5210" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-5212 " id="ld-table-list-item-5212">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/topics/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%91%d7%99%d7%98%d7%95%d7%97-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">לא נוסעים בלי רישיונות וביטוח</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7640" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7640">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/topics/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%91%d7%99%d7%98%d7%95%d7%97-2/quizzes/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%a8%d7%99%d7%a9%d7%99%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%91%d7%99%d7%98%d7%95%d7%97/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">לא נוסעים בלי רישיונות וביטוח</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-5214 " id="ld-table-list-item-5214">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/topics/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%aa%d7%a7%d7%99%d7%a0%d7%95%d7%aa-%d7%94%d7%a8%d7%9b%d7%91-%d7%95%d7%91%d7%a7%d7%99%d7%90%d7%95%d7%aa-%d7%91%d7%94%d7%a4%d7%a2-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">לא נוסעים בלי תקינות הרכב ובקיאות בהפעלתו</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7669" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7669">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/topics/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%aa%d7%a7%d7%99%d7%a0%d7%95%d7%aa-%d7%94%d7%a8%d7%9b%d7%91-%d7%95%d7%91%d7%a7%d7%99%d7%90%d7%95%d7%aa-%d7%91%d7%94%d7%a4%d7%a2-2/quizzes/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%aa%d7%a7%d7%99%d7%a0%d7%95%d7%aa-%d7%94%d7%a8%d7%9b%d7%91-%d7%95%d7%91%d7%a7%d7%99%d7%90%d7%95%d7%aa-%d7%91%d7%94%d7%a4%d7%a2/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">לא נוסעים בלי תקינות הרכב ובקיאות בהפעלתו</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-5216 " id="ld-table-list-item-5216">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/topics/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%9c%d7%94%d7%91%d7%99%d7%9f-%d7%9e%d7%94%d7%99-%d7%90%d7%97%d7%a8%d7%99%d7%95%d7%aa-%d7%91%d7%a2%d7%9c-%d7%94%d7%a8%d7%9b-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">לא נוסעים בלי להבין מהי אחריות בעל הרכב על רכבו</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-8006" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-8006">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99/topics/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%9c%d7%94%d7%91%d7%99%d7%9f-%d7%9e%d7%94%d7%99-%d7%90%d7%97%d7%a8%d7%99%d7%95%d7%aa-%d7%91%d7%a2%d7%9c-%d7%94%d7%a8%d7%9b-2/quizzes/%d7%9c%d7%90-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%9c%d7%99-%d7%9c%d7%94%d7%91%d7%99%d7%9f-%d7%9e%d7%94%d7%99-%d7%90%d7%97%d7%a8%d7%99%d7%95%d7%aa-%d7%91%d7%a2%d7%9c-%d7%94%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">לא נוסעים בלי להבין מהי אחריות בעל הרכב על רכבו</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8160 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8160" data-ld-expand-id="ld-expand-8160">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					יחסי משטרה-נהג
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8160-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8160-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						יחסי משטרה-נהג					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8160-container" data-height="903.733" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8160" id="ld-expand-8160">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8160" id="ld-topic-list-8160" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8162 " id="ld-table-list-item-8162">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/topics/%d7%a8%d7%a9%d7%95%d7%aa-%d7%94%d7%a8%d7%99%d7%a9%d7%95%d7%99-%d7%95%d7%9e%d7%a9%d7%98%d7%a8%d7%aa-%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">רשות הרישוי ומשטרת התנועה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5265" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5265">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/topics/%d7%a8%d7%a9%d7%95%d7%aa-%d7%94%d7%a8%d7%99%d7%a9%d7%95%d7%99-%d7%95%d7%9e%d7%a9%d7%98%d7%a8%d7%aa-%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94-2/quizzes/%d7%a8%d7%a9%d7%95%d7%aa-%d7%94%d7%a8%d7%99%d7%a9%d7%95%d7%99-%d7%95%d7%9e%d7%a9%d7%98%d7%a8%d7%aa-%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">רשות הרישוי ומשטרת התנועה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8163 " id="ld-table-list-item-8163">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/topics/%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a0%d7%99%d7%a7%d7%95%d7%93-%d7%91%d7%a2%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">שיטת הניקוד בעברות התנועה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5347" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5347">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/topics/%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a0%d7%99%d7%a7%d7%95%d7%93-%d7%91%d7%a2%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94-2/quizzes/%d7%a9%d7%99%d7%98%d7%aa-%d7%94%d7%a0%d7%99%d7%a7%d7%95%d7%93-%d7%91%d7%a2%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">שיטת הניקוד בעברות התנועה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8164 " id="ld-table-list-item-8164">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/topics/%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">תאונות דרכים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5378" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5378">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%99%d7%97%d7%a1%d7%99-%d7%9e%d7%a9%d7%98%d7%a8%d7%94-%d7%a0%d7%94%d7%92/topics/%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d-2/quizzes/%d7%aa%d7%90%d7%95%d7%a0%d7%95%d7%aa-%d7%93%d7%a8%d7%9b%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">תאונות דרכים</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8169 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8169" data-ld-expand-id="ld-expand-8169">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					הדרך והתנועה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8169-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8169-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						הדרך והתנועה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8169-container" data-height="1011.719" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8169" id="ld-expand-8169">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8169" id="ld-topic-list-8169" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8171 " id="ld-table-list-item-8171">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/topics/%d7%a1%d7%95%d7%92%d7%99-%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%91%d7%99%d7%a0%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%95%d7%9e%d7%94%d7%99%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">סוגי דרכים: עירונית, בינעירונית ומהירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7789" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7789">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/topics/%d7%a1%d7%95%d7%92%d7%99-%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%91%d7%99%d7%a0%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%95%d7%9e%d7%94%d7%99%d7%a8%d7%94-2/quizzes/%d7%a1%d7%95%d7%92%d7%99-%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%91%d7%99%d7%a0%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%95%d7%9e%d7%94%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">סוגי דרכים: עירונית, בינעירונית ומהירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8172 " id="ld-table-list-item-8172">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/topics/%d7%9e%d7%95%d7%a9%d7%92%d7%99%d7%9d-%d7%a9%d7%a0%d7%aa%d7%a7%d7%9c%d7%99%d7%9d-%d7%91%d7%94%d7%9d-%d7%91%d7%93%d7%a8%d7%9a-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מושגים שנתקלים בהם בדרך</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7847" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7847">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/topics/%d7%9e%d7%95%d7%a9%d7%92%d7%99%d7%9d-%d7%a9%d7%a0%d7%aa%d7%a7%d7%9c%d7%99%d7%9d-%d7%91%d7%94%d7%9d-%d7%91%d7%93%d7%a8%d7%9a-2/quizzes/%d7%9e%d7%95%d7%a9%d7%92%d7%99%d7%9d-%d7%a9%d7%a0%d7%aa%d7%a7%d7%9c%d7%99%d7%9d-%d7%91%d7%94%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מושגים שנתקלים בהם בדרך</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8173 " id="ld-table-list-item-8173">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/topics/%d7%97%d7%95%d7%91%d7%aa-%d7%94%d7%96%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%94%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">חובת הזהירות הכללית</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7963" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7963">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%93%d7%a8%d7%9a-%d7%95%d7%94%d7%aa%d7%a0%d7%95%d7%a2%d7%94/topics/%d7%97%d7%95%d7%91%d7%aa-%d7%94%d7%96%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%94%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-2/quizzes/%d7%97%d7%95%d7%91%d7%aa-%d7%94%d7%96%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%94%d7%9b%d7%9c%d7%9c%d7%99%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">חובת הזהירות הכללית</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8177 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8177" data-ld-expand-id="ld-expand-8177">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					מהירות
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8177-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8177-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						מהירות					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8177-container" data-height="957.726" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8177" id="ld-expand-8177">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8177" id="ld-topic-list-8177" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8179 " id="ld-table-list-item-8179">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/topics/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%9e%d7%a8%d7%91%d7%99%d7%aa-%d7%9e%d7%95%d7%aa%d7%a8%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מהירות מרבית מותרת</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5440" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5440">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/topics/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%9e%d7%a8%d7%91%d7%99%d7%aa-%d7%9e%d7%95%d7%aa%d7%a8%d7%aa-2/quizzes/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%9e%d7%a8%d7%91%d7%99%d7%aa-%d7%9e%d7%95%d7%aa%d7%a8%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מהירות מרבית מותרת</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8180 " id="ld-table-list-item-8180">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/topics/%d7%94%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%94%d7%a1%d7%91%d7%99%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">המהירות הסבירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5529" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5529">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/topics/%d7%94%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%94%d7%a1%d7%91%d7%99%d7%a8%d7%94-2/quizzes/%d7%94%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%94%d7%a1%d7%91%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">המהירות הסבירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8181 " id="ld-table-list-item-8181">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/topics/%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%aa%d7%a0%d7%90%d7%99%d7%9d-%d7%9e%d7%9b%d7%91%d7%99%d7%93%d7%99%d7%9d-%d7%91%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%a1%d7%91%d7%99%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">נהיגה בתנאים מכבידים במהירות סבירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5626" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5626">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa/topics/%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%aa%d7%a0%d7%90%d7%99%d7%9d-%d7%9e%d7%9b%d7%91%d7%99%d7%93%d7%99%d7%9d-%d7%91%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%a1%d7%91%d7%99%d7%a8%d7%94-2/quizzes/%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%aa%d7%a0%d7%90%d7%99%d7%9d-%d7%9e%d7%9b%d7%91%d7%99%d7%93%d7%99%d7%9d-%d7%91%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%a1%d7%91%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">נהיגה בתנאים מכבידים במהירות סבירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8185 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8185" data-ld-expand-id="ld-expand-8185">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					מתן זכות קדימה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8185-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8185-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						מתן זכות קדימה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8185-container" data-height="1092.71" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8185" id="ld-expand-8185">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8185" id="ld-topic-list-8185" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8189 " id="ld-table-list-item-8189">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/topics/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%a6%d7%95%d7%9e%d7%aa-%d7%a2%d7%9d-%d7%a8%d7%9e%d7%96%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%aa%d7%9e%d7%a8%d7%95%d7%a8-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מתן זכות קדימה בצומת עם רמזורים ותמרורים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5882" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5882">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/topics/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%a6%d7%95%d7%9e%d7%aa-%d7%a2%d7%9d-%d7%a8%d7%9e%d7%96%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%aa%d7%9e%d7%a8%d7%95%d7%a8-2/quizzes/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%a6%d7%95%d7%9e%d7%aa-%d7%a2%d7%9d-%d7%a8%d7%9e%d7%96%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%aa%d7%9e%d7%a8%d7%95%d7%a8/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מתן זכות קדימה בצומת עם רמזורים ותמרורים</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8188 " id="ld-table-list-item-8188">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/topics/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%a6%d7%95%d7%9e%d7%aa-%d7%91%d7%9c%d7%99-%d7%a8%d7%9e%d7%96%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%aa%d7%9e%d7%a8%d7%95-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מתן זכות קדימה בצומת בלי רמזורים ותמרורים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5797" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5797">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/topics/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%a6%d7%95%d7%9e%d7%aa-%d7%91%d7%9c%d7%99-%d7%a8%d7%9e%d7%96%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%aa%d7%9e%d7%a8%d7%95-2/quizzes/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%a6%d7%95%d7%9e%d7%aa-%d7%91%d7%9c%d7%99-%d7%a8%d7%9e%d7%96%d7%95%d7%a8%d7%99%d7%9d-%d7%95%d7%aa%d7%9e%d7%a8%d7%95/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מתן זכות קדימה בצומת בלי רמזורים ותמרורים</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8187 " id="ld-table-list-item-8187">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/topics/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%93%d7%a8%d7%9a-%d7%a9%d7%90%d7%99%d7%a0%d7%94-%d7%a6%d7%95%d7%9e%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מתן זכות קדימה בדרך שאינה צומת</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5719" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5719">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94/topics/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%93%d7%a8%d7%9a-%d7%a9%d7%90%d7%99%d7%a0%d7%94-%d7%a6%d7%95%d7%9e%d7%aa-2/quizzes/%d7%9e%d7%aa%d7%9f-%d7%96%d7%9b%d7%95%d7%aa-%d7%a7%d7%93%d7%99%d7%9e%d7%94-%d7%91%d7%93%d7%a8%d7%9a-%d7%a9%d7%90%d7%99%d7%a0%d7%94-%d7%a6%d7%95%d7%9e%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מתן זכות קדימה בדרך שאינה צומת</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8194 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8194" data-ld-expand-id="ld-expand-8194">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					חנייה ועצירה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8194-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8194-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						חנייה ועצירה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8194-container" data-height="1173.7" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8194" id="ld-expand-8194">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8194" id="ld-topic-list-8194" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8198 " id="ld-table-list-item-8198">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/topics/%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%94%d7%90%d7%a1%d7%95%d7%a8%d7%99%d7%9d-%d7%9c%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%90%d7%95-%d7%9c%d7%a2%d7%a6%d7%99%d7%a8-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מקומות האסורים לחנייה, לעמידה או לעצירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6095" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6095">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/topics/%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%94%d7%90%d7%a1%d7%95%d7%a8%d7%99%d7%9d-%d7%9c%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%90%d7%95-%d7%9c%d7%a2%d7%a6%d7%99%d7%a8-2/quizzes/%d7%9e%d7%a7%d7%95%d7%9e%d7%95%d7%aa-%d7%94%d7%90%d7%a1%d7%95%d7%a8%d7%99%d7%9d-%d7%9c%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%90%d7%95-%d7%9c%d7%a2%d7%a6%d7%99%d7%a8/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מקומות האסורים לחנייה, לעמידה או לעצירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8197 " id="ld-table-list-item-8197">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/topics/%d7%a1%d7%93%d7%a8-%d7%94%d7%a4%d7%a2%d7%95%d7%9c%d7%95%d7%aa-%d7%91%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%90%d7%95-%d7%91%d7%a2%d7%a6%d7%99%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">סדר הפעולות בחנייה, בעמידה או בעצירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5996" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5996">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/topics/%d7%a1%d7%93%d7%a8-%d7%94%d7%a4%d7%a2%d7%95%d7%9c%d7%95%d7%aa-%d7%91%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%90%d7%95-%d7%91%d7%a2%d7%a6%d7%99%d7%a8%d7%94-2/quizzes/%d7%a1%d7%93%d7%a8-%d7%94%d7%a4%d7%a2%d7%95%d7%9c%d7%95%d7%aa-%d7%91%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%90%d7%95-%d7%91%d7%a2%d7%a6%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">סדר הפעולות בחנייה, בעמידה או בעצירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8196 " id="ld-table-list-item-8196">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/topics/%d7%a2%d7%a6%d7%99%d7%a8%d7%94-%d7%95%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%93%d7%a8%d7%9a-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%91%d7%99%d7%a0%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">עצירה וחנייה בדרך עירונית, בינעירונית ומהירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-5961" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-5961">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%a2%d7%a6%d7%99%d7%a8%d7%94/topics/%d7%a2%d7%a6%d7%99%d7%a8%d7%94-%d7%95%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%93%d7%a8%d7%9a-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%91%d7%99%d7%a0%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-2/quizzes/%d7%a2%d7%a6%d7%99%d7%a8%d7%94-%d7%95%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%91%d7%93%d7%a8%d7%9a-%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa-%d7%91%d7%99%d7%a0%d7%a2%d7%99%d7%a8%d7%95%d7%a0%d7%99%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">עצירה וחנייה בדרך עירונית, בינעירונית ומהירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8218 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8218" data-ld-expand-id="ld-expand-8218">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					כללי נהיגה בסיסיים
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8218-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8218-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						כללי נהיגה בסיסיים					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8218-container" data-height="849.74" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8218" id="ld-expand-8218">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8218" id="ld-topic-list-8218" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8204 " id="ld-table-list-item-8204">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/topics/%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94-%d7%91%d7%99%d7%9e%d7%99%d7%9f-%d7%94%d7%93%d7%a8%d7%9a-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הנסיעה בימין הדרך</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7266" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7266">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/topics/%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94-%d7%91%d7%99%d7%9e%d7%99%d7%9f-%d7%94%d7%93%d7%a8%d7%9a-2/quizzes/%d7%94%d7%97%d7%a0%d7%99%d7%99%d7%94-%d7%95%d7%94%d7%a2%d7%9e%d7%99%d7%93%d7%94-%d7%91%d7%93%d7%a8%d7%9a/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">החנייה והעמידה בדרך</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8205 " id="ld-table-list-item-8205">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/topics/%d7%94%d7%97%d7%9c%d7%a4%d7%aa-%d7%a0%d7%aa%d7%99%d7%91%d7%99%d7%9d-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">החלפת נתיבים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6460" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6460">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/topics/%d7%94%d7%97%d7%9c%d7%a4%d7%aa-%d7%a0%d7%aa%d7%99%d7%91%d7%99%d7%9d-2/quizzes/%d7%94%d7%97%d7%9c%d7%a4%d7%aa-%d7%a0%d7%aa%d7%99%d7%91%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">החלפת נתיבים</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8206 " id="ld-table-list-item-8206">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/topics/%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94-%d7%9c%d7%90%d7%97%d7%95%d7%a8-%d7%a8%d7%95%d7%95%d7%a8%d7%a1-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הנסיעה לאחור (רוורס)</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6499" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6499">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9b%d7%9c%d7%9c%d7%99-%d7%a0%d7%94%d7%99%d7%92%d7%94-%d7%91%d7%a1%d7%99%d7%a1%d7%99%d7%99%d7%9d/topics/%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94-%d7%9c%d7%90%d7%97%d7%95%d7%a8-%d7%a8%d7%95%d7%95%d7%a8%d7%a1-2/quizzes/%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94-%d7%9c%d7%90%d7%97%d7%95%d7%a8-%d7%a8%d7%95%d7%95%d7%a8%d7%a1/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הנסיעה לאחור (רוורס)</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8210 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8210" data-ld-expand-id="ld-expand-8210">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					עקיפה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8210-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8210-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						עקיפה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8210-container" data-height="903.733" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8210" id="ld-expand-8210">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8210" id="ld-topic-list-8210" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8216 " id="ld-table-list-item-8216">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/topics/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מפגש מסילת ברזל</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6609" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6609">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/topics/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c-2/quizzes/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מפגש מסילת ברזל</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8214 " id="ld-table-list-item-8214">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/topics/%d7%a9%d7%9c%d7%91%d7%99-%d7%94%d7%a2%d7%a7%d7%99%d7%a4%d7%94-%d7%91%d7%93%d7%a8%d7%9a-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">שלבי העקיפה בדרך</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6573" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6573">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/topics/%d7%a9%d7%9c%d7%91%d7%99-%d7%94%d7%a2%d7%a7%d7%99%d7%a4%d7%94-%d7%91%d7%93%d7%a8%d7%9a-2/quizzes/%d7%a9%d7%9c%d7%91%d7%99-%d7%94%d7%a2%d7%a7%d7%99%d7%a4%d7%94-%d7%91%d7%93%d7%a8%d7%9a/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">שלבי העקיפה בדרך</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8211 " id="ld-table-list-item-8211">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/topics/%d7%9b%d7%9c%d7%9c%d7%99%d7%9d-%d7%9c%d7%a0%d7%94%d7%92-%d7%94%d7%a2%d7%95%d7%a7%d7%a3-%d7%95%d7%94%d7%a0%d7%a2%d7%a7%d7%a3-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">כללים לנהג העוקף והנעקף</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6522" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6522">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a2%d7%a7%d7%99%d7%a4%d7%94/topics/%d7%9b%d7%9c%d7%9c%d7%99%d7%9d-%d7%9c%d7%a0%d7%94%d7%92-%d7%94%d7%a2%d7%95%d7%a7%d7%a3-%d7%95%d7%94%d7%a0%d7%a2%d7%a7%d7%a3-2/quizzes/%d7%9b%d7%9c%d7%9c%d7%99%d7%9d-%d7%9c%d7%a0%d7%94%d7%92-%d7%94%d7%a2%d7%95%d7%a7%d7%a3-%d7%95%d7%94%d7%a0%d7%a2%d7%a7%d7%a3/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">כללים לנהג העוקף והנעקף</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8220 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8220" data-ld-expand-id="ld-expand-8220">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					מפגש מסילת ברזל
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								2 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8220-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8220-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						מפגש מסילת ברזל					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8220-container" data-height="910.729" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8220" id="ld-expand-8220">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8220" id="ld-topic-list-8220" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8222 " id="ld-table-list-item-8222">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/topics/%d7%aa%d7%9e%d7%a8%d7%95%d7%a8%d7%99-%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">תמרורי מפגש מסילת ברזל</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6645" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6645">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/topics/%d7%aa%d7%9e%d7%a8%d7%95%d7%a8%d7%99-%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/quizzes/%d7%aa%d7%9e%d7%a8%d7%95%d7%a8%d7%99-%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">תמרורי מפגש מסילת ברזל</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8223 " id="ld-table-list-item-8223">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/topics/%d7%9b%d7%9c%d7%9c%d7%99-%d7%94%d7%aa%d7%a0%d7%94%d7%92%d7%95%d7%aa-%d7%9c%d7%a0%d7%94%d7%92-%d7%94%d7%9e%d7%92%d7%99%d7%a2-%d7%9c%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">כללי התנהגות לנהג המגיע למפגש מסילת ברזל</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6659" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6659">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/topics/%d7%9b%d7%9c%d7%9c%d7%99-%d7%94%d7%aa%d7%a0%d7%94%d7%92%d7%95%d7%aa-%d7%9c%d7%a0%d7%94%d7%92-%d7%94%d7%9e%d7%92%d7%99%d7%a2-%d7%9c%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8/quizzes/%d7%9b%d7%9c%d7%9c%d7%99-%d7%94%d7%aa%d7%a0%d7%94%d7%92%d7%95%d7%aa-%d7%9c%d7%a0%d7%94%d7%92-%d7%94%d7%9e%d7%92%d7%99%d7%a2-%d7%9c%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">כללי התנהגות לנהג המגיע למפגש מסילת ברזל</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8224 " id="ld-table-list-item-8224">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/topics/%d7%a4%d7%9c%d7%90%d7%a9-%d7%9e%d7%a1%d7%9b%d7%9d-%d7%a9%d7%9c-%d7%9e%d7%a4%d7%92%d7%a9-%d7%9e%d7%a1%d7%99%d7%9c%d7%aa-%d7%91%d7%a8%d7%96%d7%9c/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">פלאש מסכם של מפגש מסילת ברזל</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8228 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8228" data-ld-expand-id="ld-expand-8228">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					שמירה על מרחק
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8228-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8228-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						שמירה על מרחק					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8228-container" data-height="984.722" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8228" id="ld-expand-8228">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8228" id="ld-topic-list-8228" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8232 " id="ld-table-list-item-8232">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/topics/%d7%94%d7%a9%d7%99%d7%98%d7%94-%d7%94%d7%9e%d7%95%d7%9e%d7%9c%d7%a6%d7%aa-%d7%91%d7%97%d7%95%d7%9d-%d7%a9%d7%9e%d7%99%d7%a8%d7%aa-%d7%9e%d7%a8%d7%97%d7%a7-%d7%a9%d7%9c-2-%d7%a9%d7%a0%d7%99%d7%95-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">השיטה המומלצת בחום: שמירת מרחק של 2 שניות</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6755" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6755">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/topics/%d7%94%d7%a9%d7%99%d7%98%d7%94-%d7%94%d7%9e%d7%95%d7%9e%d7%9c%d7%a6%d7%aa-%d7%91%d7%97%d7%95%d7%9d-%d7%a9%d7%9e%d7%99%d7%a8%d7%aa-%d7%9e%d7%a8%d7%97%d7%a7-%d7%a9%d7%9c-2-%d7%a9%d7%a0%d7%99%d7%95-2/quizzes/%d7%94%d7%a9%d7%99%d7%98%d7%94-%d7%94%d7%9e%d7%95%d7%9e%d7%9c%d7%a6%d7%aa-%d7%91%d7%97%d7%95%d7%9d-%d7%a9%d7%9e%d7%99%d7%a8%d7%aa-%d7%9e%d7%a8%d7%97%d7%a7-%d7%a9%d7%9c-2-%d7%a9%d7%a0%d7%99%d7%95/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">השיטה המומלצת בחום: שמירת מרחק של 2 שניות</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8231 " id="ld-table-list-item-8231">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/topics/%d7%94%d7%a9%d7%a4%d7%a2%d7%aa-%d7%94%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7-%d7%94%d7%a2%d7%a6%d7%99%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">השפעת המהירות על מרחק העצירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6723" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6723">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/topics/%d7%94%d7%a9%d7%a4%d7%a2%d7%aa-%d7%94%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7-%d7%94%d7%a2%d7%a6%d7%99%d7%a8%d7%94-2/quizzes/%d7%94%d7%a9%d7%a4%d7%a2%d7%aa-%d7%94%d7%9e%d7%94%d7%99%d7%a8%d7%95%d7%aa-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7-%d7%94%d7%a2%d7%a6%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">השפעת המהירות על מרחק העצירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8230 " id="ld-table-list-item-8230">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/topics/%d7%9e%d7%a8%d7%97%d7%a7-%d7%94%d7%a2%d7%a6%d7%99%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מרחק העצירה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6700" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6700">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a9%d7%9e%d7%99%d7%a8%d7%94-%d7%a2%d7%9c-%d7%9e%d7%a8%d7%97%d7%a7/topics/%d7%9e%d7%a8%d7%97%d7%a7-%d7%94%d7%a2%d7%a6%d7%99%d7%a8%d7%94-2/quizzes/%d7%9e%d7%a8%d7%97%d7%a7-%d7%94%d7%a2%d7%a6%d7%99%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מרחק העצירה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8236 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8236" data-ld-expand-id="ld-expand-8236">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					אורות
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								4 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								4 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8236-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8236-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						אורות					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8236-container" data-height="1122.71" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8236" id="ld-expand-8236">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/4 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8236" id="ld-topic-list-8236" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8241 " id="ld-table-list-item-8241">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%94%d7%a8%d7%9b%d7%91-%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%a9%d7%95%d7%98%d7%a4%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הרכב – תחזוקה שוטפת</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6920" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6920">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%94%d7%a8%d7%9b%d7%91-%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%a9%d7%95%d7%98%d7%a4%d7%aa-2/quizzes/%d7%94%d7%a8%d7%9b%d7%91-%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%a9%d7%95%d7%98%d7%a4%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הרכב – תחזוקה שוטפת</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8240 " id="ld-table-list-item-8240">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%a2%d7%99%d7%99%d7%a4%d7%95%d7%aa-%d7%91%d7%a0%d7%94%d7%99%d7%92%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">עייפות בנהיגה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6903" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6903">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%a2%d7%99%d7%99%d7%a4%d7%95%d7%aa-%d7%91%d7%a0%d7%94%d7%99%d7%92%d7%94-2/quizzes/%d7%a2%d7%99%d7%99%d7%a4%d7%95%d7%aa-%d7%91%d7%a0%d7%94%d7%99%d7%92%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">עייפות בנהיגה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8239 " id="ld-table-list-item-8239">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%9e%d7%97%d7%95%d7%95%d7%a0%d7%99-%d7%94%d7%9b%d7%99%d7%95%d7%95%d7%9f-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מחווני הכיוון</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6885" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6885">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%9e%d7%97%d7%95%d7%95%d7%a0%d7%99-%d7%94%d7%9b%d7%99%d7%95%d7%95%d7%9f-2/quizzes/%d7%9e%d7%97%d7%95%d7%95%d7%a0%d7%99-%d7%94%d7%9b%d7%99%d7%95%d7%95%d7%9f/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מחווני הכיוון</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8238 " id="ld-table-list-item-8238">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%90%d7%95%d7%a8%d7%95%d7%aa-%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%aa%d7%a7%d7%a9%d7%a8-%d7%91%d7%96%d7%9e%d7%9f-%d7%aa%d7%90%d7%95%d7%a8%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">אורות – הדרך לתקשר בזמן תאורה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6786" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6786">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%95%d7%a8%d7%95%d7%aa/topics/%d7%90%d7%95%d7%a8%d7%95%d7%aa-%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%aa%d7%a7%d7%a9%d7%a8-%d7%91%d7%96%d7%9e%d7%9f-%d7%aa%d7%90%d7%95%d7%a8%d7%94-2/quizzes/%d7%90%d7%95%d7%a8%d7%95%d7%aa-%d7%94%d7%93%d7%a8%d7%9a-%d7%9c%d7%aa%d7%a7%d7%a9%d7%a8-%d7%91%d7%96%d7%9e%d7%9f-%d7%aa%d7%90%d7%95%d7%a8%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">אורות – הדרך לתקשר בזמן תאורה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8253 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8253" data-ld-expand-id="ld-expand-8253">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					פניות לסוגיהן
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8253-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8253-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						פניות לסוגיהן					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8253-container" data-height="849.74" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8253" id="ld-expand-8253">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8253" id="ld-topic-list-8253" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8249 " id="ld-table-list-item-8249">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/topics/%d7%a4%d7%a0%d7%99%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%94-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">פניית פרסה</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7143" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7143">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/topics/%d7%a4%d7%a0%d7%99%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%94-2/quizzes/%d7%a4%d7%a0%d7%99%d7%99%d7%aa-%d7%a4%d7%a8%d7%a1%d7%94/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">פניית פרסה</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8248 " id="ld-table-list-item-8248">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/topics/%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%a9%d7%9e%d7%90%d7%9c-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הפנייה לשמאל</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7062" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7062">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/topics/%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%a9%d7%9e%d7%90%d7%9c-2/quizzes/%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%a9%d7%9e%d7%90%d7%9c/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הפנייה לשמאל</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8247 " id="ld-table-list-item-8247">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/topics/%d7%94%d7%a0%d7%97%d7%99%d7%99%d7%94-%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-%d7%9c%d7%92%d7%91%d7%99-%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%95%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%99%d7%9e%d7%99%d7%9f-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הנחייה כללית לגבי פניות והפנייה לימין</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6992" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6992">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%9c%d7%a1%d7%95%d7%92%d7%99%d7%94%d7%9f/topics/%d7%94%d7%a0%d7%97%d7%99%d7%99%d7%94-%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-%d7%9c%d7%92%d7%91%d7%99-%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%95%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%99%d7%9e%d7%99%d7%9f-2/quizzes/%d7%94%d7%a0%d7%97%d7%99%d7%99%d7%94-%d7%9b%d7%9c%d7%9c%d7%99%d7%aa-%d7%9c%d7%92%d7%91%d7%99-%d7%a4%d7%a0%d7%99%d7%95%d7%aa-%d7%95%d7%94%d7%a4%d7%a0%d7%99%d7%99%d7%94-%d7%9c%d7%99%d7%9e%d7%99%d7%9f/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הנחייה כללית לגבי פניות והפנייה לימין</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8262 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8262" data-ld-expand-id="ld-expand-8262">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					משתמשים מיוחדים בדרך
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8262-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8262-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						משתמשים מיוחדים בדרך					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8262-container" data-height="903.733" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8262" id="ld-expand-8262">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8262" id="ld-topic-list-8262" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8258 " id="ld-table-list-item-8258">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/topics/%d7%a2%d7%95%d7%91%d7%a8%d7%99-%d7%93%d7%a8%d7%9a-%d7%94%d7%94%d7%95%d7%9c%d7%9b%d7%99%d7%9d-%d7%91%d7%a8%d7%92%d7%9c-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">עוברי דרך ההולכים ברגל</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7258" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7258">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/topics/%d7%a2%d7%95%d7%91%d7%a8%d7%99-%d7%93%d7%a8%d7%9a-%d7%94%d7%94%d7%95%d7%9c%d7%9b%d7%99%d7%9d-%d7%91%d7%a8%d7%92%d7%9c-2/quizzes/%d7%a2%d7%95%d7%91%d7%a8%d7%99-%d7%93%d7%a8%d7%9a-%d7%94%d7%94%d7%95%d7%9c%d7%9b%d7%99%d7%9d-%d7%91%d7%a8%d7%92%d7%9c/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">עוברי דרך ההולכים ברגל</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8257 " id="ld-table-list-item-8257">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/topics/%d7%a8%d7%9b%d7%91%d7%99%d7%9d-%d7%91%d7%a2%d7%9c%d7%99-%d7%aa%d7%a4%d7%a7%d7%95%d7%93-%d7%9e%d7%99%d7%95%d7%97%d7%93-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">רכבים בעלי תפקוד מיוחד</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7314" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7314">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/topics/%d7%a8%d7%9b%d7%91%d7%99%d7%9d-%d7%91%d7%a2%d7%9c%d7%99-%d7%aa%d7%a4%d7%a7%d7%95%d7%93-%d7%9e%d7%99%d7%95%d7%97%d7%93-2/quizzes/%d7%a8%d7%9b%d7%91%d7%99%d7%9d-%d7%91%d7%a2%d7%9c%d7%99-%d7%aa%d7%a4%d7%a7%d7%95%d7%93-%d7%9e%d7%99%d7%95%d7%97%d7%93/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">רכבים בעלי תפקוד מיוחד</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8256 " id="ld-table-list-item-8256">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/topics/%d7%a1%d7%95%d7%92%d7%99%d7%9d-%d7%a9%d7%95%d7%a0%d7%99%d7%9d-%d7%a9%d7%9c-%d7%a8%d7%9b%d7%91-%d7%90%d7%98%d7%99-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">סוגים שונים של רכב אטי</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7354" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7354">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d-%d7%91%d7%93%d7%a8%d7%9a/topics/%d7%a1%d7%95%d7%92%d7%99%d7%9d-%d7%a9%d7%95%d7%a0%d7%99%d7%9d-%d7%a9%d7%9c-%d7%a8%d7%9b%d7%91-%d7%90%d7%98%d7%99-2/quizzes/%d7%a1%d7%95%d7%92%d7%99%d7%9d-%d7%a9%d7%95%d7%a0%d7%99%d7%9d-%d7%a9%d7%9c-%d7%a8%d7%9b%d7%91-%d7%90%d7%98%d7%99/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">סוגים שונים של רכב אטי</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8264 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8264" data-ld-expand-id="ld-expand-8264">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					תחזוקה מונעת
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8264-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8264-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						תחזוקה מונעת					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8264-container" data-height="930.729" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8264" id="ld-expand-8264">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8264" id="ld-topic-list-8264" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8268 " id="ld-table-list-item-8268">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/topics/%d7%9b%d7%99%d7%a6%d7%93-%d7%a0%d7%a9%d7%a4%d7%a8-%d7%90%d7%aa-%d7%99%d7%9b%d7%95%d7%9c%d7%95%d7%aa-%d7%94%d7%a8%d7%9b%d7%91/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">כיצד נשפר את יכולות הרכב?</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7416" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7416">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/topics/%d7%9b%d7%99%d7%a6%d7%93-%d7%a0%d7%a9%d7%a4%d7%a8-%d7%90%d7%aa-%d7%99%d7%9b%d7%95%d7%9c%d7%95%d7%aa-%d7%94%d7%a8%d7%9b%d7%91/quizzes/%d7%9b%d7%99%d7%a6%d7%93-%d7%a0%d7%a9%d7%a4%d7%a8-%d7%90%d7%aa-%d7%99%d7%9b%d7%95%d7%9c%d7%95%d7%aa-%d7%94%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">כיצד נשפר את יכולות הרכב?</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8267 " id="ld-table-list-item-8267">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/topics/%d7%9b%d7%99%d7%a6%d7%93-%d7%a0%d7%aa%d7%97%d7%96%d7%a7-%d7%90%d7%aa-%d7%94%d7%a8%d7%9b%d7%91/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">כיצד נתחזק את הרכב?</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7400" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7400">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/topics/%d7%9b%d7%99%d7%a6%d7%93-%d7%a0%d7%aa%d7%97%d7%96%d7%a7-%d7%90%d7%aa-%d7%94%d7%a8%d7%9b%d7%91/quizzes/%d7%9b%d7%99%d7%a6%d7%93-%d7%a0%d7%aa%d7%97%d7%96%d7%a7-%d7%90%d7%aa-%d7%94%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">כיצד נתחזק את הרכב?</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8266 " id="ld-table-list-item-8266">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/topics/%d7%94%d7%91%d7%a1%d7%99%d7%a1-%d7%9c%d7%a9%d7%9c%d7%99%d7%98%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%91%d7%a8%d7%9b%d7%91/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הבסיס לשליטה עצמית ברכב</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7381" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7381">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%aa%d7%97%d7%96%d7%95%d7%a7%d7%94-%d7%9e%d7%95%d7%a0%d7%a2%d7%aa/topics/%d7%94%d7%91%d7%a1%d7%99%d7%a1-%d7%9c%d7%a9%d7%9c%d7%99%d7%98%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%91%d7%a8%d7%9b%d7%91/quizzes/%d7%94%d7%91%d7%a1%d7%99%d7%a1-%d7%9c%d7%a9%d7%9c%d7%99%d7%98%d7%94-%d7%a2%d7%a6%d7%9e%d7%99%d7%aa-%d7%91%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הבסיס לשליטה עצמית ברכב</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8272 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8272" data-ld-expand-id="ld-expand-8272">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					טיפולים שוטפים
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8272-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8272-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						טיפולים שוטפים					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8272-container" data-height="849.74" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8272" id="ld-expand-8272">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8272" id="ld-topic-list-8272" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8276 " id="ld-table-list-item-8276">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/topics/%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a8%d7%9b%d7%91-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">מערכות בטיחות ברכב</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7606" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7606">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/topics/%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a8%d7%9b%d7%91-2/quizzes/%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">מערכות בטיחות ברכב</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8275 " id="ld-table-list-item-8275">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/topics/%d7%a4%d7%a0%d7%a6%d7%a8-%d7%9e%d7%94-%d7%a2%d7%95%d7%a9%d7%99%d7%9d-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">פנצ’ר – מה עושים?</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7586" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7586">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/topics/%d7%a4%d7%a0%d7%a6%d7%a8-%d7%9e%d7%94-%d7%a2%d7%95%d7%a9%d7%99%d7%9d-2/quizzes/%d7%a4%d7%a0%d7%a6%d7%a8-%d7%9e%d7%94-%d7%a2%d7%95%d7%a9%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">פנצ’ר – מה עושים?</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8274 " id="ld-table-list-item-8274">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/topics/%d7%a6%d7%9e%d7%99%d7%92%d7%99%d7%9d-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">צמיגים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-7455" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-7455">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%98%d7%99%d7%a4%d7%95%d7%9c%d7%99%d7%9d-%d7%a9%d7%95%d7%98%d7%a4%d7%99%d7%9d/topics/%d7%a6%d7%9e%d7%99%d7%92%d7%99%d7%9d-2/quizzes/%d7%a6%d7%9e%d7%99%d7%92%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">צמיגים</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8280 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8280" data-ld-expand-id="ld-expand-8280">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					התחלת הנסיעה
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8280-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8280-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						התחלת הנסיעה					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8280-container" data-height="903.733" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8280" id="ld-expand-8280">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8280" id="ld-topic-list-8280" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8282 " id="ld-table-list-item-8282">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/topics/%d7%9c%d7%a4%d7%a0%d7%99-%d7%a9%d7%9e%d7%aa%d7%a0%d7%99%d7%a2%d7%99%d7%9d-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">לפני שמתניעים</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-8025" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-8025">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/topics/%d7%9c%d7%a4%d7%a0%d7%99-%d7%a9%d7%9e%d7%aa%d7%a0%d7%99%d7%a2%d7%99%d7%9d-2/quizzes/%d7%9c%d7%a4%d7%a0%d7%99-%d7%a9%d7%9e%d7%aa%d7%a0%d7%99%d7%a2%d7%99%d7%9d/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">לפני שמתניעים</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8283 " id="ld-table-list-item-8283">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/topics/%d7%aa%d7%99%d7%91%d7%95%d7%aa-%d7%94%d7%99%d7%9c%d7%95%d7%9b%d7%99%d7%9d-%d7%99%d7%93%d7%a0%d7%99%d7%aa-%d7%95%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">תיבות הילוכים: ידנית ואוטומטית</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-8075" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-8075">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/topics/%d7%aa%d7%99%d7%91%d7%95%d7%aa-%d7%94%d7%99%d7%9c%d7%95%d7%9b%d7%99%d7%9d-%d7%99%d7%93%d7%a0%d7%99%d7%aa-%d7%95%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%aa-2/quizzes/%d7%aa%d7%99%d7%91%d7%95%d7%aa-%d7%94%d7%99%d7%9c%d7%95%d7%9b%d7%99%d7%9d-%d7%99%d7%93%d7%a0%d7%99%d7%aa-%d7%95%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">תיבות הילוכים: ידנית ואוטומטית</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8284 " id="ld-table-list-item-8284">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/topics/%d7%94%d7%93%d7%9c%d7%a7-%d7%aa%d7%93%d7%9c%d7%95%d7%a7-%d7%95%d7%aa%d7%a4%d7%a2%d7%95%d7%9c-%d7%a9%d7%95%d7%98%d7%a3-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הדלק – תדלוק ותפעול שוטף</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-8117" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-8117">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%94%d7%aa%d7%97%d7%9c%d7%aa-%d7%94%d7%a0%d7%a1%d7%99%d7%a2%d7%94/topics/%d7%94%d7%93%d7%9c%d7%a7-%d7%aa%d7%93%d7%9c%d7%95%d7%a7-%d7%95%d7%aa%d7%a4%d7%a2%d7%95%d7%9c-%d7%a9%d7%95%d7%98%d7%a3-2/quizzes/%d7%94%d7%93%d7%9c%d7%a7-%d7%aa%d7%93%d7%9c%d7%95%d7%a7-%d7%95%d7%aa%d7%a4%d7%a2%d7%95%d7%9c-%d7%a9%d7%95%d7%98%d7%a3/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הדלק – תדלוק ותפעול שוטף</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	
+<div class="ld-item-list-item ld-item-lesson-item ld-lesson-item-8288 is_not_sample learndash-incomplete ld-expandable" id="ld-expand-8288" data-ld-expand-id="ld-expand-8288">
+	<div class="ld-item-list-item-preview">
+		<div class="ld-tooltip">
+			
+			<a class="ld-item-name ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not started"></div>				<div class="ld-item-title">
+					אביזרים ברכב
+						<span class="ld-item-components">
+
+															<span class="ld-item-component">
+								3 נושאים								</span>
+								<span class="ld-sep">|</span>								<span class="ld-item-component">
+								3 מבחנים								</span>
+								
+						</span> <!--/.ld-item-components-->
+											
+				</div> <!--/.ld-item-title-->
+			</a>
+
+					</div>
+
+		
+		<div class="ld-item-details">
+			
+				<button aria-controls="ld-expand-8288-container" aria-expanded="false" class="ld-expand-button ld-button-alternate" data-ld-collapse-text="צמצם" data-ld-expand-text="הרחב" data-ld-expands="ld-expand-8288-container">
+					<span class="ld-icon-arrow-down ld-icon ld-primary-background"></span>
+					<span class="ld-text ld-primary-color">הרחב</span>
+
+					<span class="screen-reader-text">
+						אביזרים ברכב					</span>
+				</button> <!--/.ld-expand-button-->
+
+						</div> <!--/.ld-item-details-->
+
+		
+	</div> <!--/.ld-item-list-item-preview-->
+			<div class="ld-item-list-item-expanded" id="ld-expand-8288-container" data-height="930.729" style="max-height: 0px;">
+			
+<div class="
+			ld-table-list ld-topic-list ld-no-pagination ld-expand-8288" id="ld-expand-8288">
+
+	<div class="ld-table-list-header ld-primary-background">
+
+		
+		<div class="ld-table-list-title">
+			<span class="ld-item-icon">
+				<span class="ld-icon ld-icon-content"></span>
+			</span>
+			<span class="ld-text">
+				תוכן השיעור			</span>
+		</div> <!--/.ld-tablet-list-title-->
+		<div class="ld-table-list-lesson-details">
+			
+												<span class="ld-lesson-list-progress">
+					0% הושלמו					</span>
+													<span class="ld-lesson-list-steps">
+					0/3 שלבים					</span>
+							
+			
+			
+		</div> <!--/.ld-table-list-lesson-details-->
+
+		
+	</div> <!--/.ld-table-list-header-->
+
+	<div class="ld-table-list-items ld-topic-list-8288" id="ld-topic-list-8288" data-ld-expand-list="">
+
+		<div class="ld-table-list-item ld-table-list-item-8292 " id="ld-table-list-item-8292">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/topics/8-%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99-%d7%97%d7%95%d7%91%d7%94-%d7%a0%d7%95%d7%a1%d7%a4%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">8 אביזרי חובה נוספים ברכב</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6318" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6318">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/topics/8-%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99-%d7%97%d7%95%d7%91%d7%94-%d7%a0%d7%95%d7%a1%d7%a4%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91-2/quizzes/8-%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99-%d7%97%d7%95%d7%91%d7%94-%d7%a0%d7%95%d7%a1%d7%a4%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">8 אביזרי חובה נוספים ברכב</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8291 " id="ld-table-list-item-8291">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/topics/%d7%94%d7%95%d7%91%d7%9c%d7%aa-%d7%9e%d7%98%d7%a2%d7%9f-%d7%95%d7%94%d7%a1%d7%a2%d7%aa-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הובלת מטען והסעת נוסעים בבטיחות</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6178" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6178">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/topics/%d7%94%d7%95%d7%91%d7%9c%d7%aa-%d7%9e%d7%98%d7%a2%d7%9f-%d7%95%d7%94%d7%a1%d7%a2%d7%aa-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-2/quizzes/%d7%94%d7%95%d7%91%d7%9c%d7%aa-%d7%9e%d7%98%d7%a2%d7%9f-%d7%95%d7%94%d7%a1%d7%a2%d7%aa-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הובלת מטען והסעת נוסעים בבטיחות</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+<div class="ld-table-list-item ld-table-list-item-8290 " id="ld-table-list-item-8290">
+	<a class="ld-table-list-item-preview ld-primary-color-hover ld-topic-row learndash-incomplete " href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/topics/%d7%94%d7%a6%d7%95%d7%a4%d7%a8-%d7%95%d7%94%d7%9e%d7%a8%d7%90%d7%95%d7%aa-2/">
+		
+		<div class="ld-status-icon ld-status-incomplete" role="img" aria-label="Not completed"></div>
+				<span class="ld-topic-title">הצופר והמראות</span> 	</a>
+	</div> <!--/.ld-table-list-item-->
+<div id="ld-table-list-item-6012" class="ld-table-list-item is_not_sample learndash-incomplete ld-table-list-item-6012">
+	<div class="ld-table-list-item-quiz">
+		<div class="ld-tooltip">
+			<a class="ld-table-list-item-preview ld-topic-row ld-primary-color-hover" href="https://test-li.ussl.co.il/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/lessons/%d7%90%d7%91%d7%99%d7%96%d7%a8%d7%99%d7%9d-%d7%91%d7%a8%d7%9b%d7%91/topics/%d7%94%d7%a6%d7%95%d7%a4%d7%a8-%d7%95%d7%94%d7%9e%d7%a8%d7%90%d7%95%d7%aa-2/quizzes/%d7%94%d7%a6%d7%95%d7%a4%d7%a8-%d7%95%d7%94%d7%9e%d7%a8%d7%90%d7%95%d7%aa/">
+				<div class="ld-status-icon ld-quiz-incomplete" role="img" aria-label="לא הושלם"><span class="ld-icon ld-icon-quiz" aria-hidden="true"></span></div>
+				<div class="ld-item-title">הצופר והמראות</div> 
+							</a>
+					</div>
+
+			</div> <!--/.list-item-preview-->
+</div>
+
+	</div> <!--/.ld-table-list-items-->
+
+	<div class="ld-table-list-footer">
+			</div> <!--/.ld-table-list-footer-->
+
+</div> <!--/.ld-table-list-->
+
+		</div> <!--/.ld-item-list-item-expanded-->
+	</div> <!--/.ld-item-list-item-->
+	<div class="ld-pagination ld-pagination-page-course_lessons" data-pager-nonce="7afd579589" data-pager-results="{&quot;paged&quot;:1,&quot;total_items&quot;:22,&quot;total_pages&quot;:2}">
+						<div class="ld-pages">
+		<a class="prev ld-primary-color-hover disabled" href="/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/?ld-lesson-page=1" data-context="course_lessons" data-paged="1" data-course_id="898" disabled="&quot;disabled&quot;" title="דף קודם" aria-label="דף קודם">
+					<span class="ld-icon-arrow-right ld-icon"></span></a>
+				
+		<span>
+		1 מ 2		</span>
+			<a class="next ld-primary-color-hover " href="/courses/%d7%97%d7%99%d7%a0%d7%95%d7%9a-%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%aa%d7%99/?ld-lesson-page=2" data-context="course_lessons" data-paged="2" data-course_id="898" title="העמוד הבא" aria-label="העמוד הבא">
+							<span class="ld-icon-arrow-left ld-icon"></span></a>
+			
+		</div>
+						</div>	</div>
