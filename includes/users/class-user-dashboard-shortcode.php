@@ -727,11 +727,6 @@ class User_Dashboard_Shortcode {
         ob_start();
         ?>
         <div class="user-dashboard-container">
-            <!-- Course Access Status Section - Full Width at Top -->
-            <div class="course-access-status-wrapper">
-                <?php echo $this->render_course_access_status($access_info); ?>
-            </div>
-            
             <!-- Collapsible Dashboard Section -->
             <div class="dashboard-main-section">
                 <!-- Collapsible header -->
@@ -785,6 +780,12 @@ class User_Dashboard_Shortcode {
                                         <span class="button-icon">🎓</span>
                                     </a>
                                 <?php endif; ?>
+                                <?php // Add an empty placeholder if there's an odd number of buttons for proper alignment ?>
+                                <?php if (($atts['show_practice'] === 'true' && $atts['show_real_test'] === 'true' && $atts['show_teacher_quizzes'] !== 'true') || 
+                                          ($atts['show_practice'] === 'true' && $atts['show_real_test'] !== 'true' && $atts['show_teacher_quizzes'] === 'true') ||
+                                          ($atts['show_practice'] !== 'true' && $atts['show_real_test'] === 'true' && $atts['show_teacher_quizzes'] === 'true')) : ?>
+                                    <div class="dashboard-button" style="visibility: hidden; height: 0; padding: 0; margin: 0; border: none;"></div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <?php endif; ?>
@@ -807,6 +808,11 @@ class User_Dashboard_Shortcode {
                                     <span class="button-text">מבחנים לפי נושאים</span>
                                     <span class="button-icon">📝</span>
                                 </a>
+                                <?php endif; ?>
+                                <?php // Add an empty placeholder if there's just one button for proper alignment ?>
+                                <?php if (($atts['show_study_materials'] === 'true' && $atts['show_topic_tests'] !== 'true') || 
+                                          ($atts['show_study_materials'] !== 'true' && $atts['show_topic_tests'] === 'true')) : ?>
+                                    <div class="dashboard-button" style="visibility: hidden; height: 0; padding: 0; margin: 0; border: none;"></div>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -837,7 +843,7 @@ class User_Dashboard_Shortcode {
         .dashboard-columns.has-questions-column > .dashboard-column {
             flex: 0 0 50%;
             width: 50%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
             border-right: 1px solid #e0e0e0;
         }
@@ -857,18 +863,30 @@ class User_Dashboard_Shortcode {
         }
         
         /* Dashboard button styles with new colors */
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+        }
+        
         .dashboard-button {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            margin-bottom: 12px;
+            padding: 15px 10px;
+            margin: 0;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 0;
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             font-weight: 600;
+            box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
         }
         
         .dashboard-button:hover {
@@ -876,6 +894,8 @@ class User_Dashboard_Shortcode {
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             text-decoration: none;
             color: white;
+            z-index: 1;
+            position: relative;
         }
         
         .dashboard-button.practice-button {
@@ -1305,9 +1325,9 @@ class User_Dashboard_Shortcode {
         }
         
         .dashboard-column {
-            flex: 1 1 33.333% !important;
+            flex: 1 1 50% !important;
             min-width: 280px !important;
-            max-width: 33.333% !important;
+            max-width: 50% !important;
             background: #ffffff !important;
             border-radius: 8px !important;
             padding: 20px !important;
