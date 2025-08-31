@@ -727,16 +727,10 @@ class User_Dashboard_Shortcode {
         ob_start();
         ?>
         <div class="user-dashboard-container">
-            <!-- Collapsible Dashboard Section -->
+            <!-- Dashboard Section -->
             <div class="dashboard-main-section">
-                <!-- Collapsible header -->
-                <div class="column-header" style="cursor: pointer;">
-                    <h3>לוח בקרה</h3>
-                    <span class="collapse-indicator" id="dashboard-indicator">▼</span>
-                </div>
-                
-                <!-- Dashboard content (collapsible) -->
-                <div class="dashboard-content" id="dashboard-content">
+                <!-- Dashboard content -->
+                <div class="dashboard-content">
                     <!-- Dashboard Layout -->
                     <div class="dashboard-columns <?php echo $this->user_has_course_access(898) ? 'has-questions-column' : 'no-questions-column'; ?>">
                         <!-- Practice Tests Column -->
@@ -830,118 +824,133 @@ class User_Dashboard_Shortcode {
         </div>
         
         <style>
-        /* Dashboard Column Layouts */
+        /* Modern Dashboard Layout */
+        .dashboard-main-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 0;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
+            font-family: "Assistant", Sans-serif;
+        }
+        
+        .dashboard-content {
+            padding: 24px;
+        }
+        
         .dashboard-columns {
             display: flex;
             flex-wrap: nowrap;
-            gap: 0;
+            gap: 20px;
             margin: 0;
             width: 100%;
         }
         
         /* Side-by-side layout - exactly 50/50 */
         .dashboard-columns.has-questions-column > .dashboard-column {
-            flex: 0 0 50%;
-            width: 50%;
-            padding: 10px;
+            flex: 0 0 calc(50% - 10px);
+            width: calc(50% - 10px);
+            padding: 0;
             box-sizing: border-box;
-            border-right: 1px solid #e0e0e0;
-        }
-        
-        .dashboard-columns.has-questions-column > .dashboard-column:last-child {
-            border-right: none;
         }
         
         /* Single column layout when questions column is hidden */
         .dashboard-columns.no-questions-column > .dashboard-column {
             flex: 1 1 100%;
             width: 100%;
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 0;
+            max-width: none;
+            margin: 0;
             box-sizing: border-box;
         }
         
-        /* Dashboard button styles with new colors */
+        .dashboard-column {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .column-header {
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .column-header h3 {
+            color: #2d3748;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-family: "Assistant", Sans-serif;
+        }
+        
+        /* Modern Dashboard button styles */
         .button-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 8px;
             width: 100%;
             margin: 0;
             padding: 0;
-            gap: 0;
         }
         
         .dashboard-button {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 10px;
+            padding: 16px 14px;
             margin: 0;
             color: white;
             text-decoration: none;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             font-weight: 600;
             box-sizing: border-box;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: none;
             position: relative;
+            overflow: hidden;
+            font-size: 14px;
         }
+        
         
         .dashboard-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             text-decoration: none;
             color: white;
             z-index: 1;
-            position: relative;
+            opacity: 0.9;
         }
         
         .dashboard-button.practice-button {
-            background: #8B5A2B; /* Brown */
-        }
-        
-        .dashboard-button.practice-button:hover {
-            background: #7A4F26;
+            background: #8B5A2B;
         }
         
         .dashboard-button.real-test-button {
-            background: #8A2BE2; /* Purple */
-        }
-        
-        .dashboard-button.real-test-button:hover {
-            background: #7B27CC;
+            background: #8A2BE2;
         }
         
         .dashboard-button.teacher-quiz-button {
-            background: #FF1493; /* Deep Pink */
-        }
-        
-        .dashboard-button.teacher-quiz-button:hover {
-            background: #E6127F;
+            background: #FF1493;
         }
         
         .dashboard-button.study-materials-button {
-            background: #FF8C00; /* Orange */
-        }
-        
-        .dashboard-button.study-materials-button:hover {
-            background: #E67E00;
+            background: #20B2AA;
         }
         
         .dashboard-button.topic-tests-button {
-            background: #32CD32; /* Lime Green */
-        }
-        
-        .dashboard-button.topic-tests-button:hover {
-            background: #2DB82D;
+            background: #32CD32;
         }
         
         .button-text {
             flex: 1;
             text-align: right;
             font-size: 14px;
+            font-family: "Assistant", Sans-serif;
         }
         
         .button-icon {
