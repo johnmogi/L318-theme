@@ -228,20 +228,26 @@ class LoginManager {
         
         // Fallback to role-based redirects if no courses found or LearnDash not active
         
-        // Students
-        if (in_array('school_student', $roles)) {
-            $redirect_url = get_permalink(get_option('lilac_school_student_dashboard_page', 0));
-            if (!$redirect_url) {
-                // Fallback to course page or dashboard
-                $redirect_url = get_permalink(get_option('lilac_school_course_page', 0)) ?: home_url('/my-courses/');
-            }
-        }
-        // Private Students / Clients
-        elseif (in_array('student_private', $roles)) {
-            $redirect_url = get_permalink(get_option('lilac_private_student_dashboard_page', 0));
-            if (!$redirect_url) {
-                // Fallback to course page or dashboard
-                $redirect_url = get_permalink(get_option('lilac_private_course_page', 0)) ?: home_url('/my-courses/');
+        // Students (school)
+        if (in_array('student_school', $roles) || in_array('student_private', $roles)) {
+            // Get the latest enrolled course for the student
+            $user_courses = ld_get_my_courses($user->ID, array('orderby' => 'post_date', 'order' => 'DESC'));
+            
+            if (!empty($user_courses)) {
+                // Get the first (most recent) course
+                $latest_course = reset($user_courses);
+                $redirect_url = get_permalink($latest_course->ID);
+            } else {
+                // Fallback to default dashboard if no courses found
+                $dashboard_page = in_array('student_school', $roles) ? 
+                    get_option('lilac_school_student_dashboard_page', 0) : 
+                    get_option('lilac_private_student_dashboard_page', 0);
+                
+                $course_page = in_array('student_school', $roles) ? 
+                    get_option('lilac_school_course_page', 0) : 
+                    get_option('lilac_private_course_page', 0);
+                
+                $redirect_url = get_permalink($dashboard_page) ?: (get_permalink($course_page) ?: home_url('/my-courses/'));
             }
         }
         // Teachers
