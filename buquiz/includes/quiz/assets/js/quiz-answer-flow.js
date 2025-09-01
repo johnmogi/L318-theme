@@ -9,6 +9,13 @@
 
 (function() {
     'use strict';
+    // Skip on enforceHint quizzes to avoid conflicts with plugin behavior
+    if (document && document.body && document.body.classList.contains('enforceHint')) {
+        if (window.console && console.log) {
+            console.log('[QUIZ DEBUG] Skipping buquiz/includes quiz-answer-flow.js (enforceHint active)');
+        }
+        return;
+    }
     
     // Store the correct answers provided by the server
     var correctAnswers = (typeof lilacQuizData !== 'undefined' && lilacQuizData.correctAnswers) ? 

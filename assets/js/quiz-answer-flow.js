@@ -8,6 +8,13 @@
  */
 (function($) {
     'use strict';
+    // Skip this theme script entirely on enforceHint quizzes to avoid conflicts
+    if (document && document.body && document.body.classList.contains('enforceHint')) {
+        if (window.console && console.log) {
+            console.log('[Quiz Flow]: Skipping theme quiz-answer-flow.js (enforceHint active)');
+        }
+        return;
+    }
     
     // Debug logging function
     function log(message, ...args) {

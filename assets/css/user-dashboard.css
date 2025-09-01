@@ -116,38 +116,38 @@
 
 /* Specific Button Colors */
 .practice-button {
-    border-left-color: #4e73df;
+    border-left-color: #7F8E00;
 }
 
 .practice-button:hover {
-    border-left-color: #4e73df;
+    border-left-color: #7F8E00;
     transform: none;
 }
 
 .real-test-button {
-    border-left-color: #36b9cc;
+    border-left-color: #7A2E8B;
 }
 
 .real-test-button:hover {
-    border-left-color: #36b9cc;
+    border-left-color: #7A2E8B;
     transform: none;
 }
 
 .study-materials-button {
-    border-left-color: #1cc88a;
+    border-left-color: #eb8b02;
 }
 
 .study-materials-button:hover {
-    border-left-color: #1cc88a;
+    border-left-color: #eb8b02;
     transform: none;
 }
 
 .topic-tests-button {
-    border-left-color: #f6c23e;
+    border-left-color: #ff067a;
 }
 
 .topic-tests-button:hover {
-    border-left-color: #f6c23e;
+    border-left-color: #ff067a;
     transform: none;
 }
 
