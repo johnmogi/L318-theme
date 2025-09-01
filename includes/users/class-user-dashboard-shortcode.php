@@ -927,11 +927,11 @@ class User_Dashboard_Shortcode {
         }
         
         .dashboard-button.practice-button {
-            background: #8B5A2B;
+            background: #7F8E00;  /* Green for מבחני תרגול */
         }
         
         .dashboard-button.real-test-button {
-            background: #8A2BE2;
+            background: #7A2E8B;  /* Purple for מבחני אמת */
         }
         
         .dashboard-button.teacher-quiz-button {
@@ -939,11 +939,11 @@ class User_Dashboard_Shortcode {
         }
         
         .dashboard-button.study-materials-button {
-            background: #20B2AA;
+            background: #eb8b02;  /* Orange for חומר לימוד */
         }
         
         .dashboard-button.topic-tests-button {
-            background: #32CD32;
+            background: #ff067a;  /* Pink for מבחנים לפי נושאים */
         }
         
         .button-text {
