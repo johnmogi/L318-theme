@@ -733,7 +733,35 @@ class User_Dashboard_Shortcode {
                 <div class="dashboard-content">
                     <!-- Dashboard Layout -->
                     <div class="dashboard-columns <?php echo $this->user_has_course_access(898) ? 'has-questions-column' : 'no-questions-column'; ?>">
-                        <!-- Practice Tests Column -->
+                        <!-- Questions by Topic Column (moved to left) -->
+                        <?php if ($this->user_has_course_access(898) && ($atts['show_study_materials'] === 'true' || $atts['show_topic_tests'] === 'true')) : ?>
+                        <div class="dashboard-column questions-column">
+                            <div class="column-header">
+                                <h3>שאלות מהמאגר לפי נושאים</h3>
+                            </div>
+                            <div class="button-group">
+                                <?php if ($atts['show_study_materials'] === 'true') : ?>
+                                <a href="<?php echo esc_url(home_url($atts['study_materials_url'])); ?>" class="dashboard-button study-materials-button">
+                                    <span class="button-text">חומר לימוד לפי נושאים</span>
+                                    <span class="button-icon">📚</span>
+                                </a>
+                                <?php endif; ?>
+                                <?php if ($atts['show_topic_tests'] === 'true') : ?>
+                                <a href="<?php echo esc_url(home_url($atts['topic_tests_url'])); ?>" class="dashboard-button topic-tests-button">
+                                    <span class="button-text">מבחנים לפי נושאים</span>
+                                    <span class="button-icon">📝</span>
+                                </a>
+                                <?php endif; ?>
+                                <?php // Add an empty placeholder if there's just one button for proper alignment ?>
+                                <?php if (($atts['show_study_materials'] === 'true' && $atts['show_topic_tests'] !== 'true') || 
+                                          ($atts['show_study_materials'] !== 'true' && $atts['show_topic_tests'] === 'true')) : ?>
+                                    <div class="dashboard-button" style="visibility: hidden; height: 0; padding: 0; margin: 0; border: none;"></div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+
+                        <!-- Practice Tests Column (moved to right) -->
                         <?php if ($atts['show_practice'] === 'true' || $atts['show_real_test'] === 'true' || $atts['show_teacher_quizzes'] === 'true') : ?>
                         <div class="dashboard-column test-column">
                             <div class="column-header">
@@ -748,7 +776,7 @@ class User_Dashboard_Shortcode {
                                 <?php endif; ?>
                                 <?php if ($atts['show_real_test'] === 'true') : ?>
                                 <a href="<?php echo esc_url(home_url('/courses/פרטי/lessons/פרק-01-תורת-החינוך-התעברותי-פרק-מבוא/quizzes/מבחן-אמת-כמו-בתאוריה/')); ?>" class="dashboard-button real-test-button">
-                                    <span class="button-text">מבחני אמת – כמו בתיאוריה</span>
+                                    <span class="button-text">מבחני אמת – כמو בתיאוריה</span>
                                     <span class="button-icon">📋</span>
                                 </a>
                                 <?php endif; ?>
@@ -779,29 +807,6 @@ class User_Dashboard_Shortcode {
                                           ($atts['show_practice'] === 'true' && $atts['show_real_test'] !== 'true' && $atts['show_teacher_quizzes'] === 'true') ||
                                           ($atts['show_practice'] !== 'true' && $atts['show_real_test'] === 'true' && $atts['show_teacher_quizzes'] === 'true')) : ?>
                                     <div class="dashboard-button" style="visibility: hidden; height: 0; padding: 0; margin: 0; border: none;"></div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-
-                        <!-- Right Column - Questions by Topic -->
-                        <?php if ($this->user_has_course_access(898) && ($atts['show_study_materials'] === 'true' || $atts['show_topic_tests'] === 'true')) : ?>
-                        <div class="dashboard-column questions-column">
-                            <div class="column-header">
-                                <h3>שאלות מהמאגר לפי נושאים</h3>
-                            </div>
-                            <div class="button-group">
-                                <?php if ($atts['show_study_materials'] === 'true') : ?>
-                                <a href="<?php echo esc_url(home_url($atts['study_materials_url'])); ?>" class="dashboard-button study-materials-button">
-                                    <span class="button-text">חומר לימוד לפי נושאים</span>
-                                    <span class="button-icon">📚</span>
-                                </a>
-                                <?php endif; ?>
-                                <?php if ($atts['show_topic_tests'] === 'true') : ?>
-                                <a href="<?php echo esc_url(home_url($atts['topic_tests_url'])); ?>" class="dashboard-button topic-tests-button">
-                                    <span class="button-text">מבחנים לפי נושאים</span>
-                                    <span class="button-icon">📝</span>
-                                </a>
                                 <?php endif; ?>
                                 <?php // Add an empty placeholder if there's just one button for proper alignment ?>
                                 <?php if (($atts['show_study_materials'] === 'true' && $atts['show_topic_tests'] !== 'true') || 
